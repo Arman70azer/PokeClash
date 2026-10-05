@@ -31,6 +31,9 @@ const NONE := Vector2i(-1, -1)
 @export var encounter := Vector2i.ZERO
 ## Hautes herbes en 3D, une par case (à la place de la tuile `encounter`).
 @export var encounter_mesh: Mesh
+## Animation d'un pas dans les rencontres : &"grass" (les herbes bougent et cachent les
+## pieds), &"sand" (nuage de sable), ou vide.
+@export var step_effect: StringName
 ## Eau, lave… : infranchissable (NONE : aucun).
 @export var liquid := NONE
 ## Part des passages transformée en mares, et des bords transformés en étendue liquide.
@@ -42,6 +45,11 @@ const NONE := Vector2i(-1, -1)
 
 @export_group("Décors")
 @export var props: Array[ExpeditionProp] = []
+## Murs en falaises (plateaux) plutôt qu'en décors : la première, basse, borde les
+## passages (elle ne cache pas ce qui est derrière) ; la seconde, haute, est au-delà de
+## `cliff_clearance` rangées d'un passage.
+@export var cliffs: Array[CliffStyle] = []
+@export var cliff_clearance := 3
 ## Décors isolés posés dans les passages (part des cases libres).
 @export_range(0.0, 0.2) var scatter_density := 0.03
 

@@ -213,6 +213,10 @@ func _apply_move(new_cell: Vector2i, dir: Vector2i) -> void:
 	_tween.tween_method(_set_position, position, here.cell_to_3d(cell), MOVE_TIME)
 	_tween.parallel().tween_callback(_set_frame.bind(IDLE_FRAME)).set_delay(MOVE_TIME * 0.6)
 	_tween.finished.connect(_on_move_finished)
+	# Herbes qui bougent, sable qui vole… (zones d'expédition).
+	var zone := here.zone_at(cell)
+	if zone != null and zone.has_method("on_step"):
+		zone.on_step(self, cell, MOVE_TIME)
 
 
 ## Passage par une porte ou un tapis de sortie, éventuellement vers une autre carte.

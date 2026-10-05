@@ -78,3 +78,4 @@ props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubRes
 trainers = Array[Dictionary]([{"front": Vector2i(0, 9), "sheet": "chasseur_insectes", "title": "Chasseur d'insectes"}, {"front": Vector2i(4, 3), "sheet": "gamin", "title": "Scout"}, {"front": Vector2i(1, 9), "sheet": "fillette", "title": "Pique-niqueuse"}])
 sheet = ExtResource("sheet")
 encounter_mesh = ExtResource("encounter_mesh")
+step_effect = &"grass"
