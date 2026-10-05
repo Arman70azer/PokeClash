@@ -16,6 +16,16 @@ var overlay := {}
 var sheet: Texture2D
 ## Hautes herbes en 3D posées sur chaque case de `encounter` (null : en tuiles).
 var encounter_mesh: Mesh
+## Animation d'un pas dans les rencontres (voir ExpeditionBiome.step_effect).
+var step_effect: StringName
+## Murs en falaises (voir ExpeditionBiome.cliffs).
+var cliffs: Array[CliffStyle] = []
+var cliff_clearance := 3
+
+
+## Vrai si la case (locale) est sur le chemin de sortie, sous l'entrée.
+func is_exit_lane(local: Vector2i) -> bool:
+	return local.y > entry.y and exit_cells.any(func(c: Vector2i) -> bool: return c.x == local.x)
 ## Décors debout : [{"cell": coin haut-gauche de l'emprise (local), "prop": ExpeditionProp}].
 var props: Array[Dictionary] = []
 ## Hautes herbes (locale -> vrai).

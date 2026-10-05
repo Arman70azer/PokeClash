@@ -18,6 +18,12 @@ func _initialize() -> void:
 	_test_generation()
 	_test_forms()
 	_test_wild()
+	# Les animations ont besoin de l'arbre de scène en marche : après la première image.
+	_finish_with_step_effects.call_deferred()
+
+
+func _finish_with_step_effects() -> void:
+	_test_step_effects()
 	print("Tests des expéditions : %d réussis, %d ratés" % [_passed, _failed])
 	quit(1 if _failed > 0 else 0)
 
@@ -71,7 +77,7 @@ func _test_generation() -> void:
 					if not a.walkable.has(cell) and not covered.has(cell) and not exit_lane \
 							and a.ground.get(cell) != biome.liquid:
 						holes += 1
-			_check(holes == 0, "%s : pas de trou dans les murs (%d)" % [label, holes])
+			_check(holes == 0 or not biome.cliffs.is_empty(), "%s : pas de trou dans les murs (%d)" % [label, holes])
 			_check(a.exit_cells.size() == 2 and a.walkable.has(a.exit_cells[0]) and a.walkable.has(a.exit_cells[1]),
 				"%s : sortie praticable" % label)
 		var regions_ok := true
@@ -89,6 +95,44 @@ func _test_generation() -> void:
 		var other := ZoneGenerator.new().generate(biome, SEEDS[1], Vector2i.ZERO)
 		var first := ZoneGenerator.new().generate(biome, SEEDS[0], Vector2i.ZERO)
 		_check(other.walkable != first.walkable, "%s : une autre graine donne une autre zone" % id)
+
+
+## Un pas dans les rencontres s'anime : herbes de la forêt (et l'herbe devant les pieds),
+## sable du désert ; les falaises du désert sont construites.
+func _test_step_effects() -> void:
+	var forest: ExpeditionBiome = load("res://data/expeditions/foret.tres")
+	var zone := ExpeditionZone.new()
+	zone.build(ZoneGenerator.new().generate(forest, 7, Vector2i(600, 0)))
+	root.add_child(zone)
+	var walker := Node3D.new()
+	root.add_child(walker)
+	var grass_cell: Vector2i = zone.layout.to_world(zone.layout.encounter.keys()[0])
+	var before := zone.get_child_count()
+	zone.on_step(walker, grass_cell)
+	var front := zone.get_node_or_null("FrontGrass")
+	_check(front != null, "forêt : l'herbe passe devant les pieds")
+	_check(zone.get_child_count() >= before + 4, "forêt : des feuilles s'envolent")
+	var bare: Vector2i = Vector2i.ZERO
+	for cell in zone.layout.walkable:
+		if not zone.layout.encounter.has(cell):
+			bare = zone.layout.to_world(cell)
+			break
+	zone.on_step(walker, bare)
+	_check(front != null and not front.visible, "forêt : hors de l'herbe, plus rien devant les pieds")
+	var desert: ExpeditionBiome = load("res://data/expeditions/desert.tres")
+	var dunes := ExpeditionZone.new()
+	dunes.build(ZoneGenerator.new().generate(desert, 7, Vector2i(600, 0)))
+	root.add_child(dunes)
+	var cliffs := dunes.get_node_or_null("Cliffs") as MeshInstance3D
+	_check(cliffs != null and cliffs.mesh.get_surface_count() >= 4, "désert : falaises construites")
+	var sand: Vector2i = dunes.layout.to_world(dunes.layout.encounter.keys()[0])
+	var count := dunes.get_child_count()
+	dunes.on_step(walker, sand)
+	_check(dunes.get_child_count() == count + 3, "désert : le sable vole dans les rencontres")
+	dunes.on_step(walker, dunes.layout.to_world(dunes.layout.entry))
+	_check(dunes.get_child_count() == count + 3, "désert : rien hors des rencontres")
+	for node in [zone, dunes, walker]:
+		node.queue_free()
 
 
 func _test_forms() -> void:

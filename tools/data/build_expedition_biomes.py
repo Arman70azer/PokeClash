@@ -95,6 +95,19 @@ MODELS = {
 }
 
 
+# Falaises : hauteur, texture du dessus, bandes de la paroi de bas en haut (texture,
+# hauteur). Celles du désert viennent de Desert Resort (Noir 2 / Blanc 2).
+DESERT = "res://assets/maps/desert_resort/"
+DESERT_TEX = DESERT + "Desert Resort Area 2_texture_%s.png"
+CLIFFS = {
+    # Corniche basse (gake) : bord des passages.
+    "desert_low": (16, DESERT_TEX % "0009", [(DESERT_TEX % "0003", 12), (DESERT_TEX % "0066", 4)]),
+    # Grand plateau (ga_s) : au-delà.
+    "desert_high": (48, DESERT_TEX % "0002", [(DESERT_TEX % "0005", 16), (DESERT_TEX % "0006", 28),
+                                              (DESERT_TEX % "0007", 4)]),
+}
+
+
 def prop(name, weight=1.0, walls=True, scatter=True):
     return (name, weight, walls, scatter)
 
@@ -102,7 +115,7 @@ def prop(name, weight=1.0, walls=True, scatter=True):
 BIOMES = [
     {
         "id": "foret", "name": "Forêt", "type": BUG,
-        "description": "Une forêt touffue où grouillent les Pokémon Insecte.",
+        "description": "Une forêt touffue où grouillent les Pokémon Insecte.", "step_effect": "grass",
         # Sol et herbes de Lostlorn Forest (planche forest_ground.png, voir build_forest_kit.py).
         "sheet": FOREST + "forest_ground.png", "ground": (0, 0), "pattern": (4, 4), "variants": [],
         "path": None, "encounter": (0, 0), "encounter_mesh": FOREST + "forest_tall_grass.obj",
@@ -148,10 +161,14 @@ BIOMES = [
     {
         "id": "desert", "name": "Désert", "type": GROUND,
         "description": "Des dunes brûlantes, terrain des Pokémon Sol.",
-        "ground": (4, 440), "variants": [(0, 277)], "path": (0, 283), "encounter": (7, 278),
+        # Sable et falaises de Desert Resort (planche desert_ground.png, voir build_desert_kit.py).
+        "sheet": DESERT + "desert_ground.png", "ground": (0, 0), "variants": [(1, 0)], "variant_density": 0.1,
+        "path": None, "encounter": (2, 0), "step_effect": "sand",
+        "cliffs": ["desert_low", "desert_high"],
         "decor": [], "decor_density": 0.0,
-        "props": [prop("mound_sand", 3), prop("mound_tan", 2), prop("boulder_big", 2), prop("rock_olive", 1),
-                  prop("rock_stack_olive", 1), prop("stump_dead", 1), prop("palm", 1), prop("boulder_light", 1)],
+        "props": [prop("boulder_big", 2, walls=False), prop("rock_olive", 1, walls=False),
+                  prop("rock_stack_olive", 1, walls=False), prop("stump_dead", 1, walls=False),
+                  prop("boulder_light", 1, walls=False)],
         "trainers": [("Ruinomane", "collectionneur", (1, 6)), ("Montagnard", "ouvrier", (1, 0)),
                      ("Fermier", "rentier", (6, 0))],
     },
@@ -200,7 +217,23 @@ def write(biome):
         lines.append('[ext_resource type="Texture2D" path="%s" id="sheet"]' % biome["sheet"])
     if biome.get("encounter_mesh"):
         lines.append('[ext_resource type="ArrayMesh" path="%s" id="encounter_mesh"]' % biome["encounter_mesh"])
+    cliff_textures = []
+    for name in biome.get("cliffs", []):
+        height, top, bands = CLIFFS[name]
+        for path in [top] + [b[0] for b in bands]:
+            if path not in cliff_textures:
+                cliff_textures.append(path)
+    if cliff_textures:
+        lines.append('[ext_resource type="Script" path="res://expedition/cliff_style.gd" id="cliff"]')
+    for i, path in enumerate(cliff_textures):
+        lines.append('[ext_resource type="Texture2D" path="%s" id="c%d"]' % (path, i))
     lines.append("")
+    for name in biome.get("cliffs", []):
+        height, top, bands = CLIFFS[name]
+        lines += ['[sub_resource type="Resource" id="%s"]' % name, 'script = ExtResource("cliff")',
+                  "height = %g" % height, 'top = ExtResource("c%d")' % cliff_textures.index(top),
+                  'bands = Array[Texture2D]([%s])' % ", ".join('ExtResource("c%d")' % cliff_textures.index(b[0]) for b in bands),
+                  "band_heights = PackedFloat32Array(%s)" % ", ".join("%g" % b[1] for b in bands), ""]
     for i, (name, weight, walls, scatter) in enumerate(biome["props"]):
         if name in MODELS:
             region, footprint = (0, 0, 0, 0), MODELS[name][1]
@@ -237,6 +270,10 @@ def write(biome):
         lines.append('sheet = ExtResource("sheet")')
     if biome.get("encounter_mesh"):
         lines.append('encounter_mesh = ExtResource("encounter_mesh")')
+    if biome.get("step_effect"):
+        lines.append('step_effect = &"%s"' % biome["step_effect"])
+    if biome.get("cliffs"):
+        lines.append('cliffs = Array[ExtResource("cliff")]([%s])' % ", ".join('SubResource("%s")' % n for n in biome["cliffs"]))
     with open(os.path.join(OUT, biome["id"] + ".tres"), "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
 

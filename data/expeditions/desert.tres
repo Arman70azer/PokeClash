@@ -2,54 +2,64 @@
 
 [ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
 [ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert_resort/desert_ground.png" id="sheet"]
+[ext_resource type="Script" path="res://expedition/cliff_style.gd" id="cliff"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert_resort/Desert Resort Area 2_texture_0009.png" id="c0"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert_resort/Desert Resort Area 2_texture_0003.png" id="c1"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert_resort/Desert Resort Area 2_texture_0066.png" id="c2"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert_resort/Desert Resort Area 2_texture_0002.png" id="c3"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert_resort/Desert Resort Area 2_texture_0005.png" id="c4"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert_resort/Desert Resort Area 2_texture_0006.png" id="c5"]
+[ext_resource type="Texture2D" path="res://assets/maps/desert_resort/Desert Resort Area 2_texture_0007.png" id="c6"]
+
+[sub_resource type="Resource" id="desert_low"]
+script = ExtResource("cliff")
+height = 16
+top = ExtResource("c0")
+bands = Array[Texture2D]([ExtResource("c1"), ExtResource("c2")])
+band_heights = PackedFloat32Array(12, 4)
+
+[sub_resource type="Resource" id="desert_high"]
+script = ExtResource("cliff")
+height = 48
+top = ExtResource("c3")
+bands = Array[Texture2D]([ExtResource("c4"), ExtResource("c5"), ExtResource("c6")])
+band_heights = PackedFloat32Array(16, 28, 4)
 
 [sub_resource type="Resource" id="p0"]
-script = ExtResource("prop")
-region = Rect2i(1, 9280, 47, 48)
-footprint = Vector2i(3, 2)
-weight = 3
-
-[sub_resource type="Resource" id="p1"]
-script = ExtResource("prop")
-region = Rect2i(1, 9184, 47, 48)
-footprint = Vector2i(3, 2)
-weight = 2
-
-[sub_resource type="Resource" id="p2"]
 script = ExtResource("prop")
 region = Rect2i(97, 9553, 31, 31)
 footprint = Vector2i(2, 2)
 weight = 2
+walls = false
 
-[sub_resource type="Resource" id="p3"]
+[sub_resource type="Resource" id="p1"]
 script = ExtResource("prop")
 region = Rect2i(112, 7200, 16, 16)
 footprint = Vector2i(1, 1)
 weight = 1
+walls = false
 
-[sub_resource type="Resource" id="p4"]
+[sub_resource type="Resource" id="p2"]
 script = ExtResource("prop")
 region = Rect2i(97, 7296, 31, 32)
 footprint = Vector2i(2, 1)
 weight = 1
+walls = false
 
-[sub_resource type="Resource" id="p5"]
+[sub_resource type="Resource" id="p3"]
 script = ExtResource("prop")
 region = Rect2i(80, 2899, 24, 45)
 footprint = Vector2i(1, 1)
 weight = 1
+walls = false
 
-[sub_resource type="Resource" id="p6"]
-script = ExtResource("prop")
-region = Rect2i(9, 112, 46, 48)
-footprint = Vector2i(2, 2)
-weight = 1
-
-[sub_resource type="Resource" id="p7"]
+[sub_resource type="Resource" id="p4"]
 script = ExtResource("prop")
 region = Rect2i(97, 9586, 14, 14)
 footprint = Vector2i(1, 1)
 weight = 1
+walls = false
 
 [resource]
 script = ExtResource("biome")
@@ -57,16 +67,19 @@ id = &"desert"
 name = "Désert"
 type = 8
 description = "Des dunes brûlantes, terrain des Pokémon Sol."
-ground = Vector2i(4, 440)
+ground = Vector2i(0, 0)
 ground_pattern = Vector2i(1, 1)
-ground_variants = Array[Vector2i]([Vector2i(0, 277)])
-variant_density = 0.08
-path = Vector2i(0, 283)
-encounter = Vector2i(7, 278)
+ground_variants = Array[Vector2i]([Vector2i(1, 0)])
+variant_density = 0.1
+path = Vector2i(-1, -1)
+encounter = Vector2i(2, 0)
 liquid = Vector2i(-1, -1)
 pools = 0
 liquid_border = 0
 decor = Array[Vector2i]([])
 decor_density = 0
-props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7")])
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4")])
 trainers = Array[Dictionary]([{"front": Vector2i(1, 6), "sheet": "collectionneur", "title": "Ruinomane"}, {"front": Vector2i(1, 0), "sheet": "ouvrier", "title": "Montagnard"}, {"front": Vector2i(6, 0), "sheet": "rentier", "title": "Fermier"}])
+sheet = ExtResource("sheet")
+step_effect = &"sand"
+cliffs = Array[ExtResource("cliff")]([SubResource("desert_low"), SubResource("desert_high")])

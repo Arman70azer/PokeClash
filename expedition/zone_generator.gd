@@ -56,6 +56,9 @@ func generate(biome: ExpeditionBiome, seed: int, origin := Vector2i.ZERO) -> Zon
 	layout.size = SIZE
 	layout.sheet = biome.sheet
 	layout.encounter_mesh = biome.encounter_mesh
+	layout.step_effect = biome.step_effect
+	layout.cliffs = biome.cliffs
+	layout.cliff_clearance = biome.cliff_clearance
 	# Entrée : en bas au milieu, deux cases de large alignées sur la grille du labyrinthe.
 	layout.entry = Vector2i(MARGIN + GRID.x / 2 * CELL, SIZE.y - MARGIN)
 	layout.exit_cells = [layout.entry, layout.entry + Vector2i.RIGHT]
