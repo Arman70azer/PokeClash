@@ -1,0 +1,10 @@
+newmtl material1
+Kd 1 1 1
+d 1
+map_Kd dtree_02_02.png
+
+newmtl material0
+Kd 1 1 1
+d 1
+map_Kd dtree_02_01.png
+

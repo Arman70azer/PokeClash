@@ -55,6 +55,23 @@ func _test_generation() -> void:
 					for dx in prop.footprint.x:
 						props_ok = props_ok and not a.walkable.has(entry["cell"] + Vector2i(dx, dy))
 			_check(props_ok, "%s : aucun décor sur une case praticable" % label)
+			# Murs pleins : chaque case fermée porte un décor (ou du liquide), sauf le
+			# chemin de sortie sous l'entrée.
+			var covered := {}
+			for entry in a.props:
+				var prop: ExpeditionProp = entry["prop"]
+				for dy in prop.footprint.y:
+					for dx in prop.footprint.x:
+						covered[entry["cell"] + Vector2i(dx, dy)] = true
+			var holes := 0
+			for y in a.size.y:
+				for x in a.size.x:
+					var cell := Vector2i(x, y)
+					var exit_lane := y > a.entry.y and (x == a.exit_cells[0].x or x == a.exit_cells[1].x)
+					if not a.walkable.has(cell) and not covered.has(cell) and not exit_lane \
+							and a.ground.get(cell) != biome.liquid:
+						holes += 1
+			_check(holes == 0, "%s : pas de trou dans les murs (%d)" % [label, holes])
 			_check(a.exit_cells.size() == 2 and a.walkable.has(a.exit_cells[0]) and a.walkable.has(a.exit_cells[1]),
 				"%s : sortie praticable" % label)
 		var regions_ok := true
@@ -62,6 +79,10 @@ func _test_generation() -> void:
 			var image_size := (prop.sheet if prop.sheet != null else TileZone.TILESHEET).get_size()
 			regions_ok = regions_ok and Rect2i(Vector2i.ZERO, Vector2i(image_size)).encloses(prop.region)
 		_check(regions_ok, "%s : chaque décor est dans son image" % id)
+		if id == "foret":
+			var models := biome.props.filter(func(p: ExpeditionProp) -> bool: return p.mesh != null)
+			_check(models.size() == biome.props.size() and biome.encounter_mesh != null and biome.sheet != null,
+				"forêt : arbres, souches et hautes herbes en 3D, sol de Lostlorn Forest")
 		if id == "cimetiere":
 			var graves := biome.props.filter(func(p: ExpeditionProp) -> bool: return p.sheet != null)
 			_check(graves.size() >= 3, "cimetière : des tombes parmi les décors (%d)" % graves.size())

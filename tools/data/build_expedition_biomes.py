@@ -82,6 +82,19 @@ GRAVES = {
 }
 
 
+# Décors en 3D : modèle (origine au milieu de l'emprise), emprise. Kit de la forêt écrit par
+# tools/maps/build_forest_kit.py.
+FOREST = "res://assets/maps/lostlorn_forest/"
+MODELS = {
+    "forest_tree_light": (FOREST + "forest_tree_light.obj", (2, 2)),
+    "forest_tree_dark": (FOREST + "forest_tree_dark.obj", (2, 2)),
+    "forest_stump": (FOREST + "forest_stump.obj", (3, 3)),
+    "hollow_stump": ("res://assets/mapobjects/stump_2/stump_2.obj", (3, 3)),
+    "fallen_log": ("res://assets/mapobjects/dead_tree_01/dead_tree_01.obj", (6, 2)),
+    "leaning_log": ("res://assets/mapobjects/dead_tree_02/dead_tree_02.obj", (6, 2)),
+}
+
+
 def prop(name, weight=1.0, walls=True, scatter=True):
     return (name, weight, walls, scatter)
 
@@ -90,11 +103,13 @@ BIOMES = [
     {
         "id": "foret", "name": "Forêt", "type": BUG,
         "description": "Une forêt touffue où grouillent les Pokémon Insecte.",
-        "ground": (1, 211), "variants": [(1, 664), (0, 664)], "path": (1, 241), "encounter": (3, 669),
-        "decor": [(0, 669), (1, 669), (3, 670), (1, 672)], "decor_density": 0.05,
-        "props": [prop("tree_green", 3), prop("tree_dark", 3), prop("tree_round", 2), prop("tree_deep", 2),
-                  prop("pine_green", 2), prop("pine_light", 2), prop("tree_olive", 1),
-                  prop("small_tree", 1), prop("bush_round", 1), prop("grass_clump", 1, walls=False)],
+        # Sol et herbes de Lostlorn Forest (planche forest_ground.png, voir build_forest_kit.py).
+        "sheet": FOREST + "forest_ground.png", "ground": (0, 0), "pattern": (4, 4), "variants": [],
+        "path": None, "encounter": (0, 0), "encounter_mesh": FOREST + "forest_tall_grass.obj",
+        "decor": [(4, 0), (4, 1), (4, 2), (4, 3)], "decor_density": 0.08,
+        "props": [prop("forest_tree_light", 3), prop("forest_tree_dark", 2),
+                  prop("forest_stump", 1, walls=False), prop("hollow_stump", 1, walls=False),
+                  prop("fallen_log", 1, walls=False), prop("leaning_log", 1, walls=False)],
         "trainers": [("Chasseur d'insectes", "chasseur_insectes", (0, 9)), ("Scout", "gamin", (4, 3)),
                      ("Pique-niqueuse", "fillette", (1, 9))],
     },
@@ -178,14 +193,26 @@ def write(biome):
              '[ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]']
     if any(name in GRAVES for name, _, _, _ in biome["props"]):
         lines.append('[ext_resource type="Texture2D" path="%s" id="graves"]' % GRAVES_SHEET)
+    for name, _, _, _ in biome["props"]:
+        if name in MODELS:
+            lines.append('[ext_resource type="ArrayMesh" path="%s" id="m_%s"]' % (MODELS[name][0], name))
+    if biome.get("sheet"):
+        lines.append('[ext_resource type="Texture2D" path="%s" id="sheet"]' % biome["sheet"])
+    if biome.get("encounter_mesh"):
+        lines.append('[ext_resource type="ArrayMesh" path="%s" id="encounter_mesh"]' % biome["encounter_mesh"])
     lines.append("")
     for i, (name, weight, walls, scatter) in enumerate(biome["props"]):
-        region, footprint = GRAVES[name] if name in GRAVES else PROPS[name]
+        if name in MODELS:
+            region, footprint = (0, 0, 0, 0), MODELS[name][1]
+        else:
+            region, footprint = GRAVES[name] if name in GRAVES else PROPS[name]
         lines += ['[sub_resource type="Resource" id="p%d"]' % i, 'script = ExtResource("prop")',
                   "region = Rect2i(%d, %d, %d, %d)" % region, "footprint = Vector2i(%d, %d)" % footprint,
                   "weight = %g" % weight]
         if name in GRAVES:
             lines.append('sheet = ExtResource("graves")')
+        if name in MODELS:
+            lines.append('mesh = ExtResource("m_%s")' % name)
         if not walls:
             lines.append("walls = false")
         if not scatter:
@@ -196,6 +223,7 @@ def write(biome):
     lines += ["[resource]", 'script = ExtResource("biome")', 'id = &"%s"' % biome["id"], 'name = "%s"' % biome["name"],
               "type = %d" % biome["type"], 'description = "%s"' % biome["description"],
               "ground = %s" % v(biome["ground"]),
+              "ground_pattern = %s" % v(biome.get("pattern", (1, 1))),
               "ground_variants = Array[Vector2i]([%s])" % ", ".join(v(t) for t in biome["variants"]),
               "variant_density = %g" % biome.get("variant_density", 0.08),
               "path = %s" % v(biome.get("path")), "encounter = %s" % v(biome["encounter"]),
@@ -205,6 +233,10 @@ def write(biome):
               "decor_density = %g" % biome["decor_density"],
               'props = Array[ExtResource("prop")]([%s])' % ", ".join('SubResource("p%d")' % i for i in range(len(biome["props"]))),
               "trainers = Array[Dictionary]([%s])" % trainers]
+    if biome.get("sheet"):
+        lines.append('sheet = ExtResource("sheet")')
+    if biome.get("encounter_mesh"):
+        lines.append('encounter_mesh = ExtResource("encounter_mesh")')
     with open(os.path.join(OUT, biome["id"] + ".tres"), "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
 

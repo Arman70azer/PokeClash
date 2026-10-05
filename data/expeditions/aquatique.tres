@@ -46,6 +46,7 @@ name = "Lagune"
 type = 2
 description = "Une lagune semée d'îlots, idéale pour les Pokémon Eau."
 ground = Vector2i(4, 211)
+ground_pattern = Vector2i(1, 1)
 ground_variants = Array[Vector2i]([Vector2i(0, 277)])
 variant_density = 0.05
 path = Vector2i(-1, -1)

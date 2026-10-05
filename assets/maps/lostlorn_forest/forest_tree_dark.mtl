@@ -1,0 +1,19 @@
+newmtl ki00a2
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0014.png
+
+newmtl ki00b2
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0006.png
+
+newmtl ki00c2
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0007.png
+
+newmtl ki00d2
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0008.png

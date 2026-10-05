@@ -52,6 +52,7 @@ name = "Volcan"
 type = 1
 description = "Les flancs d'un volcan, où vivent les Pokémon Feu."
 ground = Vector2i(2, 279)
+ground_pattern = Vector2i(1, 1)
 ground_variants = Array[Vector2i]([Vector2i(3, 280)])
 variant_density = 0.08
 path = Vector2i(1, 226)

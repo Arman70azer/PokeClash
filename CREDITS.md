@@ -26,7 +26,8 @@ Ce crédit doit rester visible dans le jeu publié (écran de crédits) et dans 
 - `assets/Font_Poke.png` : police extraite de Pokémon HeartGold/SoulSilver (Nintendo / Game Freak), même situation.
 - `assets/tilesets/tileset.png` et sa version réorganisée `tileset_wide.png` : tileset fourni sans indication d'auteur ni de licence. Origine à vérifier avant toute diffusion.
 - `assets/maps/pokemon_center/` : intérieur du Centre Pokémon extrait de Pokémon Noir 2/Blanc 2 (Nintendo / Game Freak), même situation.
-- `assets/mapobjects/` : modèles 3D d'objets extraits de Pokémon Noir/Blanc, Noir 2/Blanc 2 et HeartGold/SoulSilver (Nintendo / Game Freak), même situation.
+- `assets/mapobjects/` : modèles 3D d'objets extraits de Pokémon Noir/Blanc, Noir 2/Blanc 2 et HeartGold/SoulSilver (Nintendo / Game Freak), même situation (dont les troncs couchés, la souche creuse et l'arbre de la Forêt Blanche de Noir 2/Blanc 2).
+- `assets/maps/lostlorn_forest/` : textures de Lostlorn Forest extraites de Pokémon Noir 2/Blanc 2 (Nintendo / Game Freak), même situation ; les `forest_*.obj` et `forest_ground.png` en sont découpés par `tools/maps/build_forest_kit.py`. Modèle d'origine (`.dae`) dans `source_assets/maps/lostlorn_forest/`.
 - `assets/maps/accumula_town/` : carte d'Accumula Town extraite de Pokémon Noir 2/Blanc 2 (Nintendo / Game Freak), même situation. `accumula_town.obj` et `.mtl` sont une conversion du fichier `.dae` d'origine (rangé dans `source_assets/maps/accumula_town/`), faite par `tools/maps/dae_to_obj.py` ; `accumula_town_grid.tres` est la grille de déplacement calculée à partir du modèle.
 - Menu du jeu (Nintendo / Game Freak, même situation) :
   - `assets/icons_menu.png` : icônes de menu des Pokémon de X et Y, planche de MightyMewtwo (/u/Layell) ;

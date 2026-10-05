@@ -12,7 +12,9 @@ const TILE := GameConfig.TILE
 
 var layout: ZoneLayout
 var _grid: MapGrid
-static var _sheet_image: Image
+## Images des tuiles en RGBA8, préparées une seule fois par image (le tileset fait 13 Mo :
+## le relire depuis la carte graphique à chaque zone coûte cher).
+static var _sheet_images := {}
 
 
 ## Construit la zone (à appeler avant ou pendant l'entrée dans l'arbre).
@@ -55,19 +57,18 @@ func _make_grid() -> MapGrid:
 	return g
 
 
-## Le tileset en image RGBA8, préparé une seule fois (13 Mo : le relire depuis la carte
-## graphique à chaque zone coûte cher).
-static func _tilesheet_image() -> Image:
-	if _sheet_image == null:
-		_sheet_image = TileZone.TILESHEET.get_image()
-		if _sheet_image.is_compressed():
-			_sheet_image.decompress()
-		_sheet_image.convert(Image.FORMAT_RGBA8)
-	return _sheet_image
+static func _sheet_image(texture: Texture2D) -> Image:
+	if not _sheet_images.has(texture):
+		var image := texture.get_image()
+		if image.is_compressed():
+			image.decompress()
+		image.convert(Image.FORMAT_RGBA8)
+		_sheet_images[texture] = image
+	return _sheet_images[texture]
 
 
 func _build_ground() -> void:
-	var sheet := _tilesheet_image()
+	var sheet := _sheet_image(layout.sheet if layout.sheet != null else TileZone.TILESHEET)
 	var image := Image.create(layout.size.x * TILE, layout.size.y * TILE, false, Image.FORMAT_RGBA8)
 	for cell: Vector2i in layout.ground:
 		var tile: Vector2i = layout.ground[cell]
@@ -93,11 +94,38 @@ func _build_props() -> void:
 	var props := Node3D.new()
 	props.name = "Props"
 	add_child(props)
+	# Décors 3D : un seul MultiMesh par modèle, quel que soit leur nombre (une zone de
+	# forêt compte des centaines d'arbres).
+	var models := {}  # Mesh -> positions
 	for entry in layout.props:
 		var prop: ExpeditionProp = entry["prop"]
 		var cell: Vector2i = layout.to_world(entry["cell"])
+		if prop.mesh != null:
+			var at := Vector3((cell.x + prop.footprint.x / 2.0) * TILE, ground_height, (cell.y + prop.footprint.y / 2.0) * TILE)
+			models.get_or_add(prop.mesh, []).append(at)
+			continue
 		var sprite := TileZone.standing_sprite(Rect2(prop.region), prop.sheet)
 		# Pied du sprite : au milieu du bas de son emprise.
 		sprite.position = Vector3((cell.x + prop.footprint.x / 2.0) * TILE, ground_height,
 			(cell.y + prop.footprint.y) * TILE - 3.0)
 		props.add_child(sprite)
+	if layout.encounter_mesh != null:
+		var grass: Array = models.get_or_add(layout.encounter_mesh, [])
+		for local: Vector2i in layout.encounter:
+			var cell := layout.to_world(local)
+			grass.append(Vector3((cell.x + 0.5) * TILE, ground_height, (cell.y + 0.5) * TILE))
+	for model: Mesh in models:
+		props.add_child(_repeated(model, models[model]))
+
+
+## Exemplaires d'un modèle 3D posés aux positions données.
+static func _repeated(model: Mesh, positions: Array) -> MultiMeshInstance3D:
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.mesh = MapMaterials.shaded(model)
+	multimesh.instance_count = positions.size()
+	for i in positions.size():
+		multimesh.set_instance_transform(i, Transform3D(Basis.IDENTITY, positions[i]))
+	var node := MultiMeshInstance3D.new()
+	node.multimesh = multimesh
+	return node
