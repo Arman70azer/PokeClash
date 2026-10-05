@@ -3,21 +3,34 @@ extends RefCounted
 ## Tire au hasard le plan d'une zone d'expédition (ZoneLayout) d'après un biome et une
 ## graine : la même graine donne la même zone sur tous les ordinateurs.
 ##
-## Étapes : une caverne par automate cellulaire (les cases fermées deviennent des
-## arbres, rochers…), un couloir d'entrée en bas, puis mares ou bords liquides, chemins
-## de l'entrée vers les dresseurs, hautes herbes, décors isolés et détails au sol. À
-## chaque étape qui bloque des cases, on vérifie que tout reste atteignable.
+## La forme est un labyrinthe organique, à la manière des forêts et des routes des jeux :
+## des clairières reliées par des couloirs qui serpentent, quelques boucles et des
+## recoins sans issue. Il est tracé sur une grille de CELL cases (la taille d'un arbre),
+## pour que les murs se remplissent de décors sans trou. Ensuite : un couloir d'entrée en
+## bas, mares ou bords liquides, dresseurs, chemins de l'entrée vers eux, hautes herbes,
+## décors isolés et détails au sol. À chaque étape qui bloque des cases, on vérifie que
+## tout reste atteignable.
 
 const DIRS: Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
 ## Taille de la zone (bords compris) et épaisseur du bord toujours fermé.
 ## (Le bord est assez épais pour que la caméra ne voie jamais le vide au-delà.)
 const SIZE := Vector2i(56, 48)
 const MARGIN := 10
-const OPEN_CHANCE := 0.56
-const SMOOTH_STEPS := 4
-## Part minimale de cases ouvertes à l'intérieur ; sinon on retire une caverne.
-const MIN_OPEN := 0.38
-const MAX_TRIES := 12
+## Côté d'une case du labyrinthe, en cases de la zone, et nombre de ces cases.
+const CELL := 2
+const GRID := Vector2i((SIZE.x - 2 * MARGIN) / CELL, (SIZE.y - 2 * MARGIN) / CELL)
+## Clairières (nombre, rayon en cases du labyrinthe), points de passage, recoins.
+const CLEARINGS := Vector2i(3, 4)
+const CLEARING_RADIUS := Vector2i(2, 3)
+const WAYPOINTS := Vector2i(6, 9)
+const NOOKS := Vector2i(2, 4)
+## Taille minimale de l'intérieur ouvert, en cases du labyrinthe.
+const MIN_OPEN := 120
+## Couloirs : coût du bruit (plus il est fort, plus ils serpentent), coût d'un virage
+## (des lignes droites plutôt qu'un escalier) ; boucles ajoutées.
+const WINDING := 4.0
+const TURN_COST := 1.5
+const LOOPS := Vector2i(1, 2)
 ## Dresseurs : nombre, distance minimale à l'entrée et entre eux.
 const TRAINERS := Vector2i(3, 5)
 const TRAINER_SPACING := 7
@@ -41,16 +54,12 @@ func generate(biome: ExpeditionBiome, seed: int, origin := Vector2i.ZERO) -> Zon
 	var layout := ZoneLayout.new()
 	layout.origin = origin
 	layout.size = SIZE
-	var open := {}
-	for attempt in MAX_TRIES:
-		open = _cave()
-		if open.size() >= (SIZE.x - 2 * MARGIN) * (SIZE.y - 2 * MARGIN) * MIN_OPEN:
-			break
-	layout.entry = Vector2i(SIZE.x / 2, SIZE.y - MARGIN)
-	layout.walkable = open
-	# Seule la partie reliée à l'entrée reste ouverte.
-	layout.walkable = layout.reachable(layout.entry)
-	layout.exit_cells = [layout.entry, layout.entry + Vector2i.LEFT]
+	layout.sheet = biome.sheet
+	layout.encounter_mesh = biome.encounter_mesh
+	# Entrée : en bas au milieu, deux cases de large alignées sur la grille du labyrinthe.
+	layout.entry = Vector2i(MARGIN + GRID.x / 2 * CELL, SIZE.y - MARGIN)
+	layout.exit_cells = [layout.entry, layout.entry + Vector2i.RIGHT]
+	layout.walkable = _maze(biome, layout)
 	# Sous l'entrée, le chemin continue jusqu'au bord : c'est la sortie.
 	for y in range(layout.entry.y + 1, SIZE.y):
 		for cell in layout.exit_cells:
@@ -75,36 +84,205 @@ func fill_walls(biome: ExpeditionBiome, layout: ZoneLayout, reserved: Dictionary
 	_walls(biome, layout, {})
 
 
-# --- Forme de la zone -------------------------------------------------------------------
+# --- Forme de la zone : labyrinthe organique ----------------------------------------------
 
-## Caverne : cases ouvertes au hasard, lissées ; couloir d'entrée en bas au centre.
-func _cave() -> Dictionary:
-	var open := {}
+## Cases praticables de la zone : le labyrinthe (en cases de CELL), son couloir d'entrée,
+## et des bords grignotés si le biome a des petits décors pour boucher les creux.
+func _maze(biome: ExpeditionBiome, layout: ZoneLayout) -> Dictionary:
+	var start := Vector2i(GRID.x / 2, GRID.y - 1)
+	var open := {start: true}
+	# Clairières : la première tout au fond, les autres réparties sur la zone.
+	var nodes: Array[Vector2i] = [start]
+	var clearings := _rng.randi_range(CLEARINGS.x, CLEARINGS.y)
+	for i in clearings:
+		var center := _spot(nodes, 5, 0 if i == 0 else GRID.y - 4, 0 if i > 0 else 2)
+		nodes.append(center)
+		_clearing(open, center)
+	# Points de passage : les couloirs y tournent, et les feuilles deviennent des impasses.
+	for i in _rng.randi_range(WAYPOINTS.x, WAYPOINTS.y):
+		nodes.append(_spot(nodes, 3, GRID.y - 1, 0))
+	for edge in _tree_edges(nodes):
+		_corridor(open, edge[0], edge[1])
+	# Recoins : de courtes impasses qui partent des couloirs.
+	for i in _rng.randi_range(NOOKS.x, NOOKS.y):
+		_nook(open)
+	# Trop petit : on ajoute des passages jusqu'à la taille voulue.
+	var guard := 0
+	while open.size() < MIN_OPEN and guard < 20:
+		guard += 1
+		var extra := _spot(nodes, 2, GRID.y - 1, 0)
+		_corridor(open, extra, nodes[_rng.randi_range(0, nodes.size() - 1)])
+		nodes.append(extra)
+	var tiles := {}
+	for c: Vector2i in open:
+		for dy in CELL:
+			for dx in CELL:
+				tiles[Vector2i(MARGIN + c.x * CELL + dx, MARGIN + c.y * CELL + dy)] = true
+	for cell in layout.exit_cells:
+		tiles[cell] = true
+	if _has_small_walls(biome):
+		_roughen(tiles)
+	return tiles
+
+
+## Case du labyrinthe libre, loin d'au moins `spacing` des points déjà choisis (rangées
+## de `top` à `bottom`, ou n'importe où si c'est impossible).
+func _spot(taken: Array[Vector2i], spacing: float, bottom: int, top: int) -> Vector2i:
+	var best := Vector2i.ZERO
+	var best_distance := -1.0
+	for attempt in 30:
+		var cell := Vector2i(_rng.randi_range(0, GRID.x - 1), _rng.randi_range(mini(top, bottom), maxi(top, bottom)))
+		var nearest := INF
+		for other in taken:
+			nearest = minf(nearest, Vector2(cell - other).length())
+		if nearest >= spacing:
+			return cell
+		if nearest > best_distance:
+			best_distance = nearest
+			best = cell
+	return best
+
+
+## Clairière : un disque aux bords irréguliers (bruit), en cases du labyrinthe.
+func _clearing(open: Dictionary, center: Vector2i) -> void:
+	var radius := Vector2(_rng.randi_range(CLEARING_RADIUS.x, CLEARING_RADIUS.y),
+		_rng.randi_range(CLEARING_RADIUS.x, CLEARING_RADIUS.y)) + Vector2(0.5, 0.5)
+	for y in range(center.y - int(radius.y) - 1, center.y + int(radius.y) + 2):
+		for x in range(center.x - int(radius.x) - 1, center.x + int(radius.x) + 2):
+			var cell := Vector2i(x, y)
+			if not _in_grid(cell):
+				continue
+			var d := Vector2(cell - center) / radius
+			if d.length_squared() + (_noise(cell, 2.0, 31) - 0.5) * 0.9 <= 1.0:
+				open[cell] = true
+
+
+## Arbre couvrant des points (le plus court d'abord, à peu près), plus quelques boucles
+## entre des points voisins.
+func _tree_edges(nodes: Array[Vector2i]) -> Array:
+	var edges := []
+	var linked: Array[int] = [0]
+	var left: Array[int] = []
+	for i in range(1, nodes.size()):
+		left.append(i)
+	while not left.is_empty():
+		var best := [-1, -1]
+		var best_cost := INF
+		for a in linked:
+			for b in left:
+				var cost := Vector2(nodes[a] - nodes[b]).length() * _rng.randf_range(0.8, 1.2)
+				if cost < best_cost:
+					best_cost = cost
+					best = [a, b]
+		edges.append([nodes[best[0]], nodes[best[1]]])
+		linked.append(best[1])
+		left.erase(best[1])
+	var loops := _rng.randi_range(LOOPS.x, LOOPS.y)
+	for attempt in 40:
+		if loops <= 0:
+			break
+		var a := nodes[_rng.randi_range(0, nodes.size() - 1)]
+		var b := nodes[_rng.randi_range(0, nodes.size() - 1)]
+		var length := Vector2(a - b).length()
+		if a != b and length > 3.0 and length < 8.0:
+			edges.append([a, b])
+			loops -= 1
+	return edges
+
+
+## Couloir d'une case de large entre deux cases : plus court chemin à travers un champ de
+## bruit (il serpente), qui préfère les lignes droites aux escaliers et emprunte
+## volontiers les passages déjà ouverts.
+func _corridor(open: Dictionary, from: Vector2i, to: Vector2i) -> void:
+	# État : case et direction d'arrivée (pour compter les virages).
+	var start := Vector3i(from.x, from.y, -1)
+	var cost := {start: 0.0}
+	var came := {start: start}
+	var frontier: Array = [[0.0, start]]
+	var reached := start
+	while not frontier.is_empty():
+		var best := 0
+		for i in frontier.size():
+			if frontier[i][0] < frontier[best][0]:
+				best = i
+		var state: Vector3i = frontier[best][1]
+		frontier.remove_at(best)
+		var cell := Vector2i(state.x, state.y)
+		if cell == to:
+			reached = state
+			break
+		for d in DIRS.size():
+			var next := cell + DIRS[d]
+			if not _in_grid(next):
+				continue
+			var step := 0.6 if open.has(next) else 1.0 + _noise(next, 3.0, 47) * WINDING
+			if state.z >= 0 and state.z != d:
+				step += TURN_COST
+			var next_state := Vector3i(next.x, next.y, d)
+			var total: float = cost[state] + step
+			if not cost.has(next_state) or total < cost[next_state]:
+				cost[next_state] = total
+				came[next_state] = state
+				frontier.append([total + Vector2(to - next).length() * 0.5, next_state])
+	var state := reached
+	while state != start:
+		open[Vector2i(state.x, state.y)] = true
+		state = came[state]
+	open[from] = true
+
+
+## Impasse : depuis un couloir, quelques cases dans le fourré, sans toucher d'autre
+## passage (un vrai cul-de-sac).
+func _nook(open: Dictionary) -> void:
+	var cells := open.keys()
+	cells.sort()
+	for attempt in 20:
+		var cell: Vector2i = cells[_rng.randi_range(0, cells.size() - 1)]
+		var dir := DIRS[_rng.randi_range(0, 3)]
+		var length := _rng.randi_range(2, 4)
+		var dug: Array[Vector2i] = []
+		var ok := true
+		for k in range(1, length + 1):
+			var next := cell + dir * k
+			var side := Vector2i(dir.y, dir.x)
+			if not _in_grid(next) or open.has(next) or open.has(next + side) or open.has(next - side) \
+					or open.has(next + dir):
+				ok = false
+				break
+			dug.append(next)
+		if ok:
+			for c in dug:
+				open[c] = true
+			return
+
+
+func _in_grid(cell: Vector2i) -> bool:
+	return cell.x >= 0 and cell.y >= 0 and cell.x < GRID.x and cell.y < GRID.y
+
+
+## Vrai si le biome a des décors d'une seule case pour remplir les murs.
+func _has_small_walls(biome: ExpeditionBiome) -> bool:
+	for prop in biome.props_for(true):
+		if prop.footprint == Vector2i.ONE:
+			return true
+	return false
+
+
+## Bords irréguliers : des cases du fourré qui touchent un passage s'ouvrent (bruit), pour
+## que les couloirs n'aient pas l'air tirés à la règle.
+func _roughen(tiles: Dictionary) -> void:
+	var added: Array[Vector2i] = []
 	for y in range(MARGIN, SIZE.y - MARGIN):
 		for x in range(MARGIN, SIZE.x - MARGIN):
-			if _rng.randf() < OPEN_CHANCE:
-				open[Vector2i(x, y)] = true
-	for step in SMOOTH_STEPS:
-		var next := {}
-		for y in range(MARGIN, SIZE.y - MARGIN):
-			for x in range(MARGIN, SIZE.x - MARGIN):
-				var closed := 0
-				for dy in range(-1, 2):
-					for dx in range(-1, 2):
-						if (dx != 0 or dy != 0) and not open.has(Vector2i(x + dx, y + dy)):
-							closed += 1
-				if closed < 5:
-					next[Vector2i(x, y)] = true
-		open = next
-	# Couloir d'entrée : deux cases de large, du bas jusqu'à la caverne.
-	var x0 := SIZE.x / 2 - 1
-	for y in range(SIZE.y - MARGIN, MARGIN, -1):
-		var reached := open.has(Vector2i(x0, y - 1)) or open.has(Vector2i(x0 + 1, y - 1))
-		open[Vector2i(x0, y)] = true
-		open[Vector2i(x0 + 1, y)] = true
-		if reached and y < SIZE.y - MARGIN - 3:
-			break
-	return open
+			var cell := Vector2i(x, y)
+			if tiles.has(cell) or _noise(cell, 2.5, 53) < 0.62:
+				continue
+			for dir in DIRS:
+				if tiles.has(cell + dir):
+					added.append(cell)
+					break
+	for cell in added:
+		tiles[cell] = true
 
 
 ## Mares au milieu des passages et étendues liquides sur les bords. Renvoie les cases
@@ -253,9 +431,11 @@ func _encounters(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) 
 		candidates.append(cell)
 	# Les plaques d'herbe suivent un bruit lissé : on garde les cases les plus « hautes ».
 	# Le bruit est calculé une fois par case, pas à chaque comparaison du tri.
+	# Plaques alignées sur la grille du labyrinthe : de vrais carrés d'herbe, pas des
+	# taches d'une case.
 	var height := {}
 	for cell in candidates:
-		height[cell] = _noise(cell, 4.0, 23)
+		height[cell] = _noise(Vector2i((cell - Vector2i(MARGIN, MARGIN)) / CELL), 2.5, 23)
 	candidates.sort_custom(func(a: Vector2i, b: Vector2i) -> bool: return height[a] > height[b])
 	var count := int(candidates.size() * ENCOUNTER_SHARE)
 	for i in count:
@@ -344,12 +524,12 @@ func _ground(biome: ExpeditionBiome, layout: ZoneLayout, liquid: Dictionary, pat
 	for y in SIZE.y:
 		for x in SIZE.x:
 			var cell := Vector2i(x, y)
-			var tile := biome.ground
+			var tile := biome.ground + Vector2i(x % biome.ground_pattern.x, y % biome.ground_pattern.y)
 			if not biome.ground_variants.is_empty() and _rng.randf() < biome.variant_density:
 				tile = biome.ground_variants[_rng.randi_range(0, biome.ground_variants.size() - 1)]
 			if liquid.has(cell):
 				tile = biome.liquid
-			elif layout.encounter.has(cell):
+			elif layout.encounter.has(cell) and biome.encounter_mesh == null:
 				tile = biome.encounter
 			elif (paths.has(cell) or _exit_lane.has(cell)) and biome.path != ExpeditionBiome.NONE:
 				tile = biome.path

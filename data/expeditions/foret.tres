@@ -2,66 +2,59 @@
 
 [ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
 [ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/lostlorn_forest/forest_tree_light.obj" id="m_forest_tree_light"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/lostlorn_forest/forest_tree_dark.obj" id="m_forest_tree_dark"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/lostlorn_forest/forest_stump.obj" id="m_forest_stump"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/stump_2/stump_2.obj" id="m_hollow_stump"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/dead_tree_01/dead_tree_01.obj" id="m_fallen_log"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/dead_tree_02/dead_tree_02.obj" id="m_leaning_log"]
+[ext_resource type="Texture2D" path="res://assets/maps/lostlorn_forest/forest_ground.png" id="sheet"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/lostlorn_forest/forest_tall_grass.obj" id="encounter_mesh"]
 
 [sub_resource type="Resource" id="p0"]
 script = ExtResource("prop")
-region = Rect2i(10, 16, 44, 48)
+region = Rect2i(0, 0, 0, 0)
 footprint = Vector2i(2, 2)
 weight = 3
+mesh = ExtResource("m_forest_tree_light")
 
 [sub_resource type="Resource" id="p1"]
 script = ExtResource("prop")
-region = Rect2i(74, 16, 44, 48)
+region = Rect2i(0, 0, 0, 0)
 footprint = Vector2i(2, 2)
-weight = 3
+weight = 2
+mesh = ExtResource("m_forest_tree_dark")
 
 [sub_resource type="Resource" id="p2"]
 script = ExtResource("prop")
-region = Rect2i(12, 65, 40, 47)
-footprint = Vector2i(2, 2)
-weight = 2
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(3, 3)
+weight = 1
+mesh = ExtResource("m_forest_stump")
+walls = false
 
 [sub_resource type="Resource" id="p3"]
 script = ExtResource("prop")
-region = Rect2i(14, 160, 37, 48)
-footprint = Vector2i(2, 2)
-weight = 2
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(3, 3)
+weight = 1
+mesh = ExtResource("m_hollow_stump")
+walls = false
 
 [sub_resource type="Resource" id="p4"]
 script = ExtResource("prop")
-region = Rect2i(70, 400, 52, 48)
-footprint = Vector2i(2, 2)
-weight = 2
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(6, 2)
+weight = 1
+mesh = ExtResource("m_fallen_log")
+walls = false
 
 [sub_resource type="Resource" id="p5"]
 script = ExtResource("prop")
-region = Rect2i(75, 464, 41, 48)
-footprint = Vector2i(2, 2)
-weight = 2
-
-[sub_resource type="Resource" id="p6"]
-script = ExtResource("prop")
-region = Rect2i(75, 160, 41, 48)
-footprint = Vector2i(2, 2)
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(6, 2)
 weight = 1
-
-[sub_resource type="Resource" id="p7"]
-script = ExtResource("prop")
-region = Rect2i(80, 10708, 17, 24)
-footprint = Vector2i(1, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p8"]
-script = ExtResource("prop")
-region = Rect2i(97, 9523, 30, 13)
-footprint = Vector2i(2, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p9"]
-script = ExtResource("prop")
-region = Rect2i(112, 10743, 16, 25)
-footprint = Vector2i(1, 1)
-weight = 1
+mesh = ExtResource("m_leaning_log")
 walls = false
 
 [resource]
@@ -70,15 +63,18 @@ id = &"foret"
 name = "Forêt"
 type = 11
 description = "Une forêt touffue où grouillent les Pokémon Insecte."
-ground = Vector2i(1, 211)
-ground_variants = Array[Vector2i]([Vector2i(1, 664), Vector2i(0, 664)])
+ground = Vector2i(0, 0)
+ground_pattern = Vector2i(4, 4)
+ground_variants = Array[Vector2i]([])
 variant_density = 0.08
-path = Vector2i(1, 241)
-encounter = Vector2i(3, 669)
+path = Vector2i(-1, -1)
+encounter = Vector2i(0, 0)
 liquid = Vector2i(-1, -1)
 pools = 0
 liquid_border = 0
-decor = Array[Vector2i]([Vector2i(0, 669), Vector2i(1, 669), Vector2i(3, 670), Vector2i(1, 672)])
-decor_density = 0.05
-props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7"), SubResource("p8"), SubResource("p9")])
+decor = Array[Vector2i]([Vector2i(4, 0), Vector2i(4, 1), Vector2i(4, 2), Vector2i(4, 3)])
+decor_density = 0.08
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5")])
 trainers = Array[Dictionary]([{"front": Vector2i(0, 9), "sheet": "chasseur_insectes", "title": "Chasseur d'insectes"}, {"front": Vector2i(4, 3), "sheet": "gamin", "title": "Scout"}, {"front": Vector2i(1, 9), "sheet": "fillette", "title": "Pique-niqueuse"}])
+sheet = ExtResource("sheet")
+encounter_mesh = ExtResource("encounter_mesh")

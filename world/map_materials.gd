@@ -13,6 +13,7 @@ const SHADOW_SHADER := preload("res://shaders/map_zone_shadow.gdshader")
 const VISION_LAYER := 1 << 19
 
 static var _mtl_cache := {}  # chemin du .obj -> {nom du matériau -> opacité}
+static var _shaded_cache := {}  # modèle -> copie portant ses matériaux (voir shaded)
 
 
 ## Remplace les matériaux importés de chaque surface du modèle.
@@ -21,22 +22,42 @@ static func apply(instance: MeshInstance3D) -> void:
 	if mesh == null:
 		return
 	for i in mesh.get_surface_count():
-		# Seuls les maillages importés (ArrayMesh) portent un nom par surface.
-		var surface_name := ""
-		if mesh is ArrayMesh:
-			surface_name = (mesh as ArrayMesh).surface_get_name(i)
-		var texture := _texture_for(mesh, i, surface_name)
-		if texture == null:
-			continue
-		var mat := ShaderMaterial.new()
-		# "kage" = ombre portée semi-transparente peinte dans le modèle. Certains
-		# modèles rendent l'ombre transparente par le matériau plutôt que par la texture.
-		var opacity := _mtl_opacity(mesh, surface_name)
-		var see_through := "kage" in surface_name or opacity < 0.99
-		mat.shader = SHADOW_SHADER if see_through else SHADER
-		mat.set_shader_parameter("albedo_tex", texture)
-		mat.set_shader_parameter("opacity", opacity)
-		instance.set_surface_override_material(i, mat)
+		var mat := _material_for(mesh, i)
+		if mat != null:
+			instance.set_surface_override_material(i, mat)
+
+
+## Copie du modèle dont les surfaces portent déjà leurs matériaux, partagée par tous ses
+## exemplaires : pour les décors répétés (MultiMesh), qui n'ont pas de matériau par
+## exemplaire.
+static func shaded(mesh: Mesh) -> Mesh:
+	if not _shaded_cache.has(mesh):
+		var copy := mesh.duplicate() as ArrayMesh
+		for i in copy.get_surface_count():
+			var mat := _material_for(mesh, i)
+			if mat != null:
+				copy.surface_set_material(i, mat)
+		_shaded_cache[mesh] = copy
+	return _shaded_cache[mesh]
+
+
+static func _material_for(mesh: Mesh, surface: int) -> ShaderMaterial:
+	# Seuls les maillages importés (ArrayMesh) portent un nom par surface.
+	var surface_name := ""
+	if mesh is ArrayMesh:
+		surface_name = (mesh as ArrayMesh).surface_get_name(surface)
+	var texture := _texture_for(mesh, surface, surface_name)
+	if texture == null:
+		return null
+	var mat := ShaderMaterial.new()
+	# "kage" = ombre portée semi-transparente peinte dans le modèle. Certains
+	# modèles rendent l'ombre transparente par le matériau plutôt que par la texture.
+	var opacity := _mtl_opacity(mesh, surface_name)
+	var see_through := "kage" in surface_name or "kage" in texture.resource_path.get_file() or opacity < 0.99
+	mat.shader = SHADOW_SHADER if see_through else SHADER
+	mat.set_shader_parameter("albedo_tex", texture)
+	mat.set_shader_parameter("opacity", opacity)
+	return mat
 
 
 ## Règle le fondu de niveau sur toutes les surfaces du modèle.

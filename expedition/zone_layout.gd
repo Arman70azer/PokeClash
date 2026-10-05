@@ -12,6 +12,10 @@ var walkable := {}
 var ground := {}
 ## Tuile posée par-dessus le sol (détails à fond transparent).
 var overlay := {}
+## Image des tuiles de `ground` et `overlay` (null : le tileset).
+var sheet: Texture2D
+## Hautes herbes en 3D posées sur chaque case de `encounter` (null : en tuiles).
+var encounter_mesh: Mesh
 ## Décors debout : [{"cell": coin haut-gauche de l'emprise (local), "prop": ExpeditionProp}].
 var props: Array[Dictionary] = []
 ## Hautes herbes (locale -> vrai).

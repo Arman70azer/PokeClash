@@ -16,14 +16,21 @@ const NONE := Vector2i(-1, -1)
 @export var description := ""
 
 @export_group("Sol")
+## Image des tuiles du sol, des chemins, des herbes et des détails (vide : le tileset).
+@export var sheet: Texture2D
 ## Tuile de base, et quelques variantes mêlées au hasard.
 @export var ground := Vector2i.ZERO
+## Le sol de base est un motif de plusieurs tuiles (à partir de `ground`) répété sur la
+## zone, comme la texture d'herbe des cartes 3D.
+@export var ground_pattern := Vector2i.ONE
 @export var ground_variants: Array[Vector2i] = []
 @export_range(0.0, 1.0) var variant_density := 0.08
 ## Chemins qui relient l'entrée aux dresseurs (NONE : pas de chemin dessiné).
 @export var path := NONE
 ## Hautes herbes (ou équivalent) : on y rencontre les Pokémon sauvages.
 @export var encounter := Vector2i.ZERO
+## Hautes herbes en 3D, une par case (à la place de la tuile `encounter`).
+@export var encounter_mesh: Mesh
 ## Eau, lave… : infranchissable (NONE : aucun).
 @export var liquid := NONE
 ## Part des passages transformée en mares, et des bords transformés en étendue liquide.

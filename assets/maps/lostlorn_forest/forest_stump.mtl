@@ -1,0 +1,14 @@
+newmtl stump_01_01
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0017.png
+
+newmtl stump_01_02
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0018.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0016.png

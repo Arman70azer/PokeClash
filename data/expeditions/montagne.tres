@@ -58,6 +58,7 @@ name = "Montagne"
 type = 12
 description = "Des pentes rocailleuses peuplées de Pokémon Roche."
 ground = Vector2i(4, 437)
+ground_pattern = Vector2i(1, 1)
 ground_variants = Array[Vector2i]([])
 variant_density = 0.08
 path = Vector2i(2, 277)

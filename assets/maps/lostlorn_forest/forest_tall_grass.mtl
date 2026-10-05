@@ -1,0 +1,9 @@
+newmtl kusa_ec1
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0049.png
+
+newmtl kusa_ec2
+Kd 1 1 1
+d 1
+map_Kd Lostlorn Forest_texture_0050.png

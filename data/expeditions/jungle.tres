@@ -58,6 +58,7 @@ name = "Jungle"
 type = 4
 description = "Une jungle humide, royaume des Pokémon Plante."
 ground = Vector2i(4, 214)
+ground_pattern = Vector2i(1, 1)
 ground_variants = Array[Vector2i]([])
 variant_density = 0.08
 path = Vector2i(7, 277)

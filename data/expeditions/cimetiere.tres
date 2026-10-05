@@ -106,6 +106,7 @@ name = "Cimetière"
 type = 13
 description = "Un vieux cimetière en ruine, hanté par les Pokémon Spectre."
 ground = Vector2i(1, 217)
+ground_pattern = Vector2i(1, 1)
 ground_variants = Array[Vector2i]([Vector2i(7, 277)])
 variant_density = 0.08
 path = Vector2i(4, 277)

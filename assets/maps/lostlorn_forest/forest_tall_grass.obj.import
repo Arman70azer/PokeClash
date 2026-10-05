@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmqc0xs5mdks3"
+path="res://.godot/imported/forest_tall_grass.obj-8b59aaf4b2c7eb04660bc657747c2c67.mesh"
+
+[deps]
+
+files=["res://.godot/imported/forest_tall_grass.obj-8b59aaf4b2c7eb04660bc657747c2c67.mesh"]
+
+source_file="res://assets/maps/lostlorn_forest/forest_tall_grass.obj"
+dest_files=["res://.godot/imported/forest_tall_grass.obj-8b59aaf4b2c7eb04660bc657747c2c67.mesh", "res://.godot/imported/forest_tall_grass.obj-8b59aaf4b2c7eb04660bc657747c2c67.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

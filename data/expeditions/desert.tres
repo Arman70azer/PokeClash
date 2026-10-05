@@ -58,6 +58,7 @@ name = "Désert"
 type = 8
 description = "Des dunes brûlantes, terrain des Pokémon Sol."
 ground = Vector2i(4, 440)
+ground_pattern = Vector2i(1, 1)
 ground_variants = Array[Vector2i]([Vector2i(0, 277)])
 variant_density = 0.08
 path = Vector2i(0, 283)

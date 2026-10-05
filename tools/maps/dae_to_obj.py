@@ -76,6 +76,10 @@ def main(dae_path, out_name, out_dir=None):
             sources[src.get("id")] = [tuple(vals[i:i + stride]) for i in range(0, len(vals), stride)]
         vertices_id = find(mesh, "c:vertices").get("id")
         position_src = find(mesh, "c:vertices/c:input[@semantic='POSITION']").get("source")[1:]
+        # Certains objets déclarent aussi leurs UV et couleurs dans <vertices> : elles
+        # suivent alors l'indice du sommet.
+        vertex_inputs = {i.get("semantic"): i.get("source")[1:] for i in findall(mesh, "c:vertices/c:input")
+                         if i.get("semantic") != "POSITION"}
         prims = []
         for prim in findall(mesh, "c:polylist") + findall(mesh, "c:triangles"):
             inputs = {}
@@ -84,6 +88,8 @@ def main(dae_path, out_name, out_dir=None):
                 src = inp.get("source")[1:]
                 if src == vertices_id:
                     src = position_src
+                    for semantic, extra in vertex_inputs.items():
+                        inputs.setdefault(semantic, (extra, int(inp.get("offset"))))
                 inputs[inp.get("semantic")] = (src, int(inp.get("offset")))
                 max_offset = max(max_offset, int(inp.get("offset")))
             step = max_offset + 1

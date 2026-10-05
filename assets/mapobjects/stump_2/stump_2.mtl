@@ -1,0 +1,15 @@
+newmtl material1
+Kd 1 1 1
+d 1
+map_Kd stump_02_01.png
+
+newmtl material0
+Kd 1 1 1
+d 1
+map_Kd h_kage.png
+
+newmtl material2
+Kd 1 1 1
+d 1
+map_Kd stump_02_02.png
+

@@ -6,6 +6,9 @@ extends Resource
 
 ## Image où le découper (vide : le tileset).
 @export var sheet: Texture2D
+## Modèle 3D (arbre, souche…) à poser à la place d'un sprite : son origine est au milieu
+## de l'emprise, au niveau du sol.
+@export var mesh: Mesh
 ## Zone de l'image, en pixels.
 @export var region := Rect2i()
 ## Cases bloquées (largeur, hauteur), alignées sur le bas du sprite et centrées sous lui.
