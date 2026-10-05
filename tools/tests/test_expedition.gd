@@ -75,7 +75,7 @@ func _test_generation() -> void:
 					var cell := Vector2i(x, y)
 					var exit_lane := y > a.entry.y and (x == a.exit_cells[0].x or x == a.exit_cells[1].x)
 					if not a.walkable.has(cell) and not covered.has(cell) and not exit_lane \
-							and a.ground.get(cell) != biome.liquid:
+							and not a.liquid.has(cell):
 						holes += 1
 			_check(holes == 0 or not biome.cliffs.is_empty(), "%s : pas de trou dans les murs (%d)" % [label, holes])
 			_check(a.exit_cells.size() == 2 and a.walkable.has(a.exit_cells[0]) and a.walkable.has(a.exit_cells[1]),
@@ -89,6 +89,30 @@ func _test_generation() -> void:
 			var models := biome.props.filter(func(p: ExpeditionProp) -> bool: return p.mesh != null)
 			_check(models.size() == biome.props.size() and biome.encounter_mesh != null and biome.sheet != null,
 				"forêt : arbres, souches et hautes herbes en 3D, sol de Lostlorn Forest")
+		if id == "aquatique":
+			var lagoon := ZoneGenerator.new().generate(biome, SEEDS[0], Vector2i.ZERO)
+			var on_islands := true
+			for cell in lagoon.encounter:
+				on_islands = on_islands and lagoon.rooms.has(cell)
+			for entry in lagoon.props:
+				on_islands = on_islands and lagoon.rooms.has(entry["cell"])
+			var sea := true
+			var under_props := {}
+			for entry in lagoon.props:
+				for dy in entry["prop"].footprint.y:
+					for dx in entry["prop"].footprint.x:
+						under_props[entry["cell"] + Vector2i(dx, dy)] = true
+			for y in lagoon.size.y:
+				for x in lagoon.size.x:
+					var cell := Vector2i(x, y)
+					var lane := y > lagoon.entry.y and (x == lagoon.exit_cells[0].x or x == lagoon.exit_cells[1].x)
+					sea = sea and (lagoon.walkable.has(cell) or lane or lagoon.liquid.has(cell) or under_props.has(cell))
+			_check(on_islands, "lagune : herbes et décors sur les îlots seulement")
+			_check(sea and lagoon.props.all(func(e: Dictionary) -> bool: return e["prop"].mesh != null),
+				"lagune : la mer entoure les passages, palmiers et rochers en 3D")
+		if id == "montagne":
+			_check(biome.cliffs.size() == 2 and not biome.cliffs[1].stretch_bands,
+				"montagne : terrasses et sommets enneigés")
 		if id == "cimetiere":
 			var graves := biome.props.filter(func(p: ExpeditionProp) -> bool: return p.sheet != null)
 			_check(graves.size() >= 3, "cimetière : des tombes parmi les décors (%d)" % graves.size())

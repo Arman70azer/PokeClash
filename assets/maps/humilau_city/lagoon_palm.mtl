@@ -1,0 +1,19 @@
+newmtl ki04ax
+Kd 1 1 1
+d 1
+map_Kd Humilau City_texture_0081.png
+
+newmtl ki04bx
+Kd 1 1 1
+d 1
+map_Kd Humilau City_texture_0085.png
+
+newmtl ki04c
+Kd 1 1 1
+d 1
+map_Kd Humilau City_texture_0071.png
+
+newmtl ki04dx
+Kd 1 1 1
+d 1
+map_Kd Humilau City_texture_0083.png

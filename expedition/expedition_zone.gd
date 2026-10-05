@@ -176,15 +176,19 @@ func _build_cliffs() -> void:
 	for y in layout.size.y:
 		for x in layout.size.x:
 			var cell := Vector2i(x, y)
-			if not layout.walkable.has(cell) and not layout.is_exit_lane(cell):
+			# Décors éparpillés : posés sur le sol, pas sur un bloc de falaise.
+			if not layout.walkable.has(cell) and not layout.is_exit_lane(cell) and not layout.scattered.has(cell):
 				styles[cell] = _cliff_style(cell)
 	var tools := {}  # texture -> SurfaceTool
 	for cell: Vector2i in styles:
 		var style: CliffStyle = styles[cell]
 		var corner := Vector3((layout.origin.x + cell.x) * TILE, ground_height, (layout.origin.y + cell.y) * TILE)
 		var h := style.height
-		_quad(tools, style.top, [corner + Vector3(0, h, 0), corner + Vector3(TILE, h, 0),
-			corner + Vector3(TILE, h, TILE), corner + Vector3(0, h, TILE)], Color.WHITE)
+		# Dessus : la texture se répète à un pixel par unité.
+		var top: Array = [corner + Vector3(0, h, 0), corner + Vector3(TILE, h, 0),
+			corner + Vector3(TILE, h, TILE), corner + Vector3(0, h, TILE)]
+		var size := Vector2(style.top.get_size())
+		_quad(tools, style.top, top, Color.WHITE, top.map(func(p: Vector3) -> Vector2: return Vector2(p.x, p.z) / size))
 		for dir in ZoneGenerator.DIRS:
 			var next: Vector2i = cell + dir
 			if not layout.in_bounds(next):
@@ -237,17 +241,22 @@ func _wall(tools: Dictionary, style: CliffStyle, corner: Vector3, dir: Vector2i,
 			b = corner + Vector3(TILE, 0, 0)
 	# Ombrage peint : la face vers la caméra plus claire que les côtés.
 	var shade := Color(0.92, 0.92, 0.92) if dir == Vector2i.DOWN else Color(0.75, 0.75, 0.78)
+	# Le long de la paroi, la texture se répète à un pixel par unité.
+	var along := func(p: Vector3) -> float: return p.x if dir.y != 0 else p.z
 	var bottom := 0.0
 	for i in style.bands.size():
 		var top := bottom + style.band_heights[i]
 		var from := maxf(bottom, low)
 		var to := minf(top, high)
 		if to > from:
-			var span := top - bottom
+			var size := Vector2(style.bands[i].get_size())
+			var span := top - bottom if style.stretch_bands else size.y
 			var v_top := (top - to) / span
 			var v_bottom := (top - from) / span
+			var u_a: float = along.call(a) / size.x
+			var u_b: float = along.call(b) / size.x
 			_quad(tools, style.bands[i], [a + Vector3(0, to, 0), b + Vector3(0, to, 0), b + Vector3(0, from, 0),
-				a + Vector3(0, from, 0)], shade, [Vector2(0, v_top), Vector2(1, v_top), Vector2(1, v_bottom), Vector2(0, v_bottom)])
+				a + Vector3(0, from, 0)], shade, [Vector2(u_a, v_top), Vector2(u_b, v_top), Vector2(u_b, v_bottom), Vector2(u_a, v_bottom)])
 		bottom = top
 
 

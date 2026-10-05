@@ -21,14 +21,23 @@ const NONE := Vector2i(-1, -1)
 ## Tuile de base, et quelques variantes mêlées au hasard.
 @export var ground := Vector2i.ZERO
 ## Le sol de base est un motif de plusieurs tuiles (à partir de `ground`) répété sur la
-## zone, comme la texture d'herbe des cartes 3D.
+## zone, comme la texture d'herbe des cartes 3D. De même pour les chemins, les couloirs,
+## les rencontres et le liquide.
 @export var ground_pattern := Vector2i.ONE
 @export var ground_variants: Array[Vector2i] = []
 @export_range(0.0, 1.0) var variant_density := 0.08
 ## Chemins qui relient l'entrée aux dresseurs (NONE : pas de chemin dessiné).
 @export var path := NONE
+@export var path_pattern := Vector2i.ONE
+## Sol des couloirs du labyrinthe, hors des clairières (NONE : le sol de base). Pour une
+## lagune : des pontons entre des îlots.
+@export var corridor := NONE
+@export var corridor_pattern := Vector2i.ONE
+## Clairières en îlots : les rencontres et les décors isolés n'y sont qu'en clairière.
+@export var islands := false
 ## Hautes herbes (ou équivalent) : on y rencontre les Pokémon sauvages.
 @export var encounter := Vector2i.ZERO
+@export var encounter_pattern := Vector2i.ONE
 ## Hautes herbes en 3D, une par case (à la place de la tuile `encounter`).
 @export var encounter_mesh: Mesh
 ## Animation d'un pas dans les rencontres : &"grass" (les herbes bougent et cachent les
@@ -36,6 +45,12 @@ const NONE := Vector2i(-1, -1)
 @export var step_effect: StringName
 ## Eau, lave… : infranchissable (NONE : aucun).
 @export var liquid := NONE
+@export var liquid_pattern := Vector2i.ONE
+## Liquide qui borde la terre (eau peu profonde du lagon ; NONE : le liquide).
+@export var shallow := NONE
+@export var shallow_pattern := Vector2i.ONE
+## Tous les murs sont du liquide (une mer autour des passages), sans décor.
+@export var walls_liquid := false
 ## Part des passages transformée en mares, et des bords transformés en étendue liquide.
 @export_range(0.0, 0.4) var pools := 0.0
 @export_range(0.0, 1.0) var liquid_border := 0.0

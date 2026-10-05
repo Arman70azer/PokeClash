@@ -14,6 +14,11 @@ var ground := {}
 var overlay := {}
 ## Image des tuiles de `ground` et `overlay` (null : le tileset).
 var sheet: Texture2D
+## Cases de liquide (eau, lave ; locale -> vrai) et cases des clairières.
+var liquid := {}
+var rooms := {}
+## Cases sous les décors éparpillés dans les passages (posés au sol, sans falaise).
+var scattered := {}
 ## Hautes herbes en 3D posées sur chaque case de `encounter` (null : en tuiles).
 var encounter_mesh: Mesh
 ## Animation d'un pas dans les rencontres (voir ExpeditionBiome.step_effect).

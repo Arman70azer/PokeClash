@@ -44,6 +44,8 @@ var _seed := 0
 var _prop_cells := {}
 ## Chemin de sortie, sous l'entrée (ni décor ni herbe).
 var _exit_lane := {}
+## Clairières, en cases du labyrinthe.
+var _rooms := {}
 
 
 func generate(biome: ExpeditionBiome, seed: int, origin := Vector2i.ZERO) -> ZoneLayout:
@@ -51,6 +53,7 @@ func generate(biome: ExpeditionBiome, seed: int, origin := Vector2i.ZERO) -> Zon
 	_rng.seed = seed
 	_prop_cells = {}
 	_exit_lane = {}
+	_rooms = {}
 	var layout := ZoneLayout.new()
 	layout.origin = origin
 	layout.size = SIZE
@@ -68,6 +71,7 @@ func generate(biome: ExpeditionBiome, seed: int, origin := Vector2i.ZERO) -> Zon
 		for cell in layout.exit_cells:
 			_exit_lane[Vector2i(cell.x, y)] = true
 	var liquid := _liquid(biome, layout)
+	layout.liquid = liquid
 	_trainers(layout)
 	var paths := _paths(biome, layout)
 	_encounters(biome, layout, paths)
@@ -120,7 +124,10 @@ func _maze(biome: ExpeditionBiome, layout: ZoneLayout) -> Dictionary:
 	for c: Vector2i in open:
 		for dy in CELL:
 			for dx in CELL:
-				tiles[Vector2i(MARGIN + c.x * CELL + dx, MARGIN + c.y * CELL + dy)] = true
+				var tile := Vector2i(MARGIN + c.x * CELL + dx, MARGIN + c.y * CELL + dy)
+				tiles[tile] = true
+				if _rooms.has(c):
+					layout.rooms[tile] = true
 	for cell in layout.exit_cells:
 		tiles[cell] = true
 	if _has_small_walls(biome):
@@ -158,6 +165,7 @@ func _clearing(open: Dictionary, center: Vector2i) -> void:
 			var d := Vector2(cell - center) / radius
 			if d.length_squared() + (_noise(cell, 2.0, 31) - 0.5) * 0.9 <= 1.0:
 				open[cell] = true
+				_rooms[cell] = true
 
 
 ## Arbre couvrant des points (le plus court d'abord, à peu près), plus quelques boucles
@@ -293,6 +301,14 @@ func _roughen(tiles: Dictionary) -> void:
 func _liquid(biome: ExpeditionBiome, layout: ZoneLayout) -> Dictionary:
 	var liquid := {}
 	if biome.liquid == ExpeditionBiome.NONE:
+		return liquid
+	# Une mer autour des passages : tout ce qui n'est pas praticable.
+	if biome.walls_liquid:
+		for y in SIZE.y:
+			for x in SIZE.x:
+				var cell := Vector2i(x, y)
+				if not layout.walkable.has(cell) and not _exit_lane.has(cell):
+					liquid[cell] = true
 		return liquid
 	# Bords : les cases fermées proches des passages deviennent liquides par plaques.
 	if biome.liquid_border > 0.0:
@@ -431,6 +447,8 @@ func _encounters(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) 
 	for cell: Vector2i in layout.walkable:
 		if paths.has(cell) or (cell - layout.entry).length() <= SAFE_RADIUS or _is_trainer(layout, cell):
 			continue
+		if biome.islands and not layout.rooms.has(cell):
+			continue
 		candidates.append(cell)
 	# Les plaques d'herbe suivent un bruit lissé : on garde les cases les plus « hautes ».
 	# Le bruit est calculé une fois par case, pas à chaque comparaison du tri.
@@ -462,7 +480,7 @@ func _scatter(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) -> 
 		var ok := true
 		for c in area:
 			if not layout.walkable.has(c) or paths.has(c) or _is_trainer(layout, c) or layout.encounter.has(c) \
-					or (c - layout.entry).length() <= SAFE_RADIUS:
+					or (c - layout.entry).length() <= SAFE_RADIUS or (biome.islands and not layout.rooms.has(c)):
 				ok = false
 		if not ok:
 			continue
@@ -473,6 +491,7 @@ func _scatter(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) -> 
 			continue
 		for c in area:
 			layout.walkable.erase(c)
+			layout.scattered[c] = true
 			_prop_cells[c] = true
 		layout.props.append({"cell": cell, "prop": prop})
 		wanted -= 1
@@ -527,21 +546,39 @@ func _ground(biome: ExpeditionBiome, layout: ZoneLayout, liquid: Dictionary, pat
 	for y in SIZE.y:
 		for x in SIZE.x:
 			var cell := Vector2i(x, y)
-			var tile := biome.ground + Vector2i(x % biome.ground_pattern.x, y % biome.ground_pattern.y)
+			var tile := _tile(biome.ground, biome.ground_pattern, cell)
 			if not biome.ground_variants.is_empty() and _rng.randf() < biome.variant_density:
 				tile = biome.ground_variants[_rng.randi_range(0, biome.ground_variants.size() - 1)]
+			var lane := _exit_lane.has(cell)
+			if biome.corridor != ExpeditionBiome.NONE and (lane or layout.walkable.has(cell)) and not layout.rooms.has(cell):
+				tile = _tile(biome.corridor, biome.corridor_pattern, cell)
 			if liquid.has(cell):
-				tile = biome.liquid
+				tile = _tile(biome.liquid, biome.liquid_pattern, cell)
+				if biome.shallow != ExpeditionBiome.NONE and _near_land(layout, cell):
+					tile = _tile(biome.shallow, biome.shallow_pattern, cell)
 			elif layout.encounter.has(cell) and biome.encounter_mesh == null:
-				tile = biome.encounter
-			elif (paths.has(cell) or _exit_lane.has(cell)) and biome.path != ExpeditionBiome.NONE:
-				tile = biome.path
+				tile = _tile(biome.encounter, biome.encounter_pattern, cell)
+			elif (paths.has(cell) or lane) and biome.path != ExpeditionBiome.NONE:
+				tile = _tile(biome.path, biome.path_pattern, cell)
 			elif layout.walkable.has(cell) and not biome.decor.is_empty() and _rng.randf() < biome.decor_density:
 				layout.overlay[cell] = biome.decor[_rng.randi_range(0, biome.decor.size() - 1)]
 			layout.ground[cell] = tile
 
 
 # --- Outils -------------------------------------------------------------------------------
+
+## Tuile d'un motif de `pattern` tuiles (à partir de `base`) répété sur la zone.
+static func _tile(base: Vector2i, pattern: Vector2i, cell: Vector2i) -> Vector2i:
+	return base + Vector2i(cell.x % pattern.x, cell.y % pattern.y)
+
+
+## Vrai si une case praticable touche celle-ci (même en diagonale).
+func _near_land(layout: ZoneLayout, cell: Vector2i) -> bool:
+	for dy in range(-1, 2):
+		for dx in range(-1, 2):
+			if layout.walkable.has(cell + Vector2i(dx, dy)) or _exit_lane.has(cell + Vector2i(dx, dy)):
+				return true
+	return false
 
 ## Cases bloquées par un décor posé avec son coin haut-gauche en `cell`.
 static func _footprint(cell: Vector2i, prop: ExpeditionProp) -> Array[Vector2i]:
