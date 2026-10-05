@@ -6,7 +6,9 @@ extends SceneTree
 ##   godot --headless --path . -s res://tools/tests/test_expedition.gd
 
 const BIOMES := ["aquatique", "volcan", "foret", "jungle", "desert", "montagne", "cimetiere"]
-const SEEDS := [1, 4242, 98765]
+## 101 et 15851 : la Lagune y bouclait sans fin (mare enfermée), et y perdait tous ses
+## dresseurs (mare commencée sur une case déjà en eau).
+const SEEDS := [1, 4242, 98765, 101, 15851]
 
 var _passed := 0
 var _failed := 0

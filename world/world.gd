@@ -24,6 +24,11 @@ const MAPS_DIR := "res://maps/"
 @export var camera_profile: CameraProfile
 
 var _slots := {}  # peer_id -> numéro de joueur (0 à 3), côté serveur
+## Scènes des cartes déjà chargées, gardées pour toute la partie. Une carte quittée est
+## libérée (la ville, en entrant dans le Centre Pokémon) ; sans ce cache, ses ressources
+## le seraient aussi et seraient relues sur le disque au retour (plusieurs secondes pour
+## le TileSet du quartier bourgeois).
+var _scenes := {}  # identifiant de carte -> PackedScene
 var _camera: CameraRig
 ## Carte affichée sur cet ordinateur (celle de son joueur).
 var current_map: StringName
@@ -74,11 +79,13 @@ func load_map(map_id: StringName) -> GameMap:
 	var loaded := map(map_id)
 	if loaded != null:
 		return loaded
-	var path := MAPS_DIR + map_id + "/" + map_id + ".tscn"
-	if not ResourceLoader.exists(path):
-		push_error("World : carte introuvable %s" % path)
-		return null
-	loaded = (load(path) as PackedScene).instantiate() as GameMap
+	if not _scenes.has(map_id):
+		var path := MAPS_DIR + map_id + "/" + map_id + ".tscn"
+		if not ResourceLoader.exists(path):
+			push_error("World : carte introuvable %s" % path)
+			return null
+		_scenes[map_id] = load(path)
+	loaded = (_scenes[map_id] as PackedScene).instantiate() as GameMap
 	loaded.name = map_id
 	maps.add_child(loaded)
 	return loaded

@@ -299,6 +299,7 @@ L'hôte fait autorité. Un client envoie « je veux faire un pas vers la droite 
 Chaque carte est une scène `maps/<id>/<id>.tscn`, chargée sous `World/Maps/<id>` (même chemin chez tout le monde).
 
 - Un client ne charge que la carte où se trouve son joueur ; en passant une porte vers une autre carte, il charge la nouvelle et décharge l'ancienne.
+- Une carte déchargée garde sa scène en mémoire (`World._scenes`) : y revenir ne relit rien sur le disque (sans cela, le TileSet du quartier bourgeois, 8 935 tuiles, prenait plusieurs secondes à chaque sortie du Centre Pokémon).
 - L'hôte garde chargées toutes les cartes où il y a des joueurs, pour valider leurs déplacements, et n'affiche que la sienne. Les cartes ne doivent donc pas se superposer dans le monde (l'intérieur du Centre Pokémon est à environ +4000 unités de la ville).
 - Chacun ne voit que les joueurs de sa carte. Les PNJ d'une carte n'envoient leurs gestes qu'aux joueurs qui l'ont chargée ; un joueur qui arrive sur une carte demande à l'hôte la position de ses PNJ.
 
