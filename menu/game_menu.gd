@@ -6,13 +6,15 @@ extends Control
 ## l'ouverture et repartent à la fermeture.
 ##
 ## - Pokémon : on parcourt l'équipe ; valider affiche le résumé du Pokémon choisi.
-## - Sac : les objets par poche ; un objet de soin s'utilise sur un Pokémon de l'équipe.
+## - Sac : les objets par poche ; un objet de soin ou d'évolution s'utilise sur un Pokémon
+##   de l'équipe. Après une évolution, une attaque qu'il n'a pas la place d'apprendre est
+##   proposée : on choisit l'attaque à oublier (ou de ne pas l'apprendre).
 ## - Sauvegarde : résumé de la partie, puis sauvegarde par l'hôte.
 ## - Quitter : quitte la session (la partie est sauvegardée par l'hôte).
 ## Les données affichées sont une copie envoyée par l'hôte (PlayerProfiles) ; chaque
 ## action est une demande à l'hôte, qui répond avec une copie à jour.
 
-enum State { CLOSED, MAIN, PARTY, SUMMARY, BAG, BAG_TARGET, CONFIRM, MESSAGE }
+enum State { CLOSED, MAIN, PARTY, SUMMARY, BAG, BAG_TARGET, CONFIRM, MESSAGE, FORGET }
 
 const ENTRIES := ["Pokémon", "Sac", "Sauvegarde", "Quitter"]
 const ENTRY_COLORS := [Color8(96, 192, 96), Color8(240, 184, 56), Color8(88, 144, 232), Color8(232, 88, 72)]
@@ -38,6 +40,10 @@ var _confirm_action := &""
 var _message := ""
 ## État où revenir après un message.
 var _after_message := State.MAIN
+## Attaque à apprendre en attente (voir PlayerProfiles.move_choice_requested), ou {}.
+var _choice := {}
+## Entrée choisie : une attaque connue, ou la dernière (« ne pas apprendre »).
+var _forget := 0
 var _party: PartyPanel
 ## Résumé complet d'un Pokémon (plusieurs pages), par-dessus le menu.
 var _summary: SummaryScreen
@@ -67,6 +73,7 @@ func _ready() -> void:
 	if Game.profiles != null:
 		Game.profiles.snapshot_received.connect(_on_snapshot)
 		Game.profiles.request_answered.connect(_show_message)
+		Game.profiles.move_choice_requested.connect(_on_move_choice_requested)
 	Network.session_ended.connect(close)
 
 
@@ -181,6 +188,9 @@ func _on_direction(dir: Vector2i) -> void:
 				_item = posmod(_item + dir.y, _pocket_items().size())
 		State.CONFIRM:
 			_confirm_yes = not _confirm_yes
+		State.FORGET:
+			if dir.y != 0:
+				_forget = posmod(_forget + dir.y, _choice["moves"].size() + 1)
 
 
 func _on_accept() -> void:
@@ -222,6 +232,13 @@ func _on_accept() -> void:
 				Network.leave()
 		State.MESSAGE:
 			_end_message()
+		State.FORGET:
+			var known: int = _choice["moves"].size()
+			# Avant la demande : chez l'hôte, la réponse (message, choix suivant) arrive aussitôt.
+			_choice = {}
+			_state = State.BAG
+			_party.select(-1)
+			Game.profiles.request_move_choice(_forget if _forget < known else -1)
 
 
 func _on_back() -> void:
@@ -236,6 +253,9 @@ func _on_back() -> void:
 			_party.select(-1)
 		State.MESSAGE:
 			_end_message()
+		State.FORGET:
+			# On ne quitte pas ce choix : « retour » mène à « ne pas apprendre ».
+			_forget = _choice["moves"].size()
 
 
 func _ask(action: StringName) -> void:
@@ -263,8 +283,27 @@ func _show_message(text: String) -> void:
 
 
 func _end_message() -> void:
+	if not _choice.is_empty():
+		_open_forget()
+		return
 	_state = _after_message
 	_party.select(-1)
+
+
+func _on_move_choice_requested(choice: Dictionary) -> void:
+	_choice = choice
+	# Un message (l'évolution) s'affiche d'abord ; le choix vient ensuite.
+	if _state != State.MESSAGE:
+		_open_forget()
+
+
+func _open_forget() -> void:
+	if _state == State.CLOSED:
+		visible = true
+		_animate_open(1.0)
+	_state = State.FORGET
+	_forget = 0
+	_party.select(_choice["party_index"])
 
 
 func _on_snapshot(data: PlayerData) -> void:
@@ -308,6 +347,8 @@ func _draw() -> void:
 	match _view():
 		&"bag":
 			_draw_bag()
+		&"forget":
+			_draw_forget()
 		_:
 			_draw_main()
 	draw_set_transform(Vector2(roundf(-(1.0 - _open_amount) * 240.0), 0))
@@ -320,6 +361,8 @@ func _view() -> StringName:
 	match _state:
 		State.BAG, State.BAG_TARGET:
 			return &"bag"
+		State.FORGET:
+			return &"forget"
 		State.MESSAGE:
 			return &"bag" if _after_message == State.BAG else &"main"
 	return &"main"
@@ -401,6 +444,25 @@ func _draw_bag() -> void:
 		_text_right(Vector2(rect.end.x - 8, rect.position.y + 4), "x%d" % _data.bag.count(item))
 
 
+## Choix de l'attaque à oublier : la nouvelle en haut, puis les attaques connues et
+## « ne pas l'apprendre », en boutons comme la liste du sac.
+func _draw_forget() -> void:
+	DsUi.draw_touch_panel(self, LEFT)
+	var header := Rect2(LEFT.position + Vector2(4, 4), Vector2(LEFT.size.x - 8, 22))
+	DsUi.draw_message_frame(self, header)
+	_text(header.position + Vector2(8, 3), "Nouvelle : %s" % _choice["move_name"])
+	var entries: Array = _choice["moves"]
+	for i in entries.size() + 1:
+		var rect := Rect2(LEFT.position + Vector2(4, 32 + i * 28), Vector2(LEFT.size.x - 8, 25))
+		var last := i == entries.size()
+		DsUi.draw_button(self, rect, POCKET_COLORS[2] if last else POCKET_COLORS[3], i == _forget, _pulse)
+		if last:
+			_text(rect.position + Vector2(16, 4), "Ne pas l'apprendre")
+		else:
+			_text(rect.position + Vector2(16, 4), entries[i]["name"])
+			_text_right(Vector2(rect.end.x - 8, rect.position.y + 4), "PP %d/%d" % [entries[i]["pp"], entries[i]["max_pp"]])
+
+
 func _draw_hint() -> void:
 	DsUi.draw_message_frame(self, HINT)
 	var text := ""
@@ -423,6 +485,8 @@ func _draw_hint() -> void:
 			icon = MenuSprites.item_icon(item)
 		State.CONFIRM:
 			text = "Sauvegarder la partie ?" if _confirm_action == &"save" else "Quitter la partie ?"
+		State.FORGET:
+			text = "%s connaît déjà quatre attaques. Laquelle oublier ?" % _choice["name"]
 		State.MESSAGE:
 			text = _message
 			DsUi.draw_more_arrow(self, HINT.end - Vector2(16, 12))

@@ -82,26 +82,11 @@ func level_evolution(level: int) -> EvolutionData:
 	return null
 
 
-## Évolution par pierre possible, ou null.
-func item_evolution(item_id: StringName) -> EvolutionData:
+## Première évolution qui se déclenche par `method` (et, pour un objet, par cet objet),
+## ou null.
+func evolution_by(method: EvolutionData.Method, item: StringName = &"") -> EvolutionData:
 	for evolution in evolutions:
-		if evolution.method == EvolutionData.Method.ITEM and evolution.item == item_id:
-			return evolution
-	return null
-
-
-## Évolution par échange possible, ou null.
-func trade_evolution() -> EvolutionData:
-	for evolution in evolutions:
-		if evolution.method == EvolutionData.Method.TRADE:
-			return evolution
-	return null
-
-
-## Évolution par bonheur possible, ou null.
-func happiness_evolution() -> EvolutionData:
-	for evolution in evolutions:
-		if evolution.method == EvolutionData.Method.HAPPINESS:
+		if evolution.method == method and (method != EvolutionData.Method.ITEM or evolution.item == item):
 			return evolution
 	return null
 

@@ -83,6 +83,7 @@ move = ExtResource("m163")
 script = ExtResource("evolution")
 species_id = &"weavile"
 method = 4
+time_of_day = &"night"
 
 [resource]
 script = ExtResource("species")

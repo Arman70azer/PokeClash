@@ -9,8 +9,14 @@ extends RefCounted
 ## chaque camp humain (les camps IA choisissent seuls) -> résolution automatique ->
 ## éventuellement submit_replacement() après un K.O. -> ... -> phase FINISHED.
 ## Les étapes d'un tour sont la liste `turn_steps`, modifiable pour d'autres règles.
+##
+## Une attaque qu'un Pokémon du joueur ne peut pas apprendre (quatre déjà connues) est
+## mise de côté ; à la fin du tour, le combat s'arrête (AWAITING_MOVE_CHOICE) jusqu'à ce
+## que le joueur choisisse l'attaque à oublier, ou de ne pas l'apprendre
+## (submit_move_choice). Celles proposées après la fin du combat (dernier K.O.,
+## évolution) se choisissent de même, le combat étant FINISHED.
 
-enum Phase {NOT_STARTED, AWAITING_ACTIONS, AWAITING_REPLACEMENT, FINISHED}
+enum Phase {NOT_STARTED, AWAITING_ACTIONS, AWAITING_REPLACEMENT, FINISHED, AWAITING_MOVE_CHOICE}
 enum Outcome {NONE, WIN, LOSS, ESCAPED, CANCELLED, CAUGHT}
 
 ## Secousses de la Ball avant une capture réussie (génération 5).
@@ -40,6 +46,11 @@ var turn_steps: Array[Callable] = []
 var _events: Array[Dictionary] = []
 var _pending := {}  # index de camp -> BattleAction
 var _awaiting_replacement: Array[int] = []
+## Attaques à proposer au joueur : {"source": PokemonInstance, "battler": BattlePokemon
+## (null après le combat), "move": MoveData}. La première est celle en cours de choix.
+var _move_offers: Array[Dictionary] = []
+var _offers_open := false
+var _after_offers := Callable()
 
 
 func _init(p_rules: BattleRules = null, seed := -1) -> void:
@@ -142,8 +153,64 @@ func submit_replacement(side_index: int, team_index: int) -> String:
 	return ""
 
 
+## Vrai si le joueur de ce camp doit choisir l'attaque à oublier.
+func needs_move_choice(side_index: int) -> bool:
+	return _offers_open and side_index == 0 and not _move_offers.is_empty()
+
+
+## Vrai s'il reste des attaques à proposer (le combat ne peut pas être refermé).
+func has_move_offers() -> bool:
+	return not _move_offers.is_empty()
+
+
+## Met de côté une attaque que ce Pokémon du joueur ne peut pas apprendre faute de place.
+## `battler` : son double en combat, à tenir à jour (null après le combat).
+func offer_move(source: PokemonInstance, move: MoveData, battler: BattlePokemon = null) -> void:
+	if source != null and move != null and not move in source.moves:
+		_move_offers.append({"source": source, "battler": battler, "move": move})
+
+
+## Après la fin du combat : propose les attaques mises de côté (dernier K.O., évolution).
+## Faux s'il n'y en a aucune.
+func open_move_offers() -> bool:
+	return _open_offers(Callable())
+
+
+## Réponse du joueur : `forget_index` est l'attaque à oublier (0 à 3), ou -1 pour ne pas
+## apprendre la nouvelle. Renvoie la raison du refus, ou "".
+func submit_move_choice(side_index: int, forget_index: int) -> String:
+	if not needs_move_choice(side_index):
+		return "Ce n'est pas le moment."
+	var offer: Dictionary = _move_offers[0]
+	var source: PokemonInstance = offer["source"]
+	var move: MoveData = offer["move"]
+	if forget_index >= source.moves.size():
+		return "Cette attaque n'existe pas."
+	var who := source.display_name()
+	if forget_index < 0:
+		emit(&"move_declined", {"name": who, "move_name": move.name})
+	else:
+		var forgotten := source.replace_move(forget_index, move)
+		var battler: BattlePokemon = offer["battler"]
+		if battler != null and phase != Phase.FINISHED:
+			battler.moves[forget_index] = move
+			battler.pp[forget_index] = move.pp
+		emit(&"move_replaced", {"name": who, "old_move_name": forgotten.name, "move_name": move.name})
+	_move_offers.pop_front()
+	if _present_offer():
+		return ""
+	_offers_open = false
+	if phase == Phase.AWAITING_MOVE_CHOICE:
+		var resume := _after_offers
+		_after_offers = Callable()
+		resume.call()
+	return ""
+
+
 ## Interrompt le combat (un joueur quitte la partie...).
 func cancel() -> void:
+	_move_offers.clear()
+	_offers_open = false
 	if phase != Phase.FINISHED:
 		_finish(Outcome.CANCELLED)
 
@@ -161,8 +228,11 @@ func snapshot(side_index: int) -> Dictionary:
 	var data := {
 		"turn": turn, "phase": phase, "can_run": can_run, "wild": is_wild,
 		"needs_action": needs_action(side_index), "needs_replacement": needs_replacement(side_index),
+		"needs_move_choice": needs_move_choice(side_index),
 		"sides": [], "bag": [],
 	}
+	if needs_move_choice(side_index):
+		data["move_choice"] = _move_choice_info()
 	for side in sides:
 		var team := []
 		for pokemon in side.team:
@@ -240,6 +310,9 @@ func _step_end_of_turn() -> void:
 
 
 func _step_after_turn() -> void:
+	# Attaques à apprendre d'abord : le tour reprend ici une fois qu'elles sont choisies.
+	if _open_offers(_step_after_turn):
+		return
 	_awaiting_replacement.clear()
 	for side in sides:
 		var active := side.active()
@@ -508,10 +581,57 @@ func _award_experience(defeated: BattlePokemon) -> void:
 			for move in step["learned"]:
 				emit(&"move_learned", {"pokemon": ref(pokemon), "move_name": move.name})
 			for move in step["skipped"]:
-				emit(&"move_skipped", {"pokemon": ref(pokemon), "move_name": move.name})
-			if step.get("needs_replacement") != null:
-				var new_move: MoveData = step["needs_replacement"]
-				emit(&"move_needs_replacement", {"pokemon": ref(pokemon), "move_name": new_move.name, "new_move": new_move})
+				offer_move(pokemon.source, move, pokemon)
+
+
+## Ouvre le choix des attaques mises de côté ; `resume` reprend le combat une fois toutes
+## choisies (vide après la fin du combat). Faux s'il n'y a rien à proposer.
+func _open_offers(resume: Callable) -> bool:
+	if _offers_open or not _present_offer():
+		return false
+	_offers_open = true
+	_after_offers = resume
+	if phase != Phase.FINISHED:
+		phase = Phase.AWAITING_MOVE_CHOICE
+	return true
+
+
+## Annonce la prochaine attaque à proposer (en sautant celles devenues inutiles) ; faux
+## s'il n'en reste aucune.
+func _present_offer() -> bool:
+	while not _move_offers.is_empty():
+		var offer: Dictionary = _move_offers[0]
+		var source: PokemonInstance = offer["source"]
+		var move: MoveData = offer["move"]
+		if move in source.moves:
+			_move_offers.pop_front()
+		elif source.learn_move(move):
+			# Une place s'est libérée entre-temps : il l'apprend sans rien oublier.
+			var battler: BattlePokemon = offer["battler"]
+			if battler != null and phase != Phase.FINISHED:
+				battler.moves.append(move)
+				battler.pp.append(move.pp)
+			emit(&"move_learned", {"pokemon": {"side": 0, "name": source.display_name()}, "move_name": move.name})
+			_move_offers.pop_front()
+		else:
+			emit(&"move_offer", {"name": source.display_name(), "move_name": move.name})
+			return true
+	return false
+
+
+## Ce que le joueur doit voir pour choisir : le Pokémon, ses attaques et la nouvelle.
+func _move_choice_info() -> Dictionary:
+	var offer: Dictionary = _move_offers[0]
+	var source: PokemonInstance = offer["source"]
+	var battler: BattlePokemon = offer["battler"]
+	var move: MoveData = offer["move"]
+	var known := []
+	for i in source.moves.size():
+		var m := source.moves[i]
+		var left := battler.pp[i] if battler != null and phase != Phase.FINISHED else source.pp_left(i)
+		known.append({"name": m.name, "type": m.type, "pp": left, "max_pp": m.pp})
+	return {"name": source.display_name(), "move_name": move.name, "move_type": move.type,
+		"move_pp": move.pp, "moves": known}
 
 
 ## Avancée dans le niveau actuel, de 0 à 1.
@@ -548,6 +668,8 @@ func _announce_faints() -> void:
 			if pokemon.is_fainted() and not pokemon.faint_announced:
 				pokemon.faint_announced = true
 				emit(&"faint", {"pokemon": ref(pokemon)})
+				if side.index == 0:
+					pokemon.source.change_happiness(-1)
 				if side.index == 1 and sides[0].is_human:
 					_award_experience(pokemon)
 

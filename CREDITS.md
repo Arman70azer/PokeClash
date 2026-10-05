@@ -14,6 +14,7 @@
 ## Créations du projet
 
 - `assets/maps/port/` (sauf les fichiers `accumula_*.png`, copiés d'Accumula Town) et `assets/mapobjects/port/` : modèles et textures créés pour PokeClash, générés par `tools/maps/build_port.py` et `tools/maps/build_port_objects.py`, dans le style des objets de Noir et Blanc.
+- `assets/tilesets/graves.png` : tombes du Cimetière des expéditions, dessinées pour PokeClash par `tools/maps/build_graves.py`.
 
 Ce crédit doit rester visible dans le jeu publié (écran de crédits) et dans ce fichier.
 

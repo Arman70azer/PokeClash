@@ -87,7 +87,7 @@ func _build_props() -> void:
 	for entry in layout.props:
 		var prop: ExpeditionProp = entry["prop"]
 		var cell: Vector2i = layout.to_world(entry["cell"])
-		var sprite := TileZone.standing_sprite(Rect2(prop.region))
+		var sprite := TileZone.standing_sprite(Rect2(prop.region), prop.sheet)
 		# Pied du sprite : au milieu du bas de son emprise.
 		sprite.position = Vector3((cell.x + prop.footprint.x / 2.0) * TILE, ground_height,
 			(cell.y + prop.footprint.y) * TILE - 3.0)

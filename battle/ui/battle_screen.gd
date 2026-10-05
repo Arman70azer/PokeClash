@@ -11,6 +11,8 @@ extends Control
 
 signal action_chosen(action: Dictionary)
 signal replacement_chosen(team_index: int)
+## Attaque à oublier pour apprendre la nouvelle (0 à 3), ou -1 : ne pas l'apprendre.
+signal move_choice_made(forget_index: int)
 signal closed(outcome: int)
 
 enum State {CLOSED, INTRO, PLAYING, CHOOSING, WAITING, OUTRO}
@@ -36,10 +38,10 @@ var _move_info_label: Label
 var _move_info_type := 0
 var _party: BattleMenu
 var _bag: BattleMenu
+## Choix de l'attaque à oublier : les attaques connues, puis « ne pas apprendre ».
+var _forget: BattleMenu
 var _transition: BattleTransition
 var _pending_item := ""
-var _move_reminder: MoveReminderDialog
-var _awaiting_move_replacement := {"pokemon": null, "new_move": null}
 
 
 func _enter_tree() -> void:
@@ -91,12 +93,13 @@ func _ready() -> void:
 	_bag.fit_to_content = true
 	_bag.chosen.connect(_on_bag_chosen)
 	_bag.cancelled.connect(_show_commands)
+	_forget = _make_menu(Vector2(20, 14), Vector2(312, 180))
+	_forget.cell_height = 30.0
+	_forget.fit_to_content = true
+	_forget.can_cancel = false
+	_forget.chosen.connect(_on_forget_chosen)
 	_transition = BattleTransition.new()
 	add_child(_transition)
-	_move_reminder = MoveReminderDialog.new()
-	_move_reminder.move_selected.connect(_on_move_to_forget_selected)
-	_move_reminder.cancelled.connect(_on_move_replacement_cancelled)
-	add_child(_move_reminder)
 
 
 func is_open() -> bool:
@@ -154,7 +157,10 @@ func _play_queue() -> void:
 
 
 func _after_events() -> void:
-	if _ended:
+	# Une attaque à apprendre se choisit avant tout, même après la fin du combat.
+	if _snapshot.get("needs_move_choice", false):
+		_open_forget()
+	elif _ended:
 		_close_with_transition()
 	elif _snapshot.get("needs_replacement", false):
 		_open_party(true)
@@ -249,9 +255,6 @@ func _play_event(event: Dictionary) -> void:
 		&"evolution":
 			await _say(texts)
 			await _field.evolve(load(event["from"]), load(event["to"]))
-		&"move_needs_replacement":
-			await _say(texts)
-			await _handle_move_replacement(event)
 		&"battle_end":
 			_ended = true
 			_outcome = event["outcome"]
@@ -415,6 +418,33 @@ func _on_bag_chosen(index: int) -> void:
 	_open_party(false)
 
 
+func _open_forget() -> void:
+	state = State.CHOOSING
+	_hide_menus()
+	var choice: Dictionary = _snapshot["move_choice"]
+	var names := PackedStringArray()
+	var details := PackedStringArray()
+	var colors: Array[Color] = []
+	for m in choice["moves"]:
+		names.append(m["name"])
+		details.append("PP %d/%d" % [m["pp"], m["max_pp"]])
+		colors.append(BattleStyle.type_color(m["type"]))
+	names.append("Ne pas apprendre %s" % choice["move_name"])
+	details.append("")
+	colors.append(BattleStyle.PANEL_SHADE)
+	_forget.set_entries(names, 1, [], colors, details)
+	_forget.visible = true
+	_messages.show_prompt("Quelle attaque %s\ndoit-il oublier ?" % choice["name"])
+
+
+func _on_forget_chosen(index: int) -> void:
+	var known: int = _snapshot["move_choice"]["moves"].size()
+	_hide_menus()
+	state = State.WAITING
+	_messages.show_prompt("…")
+	move_choice_made.emit(index if index < known else -1)
+
+
 func _send(action: Dictionary) -> void:
 	action["side"] = own_side
 	_hide_menus()
@@ -424,7 +454,7 @@ func _send(action: Dictionary) -> void:
 
 
 func _hide_menus() -> void:
-	for menu in [_commands, _moves, _move_info, _party, _bag]:
+	for menu in [_commands, _moves, _move_info, _party, _bag, _forget]:
 		if menu != null:
 			menu.visible = false
 
@@ -436,36 +466,3 @@ func _make_menu(pos: Vector2, menu_size: Vector2) -> BattleMenu:
 	menu.visible = false
 	add_child(menu)
 	return menu
-
-
-func _handle_move_replacement(event: Dictionary) -> void:
-	var battle_pokemon_ref = event.get("pokemon")
-	var battle_pokemon = battle_pokemon_ref.get_ref() if battle_pokemon_ref is WeakRef else null
-
-	if battle_pokemon == null or not battle_pokemon.has_method("source"):
-		push_error("BattleScreen : Donnees Pokemon invalides")
-		return
-
-	var source = battle_pokemon.source
-	var new_move = event.get("new_move")
-
-	if source == null or new_move == null:
-		return
-
-	_awaiting_move_replacement = {"pokemon": source, "new_move": new_move}
-	_move_reminder.show_for_pokemon(source, new_move)
-	await _move_reminder.move_selected
-
-
-func _on_move_to_forget_selected(index: int) -> void:
-	var pokemon = _awaiting_move_replacement["pokemon"]
-	var new_move = _awaiting_move_replacement["new_move"]
-
-	if pokemon != null and new_move != null:
-		pokemon.learn_move_with_replacement(new_move, index)
-		_move_reminder.hide()
-
-
-func _on_move_replacement_cancelled() -> void:
-	_awaiting_move_replacement = {"pokemon": null, "new_move": null}
-	_move_reminder.hide()

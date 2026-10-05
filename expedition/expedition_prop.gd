@@ -1,9 +1,12 @@
 class_name ExpeditionProp
 extends Resource
-## Un décor debout d'une zone d'expédition (arbre, rocher, colonne…), découpé dans le
-## tileset (assets/tilesets/tileset_wide.png). Il bloque les cases de son emprise.
+## Un décor debout d'une zone d'expédition (arbre, rocher, colonne, tombe…), découpé dans
+## le tileset (assets/tilesets/tileset_wide.png) ou dans sa propre image. Il bloque les
+## cases de son emprise.
 
-## Zone de l'image, en pixels du tileset.
+## Image où le découper (vide : le tileset).
+@export var sheet: Texture2D
+## Zone de l'image, en pixels.
 @export var region := Rect2i()
 ## Cases bloquées (largeur, hauteur), alignées sur le bas du sprite et centrées sous lui.
 @export var footprint := Vector2i.ONE

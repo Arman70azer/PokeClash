@@ -15,16 +15,25 @@ signal profile_ready(peer_id: int)
 signal snapshot_received(data: PlayerData)
 ## Résultat d'une demande du menu (objet utilisé, partie sauvegardée…), à afficher.
 signal request_answered(message: String)
+## Un Pokémon veut apprendre une attaque sans avoir la place (après une évolution par
+## objet) : le joueur choisit l'attaque à oublier (request_move_choice). `choice` :
+## {"party_index", "name", "move_name", "moves": [{"name", "pp", "max_pp"}...]}.
+signal move_choice_requested(choice: Dictionary)
 
 const NEW_GAME := preload("res://data/config/new_game.tres")
 const AUTOSAVE_INTERVAL := 60.0
 const DEFAULT_NAME := "Joueur"
+## Pas à faire pour que l'équipe gagne un point de bonheur.
+const STEPS_PER_HAPPINESS := 128
 
 ## Pseudo du joueur de cet ordinateur (saisi dans le menu).
 var local_name := DEFAULT_NAME
 
 var _profiles := {}  # identifiant réseau -> PlayerData (chez l'hôte)
 var _autosave := 0.0
+var _steps := {}  # identifiant réseau -> pas faits depuis le dernier point de bonheur
+## Identifiant réseau -> attaques à proposer : [{"pokemon": PokemonInstance, "move": MoveData}].
+var _move_offers := {}
 
 
 func _enter_tree() -> void:
@@ -130,6 +139,27 @@ func request_use_item(item_path: String, party_index: int) -> void:
 	_ask(&"_handle_use_item", [item_path, party_index])
 
 
+## Réponse à move_choice_requested : attaque à oublier (0 à 3), ou -1 pour ne pas
+## apprendre la nouvelle.
+func request_move_choice(forget_index: int) -> void:
+	_ask(&"_handle_move_choice", [forget_index])
+
+
+## Chez l'hôte : un joueur a fait un pas. Tous les STEPS_PER_HAPPINESS pas, son équipe
+## gagne un point de bonheur.
+func on_player_stepped(peer_id: int) -> void:
+	var profile := data(peer_id)
+	if profile == null:
+		return
+	var steps: int = _steps.get(peer_id, 0) + 1
+	if steps >= STEPS_PER_HAPPINESS:
+		steps = 0
+		for pokemon in profile.party:
+			if not pokemon.is_fainted():
+				pokemon.change_happiness(1)
+	_steps[peer_id] = steps
+
+
 func _ask(method: StringName, args: Array) -> void:
 	if not Network.active:
 		return
@@ -142,7 +172,7 @@ func _ask(method: StringName, args: Array) -> void:
 @rpc("any_peer", "call_remote", "reliable")
 func _forward(method: StringName, args: Array) -> void:
 	if multiplayer.is_server() and method in [&"_handle_snapshot", &"_handle_save", &"_handle_use_item", &"_handle_buy", &"_handle_sell",
-			&"_handle_pc_move", &"_handle_pc_rename", &"_handle_pc_wallpaper"]:
+			&"_handle_pc_move", &"_handle_pc_rename", &"_handle_pc_wallpaper", &"_handle_move_choice"]:
 		callv(method, [multiplayer.get_remote_sender_id()] + args)
 
 
@@ -168,14 +198,55 @@ func _handle_use_item(peer_id: int, item_path: String, party_index: int) -> void
 		_reply(peer_id, "Il n'y en a plus.")
 		return
 	var pokemon: PokemonInstance = profile.party[party_index]
+	if _has_move_offers(peer_id):
+		_reply(peer_id, "")
+		return
 	var refused := item.can_use_on_pokemon(pokemon)
 	if not refused.is_empty():
 		_reply(peer_id, refused)
 		return
+	var species_before := pokemon.species
 	var message := item.use_on_pokemon(pokemon)
 	profile.bag.remove(item)
+	# Évolution : les attaques de la nouvelle espèce qu'il n'a pas la place d'apprendre.
+	if pokemon.species != species_before:
+		var offers: Array = _move_offers.get(peer_id, [])
+		for move in pokemon.unlearned_moves_at_level():
+			offers.append({"pokemon": pokemon, "move": move})
+		_move_offers[peer_id] = offers
 	save(peer_id)
 	_reply(peer_id, message)
+
+
+func _handle_move_choice(peer_id: int, forget_index: int) -> void:
+	var profile := data(peer_id)
+	if profile == null or not _has_move_offers(peer_id):
+		return
+	var offer: Dictionary = _move_offers[peer_id].pop_front()
+	var pokemon: PokemonInstance = offer["pokemon"]
+	var move: MoveData = offer["move"]
+	var message := "%s n'a pas appris %s." % [pokemon.display_name(), move.name]
+	if forget_index >= 0:
+		var forgotten := pokemon.replace_move(forget_index, move)
+		if forgotten != null:
+			message = "1, 2 et… Tadaaa ! %s oublie %s… et apprend %s !" % [pokemon.display_name(), forgotten.name, move.name]
+	save(peer_id)
+	_reply(peer_id, message)
+
+
+## Vrai s'il reste une attaque à proposer à ce joueur (les attaques devenues inutiles,
+## ou qu'il peut apprendre sans rien oublier, sont retirées au passage).
+func _has_move_offers(peer_id: int) -> bool:
+	var offers: Array = _move_offers.get(peer_id, [])
+	var profile := data(peer_id)
+	while not offers.is_empty():
+		var pokemon: PokemonInstance = offers[0]["pokemon"]
+		if profile != null and pokemon in profile.party and not offers[0]["move"] in pokemon.moves \
+				and not pokemon.learn_move(offers[0]["move"]):
+			return true
+		offers.pop_front()
+	_move_offers.erase(peer_id)
+	return false
 
 
 func _handle_buy(peer_id: int, shop_path: String, item_path: String, quantity: int) -> void:
@@ -265,17 +336,33 @@ func _reply(peer_id: int, message: String) -> void:
 	if profile == null:
 		return
 	var snapshot := profile.to_dict()
+	var choice := _move_choice(peer_id)
 	if peer_id == multiplayer.get_unique_id():
-		_receive(snapshot, message)
+		_receive(snapshot, message, choice)
 	else:
-		_receive.rpc_id(peer_id, snapshot, message)
+		_receive.rpc_id(peer_id, snapshot, message, choice)
+
+
+## Le choix d'attaque en attente pour ce joueur (voir move_choice_requested), ou {}.
+func _move_choice(peer_id: int) -> Dictionary:
+	if not _has_move_offers(peer_id):
+		return {}
+	var offer: Dictionary = _move_offers[peer_id][0]
+	var pokemon: PokemonInstance = offer["pokemon"]
+	var known := []
+	for i in pokemon.moves.size():
+		known.append({"name": pokemon.moves[i].name, "pp": pokemon.pp_left(i), "max_pp": pokemon.moves[i].pp})
+	return {"party_index": data(peer_id).party.find(pokemon), "name": pokemon.display_name(),
+		"move_name": offer["move"].name, "moves": known}
 
 
 @rpc("authority", "call_remote", "reliable")
-func _receive(snapshot: Dictionary, message: String) -> void:
+func _receive(snapshot: Dictionary, message: String, choice: Dictionary) -> void:
 	snapshot_received.emit(PlayerData.from_dict(snapshot))
 	if not message.is_empty():
 		request_answered.emit(message)
+	if not choice.is_empty():
+		move_choice_requested.emit(choice)
 
 
 # --- Annonce du pseudo -----------------------------------------------------------------
@@ -325,6 +412,8 @@ func _name_in_use(player_name: String) -> bool:
 
 
 func _on_peer_disconnected(peer_id: int) -> void:
+	_steps.erase(peer_id)
+	_move_offers.erase(peer_id)
 	if multiplayer.is_server() and _profiles.has(peer_id):
 		save(peer_id)
 		_profiles.erase(peer_id)
@@ -335,4 +424,6 @@ func _on_session_ended() -> void:
 	if not _profiles.is_empty():
 		save_all()
 	_profiles.clear()
+	_steps.clear()
+	_move_offers.clear()
 	_autosave = 0.0

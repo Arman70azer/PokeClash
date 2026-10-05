@@ -204,7 +204,9 @@ def main():
         else:
             method = EVOLVE_OTHER
         item = items.get(int(r["trigger_item_id"]), "") if r["trigger_item_id"] else ""
-        evolutions.setdefault(source, []).append((ident(species[target]["identifier"]), method, level, item))
+        happiness = int(r["minimum_happiness"] or 0) if method == EVOLVE_HAPPINESS else 0
+        evolutions.setdefault(source, []).append((ident(species[target]["identifier"]), method, level, item,
+                                                  happiness, r["time_of_day"]))
 
     moves = {int(r["id"]): r for r in read("moves")}
     move_names = french_names(read("move_names"), "move_id")
@@ -383,7 +385,7 @@ def species_tres(sid, row, poke, name, description, stats, efforts, types, abili
         if level != 1:
             lines.append("level = %d" % level)
         lines += ['move = ExtResource("%s")' % move_ids[mid], ""]
-    for i, (target, method, level, item) in enumerate(evolves):
+    for i, (target, method, level, item, happiness, time_of_day) in enumerate(evolves):
         lines += ['[sub_resource type="Resource" id="v%d"]' % i, 'script = ExtResource("evolution")',
                   'species_id = &"%s"' % target]
         if method:
@@ -392,6 +394,10 @@ def species_tres(sid, row, poke, name, description, stats, efforts, types, abili
             lines.append("min_level = %d" % level)
         if item:
             lines.append('item = &"%s"' % item)
+        if happiness:
+            lines.append("min_happiness = %d" % happiness)
+        if time_of_day:
+            lines.append('time_of_day = &"%s"' % time_of_day)
         lines.append("")
     normal = ['ExtResource("a%d")' % aid for _, aid, hidden in abilities if not hidden]
     hidden = [aid for _, aid, h in abilities if h]
