@@ -53,6 +53,7 @@ move = ExtResource("m204")
 script = ExtResource("evolution")
 species_id = &"chansey"
 method = 4
+time_of_day = &"day"
 
 [resource]
 script = ExtResource("species")

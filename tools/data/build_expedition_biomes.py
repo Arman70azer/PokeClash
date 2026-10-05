@@ -4,7 +4,8 @@ que les fichiers, puis le relancer :
     python tools/data/build_expedition_biomes.py
 
 Tuiles : (colonne, rangée) de cases de 16 × 16. Décors : zone en pixels du tileset
-(mesurée sur l'image) et emprise en cases.
+(mesurée sur l'image) et emprise en cases. Les tombes (GRAVES), absentes du tileset, sont
+dessinées par tools/maps/build_graves.py dans leur propre image.
 """
 import os
 
@@ -69,6 +70,15 @@ PROPS = {
     "fern": ((64, 10641, 16, 13), (1, 1)),
     "grass_clump": ((112, 10743, 16, 25), (1, 1)),
     "bush_round": ((97, 9523, 30, 13), (2, 1)),
+}
+
+# Tombes : zone dans GRAVES_SHEET (voir LAYOUT dans tools/maps/build_graves.py), emprise.
+GRAVES_SHEET = "res://assets/tilesets/graves.png"
+GRAVES = {
+    "grave_round": ((0, 4, 16, 20), (1, 1)),
+    "grave_cross": ((16, 0, 16, 24), (1, 1)),
+    "grave_double": ((32, 4, 28, 20), (2, 1)),
+    "grave_broken": ((60, 8, 16, 16), (1, 1)),
 }
 
 
@@ -146,9 +156,10 @@ BIOMES = [
         "description": "Un vieux cimetière en ruine, hanté par les Pokémon Spectre.",
         "ground": (1, 217), "variants": [(7, 277)], "path": (4, 277), "encounter": (2, 664),
         "decor": [], "decor_density": 0.0,
-        "props": [prop("cypress2", 3), prop("cypress", 2), prop("shrub_dark_tall", 2), prop("tree_teal", 2),
-                  prop("stump_dead", 2), prop("pillar", 1), prop("pillar_broken", 2), prop("pillar_broken2", 2),
-                  prop("monument", 2), prop("menhir", 1), prop("statue", 1, walls=False)],
+        "props": [prop("grave_round", 4), prop("grave_cross", 3), prop("grave_double", 2), prop("grave_broken", 2),
+                  prop("cypress2", 3), prop("cypress", 2), prop("shrub_dark_tall", 1), prop("tree_teal", 1),
+                  prop("stump_dead", 1), prop("pillar", 1), prop("pillar_broken", 1), prop("pillar_broken2", 1),
+                  prop("monument", 1), prop("menhir", 1), prop("statue", 1, walls=False)],
         "trainers": [("Médium", "grand_mere", (6, 7)), ("Sage", "grand_pere", (6, 3)),
                      ("Mystimaniac", "collectionneur", (4, 4))],
     },
@@ -164,12 +175,17 @@ def v(t):
 def write(biome):
     lines = ['[gd_resource type="Resource" script_class="ExpeditionBiome" format=3]', "",
              '[ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]',
-             '[ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]', ""]
+             '[ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]']
+    if any(name in GRAVES for name, _, _, _ in biome["props"]):
+        lines.append('[ext_resource type="Texture2D" path="%s" id="graves"]' % GRAVES_SHEET)
+    lines.append("")
     for i, (name, weight, walls, scatter) in enumerate(biome["props"]):
-        region, footprint = PROPS[name]
+        region, footprint = GRAVES[name] if name in GRAVES else PROPS[name]
         lines += ['[sub_resource type="Resource" id="p%d"]' % i, 'script = ExtResource("prop")',
                   "region = Rect2i(%d, %d, %d, %d)" % region, "footprint = Vector2i(%d, %d)" % footprint,
                   "weight = %g" % weight]
+        if name in GRAVES:
+            lines.append('sheet = ExtResource("graves")')
         if not walls:
             lines.append("walls = false")
         if not scatter:

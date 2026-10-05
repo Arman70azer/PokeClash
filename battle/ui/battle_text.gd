@@ -107,8 +107,15 @@ static func messages(event: Dictionary, own_side: int, side_names: Array) -> Pac
 			out.append("%s monte au niveau %d !" % [who, event["level"]])
 		&"move_learned":
 			out.append("%s apprend %s !" % [who, event["move_name"]])
-		&"move_skipped":
-			out.append("%s veut apprendre %s, mais il connaît déjà quatre attaques." % [who, event["move_name"]])
+		&"move_offer":
+			out.append("%s veut apprendre %s." % [event["name"], event["move_name"]])
+			out.append("Mais %s connaît déjà quatre attaques." % event["name"])
+		&"move_replaced":
+			out.append("1, 2 et… Tadaaa !")
+			out.append("%s oublie %s…" % [event["name"], event["old_move_name"]])
+			out.append("…et apprend %s !" % event["move_name"])
+		&"move_declined":
+			out.append("%s n'a pas appris %s." % [event["name"], event["move_name"]])
 		&"ball_thrown":
 			out.append("Vous lancez une %s !" % event["item_name"])
 		&"ball_escaped":

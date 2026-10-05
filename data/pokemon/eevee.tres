@@ -123,11 +123,15 @@ item = &"fire-stone"
 script = ExtResource("evolution")
 species_id = &"espeon"
 method = 3
+min_happiness = 160
+time_of_day = &"day"
 
 [sub_resource type="Resource" id="v4"]
 script = ExtResource("evolution")
 species_id = &"umbreon"
 method = 3
+min_happiness = 160
+time_of_day = &"night"
 
 [sub_resource type="Resource" id="v5"]
 script = ExtResource("evolution")

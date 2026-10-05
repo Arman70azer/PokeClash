@@ -55,6 +55,14 @@ func _test_generation() -> void:
 			_check(props_ok, "%s : aucun décor sur une case praticable" % label)
 			_check(a.exit_cells.size() == 2 and a.walkable.has(a.exit_cells[0]) and a.walkable.has(a.exit_cells[1]),
 				"%s : sortie praticable" % label)
+		var regions_ok := true
+		for prop in biome.props:
+			var image_size := (prop.sheet if prop.sheet != null else TileZone.TILESHEET).get_size()
+			regions_ok = regions_ok and Rect2i(Vector2i.ZERO, Vector2i(image_size)).encloses(prop.region)
+		_check(regions_ok, "%s : chaque décor est dans son image" % id)
+		if id == "cimetiere":
+			var graves := biome.props.filter(func(p: ExpeditionProp) -> bool: return p.sheet != null)
+			_check(graves.size() >= 3, "cimetière : des tombes parmi les décors (%d)" % graves.size())
 		var other := ZoneGenerator.new().generate(biome, SEEDS[1], Vector2i.ZERO)
 		var first := ZoneGenerator.new().generate(biome, SEEDS[0], Vector2i.ZERO)
 		_check(other.walkable != first.walkable, "%s : une autre graine donne une autre zone" % id)

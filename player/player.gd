@@ -150,6 +150,8 @@ func _server_move(dir: Vector2i) -> void:
 		return
 	if here.can_step(cell, target):
 		_apply_move.rpc(target, dir)
+		if Game.profiles != null:
+			Game.profiles.on_player_stepped(peer_id)
 		if Game.expeditions != null:
 			Game.expeditions.on_player_stepped(self)
 	else:

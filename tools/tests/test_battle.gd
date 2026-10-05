@@ -35,6 +35,9 @@ func _initialize() -> void:
 	_test_network_round_trip()
 	_test_experience()
 	_test_evolution()
+	_test_move_choice()
+	_test_happiness()
+	_test_other_evolutions()
 	_test_capture()
 	print("Tests de combat : %d réussis, %d ratés" % [_passed, _failed])
 	quit(1 if _failed > 0 else 0)
@@ -413,6 +416,144 @@ func _test_evolution() -> void:
 	check_eq(bulb.species.id, &"ivysaur", "le Pokémon est devenu Herbizarre")
 	check(bulb.max_hp() > hp_before, "ses statistiques augmentent")
 	check(bulb.ability_data() != null, "il garde un talent valide")
+
+
+## Salamèche qui connaît quatre attaques, juste avant le niveau où il en apprend une
+## cinquième ; renvoie [le Pokémon, l'attaque qu'il va vouloir apprendre].
+func _full_charmander() -> Array:
+	var sorted := CHARMANDER.learnset.duplicate()
+	sorted.sort_custom(func(a: LearnsetEntry, b: LearnsetEntry) -> bool: return a.level < b.level)
+	var known := [SCRATCH, GROWL, TACKLE, LEECH_SEED]
+	for entry: LearnsetEntry in sorted:
+		if entry.level > 5 and not entry.move in known:
+			var p := mon(CHARMANDER, entry.level - 1, known)
+			p.experience = p.next_level_experience() - 1
+			return [p, entry.move]
+	return []
+
+
+func _test_move_choice() -> void:
+	var setup := _full_charmander()
+	var pokemon: PokemonInstance = setup[0]
+	var new_move: MoveData = setup[1]
+	# Pendant le combat : le premier adversaire tombe, le combat attend le choix.
+	var engine := battle([pokemon], [mon(BULBASAUR, 2, [GROWL]), mon(BULBASAUR, 2, [GROWL])])
+	engine.sides[1].team[0].hp = 1
+	engine.submit_action(move_action(0))
+	var events := engine.take_events()
+	check_eq(engine.phase, BattleEngine.Phase.AWAITING_MOVE_CHOICE, "le combat attend le choix de l'attaque à oublier")
+	check(not events_of(events, &"move_offer").is_empty(), "la nouvelle attaque est annoncée")
+	check(engine.needs_move_choice(0) and not engine.needs_action(0), "le joueur doit choisir, pas attaquer")
+	var snap := engine.snapshot(0)
+	check(snap["needs_move_choice"] and snap["move_choice"]["move_name"] == new_move.name, "l'écran reçoit le choix à faire")
+	check_eq(snap["move_choice"]["moves"].size(), 4, "avec les quatre attaques connues")
+	check(engine.submit_action(move_action(0)) != "", "pas d'action pendant le choix")
+	check_eq(engine.submit_move_choice(0, 1), "", "oublier Rugissement est accepté")
+	events = engine.take_events()
+	check(pokemon.moves[1] == new_move and pokemon.move_pp[1] == new_move.pp, "la nouvelle attaque remplace l'ancienne")
+	var battler := engine.sides[0].active()
+	check(battler.moves[1] == new_move and battler.pp[1] == new_move.pp, "aussi pour le reste du combat")
+	check(not events_of(events, &"move_replaced").is_empty(), "le remplacement est annoncé")
+	check_eq(engine.phase, BattleEngine.Phase.AWAITING_ACTIONS, "le combat reprend")
+	check(engine.sides[1].active() != null and not engine.sides[1].active().is_fainted(), "l'adversaire a envoyé son Pokémon suivant")
+	check(engine.submit_move_choice(0, 0) != "", "plus rien à choisir")
+	# Refuser : rien ne change.
+	setup = _full_charmander()
+	var stubborn: PokemonInstance = setup[0]
+	var before := stubborn.moves.duplicate()
+	engine = battle([stubborn], [mon(BULBASAUR, 2, [GROWL]), mon(BULBASAUR, 2, [GROWL])])
+	engine.sides[1].team[0].hp = 1
+	engine.submit_action(move_action(0))
+	engine.take_events()
+	check_eq(engine.submit_move_choice(0, -1), "", "ne pas apprendre est accepté")
+	check(stubborn.moves == before, "il garde ses quatre attaques")
+	check(not events_of(engine.take_events(), &"move_declined").is_empty(), "le refus est annoncé")
+	# Dernier adversaire K.O. : le choix se fait après la fin du combat.
+	setup = _full_charmander()
+	var last: PokemonInstance = setup[0]
+	engine = battle([last], [mon(BULBASAUR, 2, [GROWL])])
+	engine.sides[1].team[0].hp = 1
+	engine.submit_action(move_action(0))
+	check_eq(engine.outcome, BattleEngine.Outcome.WIN, "victoire")
+	check(engine.has_move_offers() and not engine.needs_move_choice(0), "attaque gardée pour après le combat")
+	check(engine.open_move_offers() and engine.needs_move_choice(0), "proposée après le combat")
+	check_eq(engine.submit_move_choice(0, 0), "", "choix accepté après le combat")
+	check(last.moves[0] == setup[1] and not engine.has_move_offers(), "apprise, plus rien en attente")
+	# Combat annulé : rien n'est proposé.
+	setup = _full_charmander()
+	engine = battle([setup[0]], [mon(BULBASAUR, 2, [GROWL]), mon(BULBASAUR, 2, [GROWL])])
+	engine.sides[1].team[0].hp = 1
+	engine.submit_action(move_action(0))
+	engine.cancel()
+	check(not engine.has_move_offers() and not engine.needs_move_choice(0), "annulé : plus de choix en attente")
+
+
+func _test_happiness() -> void:
+	var p := mon(CHARMANDER, 10)
+	check_eq(p.happiness, PokemonInstance.BASE_HAPPINESS, "bonheur de départ")
+	p.gain_experience(p.next_level_experience() - p.experience)
+	check_eq(p.happiness, PokemonInstance.BASE_HAPPINESS + 5, "monter de niveau rend plus heureux")
+	p.happiness = 250
+	p.gain_experience(p.next_level_experience() - p.experience)
+	check_eq(p.happiness, 252, "+2 seulement quand il est déjà très heureux")
+	p.change_happiness(100)
+	check_eq(p.happiness, PokemonInstance.MAX_HAPPINESS, "plafond")
+	p.change_happiness(-1000)
+	check_eq(p.happiness, 0, "plancher")
+	p.happiness = 123
+	check_eq(PokemonInstance.from_dict(p.to_dict()).happiness, 123, "le bonheur est sauvegardé")
+	var old := p.to_dict()
+	old.erase("happiness")
+	check_eq(PokemonInstance.from_dict(old).happiness, PokemonInstance.BASE_HAPPINESS, "ancienne sauvegarde : bonheur de départ")
+	# Un K.O. en combat le rend moins heureux.
+	var weak := mon(CHARMANDER, 5, [SCRATCH])
+	weak.happiness = 100
+	var engine := battle([weak, mon(CHARMANDER, 5, [SCRATCH])], [mon(BULBASAUR, 5, [GROWL])])
+	engine.damage(engine.sides[0].active(), 999, &"move")
+	engine._announce_faints()
+	check_eq(weak.happiness, 99, "K.O. : -1")
+
+
+func _test_other_evolutions() -> void:
+	var pichu := mon(PokemonSpecies.find(&"pichu"), 10)
+	pichu.happiness = PokemonInstance.EVOLUTION_HAPPINESS - 1
+	check(pichu.ready_evolution() == null, "Pichu pas assez heureux n'évolue pas")
+	pichu.happiness = PokemonInstance.EVOLUTION_HAPPINESS
+	var pika := pichu.ready_evolution()
+	check(pika != null and pika.id == &"pikachu", "Pichu heureux évolue en Pikachu")
+	var eevee := mon(PokemonSpecies.find(&"eevee"), 10)
+	eevee.happiness = 159
+	check(eevee.ready_evolution(12) == null, "Évoli pas assez heureux (160 demandé)")
+	eevee.happiness = 160
+	var by_day := eevee.ready_evolution(12)
+	var by_night := eevee.ready_evolution(22)
+	check(by_day != null and by_day.id == &"espeon", "Évoli heureux, le jour : Mentali")
+	check(by_night != null and by_night.id == &"umbreon", "Évoli heureux, la nuit : Noctali")
+	var flareon := eevee.item_evolution(&"fire-stone")
+	check(flareon != null and flareon.id == &"flareon", "Pierre Feu : Évoli devient Pyroli")
+	check(eevee.item_evolution(&"moon-stone") == null, "Pierre Lune : rien")
+	check(mon(CHARMANDER, 10).item_evolution(&"fire-stone") == null, "Salamèche n'évolue pas par pierre")
+	var kadabra := mon(PokemonSpecies.find(&"kadabra"), 20)
+	var alakazam := kadabra.trade_evolution()
+	check(alakazam != null and alakazam.id == &"alakazam", "Kadabra évolue en Alakazam par échange")
+	check(mon(BULBASAUR, 10).trade_evolution() == null, "Bulbizarre n'évolue pas par échange")
+	# Objets du sac : pierres et Fil de liaison.
+	var fire_stone: EvolutionItem = load("res://data/items/fire_stone.tres")
+	var cord: EvolutionItem = load("res://data/items/linking_cord.tres")
+	check(fire_stone.can_use_on_pokemon(mon(CHARMANDER, 10)) != "", "Pierre Feu refusée sur Salamèche")
+	check_eq(fire_stone.can_use_on_pokemon(eevee), "", "Pierre Feu acceptée sur Évoli")
+	var message := fire_stone.use_on_pokemon(eevee)
+	check(eevee.species.id == &"flareon" and message.contains("Pyroli"), "Évoli devient Pyroli")
+	check(cord.can_use_on_pokemon(eevee) != "", "Fil de liaison refusé sur Pyroli")
+	check_eq(cord.can_use_on_pokemon(kadabra), "", "Fil de liaison accepté sur Kadabra")
+	cord.use_on_pokemon(kadabra)
+	check_eq(kadabra.species.id, &"alakazam", "Kadabra devient Alakazam")
+	# Toutes les pierres des données existent dans le sac.
+	for item_id in [&"fire-stone", &"water-stone", &"thunder-stone", &"leaf-stone", &"moon-stone", &"sun-stone",
+			&"shiny-stone", &"dusk-stone", &"dawn-stone"]:
+		var path := "res://data/items/%s.tres" % String(item_id).replace("-", "_")
+		var stone := load(path) as EvolutionItem if ResourceLoader.exists(path) else null
+		check(stone != null and stone.id == item_id, "objet %s présent" % item_id)
 
 
 func _test_capture() -> void:

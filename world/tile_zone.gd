@@ -165,16 +165,17 @@ func _standing_sprite(region: Rect2) -> MeshInstance3D:
 	return standing_sprite(region)
 
 
-## Sprite debout découpé dans le tileset (voir _standing_sprite) ; aussi utilisé par les
-## zones générées (ExpeditionZone).
-static func standing_sprite(region: Rect2) -> MeshInstance3D:
+## Sprite debout découpé dans le tileset, ou dans `sheet` (voir _standing_sprite) ; aussi
+## utilisé par les zones générées (ExpeditionZone).
+static func standing_sprite(region: Rect2, sheet: Texture2D = null) -> MeshInstance3D:
+	var texture := sheet if sheet != null else TILESHEET
 	var quad := QuadMesh.new()
 	quad.size = region.size
 	quad.center_offset = Vector3(0.0, region.size.y / 2.0, 0.0)
 	var mat := ShaderMaterial.new()
 	mat.shader = PIXEL_SPRITE_SHADER
-	mat.set_shader_parameter("sheet", TILESHEET)
-	var sheet_size := Vector2(TILESHEET.get_size())
+	mat.set_shader_parameter("sheet", texture)
+	var sheet_size := Vector2(texture.get_size())
 	mat.set_shader_parameter("region", Vector4(region.position.x / sheet_size.x, region.position.y / sheet_size.y,
 		region.size.x / sheet_size.x, region.size.y / sheet_size.y))
 	mat.set_shader_parameter("perspective_scale", true)

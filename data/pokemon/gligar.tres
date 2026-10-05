@@ -96,6 +96,7 @@ move = ExtResource("m14")
 script = ExtResource("evolution")
 species_id = &"gliscor"
 method = 4
+time_of_day = &"night"
 
 [resource]
 script = ExtResource("species")

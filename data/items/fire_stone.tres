@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EvolutionItem" format=3]
+
+[ext_resource type="Script" path="res://battle/data/evolution_item.gd" id="1_evo"]
+[ext_resource type="Texture2D" path="res://assets/DS _ DSi - Pokemon Black 2 _ White 2 - Miscellaneous - Items.png" id="icon_sheet"]
+
+[resource]
+script = ExtResource("1_evo")
+replaces_trade = false
+id = &"fire-stone"
+name = "Pierre Feu"
+price = 2100
+description = "Une pierre chaude au cœur orangé. Fait évoluer certains Pokémon."
+icon_sheet = ExtResource("icon_sheet")
+icon_region = Rect2i(256, 128, 32, 32)

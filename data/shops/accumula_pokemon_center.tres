@@ -8,8 +8,18 @@
 [ext_resource type="Resource" path="res://data/items/super_potion.tres" id="6"]
 [ext_resource type="Resource" path="res://data/items/antidote.tres" id="7"]
 [ext_resource type="Resource" path="res://data/items/anti_para.tres" id="8"]
+[ext_resource type="Resource" path="res://data/items/fire_stone.tres" id="9"]
+[ext_resource type="Resource" path="res://data/items/water_stone.tres" id="10"]
+[ext_resource type="Resource" path="res://data/items/thunder_stone.tres" id="11"]
+[ext_resource type="Resource" path="res://data/items/leaf_stone.tres" id="12"]
+[ext_resource type="Resource" path="res://data/items/moon_stone.tres" id="13"]
+[ext_resource type="Resource" path="res://data/items/sun_stone.tres" id="14"]
+[ext_resource type="Resource" path="res://data/items/shiny_stone.tres" id="15"]
+[ext_resource type="Resource" path="res://data/items/dusk_stone.tres" id="16"]
+[ext_resource type="Resource" path="res://data/items/dawn_stone.tres" id="17"]
+[ext_resource type="Resource" path="res://data/items/linking_cord.tres" id="18"]
 
 [resource]
 script = ExtResource("1_shop")
 name = "Boutique du Centre Pokémon"
-items = Array[ExtResource("2_item")]([ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8")])
+items = Array[ExtResource("2_item")]([ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18")])
