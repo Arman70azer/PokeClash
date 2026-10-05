@@ -1,0 +1,114 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/metal_claw.tres" id="m232"]
+[ext_resource type="Resource" path="res://data/moves/peck.tres" id="m64"]
+[ext_resource type="Resource" path="res://data/moves/bubble_beam.tres" id="m61"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/fury_attack.tres" id="m31"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/whirlpool.tres" id="m250"]
+[ext_resource type="Resource" path="res://data/moves/mist.tres" id="m54"]
+[ext_resource type="Resource" path="res://data/moves/drill_peck.tres" id="m65"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/abilities/torrent.tres" id="a67"]
+[ext_resource type="Resource" path="res://data/abilities/competitive.tres" id="a172"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m232")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m64")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m61")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m31")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m250")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m54")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m65")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"empoleon"
+min_level = 36
+
+[resource]
+script = ExtResource("species")
+id = &"prinplup"
+dex_number = 394
+name = "Prinplouf"
+types = Array[int]([2])
+base_hp = 64
+base_attack = 66
+base_defense = 68
+base_sp_attack = 81
+base_sp_defense = 76
+base_speed = 50
+description = "C'est un Pokémon solitaire. Un seul coup de ses puissantes ailes peut briser un arbre en deux."
+abilities = Array[ExtResource("ability")]([ExtResource("a67")])
+hidden_ability = ExtResource("a172")
+evolves_from = &"piplup"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 2, 0, 0)
+base_experience = 142
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(123, 664, 32, 32)

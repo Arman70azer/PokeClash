@@ -1,0 +1,127 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/bind.tres" id="m20"]
+[ext_resource type="Resource" path="res://data/moves/withdraw.tres" id="m110"]
+[ext_resource type="Resource" path="res://data/moves/rollout.tres" id="m205"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/mud_shot.tres" id="m341"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/rock_blast.tres" id="m350"]
+[ext_resource type="Resource" path="res://data/moves/surf.tres" id="m57"]
+[ext_resource type="Resource" path="res://data/moves/shell_smash.tres" id="m504"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/shell_armor.tres" id="a75"]
+[ext_resource type="Resource" path="res://data/abilities/weak_armor.tres" id="a133"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m20")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m110")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m205")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m341")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m350")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m57")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m504")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"omastar"
+min_level = 40
+
+[resource]
+script = ExtResource("species")
+id = &"omanyte"
+dex_number = 138
+name = "Amonita"
+types = Array[int]([12, 2])
+base_hp = 35
+base_attack = 40
+base_defense = 100
+base_sp_attack = 90
+base_sp_defense = 55
+base_speed = 35
+description = "Un Pokémon préhistorique aujourd'hui disparu. Il semble flotter lorsqu'il nage en brassant l'eau avec ses dix tentacules."
+abilities = Array[ExtResource("ability")]([ExtResource("a33"), ExtResource("a75")])
+hidden_ability = ExtResource("a133")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 1, 0, 0, 0)
+base_experience = 71
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(2917, 2959, 80, 80)
+back_region = Rect2i(3079, 2959, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(275, 284, 32, 32)

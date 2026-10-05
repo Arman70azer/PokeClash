@@ -1,0 +1,135 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/block.tres" id="m335"]
+[ext_resource type="Resource" path="res://data/moves/rock_throw.tres" id="m88"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/spark.tres" id="m209"]
+[ext_resource type="Resource" path="res://data/moves/rock_slide.tres" id="m157"]
+[ext_resource type="Resource" path="res://data/moves/power_gem.tres" id="m408"]
+[ext_resource type="Resource" path="res://data/moves/rock_blast.tres" id="m350"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/sandstorm.tres" id="m201"]
+[ext_resource type="Resource" path="res://data/moves/earth_power.tres" id="m414"]
+[ext_resource type="Resource" path="res://data/moves/stone_edge.tres" id="m444"]
+[ext_resource type="Resource" path="res://data/moves/zap_cannon.tres" id="m192"]
+[ext_resource type="Resource" path="res://data/moves/lock_on.tres" id="m199"]
+[ext_resource type="Resource" path="res://data/abilities/sturdy.tres" id="a5"]
+[ext_resource type="Resource" path="res://data/abilities/magnet_pull.tres" id="a42"]
+[ext_resource type="Resource" path="res://data/abilities/sand_force.tres" id="a159"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m335")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m88")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m209")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m157")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m408")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m350")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m201")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m414")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m444")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m192")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m199")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"probopass"
+method = 4
+
+[resource]
+script = ExtResource("species")
+id = &"nosepass"
+dex_number = 299
+name = "Tarinor"
+types = Array[int]([12])
+base_hp = 30
+base_attack = 45
+base_defense = 135
+base_sp_attack = 45
+base_sp_defense = 90
+base_speed = 30
+description = "Grâce à sa force magnétique, il peut chasser ses proies sans se déplacer, mais il attire parfois ses pires ennemis."
+abilities = Array[ExtResource("ability")]([ExtResource("a5"), ExtResource("a42")])
+hidden_ability = ExtResource("a159")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 1, 0, 0, 0)
+base_experience = 75
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(465, 512, 32, 32)

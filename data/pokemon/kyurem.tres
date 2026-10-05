@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/dragon_breath.tres" id="m225"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/noble_roar.tres" id="m568"]
+[ext_resource type="Resource" path="res://data/moves/freeze_dry.tres" id="m573"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/endeavor.tres" id="m283"]
+[ext_resource type="Resource" path="res://data/moves/dragon_pulse.tres" id="m406"]
+[ext_resource type="Resource" path="res://data/moves/ice_beam.tres" id="m58"]
+[ext_resource type="Resource" path="res://data/moves/hyper_voice.tres" id="m304"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/blizzard.tres" id="m59"]
+[ext_resource type="Resource" path="res://data/moves/imprison.tres" id="m286"]
+[ext_resource type="Resource" path="res://data/moves/outrage.tres" id="m200"]
+[ext_resource type="Resource" path="res://data/moves/glaciate.tres" id="m549"]
+[ext_resource type="Resource" path="res://data/moves/sheer_cold.tres" id="m329"]
+[ext_resource type="Resource" path="res://data/abilities/pressure.tres" id="a46"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m225")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m568")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m573")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m283")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m406")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m58")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m304")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m59")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m286")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m200")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 80
+move = ExtResource("m549")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 88
+move = ExtResource("m329")
+
+[resource]
+script = ExtResource("species")
+id = &"kyurem"
+dex_number = 646
+name = "Kyurem"
+types = Array[int]([14, 5])
+base_hp = 125
+base_attack = 130
+base_defense = 90
+base_sp_attack = 130
+base_sp_defense = 90
+base_speed = 95
+description = "Il se serait congelé lui-même avec son souffle glacé pour stabiliser sa structure cellulaire."
+abilities = Array[ExtResource("ability")]([ExtResource("a46")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(1, 1, 0, 1, 0, 0)
+base_experience = 297
+catch_rate = 3
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(807, 1006, 32, 32)

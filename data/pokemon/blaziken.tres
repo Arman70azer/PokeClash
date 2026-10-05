@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/double_kick.tres" id="m24"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/blaze_kick.tres" id="m299"]
+[ext_resource type="Resource" path="res://data/moves/flame_charge.tres" id="m488"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/aerial_ace.tres" id="m332"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/bounce.tres" id="m340"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/bulk_up.tres" id="m339"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/moves/flare_blitz.tres" id="m394"]
+[ext_resource type="Resource" path="res://data/moves/brave_bird.tres" id="m413"]
+[ext_resource type="Resource" path="res://data/abilities/blaze.tres" id="a66"]
+[ext_resource type="Resource" path="res://data/abilities/speed_boost.tres" id="a3"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m24")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m299")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m488")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m332")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m340")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m339")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m394")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 63
+move = ExtResource("m413")
+
+[resource]
+script = ExtResource("species")
+id = &"blaziken"
+dex_number = 257
+name = "Braségali"
+types = Array[int]([1, 6])
+base_hp = 80
+base_attack = 120
+base_defense = 70
+base_sp_attack = 110
+base_sp_defense = 70
+base_speed = 80
+description = "Braségali a des jambes incroyablement puissantes. Il peut sauter par-dessus un immeuble de trente étages. Les coups de poing enflammés de ce Pokémon peuvent carboniser ses ennemis."
+abilities = Array[ExtResource("ability")]([ExtResource("a66")])
+hidden_ability = ExtResource("a3")
+evolves_from = &"combusken"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 3, 0, 0, 0, 0)
+base_experience = 239
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(845, 436, 32, 32)

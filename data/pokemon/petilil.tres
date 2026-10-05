@@ -1,0 +1,135 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/stun_spore.tres" id="m78"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/magical_leaf.tres" id="m345"]
+[ext_resource type="Resource" path="res://data/moves/sleep_powder.tres" id="m79"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/leech_seed.tres" id="m73"]
+[ext_resource type="Resource" path="res://data/moves/after_you.tres" id="m495"]
+[ext_resource type="Resource" path="res://data/moves/energy_ball.tres" id="m412"]
+[ext_resource type="Resource" path="res://data/moves/synthesis.tres" id="m235"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/entrainment.tres" id="m494"]
+[ext_resource type="Resource" path="res://data/moves/leaf_storm.tres" id="m437"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/own_tempo.tres" id="a20"]
+[ext_resource type="Resource" path="res://data/abilities/leaf_guard.tres" id="a102"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 3
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m78")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m345")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m79")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m73")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m495")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m412")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m235")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m494")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m437")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"lilligant"
+method = 1
+item = &"sun-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"petilil"
+dex_number = 548
+name = "Chlorobule"
+types = Array[int]([4])
+base_hp = 45
+base_attack = 35
+base_defense = 50
+base_sp_attack = 70
+base_sp_defense = 50
+base_speed = 30
+description = "Plus ses feuilles sont foncées, plus il est en bonne santé. Il s'installe parfois dans les champs ou les parterres de fleurs bien entretenus."
+abilities = Array[ExtResource("ability")]([ExtResource("a34"), ExtResource("a20")])
+hidden_ability = ExtResource("a102")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 1, 0, 0)
+base_experience = 56
+catch_rate = 190
+female_ratio = 100
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(47, 892, 32, 32)

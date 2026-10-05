@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"dragon_claw"
+name = "Draco-Griffe"
+type = 14
+category = 0
+power = 80
+accuracy = 100
+pp = 15
+priority = 0
+description = "Le lanceur lacère l'ennemi de ses grandes griffes aiguisées."

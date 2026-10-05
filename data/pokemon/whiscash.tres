@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/thrash.tres" id="m37"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/snore.tres" id="m173"]
+[ext_resource type="Resource" path="res://data/moves/mud_slap.tres" id="m189"]
+[ext_resource type="Resource" path="res://data/moves/tickle.tres" id="m321"]
+[ext_resource type="Resource" path="res://data/moves/zen_headbutt.tres" id="m428"]
+[ext_resource type="Resource" path="res://data/moves/belch.tres" id="m562"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/muddy_water.tres" id="m330"]
+[ext_resource type="Resource" path="res://data/moves/earthquake.tres" id="m89"]
+[ext_resource type="Resource" path="res://data/moves/future_sight.tres" id="m248"]
+[ext_resource type="Resource" path="res://data/moves/fissure.tres" id="m90"]
+[ext_resource type="Resource" path="res://data/abilities/oblivious.tres" id="a12"]
+[ext_resource type="Resource" path="res://data/abilities/anticipation.tres" id="a107"]
+[ext_resource type="Resource" path="res://data/abilities/hydration.tres" id="a93"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m37")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m173")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m189")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m321")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m428")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m562")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m330")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m89")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m248")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m90")
+
+[resource]
+script = ExtResource("species")
+id = &"whiscash"
+dex_number = 340
+name = "Barbicha"
+types = Array[int]([2, 8])
+base_hp = 110
+base_attack = 78
+base_defense = 73
+base_sp_attack = 76
+base_sp_defense = 71
+base_speed = 60
+description = "Il a besoin d'un marais entier pour vivre. Si un ennemi s'approche, il s'énerve et déclenche un séisme."
+abilities = Array[ExtResource("ability")]([ExtResource("a12"), ExtResource("a107")])
+hidden_ability = ExtResource("a93")
+evolves_from = &"barboach"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 164
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(47, 588, 32, 32)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"fly"
+name = "Vol"
+type = 9
+category = 0
+power = 90
+accuracy = 95
+pp = 15
+priority = 0
+description = "Le lanceur s'envole au premier tour et frappe au second."

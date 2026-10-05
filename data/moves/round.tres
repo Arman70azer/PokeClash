@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"round"
+name = "Chant Canon"
+type = 0
+category = 1
+power = 60
+accuracy = 100
+pp = 15
+priority = 0
+description = "Le lanceur attaque l'ennemi en chantant. Si plusieurs Pokémon déclenchent cette attaque à la suite, l'effet augmente."

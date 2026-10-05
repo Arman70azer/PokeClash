@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"shadow_force"
+name = "Revenant"
+type = 13
+category = 0
+power = 120
+accuracy = 100
+pp = 5
+priority = 0
+description = "Le lanceur disparaît et frappe l'ennemi au second tour. Fonctionne même si l'ennemi se protège."

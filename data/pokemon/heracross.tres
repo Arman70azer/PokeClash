@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/arm_thrust.tres" id="m292"]
+[ext_resource type="Resource" path="res://data/moves/fury_attack.tres" id="m31"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/aerial_ace.tres" id="m332"]
+[ext_resource type="Resource" path="res://data/moves/horn_attack.tres" id="m30"]
+[ext_resource type="Resource" path="res://data/moves/counter.tres" id="m68"]
+[ext_resource type="Resource" path="res://data/moves/brick_break.tres" id="m280"]
+[ext_resource type="Resource" path="res://data/moves/pin_missile.tres" id="m42"]
+[ext_resource type="Resource" path="res://data/moves/throat_chop.tres" id="m675"]
+[ext_resource type="Resource" path="res://data/moves/thrash.tres" id="m37"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/megahorn.tres" id="m224"]
+[ext_resource type="Resource" path="res://data/moves/close_combat.tres" id="m370"]
+[ext_resource type="Resource" path="res://data/abilities/swarm.tres" id="a68"]
+[ext_resource type="Resource" path="res://data/abilities/guts.tres" id="a62"]
+[ext_resource type="Resource" path="res://data/abilities/moxie.tres" id="a153"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m292")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m31")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m332")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m30")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m68")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m280")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m42")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m675")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m37")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m224")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m370")
+
+[resource]
+script = ExtResource("species")
+id = &"heracross"
+dex_number = 214
+name = "Scarhino"
+types = Array[int]([11, 6])
+base_hp = 80
+base_attack = 125
+base_defense = 75
+base_sp_attack = 40
+base_sp_defense = 95
+base_speed = 85
+description = "Ce Pokémon est fier de sa force colossale qui lui permet de soulever cent fois son propre poids avec facilité."
+abilities = Array[ExtResource("ability")]([ExtResource("a68"), ExtResource("a62")])
+hidden_ability = ExtResource("a153")
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 175
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(199, 398, 32, 32)

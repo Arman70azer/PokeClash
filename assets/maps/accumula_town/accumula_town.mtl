@@ -1,0 +1,310 @@
+newmtl t02michi_a2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0001.png
+
+newmtl t02michi_b5
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0002.png
+
+newmtl gake_futa
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0003.png
+
+newmtl t02_kabe03
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0004.png
+
+newmtl t02michi_b4
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0005.png
+
+newmtl t02kaidan
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0006.png
+
+newmtl michi01a
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0007.png
+
+newmtl t02_ki_sita
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0008.png
+
+newmtl gake1_0
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0009.png
+
+newmtl t02_kabe01
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_00010.png
+
+newmtl t02_kabe04
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0011.png
+
+newmtl t02hibi
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0012.png
+
+newmtl ue_grass00
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0013.png
+
+newmtl gake01a
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0014.png
+
+newmtl t02michi_a
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0015.png
+
+newmtl ki02bx
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0016.png
+
+newmtl ki02c
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0017.png
+
+newmtl ki02dx
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0018.png
+
+newmtl t02kusa
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0019.png
+
+newmtl grass01ax
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0020.png
+
+newmtl nagaisu
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0021.png
+
+newmtl t02_kabe02
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0022.png
+
+newmtl kage_out
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0023.png
+
+newmtl t02michi_b
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0024.png
+
+newmtl t02michi_b3
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0025.png
+
+newmtl t02michi_b2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0026.png
+
+newmtl ki02ax
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0027.png
+
+newmtl t02_kiwa
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0028.png
+
+newmtl t2_saku01
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0029.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0030.png
+
+newmtl pc_win1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0031.png
+
+newmtl pc_kabe02
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0032.png
+
+newmtl door_pc_1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0033.png
+
+newmtl h_kage_lm1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0030.png
+
+newmtl sign02a_lm1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0035.png
+
+newmtl lambert3
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0030.png
+
+newmtl lambert4
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0037.png
+
+newmtl h_test_lm1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0037.png
+
+newmtl h_mado_lm1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0038.png
+
+newmtl h_kage_lm5
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0030.png
+
+newmtl t2_house01_lm1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0040.png
+
+newmtl t2_house01_lm2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0041.png
+
+newmtl h_mado_lm1_1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0038.png
+
+newmtl door_t1_02_lm1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0043.png
+
+newmtl h_mado_lm3
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0038.png
+
+newmtl t2_buil3_lm
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0045.png
+
+newmtl h_kage_lm4
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0030.png
+
+newmtl t2_buil2_lm2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0047.png
+
+newmtl t2_buil1_lm
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0048.png
+
+newmtl door_n_02
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0049.png
+
+newmtl h_mado_lm3_1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0038.png
+
+newmtl t2_buil3_lm_1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0045.png
+
+newmtl h_kage_lm4_1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0030.png
+
+newmtl t2_buil2_lm2_1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0047.png
+
+newmtl t2_buil1_lm_1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0048.png
+
+newmtl door_n_02_1
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0049.png
+
+newmtl h_mado_lm3_2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0038.png
+
+newmtl t2_buil3_lm_2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0045.png
+
+newmtl h_kage_lm4_2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0030.png
+
+newmtl t2_buil2_lm2_2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0047.png
+
+newmtl t2_buil1_lm_2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0048.png
+
+newmtl door_n_02_2
+Kd 1 1 1
+d 1
+map_Kd Accumula Town_texture_0049.png
+

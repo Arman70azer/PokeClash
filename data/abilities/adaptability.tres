@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"adaptability"
+name = "Adaptabilité"
+description = "Quand le Pokémon utilise une capacité du même type que lui, le bonus de puissance qu'elle reçoit est encore plus important que normalement."

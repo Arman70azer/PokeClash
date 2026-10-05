@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"triple_kick"
+name = "Triple Pied"
+type = 6
+category = 0
+power = 10
+accuracy = 90
+pp = 10
+priority = 0
+description = "Une salve de un à trois coups de pied dont la puissance augmente à chaque coup porté."

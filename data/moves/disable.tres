@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"disable"
+name = "Entrave"
+type = 0
+category = 2
+power = 0
+accuracy = 100
+pp = 20
+priority = 0
+description = "Empêche l'ennemi d'employer à nouveau sa dernière attaque. Dure quatre tours."

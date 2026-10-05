@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"techno_blast"
+name = "Techno-Buster"
+type = 0
+category = 1
+power = 120
+accuracy = 100
+pp = 5
+priority = 0
+description = "Le lanceur projette un rayon lumineux sur l'ennemi. Le type varie selon le Module que tient le lanceur."

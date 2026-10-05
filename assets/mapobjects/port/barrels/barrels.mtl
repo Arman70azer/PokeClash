@@ -1,0 +1,17 @@
+newmtl barrel_blue
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd barrel_blue.png
+
+newmtl barrel_red
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd barrel_red.png
+
+newmtl barrel_top
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd barrel_top.png

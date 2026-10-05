@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"trick_room"
+name = "Distorsion"
+type = 10
+category = 2
+power = 0
+accuracy = 0
+pp = 5
+priority = -7
+description = "Le lanceur crée une zone mystérieuse où les Pokémon les plus lents frappent en priorité pendant cinq tours."

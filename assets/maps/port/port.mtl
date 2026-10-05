@@ -1,0 +1,59 @@
+newmtl asphalt
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd asphalt.png
+
+newmtl concrete
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd concrete.png
+
+newmtl curb
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd accumula_curb.png
+
+newmtl paint_yellow
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd paint_yellow.png
+
+newmtl quay_wall
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd quay_wall.png
+
+newmtl road
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd accumula_road.png
+
+newmtl stairs
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd accumula_stairs.png
+
+newmtl wood_beam
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd wood_beam.png
+
+newmtl wood_deck
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd wood_deck.png
+
+newmtl wood_post
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd wood_post.png

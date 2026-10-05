@@ -1,0 +1,141 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/crush_claw.tres" id="m306"]
+[ext_resource type="Resource" path="res://data/moves/rollout.tres" id="m205"]
+[ext_resource type="Resource" path="res://data/moves/fury_cutter.tres" id="m210"]
+[ext_resource type="Resource" path="res://data/moves/rapid_spin.tres" id="m229"]
+[ext_resource type="Resource" path="res://data/moves/bulldoze.tres" id="m523"]
+[ext_resource type="Resource" path="res://data/moves/swift.tres" id="m129"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/sand_tomb.tres" id="m328"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/dig.tres" id="m91"]
+[ext_resource type="Resource" path="res://data/moves/gyro_ball.tres" id="m360"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/sandstorm.tres" id="m201"]
+[ext_resource type="Resource" path="res://data/moves/earthquake.tres" id="m89"]
+[ext_resource type="Resource" path="res://data/abilities/sand_veil.tres" id="a8"]
+[ext_resource type="Resource" path="res://data/abilities/sand_rush.tres" id="a146"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m306")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m205")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m210")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m229")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m523")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m129")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 26
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m328")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m91")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m360")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m201")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 61
+move = ExtResource("m89")
+
+[resource]
+script = ExtResource("species")
+id = &"sandslash"
+dex_number = 28
+name = "Sablaireau"
+types = Array[int]([8])
+base_hp = 75
+base_attack = 100
+base_defense = 110
+base_sp_attack = 45
+base_sp_defense = 55
+base_speed = 65
+description = "Il grimpe aux arbres grâce à ses griffes acérées et fait tomber des Baies pour les Sabelette qui attendent au sol."
+abilities = Array[ExtResource("ability")]([ExtResource("a8")])
+hidden_ability = ExtResource("a146")
+evolves_from = &"sandshrew"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 2, 0, 0, 0)
+base_experience = 158
+catch_rate = 90
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(973, 619, 80, 80)
+back_region = Rect2i(1135, 619, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(47, 132, 32, 32)

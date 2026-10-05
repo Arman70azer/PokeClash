@@ -1,0 +1,129 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/howl.tres" id="m336"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/roar.tres" id="m46"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/assurance.tres" id="m372"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/taunt.tres" id="m269"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/play_rough.tres" id="m583"]
+[ext_resource type="Resource" path="res://data/abilities/run_away.tres" id="a50"]
+[ext_resource type="Resource" path="res://data/abilities/quick_feet.tres" id="a95"]
+[ext_resource type="Resource" path="res://data/abilities/rattled.tres" id="a155"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m336")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m46")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m372")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m583")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"mightyena"
+min_level = 18
+
+[resource]
+script = ExtResource("species")
+id = &"poochyena"
+dex_number = 261
+name = "Medhyèna"
+types = Array[int]([15])
+base_hp = 35
+base_attack = 55
+base_defense = 35
+base_sp_attack = 30
+base_sp_defense = 30
+base_speed = 35
+description = "Medhyèna est omnivore. Il mange de tout. Ses crocs sont très gros, comparés à son corps. Ce Pokémon essaie d'intimider ses ennemis en hérissant les poils de sa queue."
+abilities = Array[ExtResource("ability")]([ExtResource("a50"), ExtResource("a95")])
+hidden_ability = ExtResource("a155")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 56
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(9, 474, 32, 32)

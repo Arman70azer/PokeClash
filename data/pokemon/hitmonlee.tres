@@ -1,0 +1,141 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/brick_break.tres" id="m280"]
+[ext_resource type="Resource" path="res://data/moves/low_sweep.tres" id="m490"]
+[ext_resource type="Resource" path="res://data/moves/double_kick.tres" id="m24"]
+[ext_resource type="Resource" path="res://data/moves/low_kick.tres" id="m67"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/wide_guard.tres" id="m469"]
+[ext_resource type="Resource" path="res://data/moves/blaze_kick.tres" id="m299"]
+[ext_resource type="Resource" path="res://data/moves/feint.tres" id="m364"]
+[ext_resource type="Resource" path="res://data/moves/mega_kick.tres" id="m25"]
+[ext_resource type="Resource" path="res://data/moves/close_combat.tres" id="m370"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/moves/high_jump_kick.tres" id="m136"]
+[ext_resource type="Resource" path="res://data/moves/axe_kick.tres" id="m853"]
+[ext_resource type="Resource" path="res://data/abilities/limber.tres" id="a7"]
+[ext_resource type="Resource" path="res://data/abilities/reckless.tres" id="a120"]
+[ext_resource type="Resource" path="res://data/abilities/unburden.tres" id="a84"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m252")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m280")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m490")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m24")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m67")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m469")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m299")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m364")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m25")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m370")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m136")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m853")
+
+[resource]
+script = ExtResource("species")
+id = &"hitmonlee"
+dex_number = 106
+name = "Kicklee"
+types = Array[int]([6])
+base_hp = 50
+base_attack = 120
+base_defense = 53
+base_sp_attack = 35
+base_sp_defense = 110
+base_speed = 87
+description = "Kicklee peut rétracter et étendre ses jambes à sa guise. La formidable allonge dont il dispose lui permet de frapper des adversaires éloignés."
+abilities = Array[ExtResource("ability")]([ExtResource("a7"), ExtResource("a120")])
+hidden_ability = ExtResource("a84")
+evolves_from = &"tyrogue"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 159
+catch_rate = 45
+female_ratio = 0
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1, 2374, 80, 80)
+back_region = Rect2i(163, 2374, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(47, 246, 32, 32)

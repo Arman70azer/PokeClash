@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"download"
+name = "Télécharge"
+description = "Le Pokémon compare la Défense et la Défense Spéciale\\nde l'adversaire et, en fonction de la stat la plus basse,\\nil augmente sa propre Attaque ou Attaque Spéciale."

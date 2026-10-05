@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="1_vadxp"]
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="2_eqfj4"]
+
+[resource]
+script = ExtResource("2_eqfj4")
+id = &"tackle"
+name = "Charge"
+power = 50
+makes_contact = true
+animation = &"tackle"
+description = "Le lanceur charge l'ennemi et le percute de tout son poids."

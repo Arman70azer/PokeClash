@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/moves/surf.tres" id="m57"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/psychic.tres" id="m94"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/minimize.tres" id="m107"]
+[ext_resource type="Resource" path="res://data/moves/confuse_ray.tres" id="m109"]
+[ext_resource type="Resource" path="res://data/moves/light_screen.tres" id="m113"]
+[ext_resource type="Resource" path="res://data/moves/swift.tres" id="m129"]
+[ext_resource type="Resource" path="res://data/moves/rapid_spin.tres" id="m229"]
+[ext_resource type="Resource" path="res://data/moves/cosmic_power.tres" id="m322"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/power_gem.tres" id="m408"]
+[ext_resource type="Resource" path="res://data/abilities/illuminate.tres" id="a35"]
+[ext_resource type="Resource" path="res://data/abilities/natural_cure.tres" id="a30"]
+[ext_resource type="Resource" path="res://data/abilities/analytic.tres" id="a148"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m57")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m94")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m107")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m109")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m113")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+move = ExtResource("m129")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+move = ExtResource("m229")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+move = ExtResource("m322")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+move = ExtResource("m408")
+
+[resource]
+script = ExtResource("species")
+id = &"starmie"
+dex_number = 121
+name = "Staross"
+types = Array[int]([2, 10])
+base_hp = 60
+base_attack = 75
+base_defense = 85
+base_sp_attack = 100
+base_sp_defense = 85
+base_speed = 115
+description = "Il aspire du plancton quand il nage dans la mer en faisant tourner son corps à grande vitesse."
+abilities = Array[ExtResource("ability")]([ExtResource("a35"), ExtResource("a30")])
+hidden_ability = ExtResource("a148")
+evolves_from = &"staryu"
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 182
+catch_rate = 60
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(2917, 2569, 80, 80)
+back_region = Rect2i(3079, 2569, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(617, 246, 32, 32)

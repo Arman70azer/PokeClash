@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/vine_whip.tres" id="m22"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/sleep_powder.tres" id="m79"]
+[ext_resource type="Resource" path="res://data/moves/sweet_scent.tres" id="m230"]
+[ext_resource type="Resource" path="res://data/moves/leaf_storm.tres" id="m437"]
+[ext_resource type="Resource" path="res://data/moves/leaf_blade.tres" id="m348"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/gluttony.tres" id="a82"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m22")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m79")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m230")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m437")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m348")
+
+[resource]
+script = ExtResource("species")
+id = &"victreebel"
+dex_number = 71
+name = "Empiflor"
+types = Array[int]([4, 7])
+base_hp = 80
+base_attack = 105
+base_defense = 65
+base_sp_attack = 100
+base_sp_defense = 70
+base_speed = 70
+description = "Il attire ses proies avec une odeur de miel et les avale tout entières. Il les digère en un jour seulement, les os y compris."
+abilities = Array[ExtResource("ability")]([ExtResource("a34")])
+hidden_ability = ExtResource("a82")
+evolves_from = &"weepinbell"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 3, 0, 0, 0, 0)
+base_experience = 221
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(649, 1594, 80, 80)
+back_region = Rect2i(811, 1594, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(693, 170, 32, 32)

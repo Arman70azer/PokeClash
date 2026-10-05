@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"rattled"
+name = "Phobique"
+description = "Si le Pokémon est touché par le talent Intimidation ou\\nune attaque de type Ténèbres, Spectre ou Insecte,\\nsa phobie se révèle et sa Vitesse augmente."

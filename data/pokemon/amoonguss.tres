@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/stun_spore.tres" id="m78"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/synthesis.tres" id="m235"]
+[ext_resource type="Resource" path="res://data/moves/clear_smog.tres" id="m499"]
+[ext_resource type="Resource" path="res://data/moves/sweet_scent.tres" id="m230"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/ingrain.tres" id="m275"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/rage_powder.tres" id="m476"]
+[ext_resource type="Resource" path="res://data/moves/solar_beam.tres" id="m76"]
+[ext_resource type="Resource" path="res://data/moves/spore.tres" id="m147"]
+[ext_resource type="Resource" path="res://data/abilities/effect_spore.tres" id="a27"]
+[ext_resource type="Resource" path="res://data/abilities/regenerator.tres" id="a144"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m78")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m235")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m499")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m230")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m275")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m476")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m76")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m147")
+
+[resource]
+script = ExtResource("species")
+id = &"amoonguss"
+dex_number = 591
+name = "Gaulet"
+types = Array[int]([4, 7])
+base_hp = 114
+base_attack = 85
+base_defense = 70
+base_sp_attack = 85
+base_sp_defense = 80
+base_speed = 30
+description = "Ce Pokémon a tendance à très peu se déplacer. Quand il voit une Poké Ball abandonnée au sol, il reste immobile à côté."
+abilities = Array[ExtResource("ability")]([ExtResource("a27")])
+hidden_ability = ExtResource("a144")
+evolves_from = &"foongus"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 162
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(693, 930, 32, 32)

@@ -1,0 +1,147 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/sweet_kiss.tres" id="m186"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/covet.tres" id="m343"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/disarming_voice.tres" id="m574"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/echoed_voice.tres" id="m497"]
+[ext_resource type="Resource" path="res://data/moves/life_dew.tres" id="m791"]
+[ext_resource type="Resource" path="res://data/moves/sing.tres" id="m47"]
+[ext_resource type="Resource" path="res://data/moves/fling.tres" id="m374"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/heal_pulse.tres" id="m505"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/light_screen.tres" id="m113"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/soft_boiled.tres" id="m135"]
+[ext_resource type="Resource" path="res://data/moves/last_resort.tres" id="m387"]
+[ext_resource type="Resource" path="res://data/moves/healing_wish.tres" id="m361"]
+[ext_resource type="Resource" path="res://data/abilities/natural_cure.tres" id="a30"]
+[ext_resource type="Resource" path="res://data/abilities/serene_grace.tres" id="a32"]
+[ext_resource type="Resource" path="res://data/abilities/healer.tres" id="a131"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m186")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m343")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m574")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m497")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m791")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m47")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m374")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m505")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m113")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m135")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m387")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m361")
+
+[resource]
+script = ExtResource("species")
+id = &"blissey"
+dex_number = 242
+name = "Leuphorie"
+types = Array[int]([0])
+base_hp = 255
+base_attack = 10
+base_defense = 10
+base_sp_attack = 75
+base_sp_defense = 135
+base_speed = 55
+description = "Il pond d'étranges œufs remplis de bonheur. On raconte que quiconque en mange un devient aimable envers tout le monde."
+abilities = Array[ExtResource("ability")]([ExtResource("a30"), ExtResource("a32")])
+hidden_ability = ExtResource("a131")
+evolves_from = &"chansey"
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(3, 0, 0, 0, 0, 0)
+base_experience = 608
+catch_rate = 30
+female_ratio = 100
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(275, 436, 32, 32)

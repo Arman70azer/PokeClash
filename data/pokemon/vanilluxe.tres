@@ -1,0 +1,129 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/mist.tres" id="m54"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/taunt.tres" id="m269"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/weather_ball.tres" id="m311"]
+[ext_resource type="Resource" path="res://data/moves/icicle_crash.tres" id="m556"]
+[ext_resource type="Resource" path="res://data/moves/freeze_dry.tres" id="m573"]
+[ext_resource type="Resource" path="res://data/moves/icy_wind.tres" id="m196"]
+[ext_resource type="Resource" path="res://data/moves/avalanche.tres" id="m419"]
+[ext_resource type="Resource" path="res://data/moves/hail.tres" id="m258"]
+[ext_resource type="Resource" path="res://data/moves/icicle_spear.tres" id="m333"]
+[ext_resource type="Resource" path="res://data/moves/uproar.tres" id="m253"]
+[ext_resource type="Resource" path="res://data/moves/acid_armor.tres" id="m151"]
+[ext_resource type="Resource" path="res://data/moves/mirror_coat.tres" id="m243"]
+[ext_resource type="Resource" path="res://data/moves/ice_beam.tres" id="m58"]
+[ext_resource type="Resource" path="res://data/moves/blizzard.tres" id="m59"]
+[ext_resource type="Resource" path="res://data/moves/sheer_cold.tres" id="m329"]
+[ext_resource type="Resource" path="res://data/abilities/ice_body.tres" id="a115"]
+[ext_resource type="Resource" path="res://data/abilities/snow_warning.tres" id="a117"]
+[ext_resource type="Resource" path="res://data/abilities/weak_armor.tres" id="a133"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m54")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m311")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m556")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m573")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m196")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m419")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m258")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m333")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m253")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m151")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 38
+move = ExtResource("m243")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m58")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m59")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m329")
+
+[resource]
+script = ExtResource("species")
+id = &"vanilluxe"
+dex_number = 584
+name = "Sorbouboul"
+types = Array[int]([5])
+base_hp = 71
+base_attack = 95
+base_defense = 85
+base_sp_attack = 110
+base_sp_defense = 95
+base_speed = 79
+description = "La température de son corps est d'environ - 6 °C. On raconte que ce Pokémon naît lorsque deux Sorboul se collent l'un à l'autre."
+abilities = Array[ExtResource("ability")]([ExtResource("a115"), ExtResource("a117")])
+hidden_ability = ExtResource("a133")
+evolves_from = &"vanillish"
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 3, 0, 0)
+base_experience = 241
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(427, 930, 32, 32)

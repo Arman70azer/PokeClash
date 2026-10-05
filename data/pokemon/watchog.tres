@@ -1,0 +1,158 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/low_kick.tres" id="m67"]
+[ext_resource type="Resource" path="res://data/moves/confuse_ray.tres" id="m109"]
+[ext_resource type="Resource" path="res://data/moves/rototiller.tres" id="m563"]
+[ext_resource type="Resource" path="res://data/moves/bide.tres" id="m117"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/hypnosis.tres" id="m95"]
+[ext_resource type="Resource" path="res://data/moves/super_fang.tres" id="m162"]
+[ext_resource type="Resource" path="res://data/moves/after_you.tres" id="m495"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/psych_up.tres" id="m244"]
+[ext_resource type="Resource" path="res://data/moves/hyper_fang.tres" id="m158"]
+[ext_resource type="Resource" path="res://data/moves/nasty_plot.tres" id="m417"]
+[ext_resource type="Resource" path="res://data/moves/mean_look.tres" id="m212"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/slam.tres" id="m21"]
+[ext_resource type="Resource" path="res://data/abilities/illuminate.tres" id="a35"]
+[ext_resource type="Resource" path="res://data/abilities/keen_eye.tres" id="a51"]
+[ext_resource type="Resource" path="res://data/abilities/analytic.tres" id="a148"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m67")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m109")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m563")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 3
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m117")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 11
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m95")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m162")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m495")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m244")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m158")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m417")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m212")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l21"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m21")
+
+[resource]
+script = ExtResource("species")
+id = &"watchog"
+dex_number = 505
+name = "Miradar"
+types = Array[int]([0])
+base_hp = 60
+base_attack = 85
+base_defense = 69
+base_sp_attack = 60
+base_sp_defense = 69
+base_speed = 77
+description = "Il attaque en crachant les graines des Baies qu'il accumule dans ses bajoues. S'il voit un ennemi, il dresse la queue."
+abilities = Array[ExtResource("ability")]([ExtResource("a35"), ExtResource("a51")])
+hidden_ability = ExtResource("a148")
+evolves_from = &"patrat"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 147
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20"), SubResource("l21")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(389, 816, 32, 32)

@@ -1,0 +1,107 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/powder_snow.tres" id="m181"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/rain_dance.tres" id="m240"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/hail.tres" id="m258"]
+[ext_resource type="Resource" path="res://data/moves/weather_ball.tres" id="m311"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/moves/blizzard.tres" id="m59"]
+[ext_resource type="Resource" path="res://data/moves/fire_blast.tres" id="m126"]
+[ext_resource type="Resource" path="res://data/moves/hurricane.tres" id="m542"]
+[ext_resource type="Resource" path="res://data/abilities/forecast.tres" id="a59"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m181")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m240")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m258")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m311")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m59")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m126")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m542")
+
+[resource]
+script = ExtResource("species")
+id = &"castform"
+dex_number = 351
+name = "Morphéo"
+types = Array[int]([0])
+base_hp = 70
+base_attack = 70
+base_defense = 70
+base_sp_attack = 70
+base_sp_defense = 70
+base_speed = 70
+description = "Il n'y a pas que son apparence qui change en fonction de la météo : son tempérament aussi ! Plus il y a de vent, plus il se montre agressif."
+abilities = Array[ExtResource("ability")]([ExtResource("a59")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 147
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(465, 588, 32, 32)

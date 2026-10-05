@@ -1,0 +1,140 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/arm_thrust.tres" id="m292"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/moves/force_palm.tres" id="m395"]
+[ext_resource type="Resource" path="res://data/moves/whirlwind.tres" id="m18"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/bulk_up.tres" id="m339"]
+[ext_resource type="Resource" path="res://data/moves/belly_drum.tres" id="m187"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/seismic_toss.tres" id="m69"]
+[ext_resource type="Resource" path="res://data/moves/focus_punch.tres" id="m264"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/close_combat.tres" id="m370"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/moves/heavy_slam.tres" id="m484"]
+[ext_resource type="Resource" path="res://data/abilities/thick_fat.tres" id="a47"]
+[ext_resource type="Resource" path="res://data/abilities/guts.tres" id="a62"]
+[ext_resource type="Resource" path="res://data/abilities/sheer_force.tres" id="a125"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m292")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m252")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m395")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m18")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m339")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m187")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m69")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m264")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m370")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m484")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"hariyama"
+min_level = 24
+
+[resource]
+script = ExtResource("species")
+id = &"makuhita"
+dex_number = 296
+name = "Makuhita"
+types = Array[int]([6])
+base_hp = 72
+base_attack = 60
+base_defense = 30
+base_sp_attack = 20
+base_sp_defense = 30
+base_speed = 25
+description = "Il existerait un plat mijoté traditionnel que les Dresseurs cuisinent pour rendre leur Makuhita encore plus fort."
+abilities = Array[ExtResource("ability")]([ExtResource("a47"), ExtResource("a62")])
+hidden_ability = ExtResource("a125")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast-then-very-slow"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 47
+catch_rate = 180
+female_ratio = 25
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(351, 512, 32, 32)

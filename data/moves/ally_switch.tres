@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"ally_switch"
+name = "Interversion"
+type = 10
+category = 2
+power = 0
+accuracy = 0
+pp = 15
+priority = 2
+target = 1
+description = "Le lanceur se téléporte à l'aide d'un pouvoir mystérieux. Il échange sa place avec celle d'un allié sur le terrain."

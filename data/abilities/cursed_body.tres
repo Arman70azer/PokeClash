@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"cursed_body"
+name = "Corps Maudit"
+description = "Quand le Pokémon est touché par une capacité adverse,\\nil inflige parfois Entrave sur celle-ci."

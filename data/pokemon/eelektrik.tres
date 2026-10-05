@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/spark.tres" id="m209"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/charge_beam.tres" id="m451"]
+[ext_resource type="Resource" path="res://data/moves/bind.tres" id="m20"]
+[ext_resource type="Resource" path="res://data/moves/acid.tres" id="m51"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/thunderbolt.tres" id="m85"]
+[ext_resource type="Resource" path="res://data/moves/acid_spray.tres" id="m491"]
+[ext_resource type="Resource" path="res://data/moves/coil.tres" id="m489"]
+[ext_resource type="Resource" path="res://data/moves/wild_charge.tres" id="m528"]
+[ext_resource type="Resource" path="res://data/moves/gastro_acid.tres" id="m380"]
+[ext_resource type="Resource" path="res://data/moves/zap_cannon.tres" id="m192"]
+[ext_resource type="Resource" path="res://data/moves/thrash.tres" id="m37"]
+[ext_resource type="Resource" path="res://data/abilities/levitate.tres" id="a26"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m209")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m451")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m20")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m51")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m85")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m491")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m489")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 59
+move = ExtResource("m528")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m380")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 69
+move = ExtResource("m192")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 74
+move = ExtResource("m37")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"eelektross"
+method = 1
+item = &"thunder-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"eelektrik"
+dex_number = 603
+name = "Lampéroie"
+types = Array[int]([3])
+base_hp = 65
+base_attack = 85
+base_defense = 70
+base_sp_attack = 75
+base_sp_defense = 70
+base_speed = 40
+description = "Un Pokémon doté d'un gros appétit. Il paralyse ses proies avec des décharges électriques avant de les manger."
+abilities = Array[ExtResource("ability")]([ExtResource("a26")])
+evolves_from = &"tynamo"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 142
+catch_rate = 60
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 968, 32, 32)

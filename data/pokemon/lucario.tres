@@ -1,0 +1,177 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/metal_claw.tres" id="m232"]
+[ext_resource type="Resource" path="res://data/moves/rock_smash.tres" id="m249"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/feint.tres" id="m364"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/aura_sphere.tres" id="m396"]
+[ext_resource type="Resource" path="res://data/moves/vacuum_wave.tres" id="m410"]
+[ext_resource type="Resource" path="res://data/moves/final_gambit.tres" id="m515"]
+[ext_resource type="Resource" path="res://data/moves/life_dew.tres" id="m791"]
+[ext_resource type="Resource" path="res://data/moves/counter.tres" id="m68"]
+[ext_resource type="Resource" path="res://data/moves/work_up.tres" id="m526"]
+[ext_resource type="Resource" path="res://data/moves/force_palm.tres" id="m395"]
+[ext_resource type="Resource" path="res://data/moves/calm_mind.tres" id="m347"]
+[ext_resource type="Resource" path="res://data/moves/metal_sound.tres" id="m319"]
+[ext_resource type="Resource" path="res://data/moves/quick_guard.tres" id="m501"]
+[ext_resource type="Resource" path="res://data/moves/bone_rush.tres" id="m198"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/heal_pulse.tres" id="m505"]
+[ext_resource type="Resource" path="res://data/moves/meteor_mash.tres" id="m309"]
+[ext_resource type="Resource" path="res://data/moves/dragon_pulse.tres" id="m406"]
+[ext_resource type="Resource" path="res://data/moves/extreme_speed.tres" id="m245"]
+[ext_resource type="Resource" path="res://data/moves/close_combat.tres" id="m370"]
+[ext_resource type="Resource" path="res://data/abilities/steadfast.tres" id="a80"]
+[ext_resource type="Resource" path="res://data/abilities/inner_focus.tres" id="a39"]
+[ext_resource type="Resource" path="res://data/abilities/justified.tres" id="a154"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m232")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m249")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m364")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m396")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m410")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+move = ExtResource("m515")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+move = ExtResource("m791")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m68")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m526")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m395")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m347")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m319")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m501")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m198")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l21"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m505")
+
+[sub_resource type="Resource" id="l22"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m309")
+
+[sub_resource type="Resource" id="l23"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m406")
+
+[sub_resource type="Resource" id="l24"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m245")
+
+[sub_resource type="Resource" id="l25"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m370")
+
+[resource]
+script = ExtResource("species")
+id = &"lucario"
+dex_number = 448
+name = "Lucario"
+types = Array[int]([6, 16])
+base_hp = 70
+base_attack = 110
+base_defense = 70
+base_sp_attack = 115
+base_sp_defense = 70
+base_speed = 90
+description = "Étant capable de lire ce que pensent les humains, ce Pokémon ne s'attache qu'aux Dresseurs dotés d'un cœur pur."
+abilities = Array[ExtResource("ability")]([ExtResource("a80"), ExtResource("a39")])
+hidden_ability = ExtResource("a154")
+evolves_from = &"riolu"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 1, 0, 1, 0, 0)
+base_experience = 184
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20"), SubResource("l21"), SubResource("l22"), SubResource("l23"), SubResource("l24"), SubResource("l25")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(199, 740, 32, 32)

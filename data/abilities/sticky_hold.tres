@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"sticky_hold"
+name = "Glu"
+description = "Les objets sont collés au corps gluant du Pokémon,\\nce qui empêche ses adversaires de les dérober."

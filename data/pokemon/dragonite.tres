@@ -1,0 +1,148 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/fire_punch.tres" id="m7"]
+[ext_resource type="Resource" path="res://data/moves/thunder_punch.tres" id="m9"]
+[ext_resource type="Resource" path="res://data/moves/wing_attack.tres" id="m17"]
+[ext_resource type="Resource" path="res://data/moves/wrap.tres" id="m35"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/twister.tres" id="m239"]
+[ext_resource type="Resource" path="res://data/moves/extreme_speed.tres" id="m245"]
+[ext_resource type="Resource" path="res://data/moves/roost.tres" id="m355"]
+[ext_resource type="Resource" path="res://data/moves/hurricane.tres" id="m542"]
+[ext_resource type="Resource" path="res://data/moves/dragon_tail.tres" id="m525"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/slam.tres" id="m21"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/dragon_rush.tres" id="m407"]
+[ext_resource type="Resource" path="res://data/moves/outrage.tres" id="m200"]
+[ext_resource type="Resource" path="res://data/moves/safeguard.tres" id="m219"]
+[ext_resource type="Resource" path="res://data/moves/rain_dance.tres" id="m240"]
+[ext_resource type="Resource" path="res://data/moves/dragon_dance.tres" id="m349"]
+[ext_resource type="Resource" path="res://data/moves/hyper_beam.tres" id="m63"]
+[ext_resource type="Resource" path="res://data/abilities/inner_focus.tres" id="a39"]
+[ext_resource type="Resource" path="res://data/abilities/multiscale.tres" id="a136"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m7")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m9")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m17")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m35")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m239")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m245")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m355")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m542")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m525")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m21")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m407")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m200")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m219")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 53
+move = ExtResource("m240")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 62
+move = ExtResource("m349")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 80
+move = ExtResource("m63")
+
+[resource]
+script = ExtResource("species")
+id = &"dragonite"
+dex_number = 149
+name = "Dracolosse"
+types = Array[int]([14, 9])
+base_hp = 91
+base_attack = 134
+base_defense = 95
+base_sp_attack = 100
+base_sp_defense = 100
+base_speed = 80
+description = "On l'appelle « l'avatar de la mer ». Nombreux sont les navires arborant une figure de proue en forme de Dracolosse."
+abilities = Array[ExtResource("ability")]([ExtResource("a39")])
+hidden_ability = ExtResource("a136")
+evolves_from = &"dragonair"
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 3, 0, 0, 0, 0)
+base_experience = 270
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1, 3349, 80, 80)
+back_region = Rect2i(163, 3349, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(693, 284, 32, 32)

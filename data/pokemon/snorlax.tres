@@ -1,0 +1,188 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/metronome.tres" id="m118"]
+[ext_resource type="Resource" path="res://data/moves/lick.tres" id="m122"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/stockpile.tres" id="m254"]
+[ext_resource type="Resource" path="res://data/moves/swallow.tres" id="m256"]
+[ext_resource type="Resource" path="res://data/moves/recycle.tres" id="m278"]
+[ext_resource type="Resource" path="res://data/moves/block.tres" id="m335"]
+[ext_resource type="Resource" path="res://data/moves/covet.tres" id="m343"]
+[ext_resource type="Resource" path="res://data/moves/fling.tres" id="m374"]
+[ext_resource type="Resource" path="res://data/moves/last_resort.tres" id="m387"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/snore.tres" id="m173"]
+[ext_resource type="Resource" path="res://data/moves/sleep_talk.tres" id="m214"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/body_slam.tres" id="m34"]
+[ext_resource type="Resource" path="res://data/moves/heavy_slam.tres" id="m484"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/high_horsepower.tres" id="m667"]
+[ext_resource type="Resource" path="res://data/moves/hammer_arm.tres" id="m359"]
+[ext_resource type="Resource" path="res://data/moves/belly_drum.tres" id="m187"]
+[ext_resource type="Resource" path="res://data/moves/belch.tres" id="m562"]
+[ext_resource type="Resource" path="res://data/moves/giga_impact.tres" id="m416"]
+[ext_resource type="Resource" path="res://data/abilities/immunity.tres" id="a17"]
+[ext_resource type="Resource" path="res://data/abilities/thick_fat.tres" id="a47"]
+[ext_resource type="Resource" path="res://data/abilities/gluttony.tres" id="a82"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m118")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m122")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m254")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m256")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m278")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m335")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m343")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+move = ExtResource("m374")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+move = ExtResource("m387")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m173")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m214")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m34")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m484")
+
+[sub_resource type="Resource" id="l21"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l22"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m667")
+
+[sub_resource type="Resource" id="l23"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m359")
+
+[sub_resource type="Resource" id="l24"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m187")
+
+[sub_resource type="Resource" id="l25"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m562")
+
+[sub_resource type="Resource" id="l26"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m416")
+
+[resource]
+script = ExtResource("species")
+id = &"snorlax"
+dex_number = 143
+name = "Ronflex"
+types = Array[int]([0])
+base_hp = 160
+base_attack = 110
+base_defense = 65
+base_sp_attack = 65
+base_sp_defense = 110
+base_speed = 30
+description = "L'estomac de ce Pokémon est si résistant qu'il peut même digérer de la nourriture avariée."
+abilities = Array[ExtResource("ability")]([ExtResource("a17"), ExtResource("a47")])
+hidden_ability = ExtResource("a82")
+evolves_from = &"munchlax"
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 189
+catch_rate = 25
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20"), SubResource("l21"), SubResource("l22"), SubResource("l23"), SubResource("l24"), SubResource("l25"), SubResource("l26")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1297, 3154, 80, 80)
+back_region = Rect2i(1459, 3154, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(465, 284, 32, 32)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"dazzling_gleam"
+name = "Éclat Magique"
+type = 17
+category = 1
+power = 80
+accuracy = 100
+pp = 10
+priority = 0
+description = "Libère une puissante décharge lumineuse qui inflige des dégâts à l'ennemi."

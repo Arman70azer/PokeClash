@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/gust.tres" id="m16"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/flatter.tres" id="m260"]
+[ext_resource type="Resource" path="res://data/moves/pluck.tres" id="m365"]
+[ext_resource type="Resource" path="res://data/moves/tailwind.tres" id="m366"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/iron_defense.tres" id="m334"]
+[ext_resource type="Resource" path="res://data/moves/whirlwind.tres" id="m18"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/dark_pulse.tres" id="m399"]
+[ext_resource type="Resource" path="res://data/moves/nasty_plot.tres" id="m417"]
+[ext_resource type="Resource" path="res://data/moves/defog.tres" id="m432"]
+[ext_resource type="Resource" path="res://data/moves/attract.tres" id="m213"]
+[ext_resource type="Resource" path="res://data/moves/brave_bird.tres" id="m413"]
+[ext_resource type="Resource" path="res://data/abilities/big_pecks.tres" id="a145"]
+[ext_resource type="Resource" path="res://data/abilities/overcoat.tres" id="a142"]
+[ext_resource type="Resource" path="res://data/abilities/weak_armor.tres" id="a133"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m16")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m260")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m365")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m366")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m334")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m18")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m399")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m417")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m432")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 66
+move = ExtResource("m213")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m413")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"mandibuzz"
+min_level = 54
+
+[resource]
+script = ExtResource("species")
+id = &"vullaby"
+dex_number = 629
+name = "Vostourno"
+types = Array[int]([15, 9])
+base_hp = 70
+base_attack = 55
+base_defense = 75
+base_sp_attack = 45
+base_sp_defense = 65
+base_speed = 60
+description = "Il grandit vite. Au sein du nid, les petits Vostourno héritent des couches en crâne de leurs aînés."
+abilities = Array[ExtResource("ability")]([ExtResource("a145"), ExtResource("a142")])
+hidden_ability = ExtResource("a133")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 1, 0, 0, 0)
+base_experience = 74
+catch_rate = 190
+female_ratio = 100
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 1006, 32, 32)

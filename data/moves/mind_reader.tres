@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"mind_reader"
+name = "Lire-Esprit"
+type = 0
+category = 2
+power = 0
+accuracy = 0
+pp = 5
+priority = 0
+description = "Le lanceur analyse les mouvements de l'ennemi pour être sûr de toucher au coup suivant."

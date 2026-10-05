@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/dive.tres" id="m291"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/head_smash.tres" id="m457"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/rock_head.tres" id="a69"]
+[ext_resource type="Resource" path="res://data/abilities/sturdy.tres" id="a5"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m291")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m457")
+
+[resource]
+script = ExtResource("species")
+id = &"relicanth"
+dex_number = 369
+name = "Relicanth"
+types = Array[int]([2, 12])
+base_hp = 100
+base_attack = 90
+base_defense = 130
+base_sp_attack = 45
+base_sp_defense = 65
+base_speed = 55
+description = "Découvert lors d'une expédition dans les abysses, son apparence inchangée depuis 100 millions d'années lui a valu le surnom de « fossile vivant »."
+abilities = Array[ExtResource("ability")]([ExtResource("a33"), ExtResource("a69")])
+hidden_ability = ExtResource("a5")
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(1, 0, 1, 0, 0, 0)
+base_experience = 170
+catch_rate = 25
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 626, 32, 32)

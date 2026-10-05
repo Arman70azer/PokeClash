@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/abilities/guts.tres" id="a62"]
+[ext_resource type="Resource" path="res://data/abilities/steadfast.tres" id="a80"]
+[ext_resource type="Resource" path="res://data/abilities/vital_spirit.tres" id="a72"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m252")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"hitmonlee"
+min_level = 20
+
+[sub_resource type="Resource" id="v1"]
+script = ExtResource("evolution")
+species_id = &"hitmonchan"
+min_level = 20
+
+[sub_resource type="Resource" id="v2"]
+script = ExtResource("evolution")
+species_id = &"hitmontop"
+min_level = 20
+
+[resource]
+script = ExtResource("species")
+id = &"tyrogue"
+dex_number = 236
+name = "Debugant"
+types = Array[int]([6])
+base_hp = 35
+base_attack = 35
+base_defense = 35
+base_sp_attack = 35
+base_sp_defense = 35
+base_speed = 35
+description = "Même s'il est petit, il vaut mieux ne pas l'ignorer : quand il trouve un adversaire à sa hauteur, il frappe fort et souvent sans prévenir."
+abilities = Array[ExtResource("ability")]([ExtResource("a62"), ExtResource("a80")])
+hidden_ability = ExtResource("a72")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0"), SubResource("v1"), SubResource("v2")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 42
+catch_rate = 75
+female_ratio = 0
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(47, 436, 32, 32)

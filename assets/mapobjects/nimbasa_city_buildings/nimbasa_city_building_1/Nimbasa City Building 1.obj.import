@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://co5ajn4b6k1im"
+path="res://.godot/imported/Nimbasa City Building 1.obj-d57d885fd6b241d32f3734ab4b944755.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Nimbasa City Building 1.obj-d57d885fd6b241d32f3734ab4b944755.mesh"]
+
+source_file="res://assets/mapobjects/nimbasa_city_buildings/nimbasa_city_building_1/Nimbasa City Building 1.obj"
+dest_files=["res://.godot/imported/Nimbasa City Building 1.obj-d57d885fd6b241d32f3734ab4b944755.mesh", "res://.godot/imported/Nimbasa City Building 1.obj-d57d885fd6b241d32f3734ab4b944755.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

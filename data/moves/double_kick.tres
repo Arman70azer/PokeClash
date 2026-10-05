@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"double_kick"
+name = "Double Pied"
+type = 6
+category = 0
+power = 30
+accuracy = 100
+pp = 30
+priority = 0
+description = "Deux coups de pied qui frappent l'ennemi deux fois d'affilée."

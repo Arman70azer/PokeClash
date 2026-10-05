@@ -1,0 +1,127 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/thunder_shock.tres" id="m84"]
+[ext_resource type="Resource" path="res://data/moves/cotton_spore.tres" id="m178"]
+[ext_resource type="Resource" path="res://data/moves/charge.tres" id="m268"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/electro_ball.tres" id="m486"]
+[ext_resource type="Resource" path="res://data/moves/confuse_ray.tres" id="m109"]
+[ext_resource type="Resource" path="res://data/moves/power_gem.tres" id="m408"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/cotton_guard.tres" id="m538"]
+[ext_resource type="Resource" path="res://data/moves/dazzling_gleam.tres" id="m605"]
+[ext_resource type="Resource" path="res://data/moves/light_screen.tres" id="m113"]
+[ext_resource type="Resource" path="res://data/moves/thunder.tres" id="m87"]
+[ext_resource type="Resource" path="res://data/abilities/static.tres" id="a9"]
+[ext_resource type="Resource" path="res://data/abilities/plus.tres" id="a57"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m84")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 11
+move = ExtResource("m178")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m268")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m486")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m109")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m408")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m538")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m605")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m113")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m87")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"flaaffy"
+min_level = 15
+
+[resource]
+script = ExtResource("species")
+id = &"mareep"
+dex_number = 179
+name = "Wattouat"
+types = Array[int]([3])
+base_hp = 55
+base_attack = 40
+base_defense = 40
+base_sp_attack = 65
+base_sp_defense = 45
+base_speed = 35
+description = "Il a beau être mignon, sa laine génère de l'électricité quand on la frotte. Tentez de le caresser, et il vous mettra vite au courant !"
+abilities = Array[ExtResource("ability")]([ExtResource("a9")])
+hidden_ability = ExtResource("a57")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 1, 0, 0)
+base_experience = 56
+catch_rate = 235
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(845, 322, 32, 32)

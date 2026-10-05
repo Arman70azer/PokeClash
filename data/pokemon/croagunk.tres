@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/mud_slap.tres" id="m189"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/taunt.tres" id="m269"]
+[ext_resource type="Resource" path="res://data/moves/flatter.tres" id="m260"]
+[ext_resource type="Resource" path="res://data/moves/low_kick.tres" id="m67"]
+[ext_resource type="Resource" path="res://data/moves/venoshock.tres" id="m474"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/poison_jab.tres" id="m398"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/nasty_plot.tres" id="m417"]
+[ext_resource type="Resource" path="res://data/moves/sludge_bomb.tres" id="m188"]
+[ext_resource type="Resource" path="res://data/moves/belch.tres" id="m562"]
+[ext_resource type="Resource" path="res://data/abilities/anticipation.tres" id="a107"]
+[ext_resource type="Resource" path="res://data/abilities/dry_skin.tres" id="a87"]
+[ext_resource type="Resource" path="res://data/abilities/poison_touch.tres" id="a143"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m189")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m260")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m67")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m474")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m398")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m417")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m188")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m562")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"toxicroak"
+min_level = 37
+
+[resource]
+script = ExtResource("species")
+id = &"croagunk"
+dex_number = 453
+name = "Cradopaud"
+types = Array[int]([7, 6])
+base_hp = 48
+base_attack = 61
+base_defense = 40
+base_sp_attack = 61
+base_sp_defense = 40
+base_speed = 50
+description = "Dilué, son poison sert de remède. Cela lui a valu de devenir la mascotte populaire d'une entreprise de produits pharmaceutiques."
+abilities = Array[ExtResource("ability")]([ExtResource("a107"), ExtResource("a87")])
+hidden_ability = ExtResource("a143")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 60
+catch_rate = 140
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(389, 740, 32, 32)

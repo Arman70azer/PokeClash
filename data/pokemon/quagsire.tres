@@ -1,0 +1,108 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/rain_dance.tres" id="m240"]
+[ext_resource type="Resource" path="res://data/moves/mud_shot.tres" id="m341"]
+[ext_resource type="Resource" path="res://data/moves/mist.tres" id="m54"]
+[ext_resource type="Resource" path="res://data/moves/haze.tres" id="m114"]
+[ext_resource type="Resource" path="res://data/moves/slam.tres" id="m21"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/muddy_water.tres" id="m330"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/earthquake.tres" id="m89"]
+[ext_resource type="Resource" path="res://data/abilities/damp.tres" id="a6"]
+[ext_resource type="Resource" path="res://data/abilities/water_absorb.tres" id="a11"]
+[ext_resource type="Resource" path="res://data/abilities/unaware.tres" id="a109"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m240")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m341")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m54")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m114")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m21")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m330")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m89")
+
+[resource]
+script = ExtResource("species")
+id = &"quagsire"
+dex_number = 195
+name = "Maraiste"
+types = Array[int]([2, 8])
+base_hp = 95
+base_attack = 85
+base_defense = 85
+base_sp_attack = 65
+base_sp_defense = 65
+base_speed = 35
+description = "Il est toujours gluant. Quand il nage, il se cogne souvent la tête au fond des rivières, mais semble s'en moquer."
+abilities = Array[ExtResource("ability")]([ExtResource("a6"), ExtResource("a11")])
+hidden_ability = ExtResource("a109")
+evolves_from = &"wooper"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 151
+catch_rate = 90
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(465, 360, 32, 32)

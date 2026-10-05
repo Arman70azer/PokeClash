@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/peck.tres" id="m64"]
+[ext_resource type="Resource" path="res://data/moves/hone_claws.tres" id="m468"]
+[ext_resource type="Resource" path="res://data/moves/wing_attack.tres" id="m17"]
+[ext_resource type="Resource" path="res://data/moves/tailwind.tres" id="m366"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/aerial_ace.tres" id="m332"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/whirlwind.tres" id="m18"]
+[ext_resource type="Resource" path="res://data/moves/crush_claw.tres" id="m306"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/defog.tres" id="m432"]
+[ext_resource type="Resource" path="res://data/moves/thrash.tres" id="m37"]
+[ext_resource type="Resource" path="res://data/moves/brave_bird.tres" id="m413"]
+[ext_resource type="Resource" path="res://data/abilities/keen_eye.tres" id="a51"]
+[ext_resource type="Resource" path="res://data/abilities/sheer_force.tres" id="a125"]
+[ext_resource type="Resource" path="res://data/abilities/hustle.tres" id="a55"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m64")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m468")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m17")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m366")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m332")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m18")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m306")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m432")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 66
+move = ExtResource("m37")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m413")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"braviary"
+min_level = 54
+
+[resource]
+script = ExtResource("species")
+id = &"rufflet"
+dex_number = 627
+name = "Furaiglon"
+types = Array[int]([0, 9])
+base_hp = 70
+base_attack = 83
+base_defense = 50
+base_sp_attack = 37
+base_sp_defense = 50
+base_speed = 60
+description = "Sa poigne est telle qu'il peut réduire en miettes les plus dures des Baies. Belliqueux de nature, il n'hésite pas à défier tout le monde."
+abilities = Array[ExtResource("ability")]([ExtResource("a51"), ExtResource("a125")])
+hidden_ability = ExtResource("a55")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 70
+catch_rate = 190
+female_ratio = 0
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(85, 1006, 32, 32)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"grass_knot"
+name = "Nœud Herbe"
+type = 4
+category = 1
+power = 0
+accuracy = 100
+pp = 20
+priority = 0
+description = "L'ennemi est piégé dans de l'herbe qui le fait trébucher. Plus il est lourd, plus il subit de dégâts."

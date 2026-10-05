@@ -1,0 +1,131 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/haze.tres" id="m114"]
+[ext_resource type="Resource" path="res://data/moves/night_shade.tres" id="m101"]
+[ext_resource type="Resource" path="res://data/moves/disable.tres" id="m50"]
+[ext_resource type="Resource" path="res://data/moves/will_o_wisp.tres" id="m261"]
+[ext_resource type="Resource" path="res://data/moves/crafty_shield.tres" id="m578"]
+[ext_resource type="Resource" path="res://data/moves/hex.tres" id="m506"]
+[ext_resource type="Resource" path="res://data/moves/mean_look.tres" id="m212"]
+[ext_resource type="Resource" path="res://data/moves/grudge.tres" id="m288"]
+[ext_resource type="Resource" path="res://data/moves/curse.tres" id="m174"]
+[ext_resource type="Resource" path="res://data/moves/shadow_ball.tres" id="m247"]
+[ext_resource type="Resource" path="res://data/moves/dark_pulse.tres" id="m399"]
+[ext_resource type="Resource" path="res://data/moves/guard_split.tres" id="m470"]
+[ext_resource type="Resource" path="res://data/moves/power_split.tres" id="m471"]
+[ext_resource type="Resource" path="res://data/moves/destiny_bond.tres" id="m194"]
+[ext_resource type="Resource" path="res://data/abilities/mummy.tres" id="a152"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m114")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m101")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m50")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m261")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m578")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m506")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m212")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m288")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m174")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m247")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m399")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m470")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m471")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m194")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"cofagrigus"
+min_level = 34
+
+[resource]
+script = ExtResource("species")
+id = &"yamask"
+dex_number = 562
+name = "Tutafeh"
+types = Array[int]([13])
+base_hp = 38
+base_attack = 30
+base_defense = 85
+base_sp_attack = 55
+base_sp_defense = 65
+base_speed = 30
+description = "Il est né de l'âme d'un être humain d'un peuple antique. Il erre dans les ruines à la recherche de quiconque reconnaîtra son visage."
+abilities = Array[ExtResource("ability")]([ExtResource("a152")])
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 1, 0, 0, 0)
+base_experience = 61
+catch_rate = 190
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(579, 892, 32, 32)

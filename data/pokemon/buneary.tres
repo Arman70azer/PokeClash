@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/splash.tres" id="m150"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/baby_doll_eyes.tres" id="m608"]
+[ext_resource type="Resource" path="res://data/moves/after_you.tres" id="m495"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/double_kick.tres" id="m24"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/entrainment.tres" id="m494"]
+[ext_resource type="Resource" path="res://data/moves/flatter.tres" id="m260"]
+[ext_resource type="Resource" path="res://data/moves/bounce.tres" id="m340"]
+[ext_resource type="Resource" path="res://data/moves/healing_wish.tres" id="m361"]
+[ext_resource type="Resource" path="res://data/abilities/run_away.tres" id="a50"]
+[ext_resource type="Resource" path="res://data/abilities/klutz.tres" id="a103"]
+[ext_resource type="Resource" path="res://data/abilities/limber.tres" id="a7"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m150")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m608")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m495")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m24")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m494")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m260")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m340")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m361")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"lopunny"
+method = 3
+
+[resource]
+script = ExtResource("species")
+id = &"buneary"
+dex_number = 427
+name = "Laporeille"
+types = Array[int]([0])
+base_hp = 55
+base_attack = 66
+base_defense = 44
+base_sp_attack = 44
+base_sp_defense = 56
+base_speed = 85
+description = "Plus il s'entraîne, plus les coups qu'il assène en déroulant vigoureusement ses oreilles gagnent en puissance."
+abilities = Array[ExtResource("ability")]([ExtResource("a50"), ExtResource("a103")])
+hidden_ability = ExtResource("a7")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 70
+catch_rate = 190
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(389, 702, 32, 32)

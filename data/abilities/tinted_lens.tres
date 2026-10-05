@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"tinted_lens"
+name = "Lentiteintée"
+description = "Permet à une capacité qui n'est pas très efficace d'infliger des dégâts comme si elle était efficace normalement."

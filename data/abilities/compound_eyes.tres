@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"compound_eyes"
+name = "Œil Composé"
+description = "Les yeux à facettes du Pokémon augmentent la Précision de ses capacités."

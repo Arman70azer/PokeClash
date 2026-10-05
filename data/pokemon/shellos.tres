@@ -1,0 +1,104 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/mud_slap.tres" id="m189"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/body_slam.tres" id="m34"]
+[ext_resource type="Resource" path="res://data/moves/muddy_water.tres" id="m330"]
+[ext_resource type="Resource" path="res://data/moves/earth_power.tres" id="m414"]
+[ext_resource type="Resource" path="res://data/moves/rain_dance.tres" id="m240"]
+[ext_resource type="Resource" path="res://data/moves/memento.tres" id="m262"]
+[ext_resource type="Resource" path="res://data/abilities/sticky_hold.tres" id="a60"]
+[ext_resource type="Resource" path="res://data/abilities/storm_drain.tres" id="a114"]
+[ext_resource type="Resource" path="res://data/abilities/sand_force.tres" id="a159"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m189")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m34")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m330")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m414")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m240")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m262")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"gastrodon"
+min_level = 30
+
+[resource]
+script = ExtResource("species")
+id = &"shellos"
+dex_number = 422
+name = "Sancoki"
+types = Array[int]([2])
+base_hp = 76
+base_attack = 48
+base_defense = 48
+base_sp_attack = 57
+base_sp_defense = 62
+base_speed = 34
+description = "Si on le caresse trop fort, il sécrète un étrange liquide mauve qui est inoffensif, mais dont la texture est très gluante."
+abilities = Array[ExtResource("ability")]([ExtResource("a60"), ExtResource("a114")])
+hidden_ability = ExtResource("a159")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 65
+catch_rate = 190
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(199, 702, 32, 32)

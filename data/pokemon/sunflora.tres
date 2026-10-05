@@ -1,0 +1,133 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/ingrain.tres" id="m275"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/leech_seed.tres" id="m73"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/worry_seed.tres" id="m388"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/bullet_seed.tres" id="m331"]
+[ext_resource type="Resource" path="res://data/moves/petal_dance.tres" id="m80"]
+[ext_resource type="Resource" path="res://data/moves/solar_beam.tres" id="m76"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/leaf_storm.tres" id="m437"]
+[ext_resource type="Resource" path="res://data/moves/petal_blizzard.tres" id="m572"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/solar_power.tres" id="a94"]
+[ext_resource type="Resource" path="res://data/abilities/early_bird.tres" id="a48"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m275")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m73")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m388")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m331")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m80")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m76")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m437")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m572")
+
+[resource]
+script = ExtResource("species")
+id = &"sunflora"
+dex_number = 192
+name = "Héliatronc"
+types = Array[int]([4])
+base_hp = 75
+base_attack = 75
+base_defense = 55
+base_sp_attack = 105
+base_sp_defense = 85
+base_speed = 30
+description = "Héliatronc convertit l'énergie solaire en nutriments. Il remue activement pendant la journée, quand il fait chaud. Il redevient immobile dès que le soleil se couche."
+abilities = Array[ExtResource("ability")]([ExtResource("a34"), ExtResource("a94")])
+hidden_ability = ExtResource("a48")
+evolves_from = &"sunkern"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 2, 0, 0)
+base_experience = 149
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(351, 360, 32, 32)

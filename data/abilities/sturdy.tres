@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"sturdy"
+name = "Fermeté"
+description = "Le Pokémon encaisse toujours au moins une attaque\\ns'il a tous ses PV. Il est également immunisé contre\\nles capacités pouvant mettre K.O. en un coup."

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"supersonic"
+name = "Ultrason"
+type = 0
+category = 2
+power = 0
+accuracy = 55
+pp = 20
+priority = 0
+description = "Le lanceur produit d'étranges ondes sonores qui rendent la cible confuse."

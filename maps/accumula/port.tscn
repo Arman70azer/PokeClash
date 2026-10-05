@@ -1,0 +1,334 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/map_zone.gd" id="1_zone"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/port/port.obj" id="2_mesh"]
+[ext_resource type="Resource" path="res://assets/maps/port/port_grid.tres" id="3_grid"]
+[ext_resource type="Script" path="res://world/map_object_3d.gd" id="4_obj"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/port/port_water.obj" id="5_water"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/barrels/barrels.obj" id="10_barrels"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/bollard/bollard.obj" id="11_bollard"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/cafe_warehouse/Cafe Warehouse.obj" id="12_cafe"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/cargo_ship/cargo_ship.obj" id="13_cargo_ship"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/cold_storage_warehouses/cold_storage_warehouse_1/Cold Storage Warehouse 1.obj" id="14_cold_storage"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/container_blue/container_blue.obj" id="15_container_blue"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/container_red/container_red.obj" id="16_container_red"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/containers/containers.obj" id="17_containers"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/driftveil_city_crane/Driftveil City Crane.obj" id="18_crane"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/crates/crates.obj" id="19_crates"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/crates_big/crates_big.obj" id="20_crates_big"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/ferry/ferry.obj" id="21_ferry"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/fishing_boat_v/fishing_boat_v.obj" id="22_fishing_boat_v"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/gangway/gangway.obj" id="23_gangway"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/lamppost/lamppost.obj" id="24_lamppost"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/life_buoy/life_buoy.obj" id="25_life_buoy"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/driftveil_city_lighthouse/Driftveil City Lighthouse.obj" id="26_lighthouse"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/nav_buoy_green/nav_buoy_green.obj" id="27_nav_buoy_green"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/nav_buoy_red/nav_buoy_red.obj" id="28_nav_buoy_red"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/rowboat/rowboat.obj" id="29_rowboat"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/rowboat_v/rowboat_v.obj" id="30_rowboat_v"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/port/sailboat_v/sailboat_v.obj" id="31_sailboat_v"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/nacrene_city_warehouses/nacrene_city_warehouse_1/Nacrene City Warehouse 1.obj" id="32_warehouse"]
+
+[node name="Port" type="MeshInstance3D"]
+mesh = ExtResource("2_mesh")
+script = ExtResource("1_zone")
+walk_grid = ExtResource("3_grid")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_water")
+script = ExtResource("4_obj")
+scrolling_surfaces = {
+"sea": Vector2(0.03, 0.012)
+}
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="Crane" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, -200)
+mesh = ExtResource("18_crane")
+script = ExtResource("4_obj")
+extra_cells = Array[Vector2i]([Vector2i(27, -16), Vector2i(27, -15), Vector2i(30, -16), Vector2i(30, -15), Vector2i(27, -11), Vector2i(27, -10), Vector2i(30, -11), Vector2i(30, -10)])
+
+[node name="Cafe" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 376, 0, -210)
+mesh = ExtResource("12_cafe")
+script = ExtResource("4_obj")
+footprint = Rect2i(21, -15, 6, 2)
+
+[node name="ColdStorage" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 428, 0, -56)
+mesh = ExtResource("14_cold_storage")
+script = ExtResource("4_obj")
+footprint = Rect2i(23, -7, 7, 7)
+
+[node name="Warehouse" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 409.5, 0, 164)
+mesh = ExtResource("32_warehouse")
+script = ExtResource("4_obj")
+footprint = Rect2i(21, 6, 7, 6)
+extra_cells = Array[Vector2i]([Vector2i(28, 7), Vector2i(28, 8), Vector2i(28, 9), Vector2i(28, 10), Vector2i(28, 11), Vector2i(29, 7), Vector2i(29, 8), Vector2i(29, 9), Vector2i(29, 10), Vector2i(29, 11)])
+model_scale = 1.4
+
+[node name="Lighthouse" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 744, 0, -121.4)
+mesh = ExtResource("26_lighthouse")
+script = ExtResource("4_obj")
+footprint = Rect2i(45, -9, 3, 3)
+
+[node name="Containers" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 464, 0, -200)
+mesh = ExtResource("17_containers")
+script = ExtResource("4_obj")
+footprint = Rect2i(28, -13, 2, 2)
+
+[node name="ContainerBlue" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 464, 0, -248)
+mesh = ExtResource("15_container_blue")
+script = ExtResource("4_obj")
+footprint = Rect2i(28, -16, 2, 1)
+
+[node name="ContainerRed" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 464, 0, 104)
+mesh = ExtResource("16_container_red")
+script = ExtResource("4_obj")
+footprint = Rect2i(28, 6, 2, 1)
+
+[node name="CratesBig" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 480, 0, 216)
+mesh = ExtResource("20_crates_big")
+script = ExtResource("4_obj")
+footprint = Rect2i(28, 13, 3, 1)
+
+[node name="Barrels" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 488, 0, 248)
+mesh = ExtResource("10_barrels")
+script = ExtResource("4_obj")
+footprint = Rect2i(30, 15, 1, 1)
+
+[node name="Crates" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 344, 0, 196)
+mesh = ExtResource("19_crates")
+script = ExtResource("4_obj")
+footprint = Rect2i(21, 12, 1, 1)
+
+[node name="Barrels2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360, 0, 200)
+mesh = ExtResource("10_barrels")
+script = ExtResource("4_obj")
+footprint = Rect2i(22, 12, 1, 1)
+
+[node name="Crates2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 424, 0, -184)
+mesh = ExtResource("19_crates")
+script = ExtResource("4_obj")
+footprint = Rect2i(26, -12, 1, 1)
+
+[node name="Bollard1" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 508, 0, -40)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(31, -3, 1, 1)
+
+[node name="Bollard2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 508, 0, 8)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(31, 0, 1, 1)
+
+[node name="Bollard3" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 508, 0, 120)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(31, 7, 1, 1)
+
+[node name="Bollard4" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 508, 0, 168)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(31, 10, 1, 1)
+
+[node name="Bollard5" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 552, 0, -156)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(34, -10, 1, 1)
+
+[node name="Bollard6" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, -156)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(37, -10, 1, 1)
+
+[node name="Bollard7" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 648, 0, -156)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(40, -10, 1, 1)
+
+[node name="Bollard8" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 552, 0, -68)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(34, -5, 1, 1)
+
+[node name="Bollard9" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 616, 0, -68)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(38, -5, 1, 1)
+
+[node name="Bollard10" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 680, 0, -68)
+mesh = ExtResource("11_bollard")
+script = ExtResource("4_obj")
+footprint = Rect2i(42, -5, 1, 1)
+
+[node name="LifeBuoy1" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 504, 0, -56)
+mesh = ExtResource("25_life_buoy")
+script = ExtResource("4_obj")
+footprint = Rect2i(31, -4, 1, 1)
+
+[node name="LifeBuoy2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 760, 0, -152)
+mesh = ExtResource("25_life_buoy")
+script = ExtResource("4_obj")
+footprint = Rect2i(47, -10, 1, 1)
+
+[node name="LifeBuoy3" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 504, 0, 184)
+mesh = ExtResource("25_life_buoy")
+script = ExtResource("4_obj")
+footprint = Rect2i(31, 11, 1, 1)
+
+[node name="LifeBuoy4" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 760, 0, -72)
+mesh = ExtResource("25_life_buoy")
+script = ExtResource("4_obj")
+footprint = Rect2i(47, -5, 1, 1)
+
+[node name="Lamppost1" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 344, 0, -168)
+mesh = ExtResource("24_lamppost")
+script = ExtResource("4_obj")
+footprint = Rect2i(21, -11, 1, 1)
+
+[node name="Lamppost2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 344, 0, -40)
+mesh = ExtResource("24_lamppost")
+script = ExtResource("4_obj")
+footprint = Rect2i(21, -3, 1, 1)
+
+[node name="Lamppost3" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 344, 0, 88)
+mesh = ExtResource("24_lamppost")
+script = ExtResource("4_obj")
+footprint = Rect2i(21, 5, 1, 1)
+
+[node name="Lamppost4" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 344, 0, 232)
+mesh = ExtResource("24_lamppost")
+script = ExtResource("4_obj")
+footprint = Rect2i(21, 14, 1, 1)
+
+[node name="Lamppost5" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 632, 0, -152)
+mesh = ExtResource("24_lamppost")
+script = ExtResource("4_obj")
+footprint = Rect2i(39, -10, 1, 1)
+
+[node name="Lamppost6" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 584, 0, -72)
+mesh = ExtResource("24_lamppost")
+script = ExtResource("4_obj")
+footprint = Rect2i(36, -5, 1, 1)
+
+[node name="Ferry" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 678, -20, -206)
+mesh = ExtResource("21_ferry")
+script = ExtResource("4_obj")
+bob_height = 0.4
+bob_period = 7
+
+[node name="Gangway" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 680, 0, -158)
+mesh = ExtResource("23_gangway")
+script = ExtResource("4_obj")
+footprint = Rect2i(42, -10, 1, 1)
+
+[node name="CargoShip" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 668, -20, -24)
+mesh = ExtResource("13_cargo_ship")
+script = ExtResource("4_obj")
+bob_height = 0.4
+bob_period = 7.5
+
+[node name="FishingBoat1" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 545, -20, 128)
+mesh = ExtResource("22_fishing_boat_v")
+script = ExtResource("4_obj")
+bob_height = 1
+bob_period = 4
+
+[node name="Sailboat1" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 640, -20, 128)
+mesh = ExtResource("31_sailboat_v")
+script = ExtResource("4_obj")
+bob_height = 1.2
+bob_period = 3.6
+
+[node name="Sailboat2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 724, -20, 128)
+mesh = ExtResource("31_sailboat_v")
+script = ExtResource("4_obj")
+bob_height = 1.2
+bob_period = 3.9
+
+[node name="FishingBoat2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 772, -20, 126)
+mesh = ExtResource("22_fishing_boat_v")
+script = ExtResource("4_obj")
+bob_height = 1
+bob_period = 4.2
+
+[node name="Rowboat1" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 566, -20, 192)
+mesh = ExtResource("29_rowboat")
+script = ExtResource("4_obj")
+bob_height = 1
+bob_period = 2.8
+
+[node name="Rowboat2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 618, -20, 192)
+mesh = ExtResource("29_rowboat")
+script = ExtResource("4_obj")
+bob_height = 1
+bob_period = 3.1
+
+[node name="Rowboat3" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 700, -20, 193)
+mesh = ExtResource("29_rowboat")
+script = ExtResource("4_obj")
+bob_height = 1
+bob_period = 3
+
+[node name="Rowboat4" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 744, -20, 236)
+mesh = ExtResource("30_rowboat_v")
+script = ExtResource("4_obj")
+bob_height = 1
+bob_period = 2.9
+
+[node name="BuoyRed" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, -20, -70)
+mesh = ExtResource("28_nav_buoy_red")
+script = ExtResource("4_obj")
+bob_height = 1.5
+bob_period = 2.6
+
+[node name="BuoyGreen" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, -20, 180)
+mesh = ExtResource("27_nav_buoy_green")
+script = ExtResource("4_obj")
+bob_height = 1.5
+bob_period = 2.4

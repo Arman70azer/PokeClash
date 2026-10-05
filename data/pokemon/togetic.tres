@@ -1,0 +1,133 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/sweet_kiss.tres" id="m186"]
+[ext_resource type="Resource" path="res://data/moves/fairy_wind.tres" id="m584"]
+[ext_resource type="Resource" path="res://data/moves/life_dew.tres" id="m791"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/metronome.tres" id="m118"]
+[ext_resource type="Resource" path="res://data/moves/after_you.tres" id="m495"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/safeguard.tres" id="m219"]
+[ext_resource type="Resource" path="res://data/moves/follow_me.tres" id="m266"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/last_resort.tres" id="m387"]
+[ext_resource type="Resource" path="res://data/moves/wish.tres" id="m273"]
+[ext_resource type="Resource" path="res://data/abilities/hustle.tres" id="a55"]
+[ext_resource type="Resource" path="res://data/abilities/serene_grace.tres" id="a32"]
+[ext_resource type="Resource" path="res://data/abilities/super_luck.tres" id="a105"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m186")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m584")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m791")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m118")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m495")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m219")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m266")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m387")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m273")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"togekiss"
+method = 1
+item = &"shiny-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"togetic"
+dex_number = 176
+name = "Togetic"
+types = Array[int]([17, 9])
+base_hp = 55
+base_attack = 40
+base_defense = 85
+base_sp_attack = 80
+base_sp_defense = 105
+base_speed = 40
+description = "Ce Pokémon est capable de léviter sans battre des ailes. Il est vite démoralisé s'il n'est pas en compagnie de gens sympathiques."
+abilities = Array[ExtResource("ability")]([ExtResource("a55"), ExtResource("a32")])
+hidden_ability = ExtResource("a105")
+evolves_from = &"togepi"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 2, 0)
+base_experience = 142
+catch_rate = 75
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(731, 322, 32, 32)

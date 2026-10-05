@@ -1,0 +1,102 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/supersonic.tres" id="m48"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/lick.tres" id="m122"]
+[ext_resource type="Resource" path="res://data/moves/rollout.tres" id="m205"]
+[ext_resource type="Resource" path="res://data/moves/wrap.tres" id="m35"]
+[ext_resource type="Resource" path="res://data/moves/disable.tres" id="m50"]
+[ext_resource type="Resource" path="res://data/moves/stomp.tres" id="m23"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/slam.tres" id="m21"]
+[ext_resource type="Resource" path="res://data/moves/power_whip.tres" id="m438"]
+[ext_resource type="Resource" path="res://data/moves/belly_drum.tres" id="m187"]
+[ext_resource type="Resource" path="res://data/abilities/own_tempo.tres" id="a20"]
+[ext_resource type="Resource" path="res://data/abilities/oblivious.tres" id="a12"]
+[ext_resource type="Resource" path="res://data/abilities/cloud_nine.tres" id="a13"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m48")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m122")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m205")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m35")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m50")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m23")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m21")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m438")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m187")
+
+[resource]
+script = ExtResource("species")
+id = &"lickilicky"
+dex_number = 463
+name = "Coudlangue"
+types = Array[int]([0])
+base_hp = 110
+base_attack = 85
+base_defense = 95
+base_sp_attack = 80
+base_sp_defense = 95
+base_speed = 50
+description = "Il est aussi habile avec sa langue que les êtres humains le sont avec leurs mains. En revanche, il est maladroit quand il utilise ses doigts."
+abilities = Array[ExtResource("ability")]([ExtResource("a20"), ExtResource("a12")])
+hidden_ability = ExtResource("a13")
+evolves_from = &"lickitung"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(3, 0, 0, 0, 0, 0)
+base_experience = 180
+catch_rate = 30
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(769, 740, 32, 32)

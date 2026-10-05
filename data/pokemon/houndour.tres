@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/howl.tres" id="m336"]
+[ext_resource type="Resource" path="res://data/moves/smog.tres" id="m123"]
+[ext_resource type="Resource" path="res://data/moves/roar.tres" id="m46"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/incinerate.tres" id="m510"]
+[ext_resource type="Resource" path="res://data/moves/beat_up.tres" id="m251"]
+[ext_resource type="Resource" path="res://data/moves/fire_fang.tres" id="m424"]
+[ext_resource type="Resource" path="res://data/moves/torment.tres" id="m259"]
+[ext_resource type="Resource" path="res://data/moves/comeuppance.tres" id="m894"]
+[ext_resource type="Resource" path="res://data/moves/foul_play.tres" id="m492"]
+[ext_resource type="Resource" path="res://data/moves/flamethrower.tres" id="m53"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/nasty_plot.tres" id="m417"]
+[ext_resource type="Resource" path="res://data/moves/inferno.tres" id="m517"]
+[ext_resource type="Resource" path="res://data/abilities/early_bird.tres" id="a48"]
+[ext_resource type="Resource" path="res://data/abilities/flash_fire.tres" id="a18"]
+[ext_resource type="Resource" path="res://data/abilities/unnerve.tres" id="a127"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m336")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m123")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m46")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m510")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m251")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m424")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m259")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m894")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m492")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m53")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m417")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m517")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"houndoom"
+min_level = 24
+
+[resource]
+script = ExtResource("species")
+id = &"houndour"
+dex_number = 228
+name = "Malosse"
+types = Array[int]([15, 1])
+base_hp = 45
+base_attack = 60
+base_defense = 30
+base_sp_attack = 80
+base_sp_defense = 50
+base_speed = 65
+description = "Si ses congénères et lui poussent de sinistres hurlements avant l'aube, c'est pour signaler leur présence à tout le monde."
+abilities = Array[ExtResource("ability")]([ExtResource("a48"), ExtResource("a18")])
+hidden_ability = ExtResource("a127")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 1, 0, 0)
+base_experience = 66
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(731, 398, 32, 32)

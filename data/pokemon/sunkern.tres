@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/worry_seed.tres" id="m388"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/endeavor.tres" id="m283"]
+[ext_resource type="Resource" path="res://data/moves/synthesis.tres" id="m235"]
+[ext_resource type="Resource" path="res://data/moves/solar_beam.tres" id="m76"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/seed_bomb.tres" id="m402"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/solar_power.tres" id="a94"]
+[ext_resource type="Resource" path="res://data/abilities/early_bird.tres" id="a48"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m388")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m283")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m235")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m76")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m402")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"sunflora"
+method = 1
+item = &"sun-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"sunkern"
+dex_number = 191
+name = "Tournegrin"
+types = Array[int]([4])
+base_hp = 30
+base_attack = 30
+base_defense = 30
+base_sp_attack = 30
+base_sp_defense = 30
+base_speed = 30
+description = "Tournegrin essaie de bouger le moins possible. C'est parce qu'il veut conserver tous les nutriments qu'il stocke dans son corps pour son évolution. Il ne mange pas, ne subsistant que grâce à la rosée matinale."
+abilities = Array[ExtResource("ability")]([ExtResource("a34"), ExtResource("a94")])
+hidden_ability = ExtResource("a48")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 1, 0, 0)
+base_experience = 36
+catch_rate = 235
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(313, 360, 32, 32)

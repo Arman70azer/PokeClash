@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/string_shot.tres" id="m81"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/bug_bite.tres" id="m450"]
+[ext_resource type="Resource" path="res://data/abilities/shield_dust.tres" id="a19"]
+[ext_resource type="Resource" path="res://data/abilities/run_away.tres" id="a50"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m81")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m450")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"silcoon"
+min_level = 7
+
+[sub_resource type="Resource" id="v1"]
+script = ExtResource("evolution")
+species_id = &"cascoon"
+min_level = 7
+
+[resource]
+script = ExtResource("species")
+id = &"wurmple"
+dex_number = 265
+name = "Chenipotte"
+types = Array[int]([11])
+base_hp = 45
+base_attack = 45
+base_defense = 35
+base_sp_attack = 20
+base_sp_defense = 30
+base_speed = 20
+description = "Chenipotte est la proie de Hélédelle. Ce Pokémon essaie de résister en dirigeant les pointes de son dos vers le prédateur. Il affaiblit son ennemi en lui injectant du poison."
+abilities = Array[ExtResource("ability")]([ExtResource("a19")])
+hidden_ability = ExtResource("a50")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0"), SubResource("v1")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 56
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 474, 32, 32)

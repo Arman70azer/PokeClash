@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/howl.tres" id="m336"]
+[ext_resource type="Resource" path="res://data/moves/echoed_voice.tres" id="m497"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/sleep_talk.tres" id="m214"]
+[ext_resource type="Resource" path="res://data/moves/stomp.tres" id="m23"]
+[ext_resource type="Resource" path="res://data/moves/roar.tres" id="m46"]
+[ext_resource type="Resource" path="res://data/moves/supersonic.tres" id="m48"]
+[ext_resource type="Resource" path="res://data/moves/uproar.tres" id="m253"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/hyper_voice.tres" id="m304"]
+[ext_resource type="Resource" path="res://data/abilities/soundproof.tres" id="a43"]
+[ext_resource type="Resource" path="res://data/abilities/scrappy.tres" id="a113"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m336")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m497")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m214")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m23")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m46")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m48")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m253")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 57
+move = ExtResource("m304")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"exploud"
+min_level = 40
+
+[resource]
+script = ExtResource("species")
+id = &"loudred"
+dex_number = 294
+name = "Ramboum"
+types = Array[int]([0])
+base_hp = 84
+base_attack = 71
+base_defense = 43
+base_sp_attack = 71
+base_sp_defense = 43
+base_speed = 48
+description = "Ses hurlements n'affectent pas seulement l'ouïe ; ils provoquent aussi une onde de choc qui balaie les ennemis et leur inflige des dégâts."
+abilities = Array[ExtResource("ability")]([ExtResource("a43")])
+hidden_ability = ExtResource("a113")
+evolves_from = &"whismur"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 126
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(275, 512, 32, 32)

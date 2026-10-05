@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/dragon_breath.tres" id="m225"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/fire_fang.tres" id="m424"]
+[ext_resource type="Resource" path="res://data/moves/noble_roar.tres" id="m568"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/extrasensory.tres" id="m326"]
+[ext_resource type="Resource" path="res://data/moves/dragon_pulse.tres" id="m406"]
+[ext_resource type="Resource" path="res://data/moves/flamethrower.tres" id="m53"]
+[ext_resource type="Resource" path="res://data/moves/fusion_flare.tres" id="m558"]
+[ext_resource type="Resource" path="res://data/moves/hyper_voice.tres" id="m304"]
+[ext_resource type="Resource" path="res://data/moves/fire_blast.tres" id="m126"]
+[ext_resource type="Resource" path="res://data/moves/imprison.tres" id="m286"]
+[ext_resource type="Resource" path="res://data/moves/outrage.tres" id="m200"]
+[ext_resource type="Resource" path="res://data/moves/blue_flare.tres" id="m551"]
+[ext_resource type="Resource" path="res://data/abilities/turboblaze.tres" id="a163"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m225")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m424")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m568")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m326")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m406")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m53")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m558")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m304")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m126")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m286")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 80
+move = ExtResource("m200")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 88
+move = ExtResource("m551")
+
+[resource]
+script = ExtResource("species")
+id = &"reshiram"
+dex_number = 643
+name = "Reshiram"
+types = Array[int]([14, 1])
+base_hp = 100
+base_attack = 120
+base_defense = 100
+base_sp_attack = 150
+base_sp_defense = 120
+base_speed = 90
+description = "Selon un mythe, lorsque les gens ne font aucun cas de la Réalité et s'abandonnent à la cupidité, Reshiram rase le pays entier avec ses flammes."
+abilities = Array[ExtResource("ability")]([ExtResource("a163")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 3, 0, 0)
+base_experience = 306
+catch_rate = 3
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(693, 1006, 32, 32)

@@ -1,0 +1,40 @@
+newmtl c5hana_lm1
+Ka 0.7843137 0.7843137 0.7843137
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka c5hana_lm1.png
+map_Kd c5hana_lm1.png
+map_d c5hana_lm1.png
+newmtl c5kadan_lm1
+Ka 0.7843137 0.7843137 0.7843137
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka c5kadan_lm1.png
+map_Kd c5kadan_lm1.png
+map_d c5kadan_lm1.png
+newmtl c5zou2_lm1
+Ka 0.7843137 0.7843137 0.7843137
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka c5zou2_lm1.png
+map_Kd c5zou2_lm1.png
+map_d c5zou2_lm1.png
+newmtl c5zou_lm1
+Ka 0.7843137 0.7843137 0.7843137
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka c5zou_lm1.png
+map_Kd c5zou_lm1.png
+map_d c5zou_lm1.png
+newmtl h_kage_lm1
+Ka 0.972549 0.972549 0.972549
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka h_kage_lm1.png
+map_Kd h_kage_lm1.png
+map_d h_kage_lm1.png

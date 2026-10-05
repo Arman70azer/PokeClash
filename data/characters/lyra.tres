@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterSheet" format=3]
+
+[ext_resource type="Script" path="res://characters/character_sheet.gd" id="1_sheet"]
+[ext_resource type="Texture2D" path="res://assets/characters/Lyra.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_sheet")
+texture = ExtResource("2_tex")
+background = Color(0, 0.501960784, 1, 1)
+down = Array[Rect2]([Rect2(4, 3, 28, 28), Rect2(33, 3, 28, 28), Rect2(62, 3, 28, 28)])
+left = Array[Rect2]([Rect2(14, 33, 22, 28), Rect2(37, 33, 22, 28), Rect2(61, 33, 22, 28)])
+up = Array[Rect2]([Rect2(4, 61, 28, 28), Rect2(33, 61, 28, 28), Rect2(62, 61, 28, 28)])
+right = Array[Rect2]([Rect2(12, 91, 22, 28), Rect2(37, 91, 22, 28), Rect2(61, 91, 22, 28)])

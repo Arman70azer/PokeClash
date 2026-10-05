@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"rest"
+name = "Repos"
+type = 10
+category = 2
+power = 0
+accuracy = 0
+pp = 5
+priority = 0
+target = 1
+description = "Le lanceur regagne tous ses PV et soigne ses altérations de statut, puis il dort pendant deux tours."

@@ -1,0 +1,135 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/rollout.tres" id="m205"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/ice_fang.tres" id="m423"]
+[ext_resource type="Resource" path="res://data/moves/powder_snow.tres" id="m181"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/snore.tres" id="m173"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/aurora_beam.tres" id="m62"]
+[ext_resource type="Resource" path="res://data/moves/encore.tres" id="m227"]
+[ext_resource type="Resource" path="res://data/moves/body_slam.tres" id="m34"]
+[ext_resource type="Resource" path="res://data/moves/surf.tres" id="m57"]
+[ext_resource type="Resource" path="res://data/moves/blizzard.tres" id="m59"]
+[ext_resource type="Resource" path="res://data/moves/hail.tres" id="m258"]
+[ext_resource type="Resource" path="res://data/moves/sheer_cold.tres" id="m329"]
+[ext_resource type="Resource" path="res://data/abilities/thick_fat.tres" id="a47"]
+[ext_resource type="Resource" path="res://data/abilities/ice_body.tres" id="a115"]
+[ext_resource type="Resource" path="res://data/abilities/oblivious.tres" id="a12"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m205")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m423")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m181")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m173")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m62")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m227")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m34")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m57")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m59")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m258")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m329")
+
+[resource]
+script = ExtResource("species")
+id = &"walrein"
+dex_number = 365
+name = "Kaimorse"
+types = Array[int]([5, 2])
+base_hp = 110
+base_attack = 80
+base_defense = 90
+base_sp_attack = 95
+base_sp_defense = 90
+base_speed = 65
+description = "Ses défenses poussent tout au long de sa vie. Si l'une d'elles se brise au cours d'un combat, au bout d'un an, elle aura repoussé entièrement."
+abilities = Array[ExtResource("ability")]([ExtResource("a47"), ExtResource("a115")])
+hidden_ability = ExtResource("a12")
+evolves_from = &"sealeo"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(3, 0, 0, 0, 0, 0)
+base_experience = 239
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(9, 626, 32, 32)

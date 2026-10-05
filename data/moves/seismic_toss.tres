@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"seismic_toss"
+name = "Frappe Atlas"
+type = 6
+category = 0
+power = 0
+accuracy = 100
+pp = 20
+priority = 0
+description = "L'ennemi est projeté grâce au pouvoir de la gravité. Inflige des dégâts équivalents au niveau du lanceur."

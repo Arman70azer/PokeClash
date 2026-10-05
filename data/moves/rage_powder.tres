@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"rage_powder"
+name = "Poudre Fureur"
+type = 11
+category = 2
+power = 0
+accuracy = 0
+pp = 20
+priority = 2
+target = 1
+description = "Le lanceur s'asperge d'une poudre irritante pour attirer l'attention. Il attire toutes les attaques ennemies."

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/abilities/shed_skin.tres" id="a61"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"beautifly"
+min_level = 10
+
+[resource]
+script = ExtResource("species")
+id = &"silcoon"
+dex_number = 266
+name = "Armulys"
+types = Array[int]([11])
+base_hp = 50
+base_attack = 35
+base_defense = 55
+base_sp_attack = 25
+base_sp_defense = 25
+base_speed = 15
+description = "On pensait qu'Armulys pouvait résister à la faim et ne consommait rien avant son évolution. On sait maintenant que ce Pokémon étanche sa soif en récupérant l'eau de pluie déposée sur sa soie."
+abilities = Array[ExtResource("ability")]([ExtResource("a61")])
+evolves_from = &"wurmple"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 2, 0, 0, 0)
+base_experience = 72
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(199, 474, 32, 32)

@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/sing.tres" id="m47"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/sweet_kiss.tres" id="m186"]
+[ext_resource type="Resource" path="res://data/moves/disarming_voice.tres" id="m574"]
+[ext_resource type="Resource" path="res://data/moves/disable.tres" id="m50"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/abilities/cute_charm.tres" id="a56"]
+[ext_resource type="Resource" path="res://data/abilities/competitive.tres" id="a172"]
+[ext_resource type="Resource" path="res://data/abilities/friend_guard.tres" id="a132"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m47")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m186")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m574")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m50")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"jigglypuff"
+method = 3
+
+[resource]
+script = ExtResource("species")
+id = &"igglybuff"
+dex_number = 174
+name = "Toudoudou"
+types = Array[int]([0, 17])
+base_hp = 90
+base_attack = 30
+base_defense = 15
+base_sp_attack = 40
+base_sp_defense = 20
+base_speed = 15
+description = "Il se déplace en faisant rebondir son corps tout mou. Lorsque sa température corporelle augmente, il devient rose foncé."
+abilities = Array[ExtResource("ability")]([ExtResource("a56"), ExtResource("a172")])
+hidden_ability = ExtResource("a132")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 42
+catch_rate = 170
+female_ratio = 75
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(655, 322, 32, 32)

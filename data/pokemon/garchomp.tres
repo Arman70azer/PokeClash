@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/dragon_breath.tres" id="m225"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/sand_tomb.tres" id="m328"]
+[ext_resource type="Resource" path="res://data/moves/bulldoze.tres" id="m523"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/dragon_claw.tres" id="m337"]
+[ext_resource type="Resource" path="res://data/moves/dig.tres" id="m91"]
+[ext_resource type="Resource" path="res://data/moves/sandstorm.tres" id="m201"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/dragon_rush.tres" id="m407"]
+[ext_resource type="Resource" path="res://data/abilities/sand_veil.tres" id="a8"]
+[ext_resource type="Resource" path="res://data/abilities/rough_skin.tres" id="a24"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m225")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m328")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m523")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m337")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m91")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 62
+move = ExtResource("m201")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 82
+move = ExtResource("m407")
+
+[resource]
+script = ExtResource("species")
+id = &"garchomp"
+dex_number = 445
+name = "Carchacrok"
+types = Array[int]([14, 8])
+base_hp = 108
+base_attack = 130
+base_defense = 95
+base_sp_attack = 80
+base_sp_defense = 85
+base_speed = 102
+description = "Ce Pokémon très rapide même au sol capture ses proies sur les monts enneigés et rentre vite dans son antre avant que son corps ne gèle."
+abilities = Array[ExtResource("ability")]([ExtResource("a8")])
+hidden_ability = ExtResource("a24")
+evolves_from = &"gabite"
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 3, 0, 0, 0, 0)
+base_experience = 270
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(85, 740, 32, 32)

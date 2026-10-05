@@ -1,0 +1,135 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/splash.tres" id="m150"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/mist.tres" id="m54"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/heavy_slam.tres" id="m484"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/whirlpool.tres" id="m250"]
+[ext_resource type="Resource" path="res://data/moves/dive.tres" id="m291"]
+[ext_resource type="Resource" path="res://data/moves/bounce.tres" id="m340"]
+[ext_resource type="Resource" path="res://data/moves/body_slam.tres" id="m34"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/moves/water_spout.tres" id="m323"]
+[ext_resource type="Resource" path="res://data/abilities/water_veil.tres" id="a41"]
+[ext_resource type="Resource" path="res://data/abilities/oblivious.tres" id="a12"]
+[ext_resource type="Resource" path="res://data/abilities/pressure.tres" id="a46"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m150")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 3
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m54")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m484")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m250")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m291")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m340")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m34")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m323")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"wailord"
+min_level = 40
+
+[resource]
+script = ExtResource("species")
+id = &"wailmer"
+dex_number = 320
+name = "Wailmer"
+types = Array[int]([2])
+base_hp = 130
+base_attack = 70
+base_defense = 35
+base_sp_attack = 70
+base_sp_defense = 35
+base_speed = 60
+description = "Il ressemble à un énorme ballon quand il avale de très grandes quantités d'eau de mer. Il dévore une tonne de nourriture par jour."
+abilities = Array[ExtResource("ability")]([ExtResource("a41"), ExtResource("a12")])
+hidden_ability = ExtResource("a46")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast-then-very-slow"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 80
+catch_rate = 125
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(275, 550, 32, 32)

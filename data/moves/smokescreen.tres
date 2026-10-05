@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="1_f62aw"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="2_cdndk"]
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="3_6qwer"]
+
+[sub_resource type="Resource" id="Resource_nu3ma"]
+script = ExtResource("2_cdndk")
+stat = 6
+
+[resource]
+script = ExtResource("3_6qwer")
+id = &"smokescreen"
+name = "Brouillard"
+category = 2
+pp = 20
+effects = Array[ExtResource("1_f62aw")]([SubResource("Resource_nu3ma")])
+animation = &"smokescreen"
+description = "Un nuage de fumée réduit la Précision de l'ennemi."

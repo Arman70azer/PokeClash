@@ -1,0 +1,17 @@
+newmtl buoy_red
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd buoy_red.png
+
+newmtl buoy_white
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd buoy_white.png
+
+newmtl post
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd post.png

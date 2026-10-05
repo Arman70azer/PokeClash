@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/sketch.tres" id="m166"]
+[ext_resource type="Resource" path="res://data/abilities/own_tempo.tres" id="a20"]
+[ext_resource type="Resource" path="res://data/abilities/technician.tres" id="a101"]
+[ext_resource type="Resource" path="res://data/abilities/moody.tres" id="a141"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m166")
+
+[resource]
+script = ExtResource("species")
+id = &"smeargle"
+dex_number = 235
+name = "Queulorior"
+types = Array[int]([0])
+base_hp = 55
+base_attack = 20
+base_defense = 35
+base_sp_attack = 20
+base_sp_defense = 45
+base_speed = 75
+description = "Il se sert du liquide qui sort de sa queue pour dessiner sa marque. Ses fans s'arrachent ses plus beaux tracés à prix d'or."
+abilities = Array[ExtResource("ability")]([ExtResource("a20"), ExtResource("a101")])
+hidden_ability = ExtResource("a141")
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 88
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(9, 436, 32, 32)

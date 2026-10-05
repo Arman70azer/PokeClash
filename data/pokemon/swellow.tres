@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/peck.tres" id="m64"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/pluck.tres" id="m365"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/brave_bird.tres" id="m413"]
+[ext_resource type="Resource" path="res://data/moves/wing_attack.tres" id="m17"]
+[ext_resource type="Resource" path="res://data/moves/double_team.tres" id="m104"]
+[ext_resource type="Resource" path="res://data/moves/aerial_ace.tres" id="m332"]
+[ext_resource type="Resource" path="res://data/moves/quick_guard.tres" id="m501"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/endeavor.tres" id="m283"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/abilities/guts.tres" id="a62"]
+[ext_resource type="Resource" path="res://data/abilities/scrappy.tres" id="a113"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m64")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m365")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m413")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m17")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m104")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m332")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m501")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m283")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m413")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 57
+move = ExtResource("m179")
+
+[resource]
+script = ExtResource("species")
+id = &"swellow"
+dex_number = 277
+name = "Hélédelle"
+types = Array[int]([0, 9])
+base_hp = 60
+base_attack = 85
+base_defense = 60
+base_sp_attack = 75
+base_sp_defense = 50
+base_speed = 125
+description = "Hélédelle fait attention à bien entretenir ses ailes brillantes. Lorsque deux Hélédelle se rencontrent, ils se nettoient mutuellement les ailes avec attention."
+abilities = Array[ExtResource("ability")]([ExtResource("a62")])
+hidden_ability = ExtResource("a113")
+evolves_from = &"taillow"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 159
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(617, 474, 32, 32)

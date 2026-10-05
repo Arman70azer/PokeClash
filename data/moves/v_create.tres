@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="stat_stage_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("stat_stage_effect")
+stat = 2
+stages = -1
+who = 1
+
+[sub_resource type="Resource" id="e1"]
+script = ExtResource("stat_stage_effect")
+stat = 4
+stages = -1
+who = 1
+
+[sub_resource type="Resource" id="e2"]
+script = ExtResource("stat_stage_effect")
+stat = 5
+stages = -1
+who = 1
+
+[resource]
+script = ExtResource("move")
+id = &"v_create"
+name = "Coup Victoire"
+type = 1
+category = 0
+power = 180
+accuracy = 95
+pp = 5
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0"), SubResource("e1"), SubResource("e2")])
+description = "Le lanceur projette une flamme ardente de son front et se jette sur l'ennemi. Baisse la Défense, la Défense Spéciale et la Vitesse."

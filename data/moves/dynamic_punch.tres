@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"dynamic_punch"
+name = "Dynamo-Poing"
+type = 6
+category = 0
+power = 100
+accuracy = 50
+pp = 5
+priority = 0
+description = "Le lanceur rassemble ses forces et envoie un coup de poing à l'ennemi. Rend ce dernier confus."

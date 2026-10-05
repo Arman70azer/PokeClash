@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"horn_leech"
+name = "Encornebois"
+type = 4
+category = 0
+power = 75
+accuracy = 100
+pp = 10
+priority = 0
+description = "Un coup de corne qui draine l'énergie de l'ennemi. Convertit la moitié des dégâts infligés en PV pour le lanceur."

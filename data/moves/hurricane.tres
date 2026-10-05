@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"hurricane"
+name = "Vent Violent"
+type = 9
+category = 1
+power = 110
+accuracy = 70
+pp = 10
+priority = 0
+description = "Le lanceur déclenche une tempête de vents violents qui s'abat sur l'ennemi. Peut aussi le rendre confus."

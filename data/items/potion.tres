@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HealItem" format=3]
+
+[ext_resource type="Script" path="res://battle/data/heal_item.gd" id="1_0jtar"]
+[ext_resource type="Texture2D" path="res://assets/DS _ DSi - Pokemon Black 2 _ White 2 - Miscellaneous - Items.png" id="icon_sheet"]
+
+[resource]
+script = ExtResource("1_0jtar")
+heal_amount = 20
+id = &"potion"
+name = "Potion"
+pocket = 1
+price = 300
+usable_in_battle = true
+description = "Un spray qui soigne les blessures. Restaure 20 PV d'un Pokémon."
+icon_sheet = ExtResource("icon_sheet")
+icon_region = Rect2i(320, 0, 32, 32)

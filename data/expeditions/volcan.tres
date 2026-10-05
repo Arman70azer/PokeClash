@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="ExpeditionBiome" format=3]
+
+[ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
+[ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("prop")
+region = Rect2i(1, 9328, 47, 48)
+footprint = Vector2i(3, 2)
+weight = 3
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("prop")
+region = Rect2i(1, 7136, 47, 48)
+footprint = Vector2i(3, 2)
+weight = 2
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("prop")
+region = Rect2i(96, 945, 32, 31)
+footprint = Vector2i(2, 2)
+weight = 2
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("prop")
+region = Rect2i(112, 7217, 16, 15)
+footprint = Vector2i(1, 1)
+weight = 2
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("prop")
+region = Rect2i(80, 2899, 24, 45)
+footprint = Vector2i(1, 1)
+weight = 1
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("prop")
+region = Rect2i(8, 320, 47, 48)
+footprint = Vector2i(2, 2)
+weight = 1
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("prop")
+region = Rect2i(112, 977, 16, 15)
+footprint = Vector2i(1, 1)
+weight = 1
+
+[resource]
+script = ExtResource("biome")
+id = &"volcan"
+name = "Volcan"
+type = 1
+description = "Les flancs d'un volcan, où vivent les Pokémon Feu."
+ground = Vector2i(2, 279)
+ground_variants = Array[Vector2i]([Vector2i(3, 280)])
+variant_density = 0.08
+path = Vector2i(1, 226)
+encounter = Vector2i(7, 278)
+liquid = Vector2i(12, 223)
+pools = 0.07
+liquid_border = 0.35
+decor = Array[Vector2i]([])
+decor_density = 0
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6")])
+trainers = Array[Dictionary]([{"front": Vector2i(5, 8), "sheet": "chef", "title": "Cracheur de feu"}, {"front": Vector2i(5, 9), "sheet": "ouvrier", "title": "Motard"}, {"front": Vector2i(1, 5), "sheet": "ouvrier", "title": "Karatéka"}])

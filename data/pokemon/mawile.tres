@@ -1,0 +1,127 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/fairy_wind.tres" id="m584"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/stockpile.tres" id="m254"]
+[ext_resource type="Resource" path="res://data/moves/spit_up.tres" id="m255"]
+[ext_resource type="Resource" path="res://data/moves/swallow.tres" id="m256"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/iron_defense.tres" id="m334"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/sweet_scent.tres" id="m230"]
+[ext_resource type="Resource" path="res://data/moves/iron_head.tres" id="m442"]
+[ext_resource type="Resource" path="res://data/moves/taunt.tres" id="m269"]
+[ext_resource type="Resource" path="res://data/moves/fake_tears.tres" id="m313"]
+[ext_resource type="Resource" path="res://data/moves/play_rough.tres" id="m583"]
+[ext_resource type="Resource" path="res://data/abilities/hyper_cutter.tres" id="a52"]
+[ext_resource type="Resource" path="res://data/abilities/intimidate.tres" id="a22"]
+[ext_resource type="Resource" path="res://data/abilities/sheer_force.tres" id="a125"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m584")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m254")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m255")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m256")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m334")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m230")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m442")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m313")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m583")
+
+[resource]
+script = ExtResource("species")
+id = &"mawile"
+dex_number = 303
+name = "Mysdibule"
+types = Array[int]([16, 17])
+base_hp = 50
+base_attack = 85
+base_defense = 85
+base_sp_attack = 55
+base_sp_defense = 55
+base_speed = 50
+description = "Ses cornes d'acier forment une grande mâchoire avec laquelle il mord férocement ses adversaires."
+abilities = Array[ExtResource("ability")]([ExtResource("a52"), ExtResource("a22")])
+hidden_ability = ExtResource("a125")
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(0, 1, 1, 0, 0, 0)
+base_experience = 133
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(617, 512, 32, 32)

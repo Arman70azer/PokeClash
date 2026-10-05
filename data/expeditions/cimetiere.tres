@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="ExpeditionBiome" format=3]
+
+[ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
+[ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("prop")
+region = Rect2i(16, 9911, 16, 25)
+footprint = Vector2i(1, 1)
+weight = 3
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("prop")
+region = Rect2i(0, 9905, 16, 15)
+footprint = Vector2i(1, 1)
+weight = 2
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("prop")
+region = Rect2i(96, 9639, 16, 25)
+footprint = Vector2i(1, 1)
+weight = 2
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("prop")
+region = Rect2i(14, 209, 36, 47)
+footprint = Vector2i(2, 2)
+weight = 2
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("prop")
+region = Rect2i(80, 2899, 24, 45)
+footprint = Vector2i(1, 1)
+weight = 2
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("prop")
+region = Rect2i(130, 2816, 30, 64)
+footprint = Vector2i(2, 1)
+weight = 1
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("prop")
+region = Rect2i(194, 2832, 30, 48)
+footprint = Vector2i(2, 1)
+weight = 2
+
+[sub_resource type="Resource" id="p7"]
+script = ExtResource("prop")
+region = Rect2i(226, 2832, 30, 48)
+footprint = Vector2i(2, 1)
+weight = 2
+
+[sub_resource type="Resource" id="p8"]
+script = ExtResource("prop")
+region = Rect2i(80, 2850, 22, 30)
+footprint = Vector2i(1, 1)
+weight = 2
+
+[sub_resource type="Resource" id="p9"]
+script = ExtResource("prop")
+region = Rect2i(32, 2944, 24, 32)
+footprint = Vector2i(2, 1)
+weight = 1
+
+[sub_resource type="Resource" id="p10"]
+script = ExtResource("prop")
+region = Rect2i(32, 2836, 30, 76)
+footprint = Vector2i(2, 1)
+weight = 1
+walls = false
+
+[resource]
+script = ExtResource("biome")
+id = &"cimetiere"
+name = "Cimetière"
+type = 13
+description = "Un vieux cimetière en ruine, hanté par les Pokémon Spectre."
+ground = Vector2i(1, 217)
+ground_variants = Array[Vector2i]([Vector2i(7, 277)])
+variant_density = 0.08
+path = Vector2i(4, 277)
+encounter = Vector2i(2, 664)
+liquid = Vector2i(-1, -1)
+pools = 0
+liquid_border = 0
+decor = Array[Vector2i]([])
+decor_density = 0
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7"), SubResource("p8"), SubResource("p9"), SubResource("p10")])
+trainers = Array[Dictionary]([{"front": Vector2i(6, 7), "sheet": "grand_mere", "title": "Médium"}, {"front": Vector2i(6, 3), "sheet": "grand_pere", "title": "Sage"}, {"front": Vector2i(4, 4), "sheet": "collectionneur", "title": "Mystimaniac"}])

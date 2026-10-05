@@ -1,0 +1,115 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/peck.tres" id="m64"]
+[ext_resource type="Resource" path="res://data/moves/supersonic.tres" id="m48"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/horn_attack.tres" id="m30"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/aqua_ring.tres" id="m392"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/waterfall.tres" id="m127"]
+[ext_resource type="Resource" path="res://data/moves/soak.tres" id="m487"]
+[ext_resource type="Resource" path="res://data/moves/megahorn.tres" id="m224"]
+[ext_resource type="Resource" path="res://data/moves/horn_drill.tres" id="m32"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/water_veil.tres" id="a41"]
+[ext_resource type="Resource" path="res://data/abilities/lightning_rod.tres" id="a31"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m64")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m48")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m30")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m392")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m127")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m487")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m224")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m32")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"seaking"
+min_level = 33
+
+[resource]
+script = ExtResource("species")
+id = &"goldeen"
+dex_number = 118
+name = "Poissirène"
+types = Array[int]([2])
+base_hp = 45
+base_attack = 67
+base_defense = 60
+base_sp_attack = 35
+base_sp_defense = 50
+base_speed = 63
+description = "Ses nageoires dorsales et pectorales sont très développées. Elles lui permettent de nager à une vitesse de cinq nœuds."
+abilities = Array[ExtResource("ability")]([ExtResource("a33"), ExtResource("a41")])
+hidden_ability = ExtResource("a31")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 64
+catch_rate = 225
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1297, 2569, 80, 80)
+back_region = Rect2i(1459, 2569, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(503, 246, 32, 32)

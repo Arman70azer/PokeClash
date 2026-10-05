@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/thunder_fang.tres" id="m422"]
+[ext_resource type="Resource" path="res://data/moves/ice_fang.tres" id="m423"]
+[ext_resource type="Resource" path="res://data/moves/fire_fang.tres" id="m424"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/lick.tres" id="m122"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/roar.tres" id="m46"]
+[ext_resource type="Resource" path="res://data/moves/last_resort.tres" id="m387"]
+[ext_resource type="Resource" path="res://data/moves/play_rough.tres" id="m583"]
+[ext_resource type="Resource" path="res://data/moves/payback.tres" id="m371"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/abilities/intimidate.tres" id="a22"]
+[ext_resource type="Resource" path="res://data/abilities/run_away.tres" id="a50"]
+[ext_resource type="Resource" path="res://data/abilities/rattled.tres" id="a155"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m422")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m423")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m424")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m122")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m46")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m387")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m583")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m371")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"granbull"
+min_level = 23
+
+[resource]
+script = ExtResource("species")
+id = &"snubbull"
+dex_number = 209
+name = "Snubbull"
+types = Array[int]([17])
+base_hp = 60
+base_attack = 80
+base_defense = 50
+base_sp_attack = 40
+base_sp_defense = 40
+base_speed = 30
+description = "Malgré les apparences, c'est un grand timide qui fait souvent l'objet de railleries quand il se trouve au milieu d'un groupe de Pokémon Chiot."
+abilities = Array[ExtResource("ability")]([ExtResource("a22"), ExtResource("a50")])
+hidden_ability = ExtResource("a155")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 60
+catch_rate = 190
+female_ratio = 75
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(9, 398, 32, 32)

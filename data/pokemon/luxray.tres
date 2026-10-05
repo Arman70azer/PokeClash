@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/thunder_shock.tres" id="m84"]
+[ext_resource type="Resource" path="res://data/moves/charge.tres" id="m268"]
+[ext_resource type="Resource" path="res://data/moves/electric_terrain.tres" id="m604"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/spark.tres" id="m209"]
+[ext_resource type="Resource" path="res://data/moves/roar.tres" id="m46"]
+[ext_resource type="Resource" path="res://data/moves/volt_switch.tres" id="m521"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/wild_charge.tres" id="m528"]
+[ext_resource type="Resource" path="res://data/abilities/rivalry.tres" id="a79"]
+[ext_resource type="Resource" path="res://data/abilities/intimidate.tres" id="a22"]
+[ext_resource type="Resource" path="res://data/abilities/guts.tres" id="a62"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m84")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m268")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m604")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m209")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m46")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m521")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 80
+move = ExtResource("m528")
+
+[resource]
+script = ExtResource("species")
+id = &"luxray"
+dex_number = 405
+name = "Luxray"
+types = Array[int]([3])
+base_hp = 80
+base_attack = 120
+base_defense = 79
+base_sp_attack = 95
+base_sp_defense = 79
+base_speed = 70
+description = "Il dort beaucoup pour récupérer la quantité d'énergie électrique énorme qu'il consomme afin de voir à travers la matière."
+abilities = Array[ExtResource("ability")]([ExtResource("a79"), ExtResource("a22")])
+hidden_ability = ExtResource("a62")
+evolves_from = &"luxio"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 3, 0, 0, 0, 0)
+base_experience = 235
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(541, 664, 32, 32)

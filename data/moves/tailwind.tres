@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"tailwind"
+name = "Vent Arrière"
+type = 9
+category = 2
+power = 0
+accuracy = 0
+pp = 15
+priority = 0
+description = "Génère une rafale de vent qui augmente la Vitesse des Pokémon de l'équipe pendant quatre tours."

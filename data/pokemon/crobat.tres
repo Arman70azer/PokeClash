@@ -1,0 +1,127 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/supersonic.tres" id="m48"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/mean_look.tres" id="m212"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/tailwind.tres" id="m366"]
+[ext_resource type="Resource" path="res://data/moves/cross_poison.tres" id="m440"]
+[ext_resource type="Resource" path="res://data/moves/poison_fang.tres" id="m305"]
+[ext_resource type="Resource" path="res://data/moves/quick_guard.tres" id="m501"]
+[ext_resource type="Resource" path="res://data/moves/air_cutter.tres" id="m314"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/haze.tres" id="m114"]
+[ext_resource type="Resource" path="res://data/moves/venoshock.tres" id="m474"]
+[ext_resource type="Resource" path="res://data/moves/confuse_ray.tres" id="m109"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/leech_life.tres" id="m141"]
+[ext_resource type="Resource" path="res://data/abilities/inner_focus.tres" id="a39"]
+[ext_resource type="Resource" path="res://data/abilities/infiltrator.tres" id="a151"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m48")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m212")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m366")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m440")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m305")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m501")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m314")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m114")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m474")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m109")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 62
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 69
+move = ExtResource("m141")
+
+[resource]
+script = ExtResource("species")
+id = &"crobat"
+dex_number = 169
+name = "Nostenfer"
+types = Array[int]([7, 9])
+base_hp = 85
+base_attack = 90
+base_defense = 80
+base_sp_attack = 70
+base_sp_defense = 80
+base_speed = 130
+description = "Il vole en contrôlant librement ses quatre ailes et peut se déplacer sans avoir besoin de ralentir, même dans les grottes étroites."
+abilities = Array[ExtResource("ability")]([ExtResource("a39")])
+hidden_ability = ExtResource("a151")
+evolves_from = &"golbat"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 3)
+base_experience = 241
+catch_rate = 90
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(465, 322, 32, 32)

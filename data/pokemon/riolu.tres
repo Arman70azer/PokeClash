@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/feint.tres" id="m364"]
+[ext_resource type="Resource" path="res://data/moves/metal_claw.tres" id="m232"]
+[ext_resource type="Resource" path="res://data/moves/counter.tres" id="m68"]
+[ext_resource type="Resource" path="res://data/moves/work_up.tres" id="m526"]
+[ext_resource type="Resource" path="res://data/moves/rock_smash.tres" id="m249"]
+[ext_resource type="Resource" path="res://data/moves/vacuum_wave.tres" id="m410"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/quick_guard.tres" id="m501"]
+[ext_resource type="Resource" path="res://data/moves/force_palm.tres" id="m395"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/final_gambit.tres" id="m515"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/abilities/steadfast.tres" id="a80"]
+[ext_resource type="Resource" path="res://data/abilities/inner_focus.tres" id="a39"]
+[ext_resource type="Resource" path="res://data/abilities/prankster.tres" id="a158"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m364")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m232")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m68")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m526")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m249")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m410")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m501")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m395")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m515")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"lucario"
+method = 3
+
+[resource]
+script = ExtResource("species")
+id = &"riolu"
+dex_number = 447
+name = "Riolu"
+types = Array[int]([6])
+base_hp = 40
+base_attack = 70
+base_defense = 40
+base_sp_attack = 35
+base_sp_defense = 40
+base_speed = 60
+description = "Il perçoit sous forme d'aura non seulement les sentiments des autres, mais aussi l'état de la nature."
+abilities = Array[ExtResource("ability")]([ExtResource("a80"), ExtResource("a39")])
+hidden_ability = ExtResource("a158")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 57
+catch_rate = 75
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 740, 32, 32)

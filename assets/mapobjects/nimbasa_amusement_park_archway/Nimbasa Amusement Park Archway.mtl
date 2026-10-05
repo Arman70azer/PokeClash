@@ -1,0 +1,24 @@
+newmtl c4gate_001
+Ka 0.972549 0.972549 0.972549
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka c4gate_001.png
+map_Kd c4gate_001.png
+map_d c4gate_001.png
+newmtl c4gate_002
+Ka 0.972549 0.972549 0.972549
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka c4gate_002.png
+map_Kd c4gate_002.png
+map_d c4gate_002.png
+newmtl lambert1
+Ka 0 0 0
+Kd 0.7843137 0.7843137 0.7843137
+d 1
+Tr 1
+map_Ka lambert1.png
+map_Kd lambert1.png
+map_d lambert1.png

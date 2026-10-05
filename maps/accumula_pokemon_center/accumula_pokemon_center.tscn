@@ -1,0 +1,77 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/game_map.gd" id="gm"]
+[ext_resource type="Script" path="res://world/map_zone.gd" id="3"]
+[ext_resource type="Script" path="res://characters/npc.gd" id="6"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/pokemon_center/pokemon_center.obj" id="13"]
+[ext_resource type="Resource" path="res://assets/maps/pokemon_center/pokemon_center_grid.tres" id="14"]
+[ext_resource type="Script" path="res://world/warp.gd" id="16"]
+[ext_resource type="Resource" path="res://data/shops/accumula_pokemon_center.tres" id="shop"]
+[ext_resource type="Script" path="res://world/pc_terminal.gd" id="pc"]
+
+[node name="AccumulaPokemonCenter" type="Node3D"]
+script = ExtResource("gm")
+map_id = &"accumula_pokemon_center"
+display_name = "Centre Pokémon d'Accumula"
+
+[node name="Interior" type="MeshInstance3D" parent="."]
+mesh = ExtResource("13")
+script = ExtResource("3")
+walk_grid = ExtResource("14")
+saturation = 1.15
+contrast = 1.05
+vertex_shading = 0.35
+shadow_opacity = 0.3
+
+[node name="Warps" type="Node" parent="."]
+
+[node name="LeavePokemonCenter" type="Node" parent="Warps"]
+script = ExtResource("16")
+trigger_cells = Array[Vector2i]([Vector2i(239, 5)])
+direction = Vector2i(0, 1)
+target_map = &"accumula"
+target_cell = Vector2i(12, 2)
+target_facing = Vector2i(0, 1)
+target_door = &"PokemonCenterDoor"
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="InfirmiereJoelle" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(239, -8)
+display_name = "Infirmière Joëlle"
+sheet = "infirmiere"
+lines = PackedStringArray("Bonjour, et bienvenue au Centre Pokémon !", "Je vais soigner vos Pokémon. Un instant, s'il vous plaît.")
+wander_radius = 0
+heals_party = true
+talk_reach = 3
+
+[node name="Vendeur" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(244, 1)
+facing = Vector2i(-1, 0)
+display_name = "Vendeur"
+sheet = "vendeur"
+lines = PackedStringArray("Bonjour ! Bienvenue à la boutique du Centre Pokémon.")
+wander_radius = 0
+looks_around = false
+talk_reach = 3
+shop = ExtResource("shop")
+
+[node name="Vendeuse" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(244, 3)
+facing = Vector2i(-1, 0)
+display_name = "Vendeuse"
+sheet = "vendeuse"
+lines = PackedStringArray("Bonjour ! Des Poké Balls, des potions ? Je vous montre tout ça.")
+wander_radius = 0
+looks_around = false
+talk_reach = 3
+shop = ExtResource("shop")
+
+[node name="Pc" type="Node3D" parent="Objects"]
+script = ExtResource("pc")
+cell = Vector2i(235, -6)
+zone_path = NodePath("../../Interior")
+screen_surface = "lambert4"

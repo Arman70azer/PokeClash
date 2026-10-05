@@ -1,0 +1,141 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/dig.tres" id="m91"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/double_team.tres" id="m104"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/mud_slap.tres" id="m189"]
+[ext_resource type="Resource" path="res://data/moves/false_swipe.tres" id="m206"]
+[ext_resource type="Resource" path="res://data/moves/fury_cutter.tres" id="m210"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/metal_claw.tres" id="m232"]
+[ext_resource type="Resource" path="res://data/moves/aerial_ace.tres" id="m332"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/bug_bite.tres" id="m450"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/mind_reader.tres" id="m170"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/x_scissor.tres" id="m404"]
+[ext_resource type="Resource" path="res://data/abilities/speed_boost.tres" id="a3"]
+[ext_resource type="Resource" path="res://data/abilities/infiltrator.tres" id="a151"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m91")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m104")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m189")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m206")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m210")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m232")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+move = ExtResource("m332")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m450")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m170")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 57
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m404")
+
+[resource]
+script = ExtResource("species")
+id = &"ninjask"
+dex_number = 291
+name = "Ninjask"
+types = Array[int]([11, 9])
+base_hp = 61
+base_attack = 90
+base_defense = 45
+base_sp_attack = 50
+base_sp_defense = 50
+base_speed = 160
+description = "Ce Pokémon est tellement rapide qu'on le dit capable d'éviter toutes les attaques. Il adore se nourrir de la sève sucrée des arbres."
+abilities = Array[ExtResource("ability")]([ExtResource("a3")])
+hidden_ability = ExtResource("a151")
+evolves_from = &"nincada"
+growth_rate = &"slow-then-very-fast"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 160
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 512, 32, 32)

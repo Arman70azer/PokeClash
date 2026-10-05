@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"sheer_cold"
+name = "Glaciation"
+type = 5
+category = 1
+power = 0
+accuracy = 30
+pp = 5
+priority = 0
+description = "Une vague de froid glacial frappe l'ennemi pour le mettre K.O. en un coup. A peu de chances de réussir si le lanceur ne possède pas le type Glace."

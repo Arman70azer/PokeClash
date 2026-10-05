@@ -1,0 +1,151 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/moves/foresight.tres" id="m193"]
+[ext_resource type="Resource" path="res://data/moves/sing.tres" id="m47"]
+[ext_resource type="Resource" path="res://data/moves/attract.tres" id="m213"]
+[ext_resource type="Resource" path="res://data/moves/disarming_voice.tres" id="m574"]
+[ext_resource type="Resource" path="res://data/moves/double_slap.tres" id="m3"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/feint_attack.tres" id="m185"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/wake_up_slap.tres" id="m358"]
+[ext_resource type="Resource" path="res://data/moves/assist.tres" id="m274"]
+[ext_resource type="Resource" path="res://data/moves/covet.tres" id="m343"]
+[ext_resource type="Resource" path="res://data/moves/heal_bell.tres" id="m215"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/captivate.tres" id="m445"]
+[ext_resource type="Resource" path="res://data/moves/play_rough.tres" id="m583"]
+[ext_resource type="Resource" path="res://data/abilities/cute_charm.tres" id="a56"]
+[ext_resource type="Resource" path="res://data/abilities/normalize.tres" id="a96"]
+[ext_resource type="Resource" path="res://data/abilities/wonder_skin.tres" id="a147"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m252")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m193")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m47")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m213")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m574")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m3")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m185")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m358")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m274")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m343")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m215")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m445")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m583")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"delcatty"
+method = 1
+item = &"moon-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"skitty"
+dex_number = 300
+name = "Skitty"
+types = Array[int]([0])
+base_hp = 50
+base_attack = 45
+base_defense = 45
+base_sp_attack = 35
+base_sp_defense = 35
+base_speed = 50
+description = "On sait que Skitty court souvent après sa queue. À l'état sauvage, ce Pokémon vit dans les cavités des arbres de la forêt. Il est tellement adorable qu'il a un grand succès comme animal de compagnie."
+abilities = Array[ExtResource("ability")]([ExtResource("a56"), ExtResource("a96")])
+hidden_ability = ExtResource("a147")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 52
+catch_rate = 255
+female_ratio = 75
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(503, 512, 32, 32)

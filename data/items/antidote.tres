@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HealItem" format=3]
+
+[ext_resource type="Script" path="res://battle/data/heal_item.gd" id="1_rw45k"]
+[ext_resource type="Texture2D" path="res://assets/DS _ DSi - Pokemon Black 2 _ White 2 - Miscellaneous - Items.png" id="icon_sheet"]
+
+[resource]
+script = ExtResource("1_rw45k")
+cures = Array[StringName]([&"poison", &"toxic"])
+id = &"antidote"
+name = "Antidote"
+pocket = 1
+price = 100
+usable_in_battle = true
+description = "Un spray qui soigne un Pokémon empoisonné."
+icon_sheet = ExtResource("icon_sheet")
+icon_region = Rect2i(352, 0, 32, 32)

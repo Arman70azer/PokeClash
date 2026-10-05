@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/present.tres" id="m217"]
+[ext_resource type="Resource" path="res://data/moves/drill_peck.tres" id="m65"]
+[ext_resource type="Resource" path="res://data/abilities/vital_spirit.tres" id="a72"]
+[ext_resource type="Resource" path="res://data/abilities/hustle.tres" id="a55"]
+[ext_resource type="Resource" path="res://data/abilities/insomnia.tres" id="a15"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m217")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m65")
+
+[resource]
+script = ExtResource("species")
+id = &"delibird"
+dex_number = 225
+name = "Cadoizo"
+types = Array[int]([5, 9])
+base_hp = 45
+base_attack = 55
+base_defense = 45
+base_sp_attack = 65
+base_sp_defense = 45
+base_speed = 75
+description = "Ce Pokémon partage facilement son repas avec d'autres Pokémon et avec des humains, ce qui l'oblige à constamment courir après la nourriture."
+abilities = Array[ExtResource("ability")]([ExtResource("a72"), ExtResource("a55")])
+hidden_ability = ExtResource("a15")
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 116
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(617, 398, 32, 32)

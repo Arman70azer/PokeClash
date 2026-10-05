@@ -1,0 +1,77 @@
+newmtl bridge
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd bridge.png
+
+newmtl deck
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd deck.png
+
+newmtl door
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd door.png
+
+newmtl funnel
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd funnel.png
+
+newmtl funnel_top
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd funnel_top.png
+
+newmtl hull
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd hull.png
+
+newmtl lamp
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd lamp.png
+
+newmtl lifeboat
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd lifeboat.png
+
+newmtl lifeboat_top
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd lifeboat_top.png
+
+newmtl mast
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd mast.png
+
+newmtl railing
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd railing.png
+
+newmtl white
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd white.png
+
+newmtl windows
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd windows.png

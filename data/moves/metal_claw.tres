@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="stat_stage_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("stat_stage_effect")
+stat = 1
+stages = 1
+chance = 10
+who = 1
+
+[resource]
+script = ExtResource("move")
+id = &"metal_claw"
+name = "Griffe Acier"
+type = 16
+category = 0
+power = 50
+accuracy = 95
+pp = 35
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0")])
+description = "Attaque avec des griffes d'acier. Peut aussi augmenter l'Attaque du lanceur."

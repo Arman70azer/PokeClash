@@ -1,0 +1,28 @@
+# Godot 4
+.godot/
+*.translation
+export_presets.cfg
+/builds/
+# Godot C# (au cas où)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Scripts temporaires (captures, essais)
+_tmp_*.gd
+_tmp_*.gd.uid
+*.tmp
+
+# Python (outils de tools/)
+__pycache__/
+*.pyc
+
+# Réglages locaux d'éditeur et de Claude
+.vscode/
+.idea/
+.claude/settings.local.json
+
+# Systèmes
+.DS_Store
+Thumbs.db
+desktop.ini

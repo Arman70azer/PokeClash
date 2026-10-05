@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/air_cutter.tres" id="m314"]
+[ext_resource type="Resource" path="res://data/moves/leaf_blade.tres" id="m348"]
+[ext_resource type="Resource" path="res://data/moves/payback.tres" id="m371"]
+[ext_resource type="Resource" path="res://data/moves/hurricane.tres" id="m542"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/wind_rider.tres" id="a274"]
+[ext_resource type="Resource" path="res://data/abilities/pickpocket.tres" id="a124"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m314")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m348")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m371")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m542")
+
+[resource]
+script = ExtResource("species")
+id = &"shiftry"
+dex_number = 275
+name = "Tengalice"
+types = Array[int]([4, 15])
+base_hp = 90
+base_attack = 100
+base_defense = 60
+base_sp_attack = 90
+base_sp_defense = 60
+base_speed = 80
+description = "Il vit caché au fond des forêts. On raconte qu'il fait souffler la bise lorsqu'il agite ses grands éventails."
+abilities = Array[ExtResource("ability")]([ExtResource("a34"), ExtResource("a274")])
+hidden_ability = ExtResource("a124")
+evolves_from = &"nuzleaf"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 3, 0, 0, 0, 0)
+base_experience = 216
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(541, 474, 32, 32)

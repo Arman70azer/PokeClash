@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"double_hit"
+name = "Coup Double"
+type = 0
+category = 0
+power = 35
+accuracy = 90
+pp = 10
+priority = 0
+description = "Le lanceur frappe l'ennemi deux fois d'affilée à l'aide de sa queue, de lianes ou d'un autre membre."

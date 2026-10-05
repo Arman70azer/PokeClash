@@ -1,0 +1,118 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/gust.tres" id="m16"]
+[ext_resource type="Resource" path="res://data/moves/whirlwind.tres" id="m18"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/weather_ball.tres" id="m311"]
+[ext_resource type="Resource" path="res://data/moves/life_dew.tres" id="m791"]
+[ext_resource type="Resource" path="res://data/moves/safeguard.tres" id="m219"]
+[ext_resource type="Resource" path="res://data/moves/calm_mind.tres" id="m347"]
+[ext_resource type="Resource" path="res://data/moves/extrasensory.tres" id="m326"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/sacred_fire.tres" id="m221"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/fire_blast.tres" id="m126"]
+[ext_resource type="Resource" path="res://data/moves/future_sight.tres" id="m248"]
+[ext_resource type="Resource" path="res://data/moves/sky_attack.tres" id="m143"]
+[ext_resource type="Resource" path="res://data/moves/overheat.tres" id="m315"]
+[ext_resource type="Resource" path="res://data/abilities/pressure.tres" id="a46"]
+[ext_resource type="Resource" path="res://data/abilities/regenerator.tres" id="a144"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m16")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m18")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m311")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m791")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m219")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m347")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m326")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m221")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 63
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m126")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 81
+move = ExtResource("m248")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 90
+move = ExtResource("m143")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 99
+move = ExtResource("m315")
+
+[resource]
+script = ExtResource("species")
+id = &"ho_oh"
+dex_number = 250
+name = "Ho-Oh"
+types = Array[int]([1, 9])
+base_hp = 106
+base_attack = 130
+base_defense = 90
+base_sp_attack = 110
+base_sp_defense = 154
+base_speed = 90
+description = "Les plumes de Ho-Oh brillent de sept couleurs selon l'orientation de son corps par rapport à la lumière. On raconte que ces plumes portent bonheur. On dit aussi que ce Pokémon vit au pied d'un arc-en-ciel."
+abilities = Array[ExtResource("ability")]([ExtResource("a46")])
+hidden_ability = ExtResource("a144")
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 3, 0)
+base_experience = 306
+catch_rate = 3
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(579, 436, 32, 32)

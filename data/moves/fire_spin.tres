@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"fire_spin"
+name = "Danse Flammes"
+type = 1
+category = 1
+power = 35
+accuracy = 85
+pp = 15
+priority = 0
+description = "Un tourbillon de flammes emprisonne l'ennemi pendant quatre à cinq tours."

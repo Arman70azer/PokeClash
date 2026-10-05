@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/bubble_beam.tres" id="m61"]
+[ext_resource type="Resource" path="res://data/moves/rain_dance.tres" id="m240"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/rain_dish.tres" id="a44"]
+[ext_resource type="Resource" path="res://data/abilities/own_tempo.tres" id="a20"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m61")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m240")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m252")
+
+[resource]
+script = ExtResource("species")
+id = &"ludicolo"
+dex_number = 272
+name = "Ludicolo"
+types = Array[int]([2, 4])
+base_hp = 80
+base_attack = 70
+base_defense = 70
+base_sp_attack = 90
+base_sp_defense = 100
+base_speed = 70
+description = "Il bouge son corps sur un rythme entraînant pour décupler ses forces."
+abilities = Array[ExtResource("ability")]([ExtResource("a33"), ExtResource("a44")])
+hidden_ability = ExtResource("a20")
+evolves_from = &"lombre"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 3, 0)
+base_experience = 216
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(427, 474, 32, 32)

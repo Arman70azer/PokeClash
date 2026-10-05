@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"mystical_power"
+name = "Force Mystique"
+type = 10
+category = 1
+power = 70
+accuracy = 90
+pp = 10
+priority = 0
+description = "Le lanceur attaque en libérant un pouvoir mystique. Cela augmente également son Attaque Spéciale."

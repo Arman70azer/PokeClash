@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="stat_stage_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("stat_stage_effect")
+stat = 3
+stages = -1
+
+[resource]
+script = ExtResource("move")
+id = &"snarl"
+name = "Aboiement"
+type = 15
+category = 1
+power = 55
+accuracy = 95
+pp = 15
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0")])
+description = "Le lanceur hurle sur l'ennemi. Baisse l'Attaque Spéciale de l'ennemi."

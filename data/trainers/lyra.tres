@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="TrainerData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/trainer_data.gd" id="1_h8gxa"]
+[ext_resource type="Texture2D" path="res://assets/Trainers - Trainers (Front).png" id="8_front"]
+[ext_resource type="Script" path="res://battle/data/pokemon_instance.gd" id="2_tvrpl"]
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="3_padtd"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="4_7jn64"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="5_83bd1"]
+[ext_resource type="Resource" path="res://data/moves/leech_seed.tres" id="6_7gyby"]
+[ext_resource type="Resource" path="res://data/pokemon/bulbasaur.tres" id="7_ets7i"]
+
+[sub_resource type="Resource" id="Resource_ebpi6"]
+script = ExtResource("2_tvrpl")
+species = ExtResource("7_ets7i")
+level = 8
+ivs = PackedInt32Array(15, 15, 15, 15, 15, 15)
+evs = PackedInt32Array(0, 0, 0, 0, 0, 0)
+moves = Array[ExtResource("3_padtd")]([ExtResource("4_7jn64"), ExtResource("5_83bd1"), ExtResource("6_7gyby")])
+move_pp = PackedInt32Array(35, 40, 10)
+
+[resource]
+script = ExtResource("1_h8gxa")
+name = "Lyra"
+team = Array[ExtResource("2_tvrpl")]([SubResource("Resource_ebpi6")])
+prize_money = 160
+defeat_line = "Bravo ! Ton Pokémon et toi, vous formez une sacrée équipe !"
+victory_line = "Hihi ! J'ai gagné cette fois-ci !"
+battle_sheet = ExtResource("8_front")
+front_region = Rect2i(82, 18, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])

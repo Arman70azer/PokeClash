@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"simple_beam"
+name = "Rayon Simple"
+type = 0
+category = 2
+power = 0
+accuracy = 100
+pp = 15
+priority = 0
+description = "Le lanceur envoie des ondes mystérieuses à l'ennemi. Son talent devient Simple."

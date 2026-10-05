@@ -1,0 +1,107 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/smokescreen.tres" id="m108"]
+[ext_resource type="Resource" path="res://data/moves/dragon_breath.tres" id="m225"]
+[ext_resource type="Resource" path="res://data/moves/fire_fang.tres" id="m424"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/flamethrower.tres" id="m53"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/inferno.tres" id="m517"]
+[ext_resource type="Resource" path="res://data/moves/flare_blitz.tres" id="m394"]
+[ext_resource type="Resource" path="res://data/abilities/blaze.tres" id="a66"]
+[ext_resource type="Resource" path="res://data/abilities/solar_power.tres" id="a94"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m108")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m225")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m424")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m53")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m517")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m394")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"charizard"
+min_level = 36
+
+[resource]
+script = ExtResource("species")
+id = &"charmeleon"
+dex_number = 5
+name = "Reptincel"
+types = Array[int]([1])
+base_hp = 58
+base_attack = 64
+base_defense = 58
+base_sp_attack = 80
+base_sp_defense = 65
+base_speed = 80
+description = "S'il s'excite pendant un combat, il crache de grandes flammes, brûlant tout ce qui se trouve aux alentours."
+abilities = Array[ExtResource("ability")]([ExtResource("a66")])
+hidden_ability = ExtResource("a94")
+evolves_from = &"charmander"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 1, 0, 1)
+base_experience = 142
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1621, 34, 80, 80)
+back_region = Rect2i(1783, 34, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 94, 32, 32)

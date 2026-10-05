@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"pin_missile"
+name = "Dard-Nuée"
+type = 11
+category = 0
+power = 25
+accuracy = 95
+pp = 20
+priority = 0
+description = "Envoie une rafale de dards. Peut toucher de deux à cinq fois."

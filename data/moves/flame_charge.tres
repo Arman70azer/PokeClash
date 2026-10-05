@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="stat_stage_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("stat_stage_effect")
+stat = 5
+stages = 1
+who = 1
+
+[resource]
+script = ExtResource("move")
+id = &"flame_charge"
+name = "Nitrocharge"
+type = 1
+category = 0
+power = 50
+accuracy = 100
+pp = 20
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0")])
+description = "Le lanceur s'entoure de flammes pour attaquer l'ennemi. Il se concentre et sa Vitesse augmente."

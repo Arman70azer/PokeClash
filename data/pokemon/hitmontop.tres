@@ -1,0 +1,136 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/triple_kick.tres" id="m167"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/feint.tres" id="m364"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/gyro_ball.tres" id="m360"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/rapid_spin.tres" id="m229"]
+[ext_resource type="Resource" path="res://data/moves/wide_guard.tres" id="m469"]
+[ext_resource type="Resource" path="res://data/moves/quick_guard.tres" id="m501"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/dig.tres" id="m91"]
+[ext_resource type="Resource" path="res://data/moves/close_combat.tres" id="m370"]
+[ext_resource type="Resource" path="res://data/moves/counter.tres" id="m68"]
+[ext_resource type="Resource" path="res://data/moves/endeavor.tres" id="m283"]
+[ext_resource type="Resource" path="res://data/abilities/intimidate.tres" id="a22"]
+[ext_resource type="Resource" path="res://data/abilities/technician.tres" id="a101"]
+[ext_resource type="Resource" path="res://data/abilities/steadfast.tres" id="a80"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m167")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m252")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m364")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m360")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m229")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m469")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m501")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m91")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m370")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m68")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m283")
+
+[resource]
+script = ExtResource("species")
+id = &"hitmontop"
+dex_number = 237
+name = "Kapoera"
+types = Array[int]([6])
+base_hp = 50
+base_attack = 95
+base_defense = 95
+base_sp_attack = 35
+base_sp_defense = 110
+base_speed = 70
+description = "Après avoir effectué un poirier visant à désorienter son adversaire, il lui assène des coups de pied furieux."
+abilities = Array[ExtResource("ability")]([ExtResource("a22"), ExtResource("a101")])
+hidden_ability = ExtResource("a80")
+evolves_from = &"tyrogue"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 2, 0)
+base_experience = 159
+catch_rate = 45
+female_ratio = 0
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(85, 436, 32, 32)

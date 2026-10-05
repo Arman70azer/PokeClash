@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"stomping_tantrum"
+name = "Trépignement"
+type = 8
+category = 0
+power = 75
+accuracy = 100
+pp = 10
+priority = 0
+description = "Le lanceur attaque en utilisant sa frustration. S'il a utilisé une capacité qui a échoué au tour précédent, la puissance de Trépignement est doublée."

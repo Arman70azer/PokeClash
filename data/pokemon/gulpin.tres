@@ -1,0 +1,135 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/poison_gas.tres" id="m139"]
+[ext_resource type="Resource" path="res://data/moves/sludge.tres" id="m124"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/acid_spray.tres" id="m491"]
+[ext_resource type="Resource" path="res://data/moves/encore.tres" id="m227"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/stockpile.tres" id="m254"]
+[ext_resource type="Resource" path="res://data/moves/spit_up.tres" id="m255"]
+[ext_resource type="Resource" path="res://data/moves/swallow.tres" id="m256"]
+[ext_resource type="Resource" path="res://data/moves/sludge_bomb.tres" id="m188"]
+[ext_resource type="Resource" path="res://data/moves/gastro_acid.tres" id="m380"]
+[ext_resource type="Resource" path="res://data/moves/belch.tres" id="m562"]
+[ext_resource type="Resource" path="res://data/moves/pain_split.tres" id="m220"]
+[ext_resource type="Resource" path="res://data/moves/gunk_shot.tres" id="m441"]
+[ext_resource type="Resource" path="res://data/abilities/liquid_ooze.tres" id="a64"]
+[ext_resource type="Resource" path="res://data/abilities/sticky_hold.tres" id="a60"]
+[ext_resource type="Resource" path="res://data/abilities/gluttony.tres" id="a82"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m139")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m124")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m491")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m227")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m254")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m255")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m256")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m188")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m380")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m562")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m220")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m441")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"swalot"
+min_level = 26
+
+[resource]
+script = ExtResource("species")
+id = &"gulpin"
+dex_number = 316
+name = "Gloupti"
+types = Array[int]([7])
+base_hp = 70
+base_attack = 43
+base_defense = 53
+base_sp_attack = 43
+base_sp_defense = 53
+base_speed = 40
+description = "Le corps de Gloupti n'est pratiquement qu'un gros estomac. En comparaison, son cœur et son cerveau sont tout petits. L'estomac de ce Pokémon contient des enzymes spéciales capables de tout dissoudre."
+abilities = Array[ExtResource("ability")]([ExtResource("a64"), ExtResource("a60")])
+hidden_ability = ExtResource("a82")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast-then-very-slow"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 60
+catch_rate = 225
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(123, 550, 32, 32)

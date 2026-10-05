@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/confusion.tres" id="m93"]
+[ext_resource type="Resource" path="res://data/moves/confuse_ray.tres" id="m109"]
+[ext_resource type="Resource" path="res://data/moves/payback.tres" id="m371"]
+[ext_resource type="Resource" path="res://data/moves/imprison.tres" id="m286"]
+[ext_resource type="Resource" path="res://data/moves/gyro_ball.tres" id="m360"]
+[ext_resource type="Resource" path="res://data/moves/hypnosis.tres" id="m95"]
+[ext_resource type="Resource" path="res://data/moves/safeguard.tres" id="m219"]
+[ext_resource type="Resource" path="res://data/moves/extrasensory.tres" id="m326"]
+[ext_resource type="Resource" path="res://data/moves/heavy_slam.tres" id="m484"]
+[ext_resource type="Resource" path="res://data/moves/iron_defense.tres" id="m334"]
+[ext_resource type="Resource" path="res://data/moves/metal_sound.tres" id="m319"]
+[ext_resource type="Resource" path="res://data/moves/future_sight.tres" id="m248"]
+[ext_resource type="Resource" path="res://data/abilities/levitate.tres" id="a26"]
+[ext_resource type="Resource" path="res://data/abilities/heatproof.tres" id="a85"]
+[ext_resource type="Resource" path="res://data/abilities/heavy_metal.tres" id="a134"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m93")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m109")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m371")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m286")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m360")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m95")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m219")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m326")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m484")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m334")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m319")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m248")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"bronzong"
+min_level = 33
+
+[resource]
+script = ExtResource("species")
+id = &"bronzor"
+dex_number = 436
+name = "Archéomire"
+types = Array[int]([16, 10])
+base_hp = 57
+base_attack = 24
+base_defense = 86
+base_sp_attack = 24
+base_sp_defense = 86
+base_speed = 23
+description = "On raconte qu'il se met à briller et à refléter la vérité quand on le polit, mais il a horreur de cela."
+abilities = Array[ExtResource("ability")]([ExtResource("a26"), ExtResource("a85")])
+hidden_ability = ExtResource("a134")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 1, 0, 0, 0)
+base_experience = 60
+catch_rate = 255
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(731, 702, 32, 32)

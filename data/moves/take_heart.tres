@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"take_heart"
+name = "Extravaillance"
+type = 10
+category = 2
+power = 0
+accuracy = 0
+pp = 10
+priority = 0
+description = "Le lanceur fait preuve de bravoure pour soigner ses altérations de statut et augmenter son Attaque Spéciale ainsi que sa Défense Spéciale."

@@ -1,0 +1,113 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/world.gd" id="1"]
+[ext_resource type="Script" path="res://ui/menu.gd" id="2"]
+[ext_resource type="Script" path="res://ui/dialogue_box.gd" id="7"]
+[ext_resource type="Script" path="res://battle/ui/battle_screen.gd" id="11"]
+[ext_resource type="Script" path="res://battle/battle_service.gd" id="12"]
+[ext_resource type="Script" path="res://ui/screen_fade.gd" id="17"]
+[ext_resource type="Script" path="res://profile/player_profiles.gd" id="18"]
+[ext_resource type="Script" path="res://menu/game_menu.gd" id="19"]
+[ext_resource type="Script" path="res://shop/shop_screen.gd" id="20"]
+[ext_resource type="Script" path="res://storage/pc_screen.gd" id="21"]
+[ext_resource type="Script" path="res://expedition/expedition_screen.gd" id="22"]
+[ext_resource type="Script" path="res://expedition/expedition_service.gd" id="23"]
+
+[node name="Main" type="Node"]
+
+[node name="World" type="Node3D" parent="."]
+script = ExtResource("1")
+
+[node name="Maps" type="Node3D" parent="World"]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World"]
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node3D" parent="World"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="BattleScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11")
+
+[node name="DialogueBox" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7")
+
+[node name="GameMenu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("19")
+
+[node name="Shop" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("20")
+
+[node name="Pc" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("21")
+
+[node name="ExpeditionScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("22")
+
+[node name="Battles" type="Node" parent="."]
+script = ExtResource("12")
+
+[node name="ScreenFade" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("17")
+
+[node name="Profiles" type="Node" parent="."]
+script = ExtResource("18")
+
+[node name="Expeditions" type="Node" parent="."]
+script = ExtResource("23")

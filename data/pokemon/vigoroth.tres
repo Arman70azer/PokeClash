@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/encore.tres" id="m227"]
+[ext_resource type="Resource" path="res://data/moves/uproar.tres" id="m253"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/throat_chop.tres" id="m675"]
+[ext_resource type="Resource" path="res://data/moves/counter.tres" id="m68"]
+[ext_resource type="Resource" path="res://data/moves/focus_punch.tres" id="m264"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/abilities/vital_spirit.tres" id="a72"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m227")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m253")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 14
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m675")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m68")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m264")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"slaking"
+min_level = 36
+
+[resource]
+script = ExtResource("species")
+id = &"vigoroth"
+dex_number = 288
+name = "Vigoroth"
+types = Array[int]([0])
+base_hp = 80
+base_attack = 80
+base_defense = 80
+base_sp_attack = 55
+base_sp_defense = 55
+base_speed = 90
+description = "Vigoroth ne tient pas en place. Même quand il essaie de dormir, le sang dans ses veines s'agite, obligeant ce Pokémon à courir comme un fou dans la forêt pour s'épuiser afin de pouvoir se reposer."
+abilities = Array[ExtResource("ability")]([ExtResource("a72")])
+evolves_from = &"slakoth"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 154
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(47, 512, 32, 32)

@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/confusion.tres" id="m93"]
+[ext_resource type="Resource" path="res://data/moves/play_nice.tres" id="m589"]
+[ext_resource type="Resource" path="res://data/moves/tickle.tres" id="m321"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/psyshock.tres" id="m473"]
+[ext_resource type="Resource" path="res://data/moves/hypnosis.tres" id="m95"]
+[ext_resource type="Resource" path="res://data/moves/fake_tears.tres" id="m313"]
+[ext_resource type="Resource" path="res://data/moves/psych_up.tres" id="m244"]
+[ext_resource type="Resource" path="res://data/moves/psychic.tres" id="m94"]
+[ext_resource type="Resource" path="res://data/moves/flatter.tres" id="m260"]
+[ext_resource type="Resource" path="res://data/moves/future_sight.tres" id="m248"]
+[ext_resource type="Resource" path="res://data/moves/magic_room.tres" id="m478"]
+[ext_resource type="Resource" path="res://data/abilities/frisk.tres" id="a119"]
+[ext_resource type="Resource" path="res://data/abilities/competitive.tres" id="a172"]
+[ext_resource type="Resource" path="res://data/abilities/shadow_tag.tres" id="a23"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m93")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m589")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m321")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m473")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m95")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m313")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m244")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m94")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m260")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m248")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m478")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"gothorita"
+min_level = 32
+
+[resource]
+script = ExtResource("species")
+id = &"gothita"
+dex_number = 574
+name = "Scrutella"
+types = Array[int]([10])
+base_hp = 45
+base_attack = 30
+base_defense = 50
+base_sp_attack = 55
+base_sp_defense = 65
+base_speed = 45
+description = "Parfois, ce Pokémon chuchote alors qu'il n'y a personne aux alentours. On raconte qu'il parle à une entité que personne ne peut voir."
+abilities = Array[ExtResource("ability")]([ExtResource("a119"), ExtResource("a172")])
+hidden_ability = ExtResource("a23")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 1, 0)
+base_experience = 58
+catch_rate = 200
+female_ratio = 75
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(47, 930, 32, 32)

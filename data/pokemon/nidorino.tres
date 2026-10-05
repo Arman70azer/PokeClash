@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/peck.tres" id="m64"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/fury_attack.tres" id="m31"]
+[ext_resource type="Resource" path="res://data/moves/toxic_spikes.tres" id="m390"]
+[ext_resource type="Resource" path="res://data/moves/double_kick.tres" id="m24"]
+[ext_resource type="Resource" path="res://data/moves/horn_attack.tres" id="m30"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/flatter.tres" id="m260"]
+[ext_resource type="Resource" path="res://data/moves/poison_jab.tres" id="m398"]
+[ext_resource type="Resource" path="res://data/moves/earth_power.tres" id="m414"]
+[ext_resource type="Resource" path="res://data/abilities/poison_point.tres" id="a38"]
+[ext_resource type="Resource" path="res://data/abilities/rivalry.tres" id="a79"]
+[ext_resource type="Resource" path="res://data/abilities/hustle.tres" id="a55"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m64")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m31")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m390")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m24")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m30")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 57
+move = ExtResource("m260")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m398")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 71
+move = ExtResource("m414")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"nidoking"
+method = 1
+item = &"moon-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"nidorino"
+dex_number = 33
+name = "Nidorino"
+types = Array[int]([7])
+base_hp = 61
+base_attack = 72
+base_defense = 57
+base_sp_attack = 55
+base_sp_defense = 55
+base_speed = 65
+description = "D'un naturel nerveux, il est prompt à se battre. Lorsqu'il a une montée d'adrénaline, la concentration de son poison augmente."
+abilities = Array[ExtResource("ability")]([ExtResource("a38"), ExtResource("a79")])
+hidden_ability = ExtResource("a55")
+evolves_from = &"nidoran_m"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 128
+catch_rate = 120
+female_ratio = 0
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(2593, 619, 80, 80)
+back_region = Rect2i(2755, 619, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(237, 132, 32, 32)

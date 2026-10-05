@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterSheet" format=3]
+
+[ext_resource type="Script" path="res://characters/character_sheet.gd" id="1_sheet"]
+[ext_resource type="Texture2D" path="res://assets/characters/nurse_joy.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_sheet")
+texture = ExtResource("2_tex")
+background = Color(0.125490196, 0.501960784, 0.376470588, 1)
+down = Array[Rect2]([Rect2(64, 64, 32, 32), Rect2(64, 32, 32, 32), Rect2(64, 96, 32, 32)])
+left = Array[Rect2]([Rect2(0, 32, 32, 32), Rect2(0, 64, 32, 32), Rect2(0, 96, 32, 32)])
+up = Array[Rect2]([Rect2(64, 0, 32, 32), Rect2(0, 0, 32, 32), Rect2(32, 96, 32, 32)])
+right = Array[Rect2]([Rect2(32, 32, 32, 32), Rect2(32, 0, 32, 32), Rect2(32, 64, 32, 32)])

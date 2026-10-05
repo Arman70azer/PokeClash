@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"knock_off"
+name = "Sabotage"
+type = 15
+category = 0
+power = 65
+accuracy = 100
+pp = 20
+priority = 0
+description = "Fait plus de dégâts aux cibles qui tiennent un objet. De plus, fait tomber cet objet et empêche la cible de l'utiliser jusqu'à la fin du combat."

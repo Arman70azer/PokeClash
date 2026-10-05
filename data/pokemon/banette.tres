@@ -1,0 +1,108 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/night_shade.tres" id="m101"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/spite.tres" id="m180"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/will_o_wisp.tres" id="m261"]
+[ext_resource type="Resource" path="res://data/moves/shadow_sneak.tres" id="m425"]
+[ext_resource type="Resource" path="res://data/moves/hex.tres" id="m506"]
+[ext_resource type="Resource" path="res://data/moves/curse.tres" id="m174"]
+[ext_resource type="Resource" path="res://data/moves/shadow_ball.tres" id="m247"]
+[ext_resource type="Resource" path="res://data/moves/role_play.tres" id="m272"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/trick.tres" id="m271"]
+[ext_resource type="Resource" path="res://data/moves/phantom_force.tres" id="m566"]
+[ext_resource type="Resource" path="res://data/abilities/insomnia.tres" id="a15"]
+[ext_resource type="Resource" path="res://data/abilities/frisk.tres" id="a119"]
+[ext_resource type="Resource" path="res://data/abilities/cursed_body.tres" id="a130"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m101")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m180")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m261")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m425")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m506")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 26
+move = ExtResource("m174")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m247")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m272")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m271")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 53
+move = ExtResource("m566")
+
+[resource]
+script = ExtResource("species")
+id = &"banette"
+dex_number = 354
+name = "Branette"
+types = Array[int]([13])
+base_hp = 64
+base_attack = 115
+base_defense = 65
+base_sp_attack = 83
+base_sp_defense = 63
+base_speed = 65
+description = "Il est né de la rancune qu'il a ressentie quand il a été abandonné. Il redevient apparemment une poupée si l'on en prend grand soin."
+abilities = Array[ExtResource("ability")]([ExtResource("a15"), ExtResource("a119")])
+hidden_ability = ExtResource("a130")
+evolves_from = &"shuppet"
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 159
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(579, 588, 32, 32)

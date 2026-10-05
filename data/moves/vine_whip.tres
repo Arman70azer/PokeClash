@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="1_lea43"]
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="2_2wj3a"]
+
+[resource]
+script = ExtResource("2_2wj3a")
+id = &"vine_whip"
+name = "Fouet Lianes"
+type = 4
+power = 35
+pp = 15
+makes_contact = true
+animation = &"vine_whip"
+description = "Fouette l'ennemi avec de fines lianes."

@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/bind.tres" id="m20"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/circle_throw.tres" id="m509"]
+[ext_resource type="Resource" path="res://data/moves/wide_guard.tres" id="m469"]
+[ext_resource type="Resource" path="res://data/moves/revenge.tres" id="m279"]
+[ext_resource type="Resource" path="res://data/moves/bulk_up.tres" id="m339"]
+[ext_resource type="Resource" path="res://data/moves/storm_throw.tres" id="m480"]
+[ext_resource type="Resource" path="res://data/moves/vital_throw.tres" id="m233"]
+[ext_resource type="Resource" path="res://data/moves/seismic_toss.tres" id="m69"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/moves/superpower.tres" id="m276"]
+[ext_resource type="Resource" path="res://data/abilities/guts.tres" id="a62"]
+[ext_resource type="Resource" path="res://data/abilities/inner_focus.tres" id="a39"]
+[ext_resource type="Resource" path="res://data/abilities/mold_breaker.tres" id="a104"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m20")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m509")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m469")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m279")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m339")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m480")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m233")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m69")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m276")
+
+[resource]
+script = ExtResource("species")
+id = &"throh"
+dex_number = 538
+name = "Judokrak"
+types = Array[int]([6])
+base_hp = 120
+base_attack = 100
+base_defense = 85
+base_sp_attack = 30
+base_sp_defense = 85
+base_speed = 45
+description = "Ils s'entraînent intensément par groupes de cinq. Ceux qui ne peuvent pas suivre le rythme abandonnent leur ceinture et se retirent."
+abilities = Array[ExtResource("ability")]([ExtResource("a62"), ExtResource("a39")])
+hidden_ability = ExtResource("a104")
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 163
+catch_rate = 45
+female_ratio = 0
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(655, 854, 32, 32)

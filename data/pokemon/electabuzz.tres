@@ -1,0 +1,131 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/thunder_shock.tres" id="m84"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/charge.tres" id="m268"]
+[ext_resource type="Resource" path="res://data/moves/swift.tres" id="m129"]
+[ext_resource type="Resource" path="res://data/moves/shock_wave.tres" id="m351"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/thunder_punch.tres" id="m9"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/low_kick.tres" id="m67"]
+[ext_resource type="Resource" path="res://data/moves/thunderbolt.tres" id="m85"]
+[ext_resource type="Resource" path="res://data/moves/light_screen.tres" id="m113"]
+[ext_resource type="Resource" path="res://data/moves/thunder.tres" id="m87"]
+[ext_resource type="Resource" path="res://data/moves/giga_impact.tres" id="m416"]
+[ext_resource type="Resource" path="res://data/abilities/static.tres" id="a9"]
+[ext_resource type="Resource" path="res://data/abilities/vital_spirit.tres" id="a72"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m84")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m268")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m129")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m351")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m9")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m67")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m85")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m113")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m87")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m416")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"electivire"
+method = 2
+
+[resource]
+script = ExtResource("species")
+id = &"electabuzz"
+dex_number = 125
+name = "Élektek"
+types = Array[int]([3])
+base_hp = 65
+base_attack = 83
+base_defense = 57
+base_sp_attack = 95
+base_sp_defense = 85
+base_speed = 105
+description = "Quand un orage approche, ils se réunissent tous autour d'un grand arbre et attendent patiemment que la foudre s'abatte."
+abilities = Array[ExtResource("ability")]([ExtResource("a9")])
+hidden_ability = ExtResource("a72")
+evolves_from = &"elekid"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 172
+catch_rate = 45
+female_ratio = 25
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1297, 2764, 80, 80)
+back_region = Rect2i(1459, 2764, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(769, 246, 32, 32)

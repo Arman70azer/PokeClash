@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"aqua_tail"
+name = "Hydro-Queue"
+type = 2
+category = 0
+power = 90
+accuracy = 90
+pp = 10
+priority = 0
+description = "Le lanceur attaque en balançant sa queue comme une lame de fond en pleine tempête."

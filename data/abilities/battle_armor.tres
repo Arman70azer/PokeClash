@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"battle_armor"
+name = "Armurbaston"
+description = "Le Pokémon est protégé des coups critiques\\npar une solide carapace."

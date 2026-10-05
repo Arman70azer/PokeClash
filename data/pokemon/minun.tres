@@ -1,0 +1,142 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/play_nice.tres" id="m589"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/spark.tres" id="m209"]
+[ext_resource type="Resource" path="res://data/moves/encore.tres" id="m227"]
+[ext_resource type="Resource" path="res://data/moves/switcheroo.tres" id="m415"]
+[ext_resource type="Resource" path="res://data/moves/swift.tres" id="m129"]
+[ext_resource type="Resource" path="res://data/moves/electro_ball.tres" id="m486"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/charge.tres" id="m268"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/last_resort.tres" id="m387"]
+[ext_resource type="Resource" path="res://data/moves/thunder.tres" id="m87"]
+[ext_resource type="Resource" path="res://data/moves/nasty_plot.tres" id="m417"]
+[ext_resource type="Resource" path="res://data/moves/entrainment.tres" id="m494"]
+[ext_resource type="Resource" path="res://data/abilities/minus.tres" id="a58"]
+[ext_resource type="Resource" path="res://data/abilities/volt_absorb.tres" id="a10"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m589")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m209")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m227")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m415")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m129")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m486")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 26
+move = ExtResource("m268")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m387")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m87")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m417")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m494")
+
+[resource]
+script = ExtResource("species")
+id = &"minun"
+dex_number = 312
+name = "Négapi"
+types = Array[int]([3])
+base_hp = 60
+base_attack = 40
+base_defense = 50
+base_sp_attack = 75
+base_sp_defense = 85
+base_speed = 95
+description = "Négapi adore encourager son partenaire pendant les combats. Des étincelles jaillissent alors de son corps. Lorsque son partenaire est en difficulté, le corps de ce Pokémon libère encore plus d'étincelles."
+abilities = Array[ExtResource("ability")]([ExtResource("a58")])
+hidden_ability = ExtResource("a10")
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 142
+catch_rate = 200
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(959, 512, 32, 32)

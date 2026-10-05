@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"shadow_punch"
+name = "Poing Ombre"
+type = 13
+category = 0
+power = 60
+accuracy = 0
+pp = 20
+priority = 0
+description = "Le lanceur surgit des ombres et donne un coup de poing. N'échoue jamais."

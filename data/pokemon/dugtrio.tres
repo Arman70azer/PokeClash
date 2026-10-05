@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/tri_attack.tres" id="m161"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/sand_tomb.tres" id="m328"]
+[ext_resource type="Resource" path="res://data/moves/night_slash.tres" id="m400"]
+[ext_resource type="Resource" path="res://data/moves/mud_slap.tres" id="m189"]
+[ext_resource type="Resource" path="res://data/moves/bulldoze.tres" id="m523"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/sandstorm.tres" id="m201"]
+[ext_resource type="Resource" path="res://data/moves/dig.tres" id="m91"]
+[ext_resource type="Resource" path="res://data/moves/earth_power.tres" id="m414"]
+[ext_resource type="Resource" path="res://data/moves/earthquake.tres" id="m89"]
+[ext_resource type="Resource" path="res://data/moves/fissure.tres" id="m90"]
+[ext_resource type="Resource" path="res://data/abilities/sand_veil.tres" id="a8"]
+[ext_resource type="Resource" path="res://data/abilities/arena_trap.tres" id="a71"]
+[ext_resource type="Resource" path="res://data/abilities/sand_force.tres" id="a159"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m161")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m328")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m400")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m189")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m523")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m201")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m91")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m414")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m89")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m90")
+
+[resource]
+script = ExtResource("species")
+id = &"dugtrio"
+dex_number = 51
+name = "Triopikeur"
+types = Array[int]([8])
+base_hp = 35
+base_attack = 100
+base_defense = 50
+base_sp_attack = 50
+base_sp_defense = 70
+base_speed = 120
+description = "Ce trio de Taupiqueur est capable de creuser jusqu'à 100 km sous terre, vers l'inconnu."
+abilities = Array[ExtResource("ability")]([ExtResource("a8"), ExtResource("a71")])
+hidden_ability = ExtResource("a159")
+evolves_from = &"diglett"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 149
+catch_rate = 50
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1, 1204, 80, 80)
+back_region = Rect2i(163, 1204, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(921, 132, 32, 32)

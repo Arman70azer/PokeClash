@@ -1,0 +1,115 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/twister.tres" id="m239"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/dragon_ascent.tres" id="m620"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/dragon_dance.tres" id="m349"]
+[ext_resource type="Resource" path="res://data/moves/extreme_speed.tres" id="m245"]
+[ext_resource type="Resource" path="res://data/moves/dragon_pulse.tres" id="m406"]
+[ext_resource type="Resource" path="res://data/moves/hyper_voice.tres" id="m304"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/fly.tres" id="m19"]
+[ext_resource type="Resource" path="res://data/moves/hurricane.tres" id="m542"]
+[ext_resource type="Resource" path="res://data/moves/outrage.tres" id="m200"]
+[ext_resource type="Resource" path="res://data/moves/hyper_beam.tres" id="m63"]
+[ext_resource type="Resource" path="res://data/abilities/air_lock.tres" id="a76"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m239")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m620")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m349")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m245")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m406")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m304")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 63
+move = ExtResource("m19")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m542")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 81
+move = ExtResource("m200")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 90
+move = ExtResource("m63")
+
+[resource]
+script = ExtResource("species")
+id = &"rayquaza"
+dex_number = 384
+name = "Rayquaza"
+types = Array[int]([14, 9])
+base_hp = 105
+base_attack = 150
+base_defense = 90
+base_sp_attack = 150
+base_sp_defense = 90
+base_speed = 95
+description = "Un Pokémon qui vit dans la couche d'ozone et se nourrit des météorites qu'il intercepte. Leur énergie s'accumule dans son corps, ce qui lui permet de méga-évoluer."
+abilities = Array[ExtResource("ability")]([ExtResource("a76")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 2, 0, 1, 0, 0)
+base_experience = 306
+catch_rate = 45
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(731, 626, 32, 32)

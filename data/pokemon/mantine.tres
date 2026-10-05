@@ -1,0 +1,129 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/wing_attack.tres" id="m17"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/supersonic.tres" id="m48"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/bullet_seed.tres" id="m331"]
+[ext_resource type="Resource" path="res://data/moves/roost.tres" id="m355"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/wide_guard.tres" id="m469"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/bubble_beam.tres" id="m61"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/aqua_ring.tres" id="m392"]
+[ext_resource type="Resource" path="res://data/moves/bounce.tres" id="m340"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/water_absorb.tres" id="a11"]
+[ext_resource type="Resource" path="res://data/abilities/water_veil.tres" id="a41"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m17")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m48")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m331")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m355")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m469")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m61")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m392")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m340")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m56")
+
+[resource]
+script = ExtResource("species")
+id = &"mantine"
+dex_number = 226
+name = "Démanta"
+types = Array[int]([2, 9])
+base_hp = 85
+base_attack = 40
+base_defense = 70
+base_sp_attack = 80
+base_sp_defense = 140
+base_speed = 70
+description = "Il nage paisiblement, sans se soucier des Rémoraid qui s'agrippent à lui pour lui voler ses restes."
+abilities = Array[ExtResource("ability")]([ExtResource("a33"), ExtResource("a11")])
+hidden_ability = ExtResource("a41")
+evolves_from = &"mantyke"
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 2, 0)
+base_experience = 170
+catch_rate = 25
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(655, 398, 32, 32)

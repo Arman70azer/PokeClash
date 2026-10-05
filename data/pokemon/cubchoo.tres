@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/powder_snow.tres" id="m181"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/icy_wind.tres" id="m196"]
+[ext_resource type="Resource" path="res://data/moves/play_nice.tres" id="m589"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/frost_breath.tres" id="m524"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/snowscape.tres" id="m883"]
+[ext_resource type="Resource" path="res://data/moves/thrash.tres" id="m37"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/blizzard.tres" id="m59"]
+[ext_resource type="Resource" path="res://data/moves/sheer_cold.tres" id="m329"]
+[ext_resource type="Resource" path="res://data/abilities/snow_cloak.tres" id="a81"]
+[ext_resource type="Resource" path="res://data/abilities/slush_rush.tres" id="a202"]
+[ext_resource type="Resource" path="res://data/abilities/rattled.tres" id="a155"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m181")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 3
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m196")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m589")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m524")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m883")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m37")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m59")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m329")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"beartic"
+min_level = 37
+
+[resource]
+script = ExtResource("species")
+id = &"cubchoo"
+dex_number = 613
+name = "Polarhume"
+types = Array[int]([5])
+base_hp = 55
+base_attack = 70
+base_defense = 40
+base_sp_attack = 60
+base_sp_defense = 40
+base_speed = 40
+description = "Il renifle avant d'utiliser une capacité. Le froid intense contenu dans sa morve lui permet de lancer les capacités de type Glace."
+abilities = Array[ExtResource("ability")]([ExtResource("a81"), ExtResource("a202")])
+hidden_ability = ExtResource("a155")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 61
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(541, 968, 32, 32)

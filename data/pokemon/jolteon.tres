@@ -1,0 +1,169 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/thunder_shock.tres" id="m84"]
+[ext_resource type="Resource" path="res://data/moves/swift.tres" id="m129"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/covet.tres" id="m343"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/baby_doll_eyes.tres" id="m608"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/double_kick.tres" id="m24"]
+[ext_resource type="Resource" path="res://data/moves/thunder_fang.tres" id="m422"]
+[ext_resource type="Resource" path="res://data/moves/pin_missile.tres" id="m42"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/thunder.tres" id="m87"]
+[ext_resource type="Resource" path="res://data/moves/last_resort.tres" id="m387"]
+[ext_resource type="Resource" path="res://data/abilities/volt_absorb.tres" id="a10"]
+[ext_resource type="Resource" path="res://data/abilities/quick_feet.tres" id="a95"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m84")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m129")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+move = ExtResource("m343")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m608")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m24")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m422")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m42")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l21"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l22"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m87")
+
+[sub_resource type="Resource" id="l23"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m387")
+
+[resource]
+script = ExtResource("species")
+id = &"jolteon"
+dex_number = 135
+name = "Voltali"
+types = Array[int]([3])
+base_hp = 65
+base_attack = 65
+base_defense = 60
+base_sp_attack = 110
+base_sp_defense = 95
+base_speed = 130
+description = "Il se charge d'ions négatifs contenus dans l'air pour envoyer des décharges d'environ 10 000 volts."
+abilities = Array[ExtResource("ability")]([ExtResource("a10")])
+hidden_ability = ExtResource("a95")
+evolves_from = &"eevee"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 184
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20"), SubResource("l21"), SubResource("l22"), SubResource("l23")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1945, 2959, 80, 80)
+back_region = Rect2i(2107, 2959, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 284, 32, 32)

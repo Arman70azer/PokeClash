@@ -1,0 +1,108 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/metal_claw.tres" id="m232"]
+[ext_resource type="Resource" path="res://data/moves/dragon_breath.tres" id="m225"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/flash_cannon.tres" id="m430"]
+[ext_resource type="Resource" path="res://data/moves/dragon_claw.tres" id="m337"]
+[ext_resource type="Resource" path="res://data/moves/aura_sphere.tres" id="m396"]
+[ext_resource type="Resource" path="res://data/moves/power_gem.tres" id="m408"]
+[ext_resource type="Resource" path="res://data/moves/metal_burst.tres" id="m368"]
+[ext_resource type="Resource" path="res://data/moves/earth_power.tres" id="m414"]
+[ext_resource type="Resource" path="res://data/moves/iron_tail.tres" id="m231"]
+[ext_resource type="Resource" path="res://data/moves/roar_of_time.tres" id="m459"]
+[ext_resource type="Resource" path="res://data/abilities/pressure.tres" id="a46"]
+[ext_resource type="Resource" path="res://data/abilities/telepathy.tres" id="a140"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m232")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m225")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m430")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m337")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m396")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m408")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m368")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m414")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 80
+move = ExtResource("m231")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 88
+move = ExtResource("m459")
+
+[resource]
+script = ExtResource("species")
+id = &"dialga"
+dex_number = 483
+name = "Dialga"
+types = Array[int]([16, 14])
+base_hp = 100
+base_attack = 120
+base_defense = 120
+base_sp_attack = 150
+base_sp_defense = 100
+base_speed = 90
+description = "Il peut contrôler le temps. Les mythes de Sinnoh en parlent comme d'une divinité ancienne."
+abilities = Array[ExtResource("ability")]([ExtResource("a46")])
+hidden_ability = ExtResource("a140")
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 3, 0, 0)
+base_experience = 306
+catch_rate = 3
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(541, 778, 32, 32)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"echoed_voice"
+name = "Écho"
+type = 0
+category = 1
+power = 40
+accuracy = 100
+pp = 15
+priority = 0
+description = "Un cri retentissant blesse l'ennemi. Si le lanceur ou d'autres Pokémon l'utilisent à chaque tour, l'effet augmente."

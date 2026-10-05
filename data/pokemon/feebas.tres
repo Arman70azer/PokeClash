@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/splash.tres" id="m150"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/oblivious.tres" id="a12"]
+[ext_resource type="Resource" path="res://data/abilities/adaptability.tres" id="a91"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m150")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"milotic"
+method = 4
+
+[resource]
+script = ExtResource("species")
+id = &"feebas"
+dex_number = 349
+name = "Barpau"
+types = Array[int]([2])
+base_hp = 20
+base_attack = 15
+base_defense = 20
+base_sp_attack = 10
+base_sp_defense = 55
+base_speed = 80
+description = "Ce Pokémon a peut-être un physique disgracieux, mais il est robuste et peut survivre dans très peu d'eau."
+abilities = Array[ExtResource("ability")]([ExtResource("a33"), ExtResource("a12")])
+hidden_ability = ExtResource("a91")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow-then-very-fast"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 40
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(389, 588, 32, 32)

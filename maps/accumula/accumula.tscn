@@ -1,0 +1,226 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/game_map.gd" id="gm"]
+[ext_resource type="Script" path="res://world/map_zone.gd" id="3"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/accumula_town/accumula_town.obj" id="4"]
+[ext_resource type="Resource" path="res://assets/maps/accumula_town/accumula_town_grid.tres" id="5"]
+[ext_resource type="Script" path="res://characters/npc.gd" id="6"]
+[ext_resource type="PackedScene" path="res://maps/accumula/quartier_bourgeois.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://maps/accumula/port.tscn" id="9"]
+[ext_resource type="Resource" path="res://data/trainers/lyra.tres" id="10"]
+[ext_resource type="Script" path="res://world/door.gd" id="15"]
+[ext_resource type="Script" path="res://world/warp.gd" id="16"]
+[ext_resource type="Script" path="res://expedition/gate_zone.gd" id="17"]
+[ext_resource type="Script" path="res://expedition/expedition_guard.gd" id="18"]
+
+[node name="Accumula" type="Node3D"]
+script = ExtResource("gm")
+map_id = &"accumula"
+display_name = "Accumula"
+spawn_cells = Array[Vector2i]([Vector2i(6, 4), Vector2i(7, 4), Vector2i(8, 4), Vector2i(7, 5)])
+
+[node name="Zone" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4")
+script = ExtResource("3")
+walk_grid = ExtResource("5")
+fade_cells = Rect2i(-15, 4, 19, 12)
+fade_box = AABB(-264, -81, 236, 328, 330, 132)
+
+[node name="ExpeditionGate" type="Node3D" parent="."]
+script = ExtResource("17")
+
+[node name="QuartierBourgeois" parent="." instance=ExtResource("8")]
+
+[node name="Port" parent="." instance=ExtResource("9")]
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="PokemonCenterDoor" type="Node3D" parent="Doors"]
+script = ExtResource("15")
+zone_path = NodePath("../../Zone")
+surface_name = "door_pc_1"
+
+[node name="Warps" type="Node" parent="."]
+
+[node name="EnterPokemonCenter" type="Node" parent="Warps"]
+script = ExtResource("16")
+trigger_cells = Array[Vector2i]([Vector2i(12, 1)])
+direction = Vector2i(0, -1)
+target_map = &"accumula_pokemon_center"
+target_cell = Vector2i(239, 3)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/PokemonCenterDoor")
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Gardien" type="Node3D" parent="Objects"]
+script = ExtResource("18")
+cell = Vector2i(-17, -9)
+display_name = "Gardien"
+facing = Vector2i(1, 0)
+sheet = "ouvrier"
+wander_radius = 0
+looks_around = false
+lines = PackedStringArray("Halte ! Ce passage mène aux terres sauvages.", "Je peux t'y conduire : lagune, volcan, forêt, jungle, désert, montagne ou cimetière.", "Chaque fois, la zone change. Tu pourras lancer 20 Poké Balls au plus, et des dresseurs t'attendront là-bas.")
+
+[node name="Lyra" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(9, 5)
+display_name = "Lyra"
+sheet = "lyra"
+lines = PackedStringArray("Bonjour ! Bienvenue au village.", "Tu as un Pokémon, toi aussi ? Montre-moi ce qu'il sait faire !")
+trainer = ExtResource("10")
+
+[node name="Gamin" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(2, 2)
+display_name = "Gamin"
+sheet = "gamin"
+lines = PackedStringArray("Tu as vu la grande estrade sur la place ? Un jour, je ferai un discours dessus !", "Bon, d'abord il faut que j'apprenne à parler devant les gens...")
+
+[node name="Fillette" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(14, 5)
+facing = Vector2i(-1, 0)
+display_name = "Fillette"
+sheet = "fillette"
+lines = PackedStringArray("Maman dit que le Centre Pokémon soigne tout le monde.", "Même les dresseurs qui ont un gros chagrin ?")
+
+[node name="EcoliereBlonde" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(-4, -8)
+display_name = "Écolière"
+sheet = "ecoliere_blonde"
+lines = PackedStringArray("Ici, la rue monte et descend dans tous les sens.", "Le prof dit que c'est pour ça qu'on a des mollets solides à Accumula !")
+
+[node name="Ecolier" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(4, -7)
+facing = Vector2i(1, 0)
+display_name = "Écolier"
+sheet = "ecolier"
+lines = PackedStringArray("Les escaliers de la terrasse, je les monte quatre à quatre.", "Enfin... deux à deux. Ils sont hauts !")
+
+[node name="Lyceenne" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(13, -6)
+facing = Vector2i(-1, 0)
+display_name = "Lycéenne"
+sheet = "lyceenne"
+lines = PackedStringArray("D'ici, on voit toute la ville.", "C'est mon coin préféré pour réviser... et pour rêver un peu.")
+
+[node name="GrandPere" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(-5, -1)
+display_name = "Grand-père"
+sheet = "grand_pere"
+lines = PackedStringArray("Ah, ce parc ! J'y viens chaque matin depuis quarante ans.", "Les bancs ont changé, les arbres aussi. Pas moi !")
+
+[node name="GrandMere" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(-2, 2)
+facing = Vector2i(-1, 0)
+display_name = "Grand-mère"
+sheet = "grand_mere"
+lines = PackedStringArray("Tu as l'air pressé, mon petit.", "Prends le temps de regarder autour de toi : les plus belles aventures commencent souvent à deux pas de chez soi.")
+
+[node name="ChasseurInsectes" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(-11, 12)
+facing = Vector2i(0, -1)
+display_name = "Chasseur d'insectes"
+sheet = "chasseur_insectes"
+lines = PackedStringArray("Chut ! Il y a peut-être un Pokémon caché dans le lierre.", "... Non. Toujours rien. Je reviendrai demain.")
+
+[node name="Marin" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(15, 9)
+facing = Vector2i(-1, 0)
+display_name = "Marin"
+sheet = "marin"
+lines = PackedStringArray("Je suis en escale. Ma prochaine traversée part dans une semaine.", "En attendant, je découvre la terre ferme. Ça tangue moins !")
+
+[node name="Ouvrier" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(-6, 8)
+facing = Vector2i(1, 0)
+display_name = "Ouvrier"
+sheet = "ouvrier"
+lines = PackedStringArray("On a refait le dallage de la place basse le mois dernier.", "Les gens marchent dessus sans y penser. C'est le plus beau compliment !")
+
+[node name="Gentleman" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(1, 23)
+display_name = "Gentleman"
+sheet = "gentleman"
+lines = PackedStringArray("Bienvenue dans le quartier des Jardins.", "Ici, on salue ses voisins et on ne marche pas sur les massifs, je vous prie.")
+
+[node name="Elegante" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(10, 24)
+facing = Vector2i(-1, 0)
+display_name = "Élégante"
+sheet = "elegante"
+lines = PackedStringArray("Cette fontaine a été sculptée par un artiste venu de très loin.", "Le soir, l'eau scintille sous les réverbères. Un vrai spectacle !")
+
+[node name="DameBlanche" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(-3, 29)
+facing = Vector2i(1, 0)
+display_name = "Dame en blanc"
+sheet = "dame_blanche"
+lines = PackedStringArray("Je prends le thé à la terrasse tous les après-midi.", "La pâtisserie du chef est la meilleure de la région, croyez-moi.")
+
+[node name="HommeAffaires" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(15, 24)
+display_name = "Homme d'affaires"
+sheet = "homme_affaires"
+lines = PackedStringArray("Les affaires vont bien, mais je n'ai jamais le temps de me promener.", "Vous, en revanche, vous semblez en avoir. Profitez-en !")
+
+[node name="Fleuriste" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(6, 31)
+facing = Vector2i(0, -1)
+display_name = "Fleuriste"
+sheet = "fleuriste"
+lines = PackedStringArray("Les massifs autour de la place, c'est moi qui les entretiens.", "Les fleurs jaunes près des statues sont mes préférées. Elles sourient au soleil !")
+
+[node name="Rentier" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(-6, 25)
+display_name = "Rentier"
+sheet = "rentier"
+lines = PackedStringArray("Ce laboratoire, là-haut ? On dit qu'on y étudie les Pokémon de toute la région.", "Moi, je me contente de les admirer depuis mon balcon.")
+
+[node name="DameChignon" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(18, 25)
+facing = Vector2i(-1, 0)
+display_name = "Dame au chignon"
+sheet = "dame_chignon"
+lines = PackedStringArray("Ces statues représentent les fondateurs du quartier.", "Enfin, c'est ce qu'on raconte. Personne ne se souvient de leurs noms.")
+
+[node name="Collectionneur" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(8, 18)
+facing = Vector2i(-1, 0)
+display_name = "Collectionneur"
+sheet = "collectionneur"
+lines = PackedStringArray("Je collectionne les objets rares de toute la région.", "Si un jour tu trouves quelque chose d'étonnant, viens me le montrer !")
+
+[node name="FilsDeBonneFamille" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(5, 36)
+facing = Vector2i(1, 0)
+display_name = "Fils de bonne famille"
+sheet = "fils_de_bonne_famille"
+lines = PackedStringArray("Mon père dit que je dois bien me tenir dans la promenade.", "Mais un jour, je partirai à l'aventure, moi aussi !")
+
+[node name="Chef" type="Node3D" parent="Objects"]
+script = ExtResource("6")
+cell = Vector2i(15, 29)
+facing = Vector2i(1, 0)
+display_name = "Chef pâtissier"
+sheet = "chef"
+lines = PackedStringArray("Bienvenue à la terrasse ! Aujourd'hui, tarte aux baies du jour.", "Revenez quand le café sera ouvert, je vous garde une part.")

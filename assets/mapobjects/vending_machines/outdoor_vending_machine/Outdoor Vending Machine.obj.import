@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cyk16d48nohaj"
+path="res://.godot/imported/Outdoor Vending Machine.obj-2357ca2b83ab90727caea3d85ff5a4c9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Outdoor Vending Machine.obj-2357ca2b83ab90727caea3d85ff5a4c9.mesh"]
+
+source_file="res://assets/mapobjects/vending_machines/outdoor_vending_machine/Outdoor Vending Machine.obj"
+dest_files=["res://.godot/imported/Outdoor Vending Machine.obj-2357ca2b83ab90727caea3d85ff5a4c9.mesh", "res://.godot/imported/Outdoor Vending Machine.obj-2357ca2b83ab90727caea3d85ff5a4c9.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

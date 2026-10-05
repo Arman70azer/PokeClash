@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/abilities/clear_body.tres" id="a29"]
+[ext_resource type="Resource" path="res://data/abilities/light_metal.tres" id="a135"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"metang"
+min_level = 20
+
+[resource]
+script = ExtResource("species")
+id = &"beldum"
+dex_number = 374
+name = "Terhal"
+types = Array[int]([16, 10])
+base_hp = 40
+base_attack = 55
+base_defense = 80
+base_sp_attack = 35
+base_sp_defense = 60
+base_speed = 30
+description = "Les cellules de son corps sont composées d'aimants. Une force magnétique coule dans ses veines à la place du sang."
+abilities = Array[ExtResource("ability")]([ExtResource("a29")])
+hidden_ability = ExtResource("a135")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 1, 0, 0, 0)
+base_experience = 60
+catch_rate = 3
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(351, 626, 32, 32)

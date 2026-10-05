@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"twin_beam"
+name = "Double Laser"
+type = 10
+category = 1
+power = 40
+accuracy = 100
+pp = 10
+priority = 0
+description = "Le lanceur projette d'étranges rayons lumineux avec ses yeux et inflige des dégâts deux fois d'affilée."

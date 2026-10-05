@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/rollout.tres" id="m205"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/hyper_fang.tres" id="m158"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/super_fang.tres" id="m162"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/superpower.tres" id="m276"]
+[ext_resource type="Resource" path="res://data/moves/curse.tres" id="m174"]
+[ext_resource type="Resource" path="res://data/abilities/simple.tres" id="a86"]
+[ext_resource type="Resource" path="res://data/abilities/unaware.tres" id="a109"]
+[ext_resource type="Resource" path="res://data/abilities/moody.tres" id="a141"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m205")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m158")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m162")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m276")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m174")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"bibarel"
+min_level = 15
+
+[resource]
+script = ExtResource("species")
+id = &"bidoof"
+dex_number = 399
+name = "Keunotor"
+types = Array[int]([0])
+base_hp = 59
+base_attack = 45
+base_defense = 40
+base_sp_attack = 35
+base_sp_defense = 40
+base_speed = 31
+description = "Il ronge constamment des troncs et des pierres pour se faire les incisives. Il niche le long de l'eau."
+abilities = Array[ExtResource("ability")]([ExtResource("a86"), ExtResource("a109")])
+hidden_ability = ExtResource("a141")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 50
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(313, 664, 32, 32)

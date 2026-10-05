@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"high_jump_kick"
+name = "Pied Voltige"
+type = 6
+category = 0
+power = 130
+accuracy = 90
+pp = 10
+priority = 0
+description = "Le lanceur s'élance pour effectuer un coup de genou sauté. S'il échoue, le lanceur se blesse."

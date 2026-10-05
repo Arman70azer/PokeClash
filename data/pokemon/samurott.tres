@@ -1,0 +1,129 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/megahorn.tres" id="m224"]
+[ext_resource type="Resource" path="res://data/moves/soak.tres" id="m487"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/razor_shell.tres" id="m534"]
+[ext_resource type="Resource" path="res://data/moves/fury_cutter.tres" id="m210"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/aerial_ace.tres" id="m332"]
+[ext_resource type="Resource" path="res://data/moves/aqua_jet.tres" id="m453"]
+[ext_resource type="Resource" path="res://data/moves/encore.tres" id="m227"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/retaliate.tres" id="m514"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/abilities/torrent.tres" id="a67"]
+[ext_resource type="Resource" path="res://data/abilities/shell_armor.tres" id="a75"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m224")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m487")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m534")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m210")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m332")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m453")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m227")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m514")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 63
+move = ExtResource("m56")
+
+[resource]
+script = ExtResource("species")
+id = &"samurott"
+dex_number = 503
+name = "Clamiral"
+types = Array[int]([2])
+base_hp = 95
+base_attack = 100
+base_defense = 85
+base_sp_attack = 108
+base_sp_defense = 70
+base_speed = 70
+description = "Il peut terrasser ses ennemis d'un coup de la lame enchâssée dans son armure, et les faire taire d'un seul regard."
+abilities = Array[ExtResource("ability")]([ExtResource("a67")])
+hidden_ability = ExtResource("a75")
+evolves_from = &"dewott"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 3, 0, 0)
+base_experience = 238
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(313, 816, 32, 32)

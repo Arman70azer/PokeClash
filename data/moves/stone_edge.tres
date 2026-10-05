@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"stone_edge"
+name = "Lame de Roc"
+type = 12
+category = 0
+power = 100
+accuracy = 80
+pp = 5
+priority = 0
+critical_stage = 1
+description = "Fait surgir des pierres aiguisées sous l'ennemi. Taux de critiques élevé."

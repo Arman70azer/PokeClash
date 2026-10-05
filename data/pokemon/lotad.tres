@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/mist.tres" id="m54"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/bubble_beam.tres" id="m61"]
+[ext_resource type="Resource" path="res://data/moves/leech_seed.tres" id="m73"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/rain_dance.tres" id="m240"]
+[ext_resource type="Resource" path="res://data/moves/zen_headbutt.tres" id="m428"]
+[ext_resource type="Resource" path="res://data/moves/energy_ball.tres" id="m412"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/rain_dish.tres" id="a44"]
+[ext_resource type="Resource" path="res://data/abilities/own_tempo.tres" id="a20"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 3
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m54")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m61")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m73")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m240")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 38
+move = ExtResource("m428")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m412")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"lombre"
+min_level = 14
+
+[resource]
+script = ExtResource("species")
+id = &"lotad"
+dex_number = 270
+name = "Nénupiot"
+types = Array[int]([2, 4])
+base_hp = 40
+base_attack = 30
+base_defense = 30
+base_sp_attack = 40
+base_sp_defense = 50
+base_speed = 30
+description = "Sa feuille est devenue si grande et si lourde qu'il doit vivre en flottant sur l'eau."
+abilities = Array[ExtResource("ability")]([ExtResource("a33"), ExtResource("a44")])
+hidden_ability = ExtResource("a20")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 1, 0)
+base_experience = 44
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(351, 474, 32, 32)

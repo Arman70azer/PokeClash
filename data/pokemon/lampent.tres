@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/minimize.tres" id="m107"]
+[ext_resource type="Resource" path="res://data/moves/smog.tres" id="m123"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/confuse_ray.tres" id="m109"]
+[ext_resource type="Resource" path="res://data/moves/hex.tres" id="m506"]
+[ext_resource type="Resource" path="res://data/moves/will_o_wisp.tres" id="m261"]
+[ext_resource type="Resource" path="res://data/moves/fire_spin.tres" id="m83"]
+[ext_resource type="Resource" path="res://data/moves/night_shade.tres" id="m101"]
+[ext_resource type="Resource" path="res://data/moves/curse.tres" id="m174"]
+[ext_resource type="Resource" path="res://data/moves/shadow_ball.tres" id="m247"]
+[ext_resource type="Resource" path="res://data/moves/inferno.tres" id="m517"]
+[ext_resource type="Resource" path="res://data/moves/imprison.tres" id="m286"]
+[ext_resource type="Resource" path="res://data/moves/pain_split.tres" id="m220"]
+[ext_resource type="Resource" path="res://data/moves/overheat.tres" id="m315"]
+[ext_resource type="Resource" path="res://data/moves/memento.tres" id="m262"]
+[ext_resource type="Resource" path="res://data/abilities/flash_fire.tres" id="a18"]
+[ext_resource type="Resource" path="res://data/abilities/flame_body.tres" id="a49"]
+[ext_resource type="Resource" path="res://data/abilities/infiltrator.tres" id="a151"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m107")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m123")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m109")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m506")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m261")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m83")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m101")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m174")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m247")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m517")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m286")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m220")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m315")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m262")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"chandelure"
+method = 1
+item = &"dusk-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"lampent"
+dex_number = 608
+name = "Mélancolux"
+types = Array[int]([13, 1])
+base_hp = 60
+base_attack = 40
+base_defense = 60
+base_sp_attack = 95
+base_sp_defense = 60
+base_speed = 55
+description = "Il se cache en ville en se faisant passer pour un lampadaire. Lorsqu'il repère une personne dont l'heure est proche, il la suit en catimini."
+abilities = Array[ExtResource("ability")]([ExtResource("a18"), ExtResource("a49")])
+hidden_ability = ExtResource("a151")
+evolves_from = &"litwick"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 2, 0, 0)
+base_experience = 130
+catch_rate = 90
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(351, 968, 32, 32)

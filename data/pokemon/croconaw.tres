@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/ice_fang.tres" id="m423"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/thrash.tres" id="m37"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/superpower.tres" id="m276"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/abilities/torrent.tres" id="a67"]
+[ext_resource type="Resource" path="res://data/abilities/sheer_force.tres" id="a125"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m423")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m37")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 47
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m276")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"feraligatr"
+min_level = 30
+
+[resource]
+script = ExtResource("species")
+id = &"croconaw"
+dex_number = 159
+name = "Crocrodil"
+types = Array[int]([2])
+base_hp = 65
+base_attack = 80
+base_defense = 80
+base_sp_attack = 59
+base_sp_defense = 63
+base_speed = 58
+description = "Une fois que Crocrodil a refermé sa mâchoire sur son ennemi, il est impossible de le faire lâcher prise. Ses crocs sont recourbés comme des hameçons et ne peuvent pas être retirés une fois enfoncés."
+abilities = Array[ExtResource("ability")]([ExtResource("a67")])
+hidden_ability = ExtResource("a125")
+evolves_from = &"totodile"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 1, 1, 0, 0, 0)
+base_experience = 142
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(85, 322, 32, 32)

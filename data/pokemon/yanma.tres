@@ -1,0 +1,129 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/double_team.tres" id="m104"]
+[ext_resource type="Resource" path="res://data/moves/air_cutter.tres" id="m314"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/supersonic.tres" id="m48"]
+[ext_resource type="Resource" path="res://data/moves/uproar.tres" id="m253"]
+[ext_resource type="Resource" path="res://data/moves/bug_bite.tres" id="m450"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/hypnosis.tres" id="m95"]
+[ext_resource type="Resource" path="res://data/moves/wing_attack.tres" id="m17"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/u_turn.tres" id="m369"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/bug_buzz.tres" id="m405"]
+[ext_resource type="Resource" path="res://data/abilities/speed_boost.tres" id="a3"]
+[ext_resource type="Resource" path="res://data/abilities/compound_eyes.tres" id="a14"]
+[ext_resource type="Resource" path="res://data/abilities/frisk.tres" id="a119"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 11
+move = ExtResource("m104")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 14
+move = ExtResource("m314")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m48")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m253")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m450")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 38
+move = ExtResource("m95")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m17")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m369")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 57
+move = ExtResource("m405")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"yanmega"
+method = 4
+
+[resource]
+script = ExtResource("species")
+id = &"yanma"
+dex_number = 193
+name = "Yanma"
+types = Array[int]([11, 9])
+base_hp = 65
+base_attack = 65
+base_defense = 45
+base_sp_attack = 75
+base_sp_defense = 45
+base_speed = 95
+description = "Yanma a un champ de vision de 360 degrés sans avoir besoin de bouger les yeux. Il vole incroyablement bien et peut faire des figures acrobatiques. Ce Pokémon descend en piqué sur ses proies."
+abilities = Array[ExtResource("ability")]([ExtResource("a3"), ExtResource("a14")])
+hidden_ability = ExtResource("a119")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 78
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(389, 360, 32, 32)

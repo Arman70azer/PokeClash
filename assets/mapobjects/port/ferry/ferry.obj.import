@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b4y3s1gmsyk28"
+path="res://.godot/imported/ferry.obj-5e1918ae83ca6ee26a9b3dd78950ff6c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ferry.obj-5e1918ae83ca6ee26a9b3dd78950ff6c.mesh"]
+
+source_file="res://assets/mapobjects/port/ferry/ferry.obj"
+dest_files=["res://.godot/imported/ferry.obj-5e1918ae83ca6ee26a9b3dd78950ff6c.mesh", "res://.godot/imported/ferry.obj-5e1918ae83ca6ee26a9b3dd78950ff6c.mesh"]
+
+[params]
+
+generate_tangents=false
+generate_lods=false
+generate_shadow_mesh=false
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

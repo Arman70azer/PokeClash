@@ -1,0 +1,126 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/leafage.tres" id="m670"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/quick_guard.tres" id="m501"]
+[ext_resource type="Resource" path="res://data/moves/assurance.tres" id="m372"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/slam.tres" id="m21"]
+[ext_resource type="Resource" path="res://data/moves/double_team.tres" id="m104"]
+[ext_resource type="Resource" path="res://data/moves/leaf_blade.tres" id="m348"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/endeavor.tres" id="m283"]
+[ext_resource type="Resource" path="res://data/moves/leaf_storm.tres" id="m437"]
+[ext_resource type="Resource" path="res://data/abilities/overgrow.tres" id="a65"]
+[ext_resource type="Resource" path="res://data/abilities/unburden.tres" id="a84"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m670")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m501")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m372")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m21")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m104")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m348")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m283")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m437")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"sceptile"
+min_level = 36
+
+[resource]
+script = ExtResource("species")
+id = &"grovyle"
+dex_number = 253
+name = "Massko"
+types = Array[int]([4])
+base_hp = 50
+base_attack = 65
+base_defense = 45
+base_sp_attack = 85
+base_sp_defense = 65
+base_speed = 95
+description = "Ce Pokémon vole de branche en branche avec brio. En forêt, aucun Pokémon, même le plus rapide, ne peut espérer attraper un Massko qui s'enfuit."
+abilities = Array[ExtResource("ability")]([ExtResource("a65")])
+hidden_ability = ExtResource("a84")
+evolves_from = &"treecko"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 142
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(693, 436, 32, 32)

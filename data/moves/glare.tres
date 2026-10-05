@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/inflict_condition_effect.gd" id="inflict_condition_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("inflict_condition_effect")
+condition = &"paralysis"
+
+[resource]
+script = ExtResource("move")
+id = &"glare"
+name = "Regard Médusant"
+type = 0
+category = 2
+power = 0
+accuracy = 100
+pp = 30
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0")])
+description = "Le lanceur intimide l'ennemi grâce à son regard terrifiant pour le paralyser."

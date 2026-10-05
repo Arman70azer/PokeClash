@@ -1,0 +1,129 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/stored_power.tres" id="m500"]
+[ext_resource type="Resource" path="res://data/moves/hypnosis.tres" id="m95"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/imprison.tres" id="m286"]
+[ext_resource type="Resource" path="res://data/moves/moonlight.tres" id="m236"]
+[ext_resource type="Resource" path="res://data/moves/magic_coat.tres" id="m277"]
+[ext_resource type="Resource" path="res://data/moves/zen_headbutt.tres" id="m428"]
+[ext_resource type="Resource" path="res://data/moves/calm_mind.tres" id="m347"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/psychic.tres" id="m94"]
+[ext_resource type="Resource" path="res://data/moves/moonblast.tres" id="m585"]
+[ext_resource type="Resource" path="res://data/moves/dream_eater.tres" id="m138"]
+[ext_resource type="Resource" path="res://data/moves/future_sight.tres" id="m248"]
+[ext_resource type="Resource" path="res://data/moves/wonder_room.tres" id="m472"]
+[ext_resource type="Resource" path="res://data/abilities/forewarn.tres" id="a108"]
+[ext_resource type="Resource" path="res://data/abilities/synchronize.tres" id="a28"]
+[ext_resource type="Resource" path="res://data/abilities/telepathy.tres" id="a140"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m500")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m95")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m286")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m236")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m277")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m428")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m347")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m94")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m585")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m138")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m248")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m472")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"musharna"
+method = 1
+item = &"moon-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"munna"
+dex_number = 517
+name = "Munna"
+types = Array[int]([10])
+base_hp = 76
+base_attack = 25
+base_defense = 45
+base_sp_attack = 67
+base_sp_defense = 55
+base_speed = 24
+description = "Il se nourrit de songes et expire de la fumée qui prend la couleur rose si le rêve est joyeux, ou noire s'il s'agit d'un cauchemar."
+abilities = Array[ExtResource("ability")]([ExtResource("a108"), ExtResource("a28")])
+hidden_ability = ExtResource("a140")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 58
+catch_rate = 190
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(845, 816, 32, 32)

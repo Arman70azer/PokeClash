@@ -1,0 +1,144 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/thunder_punch.tres" id="m9"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/thunder_shock.tres" id="m84"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/thunder.tres" id="m87"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/double_team.tres" id="m104"]
+[ext_resource type="Resource" path="res://data/moves/light_screen.tres" id="m113"]
+[ext_resource type="Resource" path="res://data/moves/sweet_kiss.tres" id="m186"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/spark.tres" id="m209"]
+[ext_resource type="Resource" path="res://data/moves/iron_tail.tres" id="m231"]
+[ext_resource type="Resource" path="res://data/moves/feint.tres" id="m364"]
+[ext_resource type="Resource" path="res://data/moves/nasty_plot.tres" id="m417"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/electro_ball.tres" id="m486"]
+[ext_resource type="Resource" path="res://data/moves/play_nice.tres" id="m589"]
+[ext_resource type="Resource" path="res://data/moves/nuzzle.tres" id="m609"]
+[ext_resource type="Resource" path="res://data/moves/thunderbolt.tres" id="m85"]
+[ext_resource type="Resource" path="res://data/abilities/static.tres" id="a9"]
+[ext_resource type="Resource" path="res://data/abilities/lightning_rod.tres" id="a31"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m9")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m84")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m87")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m104")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m113")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m186")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+move = ExtResource("m209")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+move = ExtResource("m231")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+move = ExtResource("m364")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+move = ExtResource("m417")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+move = ExtResource("m486")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+move = ExtResource("m589")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+move = ExtResource("m609")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m85")
+
+[resource]
+script = ExtResource("species")
+id = &"raichu"
+dex_number = 26
+name = "Raichu"
+types = Array[int]([3])
+base_hp = 60
+base_attack = 90
+base_defense = 55
+base_sp_attack = 90
+base_sp_defense = 80
+base_speed = 110
+description = "Si ses joues sont à court d'énergie, il lève la queue et capte l'électricité contenue dans l'atmosphère."
+abilities = Array[ExtResource("ability")]([ExtResource("a9")])
+hidden_ability = ExtResource("a31")
+evolves_from = &"pikachu"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 3)
+base_experience = 218
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1, 619, 80, 80)
+back_region = Rect2i(163, 619, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(959, 94, 32, 32)

@@ -1,0 +1,133 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/low_kick.tres" id="m67"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/revenge.tres" id="m279"]
+[ext_resource type="Resource" path="res://data/moves/low_sweep.tres" id="m490"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/vital_throw.tres" id="m233"]
+[ext_resource type="Resource" path="res://data/moves/strength.tres" id="m70"]
+[ext_resource type="Resource" path="res://data/moves/dual_chop.tres" id="m530"]
+[ext_resource type="Resource" path="res://data/moves/bulk_up.tres" id="m339"]
+[ext_resource type="Resource" path="res://data/moves/seismic_toss.tres" id="m69"]
+[ext_resource type="Resource" path="res://data/moves/dynamic_punch.tres" id="m223"]
+[ext_resource type="Resource" path="res://data/moves/cross_chop.tres" id="m238"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/abilities/guts.tres" id="a62"]
+[ext_resource type="Resource" path="res://data/abilities/no_guard.tres" id="a99"]
+[ext_resource type="Resource" path="res://data/abilities/steadfast.tres" id="a80"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m67")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m279")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m490")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m233")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m70")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m530")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m339")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m69")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m223")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m238")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"machoke"
+min_level = 28
+
+[resource]
+script = ExtResource("species")
+id = &"machop"
+dex_number = 66
+name = "Machoc"
+types = Array[int]([6])
+base_hp = 70
+base_attack = 80
+base_defense = 50
+base_sp_attack = 35
+base_sp_defense = 35
+base_speed = 35
+description = "Il essaie de dépenser son énergie débordante en soulevant des rochers, ce qui le rend encore plus fort."
+abilities = Array[ExtResource("ability")]([ExtResource("a62"), ExtResource("a99")])
+hidden_ability = ExtResource("a80")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 61
+catch_rate = 180
+female_ratio = 25
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(2269, 1399, 80, 80)
+back_region = Rect2i(2431, 1399, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(503, 170, 32, 32)

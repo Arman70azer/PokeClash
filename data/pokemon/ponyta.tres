@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/tail_whip.tres" id="m39"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/flame_charge.tres" id="m488"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/flame_wheel.tres" id="m172"]
+[ext_resource type="Resource" path="res://data/moves/stomp.tres" id="m23"]
+[ext_resource type="Resource" path="res://data/moves/fire_spin.tres" id="m83"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/inferno.tres" id="m517"]
+[ext_resource type="Resource" path="res://data/moves/fire_blast.tres" id="m126"]
+[ext_resource type="Resource" path="res://data/moves/flare_blitz.tres" id="m394"]
+[ext_resource type="Resource" path="res://data/abilities/run_away.tres" id="a50"]
+[ext_resource type="Resource" path="res://data/abilities/flash_fire.tres" id="a18"]
+[ext_resource type="Resource" path="res://data/abilities/flame_body.tres" id="a49"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m39")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m488")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m172")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m23")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m83")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m517")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m126")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m394")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"rapidash"
+min_level = 40
+
+[resource]
+script = ExtResource("species")
+id = &"ponyta"
+dex_number = 77
+name = "Ponyta"
+types = Array[int]([1])
+base_hp = 50
+base_attack = 85
+base_defense = 55
+base_sp_attack = 65
+base_sp_defense = 65
+base_speed = 90
+description = "Il semblerait qu'une fois qu'un Dresseur a gagné la confiance de Ponyta, sa crinière enflammée ne le brûle plus au toucher."
+abilities = Array[ExtResource("ability")]([ExtResource("a50"), ExtResource("a18")])
+hidden_ability = ExtResource("a49")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 82
+catch_rate = 190
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(2593, 1594, 80, 80)
+back_region = Rect2i(2755, 1594, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(921, 170, 32, 32)

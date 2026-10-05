@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/megahorn.tres" id="m224"]
+[ext_resource type="Resource" path="res://data/moves/horn_leech.tres" id="m532"]
+[ext_resource type="Resource" path="res://data/moves/double_kick.tres" id="m24"]
+[ext_resource type="Resource" path="res://data/moves/leech_seed.tres" id="m73"]
+[ext_resource type="Resource" path="res://data/moves/bullet_seed.tres" id="m331"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/zen_headbutt.tres" id="m428"]
+[ext_resource type="Resource" path="res://data/moves/energy_ball.tres" id="m412"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/solar_beam.tres" id="m76"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/sap_sipper.tres" id="a157"]
+[ext_resource type="Resource" path="res://data/abilities/serene_grace.tres" id="a32"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m224")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m532")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m24")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m73")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m331")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m428")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m412")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m76")
+
+[resource]
+script = ExtResource("species")
+id = &"sawsbuck"
+dex_number = 586
+name = "Haydaim"
+types = Array[int]([0, 4])
+base_hp = 80
+base_attack = 100
+base_defense = 70
+base_sp_attack = 60
+base_sp_defense = 70
+base_speed = 95
+description = "Il change d'habitat selon les saisons. Certains disent même qu'il est celui qui apporte le printemps."
+abilities = Array[ExtResource("ability")]([ExtResource("a34"), ExtResource("a157")])
+hidden_ability = ExtResource("a32")
+evolves_from = &"deerling"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 166
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(503, 930, 32, 32)

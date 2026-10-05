@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="NewGameConfig" format=3]
+
+[ext_resource type="Script" path="res://profile/new_game_config.gd" id="1_config"]
+[ext_resource type="Resource" path="res://data/pokemon/charmander.tres" id="2_starter"]
+[ext_resource type="Script" path="res://battle/data/item_data.gd" id="5_item"]
+[ext_resource type="Resource" path="res://data/items/potion.tres" id="3_potion"]
+[ext_resource type="Resource" path="res://data/items/antidote.tres" id="4_antidote"]
+[ext_resource type="Resource" path="res://data/items/poke_ball.tres" id="8_ball"]
+[ext_resource type="Resource" path="res://data/pokemon/bulbasaur.tres" id="6_bulbasaur"]
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="7_species"]
+
+[resource]
+script = ExtResource("1_config")
+starter = ExtResource("2_starter")
+starter_level = 8
+items = Array[ExtResource("5_item")]([ExtResource("3_potion"), ExtResource("4_antidote"), ExtResource("8_ball")])
+item_counts = PackedInt32Array(3, 1, 10)
+money = 3000
+stored_species = Array[ExtResource("7_species")]([ExtResource("6_bulbasaur")])
+stored_levels = PackedInt32Array(8)

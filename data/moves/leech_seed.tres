@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="1_odhpw"]
+[ext_resource type="Script" path="res://battle/effects/inflict_condition_effect.gd" id="2_f1tmu"]
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="3_pepc7"]
+
+[sub_resource type="Resource" id="Resource_ub7lc"]
+script = ExtResource("2_f1tmu")
+condition = &"leech_seed"
+
+[resource]
+script = ExtResource("3_pepc7")
+id = &"leech_seed"
+name = "Vampigraine"
+type = 4
+category = 2
+accuracy = 90
+pp = 10
+effects = Array[ExtResource("1_odhpw")]([SubResource("Resource_ub7lc")])
+animation = &"leech_seed"
+description = "Une graine est semée sur l'ennemi. Elle lui vole des PV à chaque tour."

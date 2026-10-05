@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"static"
+name = "Statik"
+description = "Le Pokémon charge son corps en électricité statique, et tout contact avec lui peut paralyser."

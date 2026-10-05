@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"moody"
+name = "Lunatique"
+description = "Augmente beaucoup une stat du Pokémon\\net en baisse une autre au hasard à chaque tour."

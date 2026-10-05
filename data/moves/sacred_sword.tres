@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"sacred_sword"
+name = "Lame Sainte"
+type = 6
+category = 0
+power = 90
+accuracy = 100
+pp = 15
+priority = 0
+description = "Un coup de corne violent qui lacère l'ennemi et lui inflige des dégâts quels que soient ses changements de stats."

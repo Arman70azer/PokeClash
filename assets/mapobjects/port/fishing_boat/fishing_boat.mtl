@@ -1,0 +1,65 @@
+newmtl buoy_red
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd buoy_red.png
+
+newmtl buoy_white
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd buoy_white.png
+
+newmtl cabin
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd cabin.png
+
+newmtl deck
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd deck.png
+
+newmtl hull
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd hull.png
+
+newmtl inner
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd inner.png
+
+newmtl iron
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd iron.png
+
+newmtl lamp
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd lamp.png
+
+newmtl mast
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd mast.png
+
+newmtl net
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd net.png
+
+newmtl roof
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd roof.png

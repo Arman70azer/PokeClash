@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/string_shot.tres" id="m81"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/infestation.tres" id="m611"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/night_shade.tres" id="m101"]
+[ext_resource type="Resource" path="res://data/moves/shadow_sneak.tres" id="m425"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/pin_missile.tres" id="m42"]
+[ext_resource type="Resource" path="res://data/moves/psychic.tres" id="m94"]
+[ext_resource type="Resource" path="res://data/moves/poison_jab.tres" id="m398"]
+[ext_resource type="Resource" path="res://data/moves/cross_poison.tres" id="m440"]
+[ext_resource type="Resource" path="res://data/moves/sticky_web.tres" id="m564"]
+[ext_resource type="Resource" path="res://data/moves/toxic_thread.tres" id="m672"]
+[ext_resource type="Resource" path="res://data/abilities/swarm.tres" id="a68"]
+[ext_resource type="Resource" path="res://data/abilities/insomnia.tres" id="a15"]
+[ext_resource type="Resource" path="res://data/abilities/sniper.tres" id="a97"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m81")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m611")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m101")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m425")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 26
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m42")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m94")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m398")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m440")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 47
+move = ExtResource("m564")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m672")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"ariados"
+min_level = 22
+
+[resource]
+script = ExtResource("species")
+id = &"spinarak"
+dex_number = 167
+name = "Mimigal"
+types = Array[int]([11, 7])
+base_hp = 40
+base_attack = 60
+base_defense = 40
+base_sp_attack = 40
+base_sp_defense = 40
+base_speed = 30
+description = "Le poison contenu dans les mandibules de ce Pokémon n'est pas très violent, mais il suffit à immobiliser les proies piégées dans sa toile."
+abilities = Array[ExtResource("ability")]([ExtResource("a68"), ExtResource("a15")])
+hidden_ability = ExtResource("a97")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 50
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(389, 322, 32, 32)

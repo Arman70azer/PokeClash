@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/stun_spore.tres" id="m78"]
+[ext_resource type="Resource" path="res://data/moves/worry_seed.tres" id="m388"]
+[ext_resource type="Resource" path="res://data/abilities/natural_cure.tres" id="a30"]
+[ext_resource type="Resource" path="res://data/abilities/poison_point.tres" id="a38"]
+[ext_resource type="Resource" path="res://data/abilities/leaf_guard.tres" id="a102"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m78")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m388")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"roselia"
+method = 3
+
+[resource]
+script = ExtResource("species")
+id = &"budew"
+dex_number = 406
+name = "Rozbouton"
+types = Array[int]([4, 7])
+base_hp = 40
+base_attack = 30
+base_defense = 35
+base_sp_attack = 50
+base_sp_defense = 70
+base_speed = 55
+description = "Il est sensible aux variations de température. Quand son bourgeon commence à s'ouvrir, l'arrivée du printemps est imminente."
+abilities = Array[ExtResource("ability")]([ExtResource("a30"), ExtResource("a38")])
+hidden_ability = ExtResource("a102")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 1, 0, 0)
+base_experience = 56
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(579, 664, 32, 32)

@@ -1,0 +1,132 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/withdraw.tres" id="m110"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/aqua_jet.tres" id="m453"]
+[ext_resource type="Resource" path="res://data/moves/smack_down.tres" id="m479"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/wide_guard.tres" id="m469"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/rock_slide.tres" id="m157"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/curse.tres" id="m174"]
+[ext_resource type="Resource" path="res://data/moves/iron_defense.tres" id="m334"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/rain_dance.tres" id="m240"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/moves/shell_smash.tres" id="m504"]
+[ext_resource type="Resource" path="res://data/abilities/solid_rock.tres" id="a116"]
+[ext_resource type="Resource" path="res://data/abilities/sturdy.tres" id="a5"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m110")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m453")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m479")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m469")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m157")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m174")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m334")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m240")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m504")
+
+[resource]
+script = ExtResource("species")
+id = &"carracosta"
+dex_number = 565
+name = "Mégapagos"
+types = Array[int]([2, 12])
+base_hp = 74
+base_attack = 108
+base_defense = 133
+base_sp_attack = 83
+base_sp_defense = 65
+base_speed = 32
+description = "Bien qu'il soit moins à l'aise sur terre que dans l'eau, il s'aventure sur le rivage pour se nourrir."
+abilities = Array[ExtResource("ability")]([ExtResource("a116"), ExtResource("a5")])
+hidden_ability = ExtResource("a33")
+evolves_from = &"tirtouga"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 2, 0, 0, 0)
+base_experience = 173
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(693, 892, 32, 32)

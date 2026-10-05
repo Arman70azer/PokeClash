@@ -1,0 +1,132 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/sand_tomb.tres" id="m328"]
+[ext_resource type="Resource" path="res://data/moves/smack_down.tres" id="m479"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/block.tres" id="m335"]
+[ext_resource type="Resource" path="res://data/moves/bulldoze.tres" id="m523"]
+[ext_resource type="Resource" path="res://data/moves/rock_tomb.tres" id="m317"]
+[ext_resource type="Resource" path="res://data/moves/imprison.tres" id="m286"]
+[ext_resource type="Resource" path="res://data/moves/rock_slide.tres" id="m157"]
+[ext_resource type="Resource" path="res://data/moves/earth_power.tres" id="m414"]
+[ext_resource type="Resource" path="res://data/moves/extrasensory.tres" id="m326"]
+[ext_resource type="Resource" path="res://data/moves/stone_edge.tres" id="m444"]
+[ext_resource type="Resource" path="res://data/moves/hammer_arm.tres" id="m359"]
+[ext_resource type="Resource" path="res://data/moves/sandstorm.tres" id="m201"]
+[ext_resource type="Resource" path="res://data/moves/earthquake.tres" id="m89"]
+[ext_resource type="Resource" path="res://data/moves/outrage.tres" id="m200"]
+[ext_resource type="Resource" path="res://data/moves/fissure.tres" id="m90"]
+[ext_resource type="Resource" path="res://data/moves/sandsear_storm.tres" id="m848"]
+[ext_resource type="Resource" path="res://data/abilities/sand_force.tres" id="a159"]
+[ext_resource type="Resource" path="res://data/abilities/sheer_force.tres" id="a125"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m328")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m479")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m335")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m523")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m317")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m286")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m157")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m414")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m326")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m444")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m359")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m201")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 65
+move = ExtResource("m89")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 70
+move = ExtResource("m200")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 75
+move = ExtResource("m90")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 80
+move = ExtResource("m848")
+
+[resource]
+script = ExtResource("species")
+id = &"landorus"
+dex_number = 645
+name = "Démétéros"
+types = Array[int]([8, 9])
+base_hp = 89
+base_attack = 125
+base_defense = 90
+base_sp_attack = 115
+base_sp_defense = 80
+base_speed = 101
+description = "Il utilise l'énergie qu'il tire du vent et de la foudre pour enrichir les sols en nutriments pour les cultures."
+abilities = Array[ExtResource("ability")]([ExtResource("a159")])
+hidden_ability = ExtResource("a125")
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 3, 0, 0)
+base_experience = 270
+catch_rate = 3
+female_ratio = 0
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(769, 1006, 32, 32)

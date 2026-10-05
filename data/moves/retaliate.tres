@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"retaliate"
+name = "Vengeance"
+type = 0
+category = 0
+power = 70
+accuracy = 100
+pp = 5
+priority = 0
+description = "Venge un Pokémon de l'équipe mis K.O. Si un Pokémon de l'équipe a été mis K.O. au tour d'avant, l'effet augmente."

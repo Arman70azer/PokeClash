@@ -1,0 +1,59 @@
+newmtl bridge
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd bridge.png
+
+newmtl container
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd container.png
+
+newmtl deck
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd deck.png
+
+newmtl funnel
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd funnel.png
+
+newmtl funnel_top
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd funnel_top.png
+
+newmtl hull
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd hull.png
+
+newmtl inner
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd inner.png
+
+newmtl mast
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd mast.png
+
+newmtl white
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd white.png
+
+newmtl windows
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd windows.png

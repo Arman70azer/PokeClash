@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"present"
+name = "Cadeau"
+type = 0
+category = 0
+power = 0
+accuracy = 90
+pp = 15
+priority = 0
+description = "Le lanceur attaque en offrant un cadeau piégé à la cible. Peut cependant restaurer certains de ses PV."

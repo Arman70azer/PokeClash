@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://brv1sbul0fmyv"
+path="res://.godot/imported/Cafe Warehouse.obj-9f25762ac4d39dae0ba09b7b32a971c6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cafe Warehouse.obj-9f25762ac4d39dae0ba09b7b32a971c6.mesh"]
+
+source_file="res://assets/mapobjects/cafe_warehouse/Cafe Warehouse.obj"
+dest_files=["res://.godot/imported/Cafe Warehouse.obj-9f25762ac4d39dae0ba09b7b32a971c6.mesh", "res://.godot/imported/Cafe Warehouse.obj-9f25762ac4d39dae0ba09b7b32a971c6.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

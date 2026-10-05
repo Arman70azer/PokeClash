@@ -1,0 +1,147 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/powder_snow.tres" id="m181"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/aqua_jet.tres" id="m453"]
+[ext_resource type="Resource" path="res://data/moves/icicle_crash.tres" id="m556"]
+[ext_resource type="Resource" path="res://data/moves/icy_wind.tres" id="m196"]
+[ext_resource type="Resource" path="res://data/moves/play_nice.tres" id="m589"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/frost_breath.tres" id="m524"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/snowscape.tres" id="m883"]
+[ext_resource type="Resource" path="res://data/moves/thrash.tres" id="m37"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/blizzard.tres" id="m59"]
+[ext_resource type="Resource" path="res://data/moves/sheer_cold.tres" id="m329"]
+[ext_resource type="Resource" path="res://data/moves/superpower.tres" id="m276"]
+[ext_resource type="Resource" path="res://data/abilities/snow_cloak.tres" id="a81"]
+[ext_resource type="Resource" path="res://data/abilities/slush_rush.tres" id="a202"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m181")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m453")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m556")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m196")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m589")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m524")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m883")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m37")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m59")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m329")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m276")
+
+[resource]
+script = ExtResource("species")
+id = &"beartic"
+dex_number = 614
+name = "Polagriffe"
+types = Array[int]([5])
+base_hp = 95
+base_attack = 130
+base_defense = 80
+base_sp_attack = 70
+base_sp_defense = 80
+base_speed = 50
+description = "Il sillonne les mers glaciales avec aisance. Quand il est fatigué, il gèle l'eau de mer d'un souffle et se repose sur l'iceberg improvisé."
+abilities = Array[ExtResource("ability")]([ExtResource("a81"), ExtResource("a202")])
+hidden_ability = ExtResource("a33")
+evolves_from = &"cubchoo"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 177
+catch_rate = 60
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(579, 968, 32, 32)

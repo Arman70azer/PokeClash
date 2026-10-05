@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/taunt.tres" id="m269"]
+[ext_resource type="Resource" path="res://data/moves/metal_sound.tres" id="m319"]
+[ext_resource type="Resource" path="res://data/moves/block.tres" id="m335"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/iron_defense.tres" id="m334"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/metal_burst.tres" id="m368"]
+[ext_resource type="Resource" path="res://data/moves/iron_head.tres" id="m442"]
+[ext_resource type="Resource" path="res://data/moves/heavy_slam.tres" id="m484"]
+[ext_resource type="Resource" path="res://data/abilities/sturdy.tres" id="a5"]
+[ext_resource type="Resource" path="res://data/abilities/soundproof.tres" id="a43"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m319")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m335")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m334")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m368")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m442")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m484")
+
+[resource]
+script = ExtResource("species")
+id = &"bastiodon"
+dex_number = 411
+name = "Bastiodon"
+types = Array[int]([12, 16])
+base_hp = 60
+base_attack = 52
+base_defense = 168
+base_sp_attack = 47
+base_sp_defense = 138
+base_speed = 30
+description = "Un Pokémon éteint depuis environ 100 millions d'années. Sa tête incroyablement solide était plus dure que l'acier."
+abilities = Array[ExtResource("ability")]([ExtResource("a5")])
+hidden_ability = ExtResource("a43")
+evolves_from = &"shieldon"
+growth_rate = &"slow-then-very-fast"
+ev_yield = PackedInt32Array(0, 0, 2, 0, 0, 0)
+base_experience = 173
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(769, 664, 32, 32)

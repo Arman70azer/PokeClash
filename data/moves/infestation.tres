@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"infestation"
+name = "Harcèlement"
+type = 11
+category = 1
+power = 20
+accuracy = 100
+pp = 20
+priority = 0
+description = "Cette attaque perdure pendant quatre à cinq tours. L'ennemi ne peut pas fuir au cours de cette période."

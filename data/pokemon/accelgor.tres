@@ -1,0 +1,155 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/body_slam.tres" id="m34"]
+[ext_resource type="Resource" path="res://data/moves/acid.tres" id="m51"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/double_team.tres" id="m104"]
+[ext_resource type="Resource" path="res://data/moves/acid_armor.tres" id="m151"]
+[ext_resource type="Resource" path="res://data/moves/curse.tres" id="m174"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/guard_swap.tres" id="m385"]
+[ext_resource type="Resource" path="res://data/moves/acid_spray.tres" id="m491"]
+[ext_resource type="Resource" path="res://data/moves/water_shuriken.tres" id="m594"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/struggle_bug.tres" id="m522"]
+[ext_resource type="Resource" path="res://data/moves/swift.tres" id="m129"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/power_swap.tres" id="m384"]
+[ext_resource type="Resource" path="res://data/moves/u_turn.tres" id="m369"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/bug_buzz.tres" id="m405"]
+[ext_resource type="Resource" path="res://data/moves/final_gambit.tres" id="m515"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/abilities/hydration.tres" id="a93"]
+[ext_resource type="Resource" path="res://data/abilities/sticky_hold.tres" id="a60"]
+[ext_resource type="Resource" path="res://data/abilities/unburden.tres" id="a84"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m34")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m51")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m104")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m151")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m174")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m385")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m491")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m594")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m522")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m129")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m384")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m369")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m405")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m515")
+
+[sub_resource type="Resource" id="l21"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m92")
+
+[resource]
+script = ExtResource("species")
+id = &"accelgor"
+dex_number = 617
+name = "Limaspeed"
+types = Array[int]([11])
+base_hp = 80
+base_attack = 70
+base_defense = 40
+base_sp_attack = 100
+base_sp_defense = 60
+base_speed = 145
+description = "Il est bien plus agile sans sa coquille. La membrane en forme de bandelettes qui l'entoure l'empêche de se dessécher."
+abilities = Array[ExtResource("ability")]([ExtResource("a93"), ExtResource("a60")])
+hidden_ability = ExtResource("a84")
+evolves_from = &"shelmet"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 173
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20"), SubResource("l21")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(693, 968, 32, 32)

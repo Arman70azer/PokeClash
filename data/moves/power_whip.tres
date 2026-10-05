@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"power_whip"
+name = "Mégafouet"
+type = 4
+category = 0
+power = 120
+accuracy = 85
+pp = 10
+priority = 0
+description = "Le lanceur fait virevolter violemment ses lianes ou ses tentacules pour fouetter l'ennemi."

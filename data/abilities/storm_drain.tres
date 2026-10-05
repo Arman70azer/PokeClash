@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"storm_drain"
+name = "Lavabo"
+description = "Le Pokémon détourne sur lui les capacités de\\ntype Eau et les neutralise, tout en augmentant\\nson Attaque Spéciale."

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"justified"
+name = "Cœur Noble"
+description = "Réveille la noblesse du Pokémon lorsqu'il subit\\nune attaque de type Ténèbres, ce qui augmente\\nson Attaque."

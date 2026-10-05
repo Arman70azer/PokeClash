@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/fury_cutter.tres" id="m210"]
+[ext_resource type="Resource" path="res://data/moves/bug_bite.tres" id="m450"]
+[ext_resource type="Resource" path="res://data/moves/electroweb.tres" id="m527"]
+[ext_resource type="Resource" path="res://data/moves/sticky_web.tres" id="m564"]
+[ext_resource type="Resource" path="res://data/moves/string_shot.tres" id="m81"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/electro_ball.tres" id="m486"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/gastro_acid.tres" id="m380"]
+[ext_resource type="Resource" path="res://data/moves/bug_buzz.tres" id="m405"]
+[ext_resource type="Resource" path="res://data/abilities/compound_eyes.tres" id="a14"]
+[ext_resource type="Resource" path="res://data/abilities/unnerve.tres" id="a127"]
+[ext_resource type="Resource" path="res://data/abilities/swarm.tres" id="a68"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m210")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m450")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m527")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m564")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m81")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m486")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m380")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m405")
+
+[resource]
+script = ExtResource("species")
+id = &"galvantula"
+dex_number = 596
+name = "Mygavolt"
+types = Array[int]([11, 3])
+base_hp = 70
+base_attack = 77
+base_defense = 60
+base_sp_attack = 97
+base_sp_defense = 60
+base_speed = 108
+description = "Il piège les oisillons qui ne savent pas encore voler en tissant une toile électrique près des nids des Pokémon oiseaux."
+abilities = Array[ExtResource("ability")]([ExtResource("a14"), ExtResource("a127")])
+hidden_ability = ExtResource("a68")
+evolves_from = &"joltik"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 165
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(883, 930, 32, 32)

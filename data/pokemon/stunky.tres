@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/poison_gas.tres" id="m139"]
+[ext_resource type="Resource" path="res://data/moves/feint.tres" id="m364"]
+[ext_resource type="Resource" path="res://data/moves/smokescreen.tres" id="m108"]
+[ext_resource type="Resource" path="res://data/moves/acid_spray.tres" id="m491"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/venoshock.tres" id="m474"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/memento.tres" id="m262"]
+[ext_resource type="Resource" path="res://data/moves/night_slash.tres" id="m400"]
+[ext_resource type="Resource" path="res://data/moves/belch.tres" id="m562"]
+[ext_resource type="Resource" path="res://data/moves/explosion.tres" id="m153"]
+[ext_resource type="Resource" path="res://data/abilities/stench.tres" id="a1"]
+[ext_resource type="Resource" path="res://data/abilities/aftermath.tres" id="a106"]
+[ext_resource type="Resource" path="res://data/abilities/keen_eye.tres" id="a51"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m139")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 3
+move = ExtResource("m364")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m108")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m491")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m474")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m262")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m400")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m562")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m153")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"skuntank"
+min_level = 34
+
+[resource]
+script = ExtResource("species")
+id = &"stunky"
+dex_number = 434
+name = "Moufouette"
+types = Array[int]([7, 15])
+base_hp = 63
+base_attack = 63
+base_defense = 47
+base_sp_attack = 41
+base_sp_defense = 41
+base_speed = 74
+description = "S'il lève la queue, c'est qu'il s'apprête à projeter un liquide tellement nauséabond qu'il peut faire perdre connaissance."
+abilities = Array[ExtResource("ability")]([ExtResource("a1"), ExtResource("a106")])
+hidden_ability = ExtResource("a51")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 66
+catch_rate = 225
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(655, 702, 32, 32)

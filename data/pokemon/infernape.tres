@@ -1,0 +1,112 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/mach_punch.tres" id="m183"]
+[ext_resource type="Resource" path="res://data/moves/close_combat.tres" id="m370"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/flame_wheel.tres" id="m172"]
+[ext_resource type="Resource" path="res://data/moves/feint.tres" id="m364"]
+[ext_resource type="Resource" path="res://data/moves/torment.tres" id="m259"]
+[ext_resource type="Resource" path="res://data/moves/fire_spin.tres" id="m83"]
+[ext_resource type="Resource" path="res://data/moves/flare_blitz.tres" id="m394"]
+[ext_resource type="Resource" path="res://data/moves/acrobatics.tres" id="m512"]
+[ext_resource type="Resource" path="res://data/moves/calm_mind.tres" id="m347"]
+[ext_resource type="Resource" path="res://data/moves/raging_fury.tres" id="m833"]
+[ext_resource type="Resource" path="res://data/abilities/blaze.tres" id="a66"]
+[ext_resource type="Resource" path="res://data/abilities/iron_fist.tres" id="a89"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m183")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m370")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m172")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 26
+move = ExtResource("m364")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m259")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m83")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 47
+move = ExtResource("m394")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m512")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m347")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 65
+move = ExtResource("m833")
+
+[resource]
+script = ExtResource("species")
+id = &"infernape"
+dex_number = 392
+name = "Simiabraz"
+types = Array[int]([1, 6])
+base_hp = 76
+base_attack = 104
+base_defense = 71
+base_sp_attack = 104
+base_sp_defense = 71
+base_speed = 108
+description = "Il fait voltiger ses ennemis grâce à sa vitesse et son style de combat spécial qui utilise ses quatre membres."
+abilities = Array[ExtResource("ability")]([ExtResource("a66")])
+hidden_ability = ExtResource("a89")
+evolves_from = &"monferno"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 1, 0, 1, 0, 1)
+base_experience = 240
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(47, 664, 32, 32)

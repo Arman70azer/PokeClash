@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/morning_sun.tres" id="m234"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/flower_shield.tres" id="m579"]
+[ext_resource type="Resource" path="res://data/moves/leafage.tres" id="m670"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/magical_leaf.tres" id="m345"]
+[ext_resource type="Resource" path="res://data/moves/leech_seed.tres" id="m73"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/petal_blizzard.tres" id="m572"]
+[ext_resource type="Resource" path="res://data/moves/worry_seed.tres" id="m388"]
+[ext_resource type="Resource" path="res://data/moves/solar_beam.tres" id="m76"]
+[ext_resource type="Resource" path="res://data/moves/petal_dance.tres" id="m80"]
+[ext_resource type="Resource" path="res://data/abilities/flower_gift.tres" id="a122"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m234")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m579")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m670")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m345")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m73")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m572")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m388")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m76")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 62
+move = ExtResource("m80")
+
+[resource]
+script = ExtResource("species")
+id = &"cherrim"
+dex_number = 421
+name = "Ceriflor"
+types = Array[int]([4])
+base_hp = 70
+base_attack = 60
+base_defense = 70
+base_sp_attack = 87
+base_sp_defense = 78
+base_speed = 85
+description = "Lorsqu'il se ferme, ses pétales sont si durs qu'il ne craint plus les attaques des Pokémon oiseaux."
+abilities = Array[ExtResource("ability")]([ExtResource("a122")])
+evolves_from = &"cherubi"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 2, 0, 0)
+base_experience = 158
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(161, 702, 32, 32)

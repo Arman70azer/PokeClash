@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/body_slam.tres" id="m34"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/origin_pulse.tres" id="m618"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/calm_mind.tres" id="m347"]
+[ext_resource type="Resource" path="res://data/moves/muddy_water.tres" id="m330"]
+[ext_resource type="Resource" path="res://data/moves/ice_beam.tres" id="m58"]
+[ext_resource type="Resource" path="res://data/moves/sheer_cold.tres" id="m329"]
+[ext_resource type="Resource" path="res://data/moves/aqua_ring.tres" id="m392"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/water_spout.tres" id="m323"]
+[ext_resource type="Resource" path="res://data/abilities/drizzle.tres" id="a2"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m34")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m618")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m347")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m330")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m58")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m329")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m392")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 72
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 81
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 90
+move = ExtResource("m323")
+
+[resource]
+script = ExtResource("species")
+id = &"kyogre"
+dex_number = 382
+name = "Kyogre"
+types = Array[int]([2])
+base_hp = 100
+base_attack = 100
+base_defense = 90
+base_sp_attack = 150
+base_sp_defense = 140
+base_speed = 90
+description = "Un Pokémon considéré comme l'avatar des océans. Selon les légendes, il a disputé de nombreux combats avec Groudon pour contrôler l'énergie de la nature."
+abilities = Array[ExtResource("ability")]([ExtResource("a2")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 3, 0, 0)
+base_experience = 302
+catch_rate = 3
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(655, 626, 32, 32)

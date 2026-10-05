@@ -1,0 +1,139 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/peck.tres" id="m64"]
+[ext_resource type="Resource" path="res://data/moves/taunt.tres" id="m269"]
+[ext_resource type="Resource" path="res://data/moves/hyper_voice.tres" id="m304"]
+[ext_resource type="Resource" path="res://data/moves/chatter.tres" id="m448"]
+[ext_resource type="Resource" path="res://data/moves/confide.tres" id="m590"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/mirror_move.tres" id="m119"]
+[ext_resource type="Resource" path="res://data/moves/sing.tres" id="m47"]
+[ext_resource type="Resource" path="res://data/moves/fury_attack.tres" id="m31"]
+[ext_resource type="Resource" path="res://data/moves/round.tres" id="m496"]
+[ext_resource type="Resource" path="res://data/moves/mimic.tres" id="m102"]
+[ext_resource type="Resource" path="res://data/moves/echoed_voice.tres" id="m497"]
+[ext_resource type="Resource" path="res://data/moves/roost.tres" id="m355"]
+[ext_resource type="Resource" path="res://data/moves/uproar.tres" id="m253"]
+[ext_resource type="Resource" path="res://data/moves/synchronoise.tres" id="m485"]
+[ext_resource type="Resource" path="res://data/moves/feather_dance.tres" id="m297"]
+[ext_resource type="Resource" path="res://data/abilities/keen_eye.tres" id="a51"]
+[ext_resource type="Resource" path="res://data/abilities/tangled_feet.tres" id="a77"]
+[ext_resource type="Resource" path="res://data/abilities/big_pecks.tres" id="a145"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m64")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m304")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m448")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m590")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m119")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m47")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m31")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m448")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m496")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m102")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m497")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m355")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m253")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m485")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m297")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 57
+move = ExtResource("m304")
+
+[resource]
+script = ExtResource("species")
+id = &"chatot"
+dex_number = 441
+name = "Pijako"
+types = Array[int]([0, 9])
+base_hp = 76
+base_attack = 65
+base_defense = 45
+base_sp_attack = 92
+base_sp_defense = 42
+base_speed = 91
+description = "On peut lui enseigner quelques mots. S'il s'agit d'un groupe, ils retiendront les mêmes phrases."
+abilities = Array[ExtResource("ability")]([ExtResource("a51"), ExtResource("a77")])
+hidden_ability = ExtResource("a145")
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 144
+catch_rate = 30
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(921, 702, 32, 32)

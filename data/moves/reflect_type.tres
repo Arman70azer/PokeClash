@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"reflect_type"
+name = "Copie-Type"
+type = 0
+category = 2
+power = 0
+accuracy = 0
+pp = 15
+priority = 0
+description = "Le lanceur copie le type de la cible et devient du même type."

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"neutralizing_gas"
+name = "Gaz Inhibiteur"
+description = "Si un Pokémon avec Gaz Inhibiteur est sur le terrain,\\nles effets des talents de tous les autres Pokémon ne\\ns'activent pas ou sont neutralisés."

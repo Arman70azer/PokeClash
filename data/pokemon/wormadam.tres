@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/bug_bite.tres" id="m450"]
+[ext_resource type="Resource" path="res://data/moves/quiver_dance.tres" id="m483"]
+[ext_resource type="Resource" path="res://data/moves/hidden_power.tres" id="m237"]
+[ext_resource type="Resource" path="res://data/moves/confusion.tres" id="m93"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/captivate.tres" id="m445"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/attract.tres" id="m213"]
+[ext_resource type="Resource" path="res://data/moves/psychic.tres" id="m94"]
+[ext_resource type="Resource" path="res://data/moves/leaf_storm.tres" id="m437"]
+[ext_resource type="Resource" path="res://data/moves/bug_buzz.tres" id="m405"]
+[ext_resource type="Resource" path="res://data/abilities/anticipation.tres" id="a107"]
+[ext_resource type="Resource" path="res://data/abilities/overcoat.tres" id="a142"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m450")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m483")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m450")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m237")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m93")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 26
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m445")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 38
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m213")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m94")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 47
+move = ExtResource("m437")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m405")
+
+[resource]
+script = ExtResource("species")
+id = &"wormadam"
+dex_number = 413
+name = "Cheniselle"
+types = Array[int]([11, 4])
+base_hp = 60
+base_attack = 59
+base_defense = 85
+base_sp_attack = 79
+base_sp_defense = 105
+base_speed = 36
+description = "Quand Cheniti a évolué, sa cape a fusionné avec son corps. Cheniselle ne s'en sépare jamais."
+abilities = Array[ExtResource("ability")]([ExtResource("a107")])
+hidden_ability = ExtResource("a142")
+evolves_from = &"burmy"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 2, 0)
+base_experience = 148
+catch_rate = 45
+female_ratio = 100
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(845, 664, 32, 32)

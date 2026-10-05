@@ -1,0 +1,115 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/lick.tres" id="m122"]
+[ext_resource type="Resource" path="res://data/moves/rollout.tres" id="m205"]
+[ext_resource type="Resource" path="res://data/moves/supersonic.tres" id="m48"]
+[ext_resource type="Resource" path="res://data/moves/wrap.tres" id="m35"]
+[ext_resource type="Resource" path="res://data/moves/disable.tres" id="m50"]
+[ext_resource type="Resource" path="res://data/moves/stomp.tres" id="m23"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/slam.tres" id="m21"]
+[ext_resource type="Resource" path="res://data/moves/power_whip.tres" id="m438"]
+[ext_resource type="Resource" path="res://data/moves/belly_drum.tres" id="m187"]
+[ext_resource type="Resource" path="res://data/abilities/own_tempo.tres" id="a20"]
+[ext_resource type="Resource" path="res://data/abilities/oblivious.tres" id="a12"]
+[ext_resource type="Resource" path="res://data/abilities/cloud_nine.tres" id="a13"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m122")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m205")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m48")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m35")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m50")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m23")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m21")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m438")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m187")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"lickilicky"
+method = 4
+
+[resource]
+script = ExtResource("species")
+id = &"lickitung"
+dex_number = 108
+name = "Excelangue"
+types = Array[int]([0])
+base_hp = 90
+base_attack = 55
+base_defense = 75
+base_sp_attack = 60
+base_sp_defense = 75
+base_speed = 30
+description = "Excelangue se nourrit essentiellement de Pokémon Insecte. Il lèche ses ennemis avec sa longue langue pour les paralyser, puis les avale tout rond."
+abilities = Array[ExtResource("ability")]([ExtResource("a20"), ExtResource("a12")])
+hidden_ability = ExtResource("a13")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 77
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(649, 2374, 80, 80)
+back_region = Rect2i(811, 2374, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(123, 246, 32, 32)

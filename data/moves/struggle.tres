@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="1_ry1ea"]
+[ext_resource type="Script" path="res://battle/effects/recoil_effect.gd" id="2_v6u5i"]
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="3_reoiw"]
+
+[sub_resource type="Resource" id="Resource_r1msq"]
+script = ExtResource("2_v6u5i")
+base = 1
+who = 1
+
+[resource]
+script = ExtResource("3_reoiw")
+id = &"struggle"
+name = "Lutte"
+power = 50
+accuracy = 0
+pp = 1
+makes_contact = true
+effects = Array[ExtResource("1_ry1ea")]([SubResource("Resource_r1msq")])
+animation = &"struggle"
+description = "Attaque utilisée quand il ne reste plus de PP. Blesse aussi un peu le lanceur."

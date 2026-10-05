@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"drain_punch"
+name = "Vampi-Poing"
+type = 6
+category = 0
+power = 75
+accuracy = 100
+pp = 10
+priority = 0
+description = "Un coup de poing qui draine l'énergie. Convertit la moitié des dégâts infligés en PV pour le lanceur."

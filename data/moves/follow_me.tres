@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"follow_me"
+name = "Par Ici"
+type = 0
+category = 2
+power = 0
+accuracy = 0
+pp = 20
+priority = 2
+target = 1
+description = "Attire l'attention des ennemis pour les forcer à n'attaquer que le lanceur."

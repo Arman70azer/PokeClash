@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/slam.tres" id="m21"]
+[ext_resource type="Resource" path="res://data/moves/rock_throw.tres" id="m88"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/fake_tears.tres" id="m313"]
+[ext_resource type="Resource" path="res://data/moves/hammer_arm.tres" id="m359"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/stone_edge.tres" id="m444"]
+[ext_resource type="Resource" path="res://data/moves/wood_hammer.tres" id="m452"]
+[ext_resource type="Resource" path="res://data/moves/block.tres" id="m335"]
+[ext_resource type="Resource" path="res://data/moves/mimic.tres" id="m102"]
+[ext_resource type="Resource" path="res://data/moves/rock_tomb.tres" id="m317"]
+[ext_resource type="Resource" path="res://data/moves/tearful_look.tres" id="m715"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/rock_slide.tres" id="m157"]
+[ext_resource type="Resource" path="res://data/moves/low_kick.tres" id="m67"]
+[ext_resource type="Resource" path="res://data/moves/counter.tres" id="m68"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/head_smash.tres" id="m457"]
+[ext_resource type="Resource" path="res://data/abilities/sturdy.tres" id="a5"]
+[ext_resource type="Resource" path="res://data/abilities/rock_head.tres" id="a69"]
+[ext_resource type="Resource" path="res://data/abilities/rattled.tres" id="a155"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m21")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m88")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m313")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m359")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m444")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m452")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m335")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m102")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m317")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m715")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m157")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m67")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m68")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m457")
+
+[resource]
+script = ExtResource("species")
+id = &"sudowoodo"
+dex_number = 185
+name = "Simularbre"
+types = Array[int]([12])
+base_hp = 70
+base_attack = 100
+base_defense = 115
+base_sp_attack = 30
+base_sp_defense = 65
+base_speed = 30
+description = "Il se déguise en arbre pour éviter de se faire attaquer. Il déteste l'eau et se cache par temps de pluie."
+abilities = Array[ExtResource("ability")]([ExtResource("a5"), ExtResource("a69")])
+hidden_ability = ExtResource("a155")
+evolves_from = &"bonsly"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 2, 0, 0, 0)
+base_experience = 144
+catch_rate = 65
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(85, 360, 32, 32)

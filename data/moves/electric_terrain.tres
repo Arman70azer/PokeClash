@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"electric_terrain"
+name = "Champ Électrifié"
+type = 3
+category = 2
+power = 0
+accuracy = 0
+pp = 10
+priority = 0
+description = "Pendant cinq tours, le terrain se charge d'électricité. Les Pokémon au sol ne peuvent pas s'endormir et la puissance des capacités de type Électrik augmente."

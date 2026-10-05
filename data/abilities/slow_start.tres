@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"slow_start"
+name = "Début Calme"
+description = "Divise la Vitesse et l'Attaque du Pokémon par deux\\npendant les cinq premiers tours du combat."

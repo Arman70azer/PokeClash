@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"belch"
+name = "Éructation"
+type = 7
+category = 1
+power = 120
+accuracy = 90
+pp = 10
+priority = 0
+description = "Le lanceur se tourne vers l'ennemi et lui éructe dessus, infligeant des dégâts. Ne fonctionne que si le lanceur consomme la Baie qu'il tient."

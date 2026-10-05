@@ -1,0 +1,133 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/confusion.tres" id="m93"]
+[ext_resource type="Resource" path="res://data/moves/work_up.tres" id="m526"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/feint.tres" id="m364"]
+[ext_resource type="Resource" path="res://data/moves/force_palm.tres" id="m395"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/calm_mind.tres" id="m347"]
+[ext_resource type="Resource" path="res://data/moves/zen_headbutt.tres" id="m428"]
+[ext_resource type="Resource" path="res://data/moves/high_jump_kick.tres" id="m136"]
+[ext_resource type="Resource" path="res://data/moves/psych_up.tres" id="m244"]
+[ext_resource type="Resource" path="res://data/moves/acupressure.tres" id="m367"]
+[ext_resource type="Resource" path="res://data/moves/power_trick.tres" id="m379"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/counter.tres" id="m68"]
+[ext_resource type="Resource" path="res://data/abilities/pure_power.tres" id="a74"]
+[ext_resource type="Resource" path="res://data/abilities/telepathy.tres" id="a140"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m93")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m526")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m364")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m395")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m347")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m428")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m136")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m244")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m367")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m379")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m68")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"medicham"
+min_level = 37
+
+[resource]
+script = ExtResource("species")
+id = &"meditite"
+dex_number = 307
+name = "Méditikka"
+types = Array[int]([6, 10])
+base_hp = 30
+base_attack = 40
+base_defense = 55
+base_sp_attack = 40
+base_sp_defense = 55
+base_speed = 60
+description = "Méditikka intensifie son énergie intérieure grâce à la méditation. Il lui suffit d'une Baie par jour pour survivre. La diète fait partie de l'entraînement de ce Pokémon."
+abilities = Array[ExtResource("ability")]([ExtResource("a74")])
+hidden_ability = ExtResource("a140")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 56
+catch_rate = 180
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(769, 512, 32, 32)

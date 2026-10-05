@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"outrage"
+name = "Colère"
+type = 14
+category = 0
+power = 120
+accuracy = 100
+pp = 10
+priority = 0
+description = "Le lanceur enrage et attaque pendant deux ou trois tours avant de devenir confus."

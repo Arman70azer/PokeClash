@@ -1,0 +1,125 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/powder_snow.tres" id="m181"]
+[ext_resource type="Resource" path="res://data/moves/mud_slap.tres" id="m189"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/ice_fang.tres" id="m423"]
+[ext_resource type="Resource" path="res://data/moves/ice_shard.tres" id="m420"]
+[ext_resource type="Resource" path="res://data/moves/mist.tres" id="m54"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/icy_wind.tres" id="m196"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/earthquake.tres" id="m89"]
+[ext_resource type="Resource" path="res://data/moves/blizzard.tres" id="m59"]
+[ext_resource type="Resource" path="res://data/moves/thrash.tres" id="m37"]
+[ext_resource type="Resource" path="res://data/abilities/oblivious.tres" id="a12"]
+[ext_resource type="Resource" path="res://data/abilities/snow_cloak.tres" id="a81"]
+[ext_resource type="Resource" path="res://data/abilities/thick_fat.tres" id="a47"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m181")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m189")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m423")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m420")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m54")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m196")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m89")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m59")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 65
+move = ExtResource("m37")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"mamoswine"
+method = 4
+
+[resource]
+script = ExtResource("species")
+id = &"piloswine"
+dex_number = 221
+name = "Cochignon"
+types = Array[int]([5, 8])
+base_hp = 100
+base_attack = 100
+base_defense = 80
+base_sp_attack = 60
+base_sp_defense = 60
+base_speed = 50
+description = "Bien qu'il soit pourvu de pattes courtes, ses sabots larges et pointus l'empêchent de glisser sur la glace."
+abilities = Array[ExtResource("ability")]([ExtResource("a12"), ExtResource("a81")])
+hidden_ability = ExtResource("a47")
+evolves_from = &"swinub"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(1, 1, 0, 0, 0, 0)
+base_experience = 158
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(465, 398, 32, 32)

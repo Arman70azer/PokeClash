@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/peck.tres" id="m64"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/gust.tres" id="m16"]
+[ext_resource type="Resource" path="res://data/moves/haze.tres" id="m114"]
+[ext_resource type="Resource" path="res://data/moves/wing_attack.tres" id="m17"]
+[ext_resource type="Resource" path="res://data/moves/night_shade.tres" id="m101"]
+[ext_resource type="Resource" path="res://data/moves/assurance.tres" id="m372"]
+[ext_resource type="Resource" path="res://data/moves/taunt.tres" id="m269"]
+[ext_resource type="Resource" path="res://data/moves/mean_look.tres" id="m212"]
+[ext_resource type="Resource" path="res://data/moves/foul_play.tres" id="m492"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/torment.tres" id="m259"]
+[ext_resource type="Resource" path="res://data/moves/quash.tres" id="m511"]
+[ext_resource type="Resource" path="res://data/abilities/insomnia.tres" id="a15"]
+[ext_resource type="Resource" path="res://data/abilities/super_luck.tres" id="a105"]
+[ext_resource type="Resource" path="res://data/abilities/prankster.tres" id="a158"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m64")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m16")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 11
+move = ExtResource("m114")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m17")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m101")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m372")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m212")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m492")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m259")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m511")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"honchkrow"
+method = 1
+item = &"dusk-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"murkrow"
+dex_number = 198
+name = "Cornèbre"
+types = Array[int]([15, 9])
+base_hp = 60
+base_attack = 85
+base_defense = 42
+base_sp_attack = 85
+base_sp_defense = 42
+base_speed = 91
+description = "Il cherche des objets brillants pour son chef. Sa réputation d'oiseau de mauvais augure lui vaut la haine de nombreuses personnes."
+abilities = Array[ExtResource("ability")]([ExtResource("a15"), ExtResource("a105")])
+hidden_ability = ExtResource("a158")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 81
+catch_rate = 30
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(579, 360, 32, 32)

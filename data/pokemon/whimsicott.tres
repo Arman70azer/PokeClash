@@ -1,0 +1,144 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/gust.tres" id="m16"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/leech_seed.tres" id="m73"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/solar_beam.tres" id="m76"]
+[ext_resource type="Resource" path="res://data/moves/poison_powder.tres" id="m77"]
+[ext_resource type="Resource" path="res://data/moves/stun_spore.tres" id="m78"]
+[ext_resource type="Resource" path="res://data/moves/cotton_spore.tres" id="m178"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/memento.tres" id="m262"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/endeavor.tres" id="m283"]
+[ext_resource type="Resource" path="res://data/moves/tailwind.tres" id="m366"]
+[ext_resource type="Resource" path="res://data/moves/energy_ball.tres" id="m412"]
+[ext_resource type="Resource" path="res://data/moves/cotton_guard.tres" id="m538"]
+[ext_resource type="Resource" path="res://data/moves/hurricane.tres" id="m542"]
+[ext_resource type="Resource" path="res://data/moves/fairy_wind.tres" id="m584"]
+[ext_resource type="Resource" path="res://data/moves/moonblast.tres" id="m585"]
+[ext_resource type="Resource" path="res://data/abilities/prankster.tres" id="a158"]
+[ext_resource type="Resource" path="res://data/abilities/infiltrator.tres" id="a151"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m16")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m73")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m76")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m77")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m78")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m178")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+move = ExtResource("m262")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+move = ExtResource("m283")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+move = ExtResource("m366")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+move = ExtResource("m412")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+move = ExtResource("m538")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+move = ExtResource("m542")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+move = ExtResource("m584")
+
+[sub_resource type="Resource" id="l21"]
+script = ExtResource("entry")
+move = ExtResource("m585")
+
+[resource]
+script = ExtResource("species")
+id = &"whimsicott"
+dex_number = 547
+name = "Farfaduvet"
+types = Array[int]([4, 17])
+base_hp = 60
+base_attack = 67
+base_defense = 85
+base_sp_attack = 77
+base_sp_defense = 75
+base_speed = 116
+description = "Son coton se met à gonfler sous les rayons du soleil. Quand il est trop volumineux, il s'effiloche et se répand aux alentours."
+abilities = Array[ExtResource("ability")]([ExtResource("a158"), ExtResource("a151")])
+hidden_ability = ExtResource("a34")
+evolves_from = &"cottonee"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 168
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20"), SubResource("l21")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(9, 892, 32, 32)

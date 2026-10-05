@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/play_nice.tres" id="m589"]
+[ext_resource type="Resource" path="res://data/moves/aqua_ring.tres" id="m392"]
+[ext_resource type="Resource" path="res://data/moves/aqua_jet.tres" id="m453"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/wide_guard.tres" id="m469"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/healing_wish.tres" id="m361"]
+[ext_resource type="Resource" path="res://data/moves/soak.tres" id="m487"]
+[ext_resource type="Resource" path="res://data/moves/wish.tres" id="m273"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/safeguard.tres" id="m219"]
+[ext_resource type="Resource" path="res://data/moves/whirlpool.tres" id="m250"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/abilities/healer.tres" id="a131"]
+[ext_resource type="Resource" path="res://data/abilities/hydration.tres" id="a93"]
+[ext_resource type="Resource" path="res://data/abilities/regenerator.tres" id="a144"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m589")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m392")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m453")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m469")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m361")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m487")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m273")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m219")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m250")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m56")
+
+[resource]
+script = ExtResource("species")
+id = &"alomomola"
+dex_number = 594
+name = "Mamanbo"
+types = Array[int]([2])
+base_hp = 165
+base_attack = 75
+base_defense = 80
+base_sp_attack = 40
+base_sp_defense = 45
+base_speed = 65
+description = "On pense qu'il protège les Pokémon affaiblis parce qu'il partage avec eux les mêmes prédateurs."
+abilities = Array[ExtResource("ability")]([ExtResource("a131"), ExtResource("a93")])
+hidden_ability = ExtResource("a144")
+growth_rate = &"fast"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 165
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(807, 930, 32, 32)

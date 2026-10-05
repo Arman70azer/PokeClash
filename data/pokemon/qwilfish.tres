@@ -1,0 +1,133 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/fell_stinger.tres" id="m565"]
+[ext_resource type="Resource" path="res://data/moves/minimize.tres" id="m107"]
+[ext_resource type="Resource" path="res://data/moves/spikes.tres" id="m191"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/poison_jab.tres" id="m398"]
+[ext_resource type="Resource" path="res://data/moves/pin_missile.tres" id="m42"]
+[ext_resource type="Resource" path="res://data/moves/toxic_spikes.tres" id="m390"]
+[ext_resource type="Resource" path="res://data/moves/stockpile.tres" id="m254"]
+[ext_resource type="Resource" path="res://data/moves/spit_up.tres" id="m255"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/acupressure.tres" id="m367"]
+[ext_resource type="Resource" path="res://data/moves/destiny_bond.tres" id="m194"]
+[ext_resource type="Resource" path="res://data/abilities/poison_point.tres" id="a38"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/intimidate.tres" id="a22"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m565")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m107")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m191")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m398")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m42")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m390")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m254")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m255")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m367")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m194")
+
+[resource]
+script = ExtResource("species")
+id = &"qwilfish"
+dex_number = 211
+name = "Qwilfish"
+types = Array[int]([2, 7])
+base_hp = 65
+base_attack = 95
+base_defense = 85
+base_sp_attack = 55
+base_sp_defense = 55
+base_speed = 85
+description = "Ses petites épines étaient autrefois des écailles. Elles sécrètent des toxines pouvant faire perdre connaissance."
+abilities = Array[ExtResource("ability")]([ExtResource("a38"), ExtResource("a33")])
+hidden_ability = ExtResource("a22")
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 88
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(85, 398, 32, 32)

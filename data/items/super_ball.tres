@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BallItem" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ball_item.gd" id="1_item"]
+[ext_resource type="Texture2D" path="res://assets/DS _ DSi - Pokemon Black 2 _ White 2 - Miscellaneous - Items.png" id="icon_sheet"]
+
+[resource]
+script = ExtResource("1_item")
+id = &"super_ball"
+name = "Super Ball"
+pocket = 2
+usable_in_battle = true
+catch_modifier = 1.5
+price = 600
+description = "Une Ball de bonne qualité, plus efficace qu'une Poké Ball."
+icon_sheet = ExtResource("icon_sheet")
+icon_region = Rect2i(64, 0, 32, 32)

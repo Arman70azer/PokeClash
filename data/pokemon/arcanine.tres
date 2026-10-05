@@ -1,0 +1,125 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/roar.tres" id="m46"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/flame_wheel.tres" id="m172"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/extreme_speed.tres" id="m245"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/howl.tres" id="m336"]
+[ext_resource type="Resource" path="res://data/moves/flare_blitz.tres" id="m394"]
+[ext_resource type="Resource" path="res://data/moves/fire_fang.tres" id="m424"]
+[ext_resource type="Resource" path="res://data/moves/retaliate.tres" id="m514"]
+[ext_resource type="Resource" path="res://data/moves/play_rough.tres" id="m583"]
+[ext_resource type="Resource" path="res://data/moves/flamethrower.tres" id="m53"]
+[ext_resource type="Resource" path="res://data/abilities/intimidate.tres" id="a22"]
+[ext_resource type="Resource" path="res://data/abilities/flash_fire.tres" id="a18"]
+[ext_resource type="Resource" path="res://data/abilities/justified.tres" id="a154"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m46")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m172")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m245")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+move = ExtResource("m336")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+move = ExtResource("m394")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+move = ExtResource("m424")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+move = ExtResource("m514")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+move = ExtResource("m583")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m53")
+
+[resource]
+script = ExtResource("species")
+id = &"arcanine"
+dex_number = 59
+name = "Arcanin"
+types = Array[int]([1])
+base_hp = 90
+base_attack = 110
+base_defense = 80
+base_sp_attack = 100
+base_sp_defense = 80
+base_speed = 95
+description = "Ce Pokémon est admiré depuis toujours pour sa beauté. Il court avec tellement de légèreté qu'on dirait qu'il vole."
+abilities = Array[ExtResource("ability")]([ExtResource("a22"), ExtResource("a18")])
+hidden_ability = ExtResource("a154")
+evolves_from = &"growlithe"
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 194
+catch_rate = 75
+female_ratio = 25
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(2593, 1204, 80, 80)
+back_region = Rect2i(2755, 1204, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(237, 170, 32, 32)

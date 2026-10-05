@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"destiny_bond"
+name = "Lien du Destin"
+type = 13
+category = 2
+power = 0
+accuracy = 0
+pp = 5
+priority = 0
+target = 1
+description = "Si un ennemi porte un coup fatal au lanceur après qu'il a activé cette capacité, ils sont tous les deux mis K.O. La capacité échoue si elle est immédiatement réutilisée."

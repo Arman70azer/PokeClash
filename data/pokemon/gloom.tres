@@ -1,0 +1,132 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/acid.tres" id="m51"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/sweet_scent.tres" id="m230"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/poison_powder.tres" id="m77"]
+[ext_resource type="Resource" path="res://data/moves/stun_spore.tres" id="m78"]
+[ext_resource type="Resource" path="res://data/moves/sleep_powder.tres" id="m79"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/moonblast.tres" id="m585"]
+[ext_resource type="Resource" path="res://data/moves/grassy_terrain.tres" id="m580"]
+[ext_resource type="Resource" path="res://data/moves/moonlight.tres" id="m236"]
+[ext_resource type="Resource" path="res://data/moves/petal_dance.tres" id="m80"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/stench.tres" id="a1"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m51")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m230")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 14
+move = ExtResource("m77")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m78")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m79")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 26
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m585")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 38
+move = ExtResource("m580")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m236")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m80")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"vileplume"
+method = 1
+item = &"leaf-stone"
+
+[sub_resource type="Resource" id="v1"]
+script = ExtResource("evolution")
+species_id = &"bellossom"
+method = 1
+item = &"sun-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"gloom"
+dex_number = 44
+name = "Ortide"
+types = Array[int]([4, 7])
+base_hp = 60
+base_attack = 65
+base_defense = 70
+base_sp_attack = 85
+base_sp_defense = 75
+base_speed = 40
+description = "Ce qui semble être sa bave est en fait du nectar très collant. Si on le touche, il est très difficile de s'en dépêtrer."
+abilities = Array[ExtResource("ability")]([ExtResource("a34")])
+hidden_ability = ExtResource("a1")
+evolves_from = &"oddish"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0"), SubResource("v1")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 2, 0, 0)
+base_experience = 138
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(325, 1009, 80, 80)
+back_region = Rect2i(487, 1009, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(655, 132, 32, 32)

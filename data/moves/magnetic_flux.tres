@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="stat_stage_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("stat_stage_effect")
+stat = 2
+stages = 1
+
+[sub_resource type="Resource" id="e1"]
+script = ExtResource("stat_stage_effect")
+stat = 4
+stages = 1
+
+[resource]
+script = ExtResource("move")
+id = &"magnetic_flux"
+name = "Magné-Contrôle"
+type = 3
+category = 2
+power = 0
+accuracy = 0
+pp = 20
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0"), SubResource("e1")])
+description = "Manipule les champs magnétiques pour augmenter la Défense et la Défense Spéciale des Pokémon alliés dotés du talent Plus ou du talent Moins."

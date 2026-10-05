@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+
+[resource]
+script = ExtResource("ability")
+id = &"weak_armor"
+name = "Armurouillée"
+description = "Quand le Pokémon est touché par une capacité\\nphysique, sa Défense baisse mais sa Vitesse\\naugmente beaucoup."

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterSheet" format=3]
+
+[ext_resource type="Script" path="res://characters/character_sheet.gd" id="1_sheet"]
+[ext_resource type="Texture2D" path="res://assets/characters/Ethan.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_sheet")
+texture = ExtResource("2_tex")
+background = Color(0, 0.501960784, 1, 1)
+down = Array[Rect2]([Rect2(5, 4, 20, 26), Rect2(24, 4, 20, 26), Rect2(43, 4, 20, 26)])
+left = Array[Rect2]([Rect2(4, 32, 20, 26), Rect2(25, 32, 20, 26), Rect2(46, 32, 20, 26)])
+up = Array[Rect2]([Rect2(4, 60, 20, 26), Rect2(25, 60, 20, 26), Rect2(47, 60, 20, 26)])
+right = Array[Rect2]([Rect2(4, 88, 20, 26), Rect2(25, 88, 20, 26), Rect2(46, 88, 20, 26)])

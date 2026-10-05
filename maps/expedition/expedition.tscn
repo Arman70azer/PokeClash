@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://expedition/expedition_map.gd" id="1_map"]
+[ext_resource type="Script" path="res://expedition/expedition_zone.gd" id="2_zone"]
+
+[node name="expedition" type="Node3D"]
+script = ExtResource("1_map")
+map_id = &"expedition"
+display_name = "Expédition"
+
+[node name="Zone" type="Node3D" parent="."]
+script = ExtResource("2_zone")
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="Warps" type="Node" parent="."]
+
+[node name="Objects" type="Node3D" parent="."]

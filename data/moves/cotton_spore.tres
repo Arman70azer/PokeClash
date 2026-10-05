@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="stat_stage_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("stat_stage_effect")
+stat = 5
+stages = -2
+
+[resource]
+script = ExtResource("move")
+id = &"cotton_spore"
+name = "Spore Coton"
+type = 4
+category = 2
+power = 0
+accuracy = 100
+pp = 40
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0")])
+description = "Le lanceur libère des spores cotonneuses qui collent à l'ennemi et baissent beaucoup sa Vitesse."

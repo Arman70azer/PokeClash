@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"acrobatics"
+name = "Acrobatie"
+type = 9
+category = 0
+power = 55
+accuracy = 100
+pp = 15
+priority = 0
+description = "Attaque agile. Si le lanceur ne tient pas d'objet, l'attaque inflige davantage de dégâts."

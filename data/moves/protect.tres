@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"protect"
+name = "Abri"
+type = 0
+category = 2
+power = 0
+accuracy = 0
+pp = 10
+priority = 4
+target = 1
+description = "Le lanceur se protège de toutes les attaques. Peut échouer si utilisée plusieurs fois de suite."

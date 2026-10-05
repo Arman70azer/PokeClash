@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"shadow_claw"
+name = "Griffe Ombre"
+type = 13
+category = 0
+power = 70
+accuracy = 100
+pp = 15
+priority = 0
+critical_stage = 1
+description = "Attaque avec une griffe puissante faite d'ombres. Taux de critiques élevé."

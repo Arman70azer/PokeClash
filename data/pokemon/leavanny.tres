@@ -1,0 +1,107 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/string_shot.tres" id="m81"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/false_swipe.tres" id="m206"]
+[ext_resource type="Resource" path="res://data/moves/struggle_bug.tres" id="m522"]
+[ext_resource type="Resource" path="res://data/moves/fell_stinger.tres" id="m565"]
+[ext_resource type="Resource" path="res://data/moves/helping_hand.tres" id="m270"]
+[ext_resource type="Resource" path="res://data/moves/leaf_blade.tres" id="m348"]
+[ext_resource type="Resource" path="res://data/moves/x_scissor.tres" id="m404"]
+[ext_resource type="Resource" path="res://data/moves/entrainment.tres" id="m494"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/leaf_storm.tres" id="m437"]
+[ext_resource type="Resource" path="res://data/abilities/swarm.tres" id="a68"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/overcoat.tres" id="a142"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m81")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m206")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m522")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m565")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m270")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m348")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m404")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m494")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m437")
+
+[resource]
+script = ExtResource("species")
+id = &"leavanny"
+dex_number = 542
+name = "Manternel"
+types = Array[int]([11, 4])
+base_hp = 75
+base_attack = 103
+base_defense = 80
+base_sp_attack = 70
+base_sp_defense = 80
+base_speed = 92
+description = "Il réchauffe les Œufs avec la chaleur de l'humus. Il fabrique des langes pour les Larveyette avec des feuilles."
+abilities = Array[ExtResource("ability")]([ExtResource("a68"), ExtResource("a34")])
+hidden_ability = ExtResource("a142")
+evolves_from = &"swadloon"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 3, 0, 0, 0, 0)
+base_experience = 225
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(807, 854, 32, 32)

@@ -1,0 +1,145 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/false_swipe.tres" id="m206"]
+[ext_resource type="Resource" path="res://data/moves/assurance.tres" id="m372"]
+[ext_resource type="Resource" path="res://data/moves/taunt.tres" id="m269"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/dragon_claw.tres" id="m337"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/dragon_dance.tres" id="m349"]
+[ext_resource type="Resource" path="res://data/moves/breaking_swipe.tres" id="m784"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/dragon_pulse.tres" id="m406"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/outrage.tres" id="m200"]
+[ext_resource type="Resource" path="res://data/moves/guillotine.tres" id="m12"]
+[ext_resource type="Resource" path="res://data/moves/giga_impact.tres" id="m416"]
+[ext_resource type="Resource" path="res://data/abilities/rivalry.tres" id="a79"]
+[ext_resource type="Resource" path="res://data/abilities/mold_breaker.tres" id="a104"]
+[ext_resource type="Resource" path="res://data/abilities/unnerve.tres" id="a127"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m206")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m372")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m269")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m337")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m349")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m784")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m406")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m200")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m12")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m416")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"haxorus"
+min_level = 48
+
+[resource]
+script = ExtResource("species")
+id = &"fraxure"
+dex_number = 611
+name = "Incisache"
+types = Array[int]([14])
+base_hp = 66
+base_attack = 117
+base_defense = 70
+base_sp_attack = 40
+base_sp_defense = 50
+base_speed = 67
+description = "Son épiderme est dur comme une armure. Il est passé maître dans l'art de charger l'ennemi tout en le transperçant de ses crocs."
+abilities = Array[ExtResource("ability")]([ExtResource("a79"), ExtResource("a104")])
+hidden_ability = ExtResource("a127")
+evolves_from = &"axew"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 144
+catch_rate = 60
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(465, 968, 32, 32)

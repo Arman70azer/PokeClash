@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/power_swap.tres" id="m384"]
+[ext_resource type="Resource" path="res://data/moves/guard_swap.tres" id="m385"]
+[ext_resource type="Resource" path="res://data/moves/confusion.tres" id="m93"]
+[ext_resource type="Resource" path="res://data/moves/assurance.tres" id="m372"]
+[ext_resource type="Resource" path="res://data/moves/stomp.tres" id="m23"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/double_hit.tres" id="m458"]
+[ext_resource type="Resource" path="res://data/moves/twin_beam.tres" id="m888"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/nasty_plot.tres" id="m417"]
+[ext_resource type="Resource" path="res://data/moves/psychic.tres" id="m94"]
+[ext_resource type="Resource" path="res://data/abilities/inner_focus.tres" id="a39"]
+[ext_resource type="Resource" path="res://data/abilities/early_bird.tres" id="a48"]
+[ext_resource type="Resource" path="res://data/abilities/sap_sipper.tres" id="a157"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m384")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m385")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m93")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m372")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 14
+move = ExtResource("m23")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m458")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m888")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m417")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m94")
+
+[resource]
+script = ExtResource("species")
+id = &"girafarig"
+dex_number = 203
+name = "Girafarig"
+types = Array[int]([0, 10])
+base_hp = 70
+base_attack = 80
+base_defense = 65
+base_sp_attack = 90
+base_sp_defense = 65
+base_speed = 85
+description = "La tête à l'arrière de Girafarig abrite un cerveau trop petit pour penser. En revanche, cette tête arrière n'a pas besoin de dormir, ce qui lui permet de monter la garde tout le temps."
+abilities = Array[ExtResource("ability")]([ExtResource("a39"), ExtResource("a48")])
+hidden_ability = ExtResource("a157")
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 2, 0, 0)
+base_experience = 159
+catch_rate = 60
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(769, 360, 32, 32)

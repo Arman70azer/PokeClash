@@ -1,0 +1,146 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/explosion.tres" id="m153"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/moves/torment.tres" id="m259"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/air_cutter.tres" id="m314"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/rollout.tres" id="m205"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/payback.tres" id="m371"]
+[ext_resource type="Resource" path="res://data/moves/synthesis.tres" id="m235"]
+[ext_resource type="Resource" path="res://data/moves/sunny_day.tres" id="m241"]
+[ext_resource type="Resource" path="res://data/moves/extrasensory.tres" id="m326"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/leaf_blade.tres" id="m348"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/early_bird.tres" id="a48"]
+[ext_resource type="Resource" path="res://data/abilities/pickpocket.tres" id="a124"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m153")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m252")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m259")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m314")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m205")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m371")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m235")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m241")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m326")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 57
+move = ExtResource("m348")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"shiftry"
+method = 1
+item = &"leaf-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"nuzleaf"
+dex_number = 274
+name = "Pifeuil"
+types = Array[int]([4, 15])
+base_hp = 70
+base_attack = 70
+base_defense = 40
+base_sp_attack = 60
+base_sp_defense = 40
+base_speed = 60
+description = "Il vit dans les trous des grands arbres. Le sifflement qu'il produit avec sa feuille suffit à remplir ses adversaires d'effroi."
+abilities = Array[ExtResource("ability")]([ExtResource("a34"), ExtResource("a48")])
+hidden_ability = ExtResource("a124")
+evolves_from = &"seedot"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 119
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(503, 474, 32, 32)

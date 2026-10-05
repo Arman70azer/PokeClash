@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/night_shade.tres" id="m101"]
+[ext_resource type="Resource" path="res://data/moves/acid_armor.tres" id="m151"]
+[ext_resource type="Resource" path="res://data/moves/water_pulse.tres" id="m352"]
+[ext_resource type="Resource" path="res://data/moves/rain_dance.tres" id="m240"]
+[ext_resource type="Resource" path="res://data/moves/hex.tres" id="m506"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/shadow_ball.tres" id="m247"]
+[ext_resource type="Resource" path="res://data/moves/whirlpool.tres" id="m250"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/moves/destiny_bond.tres" id="m194"]
+[ext_resource type="Resource" path="res://data/moves/water_spout.tres" id="m323"]
+[ext_resource type="Resource" path="res://data/abilities/water_absorb.tres" id="a11"]
+[ext_resource type="Resource" path="res://data/abilities/cursed_body.tres" id="a130"]
+[ext_resource type="Resource" path="res://data/abilities/damp.tres" id="a6"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m101")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m151")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m352")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m240")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m506")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m247")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m250")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m194")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m323")
+
+[resource]
+script = ExtResource("species")
+id = &"jellicent"
+dex_number = 593
+name = "Moyade"
+types = Array[int]([2, 13])
+base_hp = 100
+base_attack = 60
+base_defense = 70
+base_sp_attack = 85
+base_sp_defense = 105
+base_speed = 60
+description = "Les nuits de pleine lune, ils se réunissent à la surface de la mer pour attendre leurs proies."
+abilities = Array[ExtResource("ability")]([ExtResource("a11"), ExtResource("a130")])
+hidden_ability = ExtResource("a6")
+evolves_from = &"frillish"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 2, 0)
+base_experience = 168
+catch_rate = 60
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(769, 930, 32, 32)

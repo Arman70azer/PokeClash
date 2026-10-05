@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="ExpeditionBiome" format=3]
+
+[ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
+[ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("prop")
+region = Rect2i(9, 112, 46, 48)
+footprint = Vector2i(2, 2)
+weight = 3
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("prop")
+region = Rect2i(13, 448, 38, 48)
+footprint = Vector2i(2, 2)
+weight = 3
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("prop")
+region = Rect2i(72, 65, 48, 47)
+footprint = Vector2i(2, 2)
+weight = 2
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("prop")
+region = Rect2i(12, 512, 41, 48)
+footprint = Vector2i(2, 2)
+weight = 2
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("prop")
+region = Rect2i(14, 209, 36, 47)
+footprint = Vector2i(2, 2)
+weight = 1
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("prop")
+region = Rect2i(64, 10641, 16, 13)
+footprint = Vector2i(1, 1)
+weight = 1
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("prop")
+region = Rect2i(112, 10743, 16, 25)
+footprint = Vector2i(1, 1)
+weight = 2
+
+[sub_resource type="Resource" id="p7"]
+script = ExtResource("prop")
+region = Rect2i(97, 9523, 30, 13)
+footprint = Vector2i(2, 1)
+weight = 1
+
+[resource]
+script = ExtResource("biome")
+id = &"jungle"
+name = "Jungle"
+type = 4
+description = "Une jungle humide, royaume des Pokémon Plante."
+ground = Vector2i(4, 214)
+ground_variants = Array[Vector2i]([])
+variant_density = 0.08
+path = Vector2i(7, 277)
+encounter = Vector2i(3, 664)
+liquid = Vector2i(1, 440)
+pools = 0.06
+liquid_border = 0
+decor = Array[Vector2i]([Vector2i(3, 670), Vector2i(3, 672), Vector2i(4, 672)])
+decor_density = 0.06
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7")])
+trainers = Array[Dictionary]([{"front": Vector2i(1, 7), "sheet": "fleuriste", "title": "Jardinière"}, {"front": Vector2i(4, 3), "sheet": "ouvrier", "title": "Ranger"}, {"front": Vector2i(2, 7), "sheet": "ecolier", "title": "Ninja"}])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"power_gem"
+name = "Rayon Gemme"
+type = 12
+category = 1
+power = 80
+accuracy = 100
+pp = 20
+priority = 0
+description = "Le lanceur attaque avec un rayon de lumière qui scintille comme s'il était composé de gemmes."

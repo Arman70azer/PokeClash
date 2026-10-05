@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/teleport.tres" id="m100"]
+[ext_resource type="Resource" path="res://data/abilities/synchronize.tres" id="a28"]
+[ext_resource type="Resource" path="res://data/abilities/inner_focus.tres" id="a39"]
+[ext_resource type="Resource" path="res://data/abilities/magic_guard.tres" id="a98"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m100")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"kadabra"
+min_level = 16
+
+[resource]
+script = ExtResource("species")
+id = &"abra"
+dex_number = 63
+name = "Abra"
+types = Array[int]([10])
+base_hp = 25
+base_attack = 20
+base_defense = 15
+base_sp_attack = 105
+base_sp_defense = 55
+base_speed = 90
+description = "Il peut se téléporter en dormant. On dit que plus son sommeil est profond, plus il se téléporte loin."
+abilities = Array[ExtResource("ability")]([ExtResource("a28"), ExtResource("a39")])
+hidden_ability = ExtResource("a98")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 1, 0, 0)
+base_experience = 62
+catch_rate = 200
+female_ratio = 25
+learnset = Array[ExtResource("entry")]([SubResource("l0")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(649, 1399, 80, 80)
+back_region = Rect2i(811, 1399, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(389, 170, 32, 32)

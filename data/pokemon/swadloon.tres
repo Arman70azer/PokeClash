@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/string_shot.tres" id="m81"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/bug_bite.tres" id="m450"]
+[ext_resource type="Resource" path="res://data/moves/struggle_bug.tres" id="m522"]
+[ext_resource type="Resource" path="res://data/moves/endure.tres" id="m203"]
+[ext_resource type="Resource" path="res://data/moves/sticky_web.tres" id="m564"]
+[ext_resource type="Resource" path="res://data/moves/bug_buzz.tres" id="m405"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/abilities/leaf_guard.tres" id="a102"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/overcoat.tres" id="a142"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m81")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m450")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m522")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m203")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m564")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m405")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"leavanny"
+method = 3
+
+[resource]
+script = ExtResource("species")
+id = &"swadloon"
+dex_number = 541
+name = "Couverdure"
+types = Array[int]([11, 4])
+base_hp = 55
+base_attack = 63
+base_defense = 90
+base_sp_attack = 50
+base_sp_defense = 80
+base_speed = 42
+description = "Il se protège du froid en s'emmitouflant dans une feuille. Il se déplace en forêt et mange les feuilles tombées par terre."
+abilities = Array[ExtResource("ability")]([ExtResource("a102"), ExtResource("a34")])
+hidden_ability = ExtResource("a142")
+evolves_from = &"sewaddle"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 2, 0, 0, 0)
+base_experience = 133
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(769, 854, 32, 32)

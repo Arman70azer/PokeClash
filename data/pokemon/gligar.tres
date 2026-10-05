@@ -1,0 +1,123 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/sand_attack.tres" id="m28"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/fury_cutter.tres" id="m210"]
+[ext_resource type="Resource" path="res://data/moves/poison_tail.tres" id="m342"]
+[ext_resource type="Resource" path="res://data/moves/acrobatics.tres" id="m512"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/u_turn.tres" id="m369"]
+[ext_resource type="Resource" path="res://data/moves/screech.tres" id="m103"]
+[ext_resource type="Resource" path="res://data/moves/x_scissor.tres" id="m404"]
+[ext_resource type="Resource" path="res://data/moves/crabhammer.tres" id="m152"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/abilities/hyper_cutter.tres" id="a52"]
+[ext_resource type="Resource" path="res://data/abilities/sand_veil.tres" id="a8"]
+[ext_resource type="Resource" path="res://data/abilities/immunity.tres" id="a17"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m28")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m210")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m342")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m512")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m369")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m103")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m404")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m152")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"gliscor"
+method = 4
+
+[resource]
+script = ExtResource("species")
+id = &"gligar"
+dex_number = 207
+name = "Scorplane"
+types = Array[int]([8, 9])
+base_hp = 65
+base_attack = 75
+base_defense = 105
+base_sp_attack = 35
+base_sp_defense = 65
+base_speed = 85
+description = "Scorplane plane dans les airs sans un bruit, comme s'il glissait. Ce Pokémon s'accroche au visage de son ennemi grâce aux serres de ses pattes arrière et aux pinces de ses pattes avant, et pique avec son dard empoisonné."
+abilities = Array[ExtResource("ability")]([ExtResource("a52"), ExtResource("a8")])
+hidden_ability = ExtResource("a17")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 1, 0, 0, 0)
+base_experience = 86
+catch_rate = 60
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(921, 360, 32, 32)

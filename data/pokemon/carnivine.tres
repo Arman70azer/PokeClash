@@ -1,0 +1,112 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/bind.tres" id="m20"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/vine_whip.tres" id="m22"]
+[ext_resource type="Resource" path="res://data/moves/sweet_scent.tres" id="m230"]
+[ext_resource type="Resource" path="res://data/moves/ingrain.tres" id="m275"]
+[ext_resource type="Resource" path="res://data/moves/feint_attack.tres" id="m185"]
+[ext_resource type="Resource" path="res://data/moves/leaf_tornado.tres" id="m536"]
+[ext_resource type="Resource" path="res://data/moves/stockpile.tres" id="m254"]
+[ext_resource type="Resource" path="res://data/moves/spit_up.tres" id="m255"]
+[ext_resource type="Resource" path="res://data/moves/swallow.tres" id="m256"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/wring_out.tres" id="m378"]
+[ext_resource type="Resource" path="res://data/moves/power_whip.tres" id="m438"]
+[ext_resource type="Resource" path="res://data/abilities/levitate.tres" id="a26"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m20")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 7
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 11
+move = ExtResource("m22")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m230")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m275")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m185")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m536")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m254")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m255")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 37
+move = ExtResource("m256")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 47
+move = ExtResource("m378")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m438")
+
+[resource]
+script = ExtResource("species")
+id = &"carnivine"
+dex_number = 455
+name = "Vortente"
+types = Array[int]([4])
+base_hp = 74
+base_attack = 100
+base_defense = 72
+base_sp_attack = 90
+base_sp_defense = 72
+base_speed = 46
+description = "Il s'accroche aux arbres des marais et attire ses proies avec sa salive à l'odeur enivrante."
+abilities = Array[ExtResource("ability")]([ExtResource("a26")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 159
+catch_rate = 200
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(465, 740, 32, 32)

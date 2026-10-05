@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"aurora_veil"
+name = "Voile Aurore"
+type = 5
+category = 2
+power = 0
+accuracy = 0
+pp = 20
+priority = 0
+description = "Réduit les dégâts causés par les capacités physiques et spéciales durant cinq tours. Ne peut être utilisée que lorsqu'il grêle."

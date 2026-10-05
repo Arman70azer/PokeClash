@@ -1,0 +1,139 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/metal_claw.tres" id="m232"]
+[ext_resource type="Resource" path="res://data/moves/rock_tomb.tres" id="m317"]
+[ext_resource type="Resource" path="res://data/moves/roar.tres" id="m46"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/rock_slide.tres" id="m157"]
+[ext_resource type="Resource" path="res://data/moves/iron_head.tres" id="m442"]
+[ext_resource type="Resource" path="res://data/moves/metal_sound.tres" id="m319"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/autotomize.tres" id="m475"]
+[ext_resource type="Resource" path="res://data/moves/iron_tail.tres" id="m231"]
+[ext_resource type="Resource" path="res://data/moves/iron_defense.tres" id="m334"]
+[ext_resource type="Resource" path="res://data/moves/heavy_slam.tres" id="m484"]
+[ext_resource type="Resource" path="res://data/moves/double_edge.tres" id="m38"]
+[ext_resource type="Resource" path="res://data/moves/metal_burst.tres" id="m368"]
+[ext_resource type="Resource" path="res://data/abilities/sturdy.tres" id="a5"]
+[ext_resource type="Resource" path="res://data/abilities/rock_head.tres" id="a69"]
+[ext_resource type="Resource" path="res://data/abilities/heavy_metal.tres" id="a134"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m232")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m317")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m46")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m157")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m442")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m319")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m475")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m231")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m334")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 64
+move = ExtResource("m484")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 70
+move = ExtResource("m38")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 76
+move = ExtResource("m368")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"aggron"
+min_level = 42
+
+[resource]
+script = ExtResource("species")
+id = &"lairon"
+dex_number = 305
+name = "Galegon"
+types = Array[int]([16, 12])
+base_hp = 60
+base_attack = 90
+base_defense = 140
+base_sp_attack = 50
+base_sp_defense = 50
+base_speed = 40
+description = "Les Galegon se disputent les territoires en luttant au corps à corps, comme le montrent les éraflures sur leur armure d'acier."
+abilities = Array[ExtResource("ability")]([ExtResource("a5"), ExtResource("a69")])
+hidden_ability = ExtResource("a134")
+evolves_from = &"aron"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 2, 0, 0, 0)
+base_experience = 151
+catch_rate = 90
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(693, 512, 32, 32)

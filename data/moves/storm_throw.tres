@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"storm_throw"
+name = "Yama Arashi"
+type = 6
+category = 0
+power = 60
+accuracy = 100
+pp = 10
+priority = 0
+critical_stage = 4
+description = "Un coup très puissant dont l'effet est toujours critique."

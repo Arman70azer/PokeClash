@@ -1,0 +1,126 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/defense_curl.tres" id="m111"]
+[ext_resource type="Resource" path="res://data/moves/conversion.tres" id="m160"]
+[ext_resource type="Resource" path="res://data/moves/recycle.tres" id="m278"]
+[ext_resource type="Resource" path="res://data/moves/magnet_rise.tres" id="m393"]
+[ext_resource type="Resource" path="res://data/moves/thunder_shock.tres" id="m84"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/conversion_2.tres" id="m176"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/discharge.tres" id="m435"]
+[ext_resource type="Resource" path="res://data/moves/tri_attack.tres" id="m161"]
+[ext_resource type="Resource" path="res://data/moves/lock_on.tres" id="m199"]
+[ext_resource type="Resource" path="res://data/moves/zap_cannon.tres" id="m192"]
+[ext_resource type="Resource" path="res://data/moves/hyper_beam.tres" id="m63"]
+[ext_resource type="Resource" path="res://data/abilities/trace.tres" id="a36"]
+[ext_resource type="Resource" path="res://data/abilities/download.tres" id="a88"]
+[ext_resource type="Resource" path="res://data/abilities/analytic.tres" id="a148"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m111")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m160")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m278")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m393")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m84")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m176")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m435")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m161")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m199")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m192")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m63")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"porygon_z"
+method = 2
+
+[resource]
+script = ExtResource("species")
+id = &"porygon2"
+dex_number = 233
+name = "Porygon2"
+types = Array[int]([0])
+base_hp = 85
+base_attack = 80
+base_defense = 90
+base_sp_attack = 105
+base_sp_defense = 95
+base_speed = 60
+description = "Depuis qu'on l'a doté d'une intelligence artificielle, il parle un langage mystérieux que seuls ses congénères comprennent."
+abilities = Array[ExtResource("ability")]([ExtResource("a36"), ExtResource("a88")])
+hidden_ability = ExtResource("a148")
+evolves_from = &"porygon"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 2, 0, 0)
+base_experience = 180
+catch_rate = 45
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(921, 398, 32, 32)

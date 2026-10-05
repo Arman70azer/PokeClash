@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/horn_drill.tres" id="m32"]
+[ext_resource type="Resource" path="res://data/moves/mud_slap.tres" id="m189"]
+[ext_resource type="Resource" path="res://data/moves/rapid_spin.tres" id="m229"]
+[ext_resource type="Resource" path="res://data/moves/hone_claws.tres" id="m468"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/metal_claw.tres" id="m232"]
+[ext_resource type="Resource" path="res://data/moves/sandstorm.tres" id="m201"]
+[ext_resource type="Resource" path="res://data/moves/crush_claw.tres" id="m306"]
+[ext_resource type="Resource" path="res://data/moves/rock_slide.tres" id="m157"]
+[ext_resource type="Resource" path="res://data/moves/dig.tres" id="m91"]
+[ext_resource type="Resource" path="res://data/moves/swords_dance.tres" id="m14"]
+[ext_resource type="Resource" path="res://data/moves/drill_run.tres" id="m529"]
+[ext_resource type="Resource" path="res://data/moves/earthquake.tres" id="m89"]
+[ext_resource type="Resource" path="res://data/moves/fissure.tres" id="m90"]
+[ext_resource type="Resource" path="res://data/abilities/sand_rush.tres" id="a146"]
+[ext_resource type="Resource" path="res://data/abilities/sand_force.tres" id="a159"]
+[ext_resource type="Resource" path="res://data/abilities/mold_breaker.tres" id="a104"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m32")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m189")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m229")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m468")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m232")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m201")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m306")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m157")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m91")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m14")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m529")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m89")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m90")
+
+[resource]
+script = ExtResource("species")
+id = &"excadrill"
+dex_number = 530
+name = "Minotaupe"
+types = Array[int]([8, 16])
+base_hp = 110
+base_attack = 135
+base_defense = 60
+base_sp_attack = 50
+base_sp_defense = 65
+base_speed = 88
+description = "On l'appelle le « roi de la vrille ». Il creuse la terre à une vitesse pouvant atteindre 150 km/h."
+abilities = Array[ExtResource("ability")]([ExtResource("a146"), ExtResource("a159")])
+hidden_ability = ExtResource("a104")
+evolves_from = &"drilbur"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 178
+catch_rate = 60
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(351, 854, 32, 32)

@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="ExpeditionBiome" format=3]
+
+[ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
+[ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("prop")
+region = Rect2i(9, 112, 46, 48)
+footprint = Vector2i(2, 2)
+weight = 4
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("prop")
+region = Rect2i(1, 897, 31, 31)
+footprint = Vector2i(2, 2)
+weight = 2
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("prop")
+region = Rect2i(96, 945, 32, 31)
+footprint = Vector2i(2, 2)
+weight = 1
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("prop")
+region = Rect2i(97, 996, 30, 28)
+footprint = Vector2i(2, 2)
+weight = 1
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("prop")
+region = Rect2i(32, 897, 16, 15)
+footprint = Vector2i(1, 1)
+weight = 1
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("prop")
+region = Rect2i(112, 977, 16, 15)
+footprint = Vector2i(1, 1)
+weight = 1
+
+[resource]
+script = ExtResource("biome")
+id = &"aquatique"
+name = "Lagune"
+type = 2
+description = "Une lagune semée d'îlots, idéale pour les Pokémon Eau."
+ground = Vector2i(4, 211)
+ground_variants = Array[Vector2i]([Vector2i(0, 277)])
+variant_density = 0.05
+path = Vector2i(-1, -1)
+encounter = Vector2i(3, 669)
+liquid = Vector2i(1, 440)
+pools = 0.12
+liquid_border = 0.75
+decor = Array[Vector2i]([])
+decor_density = 0
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5")])
+trainers = Array[Dictionary]([{"front": Vector2i(1, 2), "sheet": "marin", "title": "Pêcheur"}, {"front": Vector2i(3, 9), "sheet": "gamin", "title": "Nageur"}, {"front": Vector2i(4, 2), "sheet": "marin", "title": "Marin"}])

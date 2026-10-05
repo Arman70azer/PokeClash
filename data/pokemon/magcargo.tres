@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/rock_throw.tres" id="m88"]
+[ext_resource type="Resource" path="res://data/moves/smog.tres" id="m123"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/earth_power.tres" id="m414"]
+[ext_resource type="Resource" path="res://data/moves/shell_smash.tres" id="m504"]
+[ext_resource type="Resource" path="res://data/moves/harden.tres" id="m106"]
+[ext_resource type="Resource" path="res://data/moves/clear_smog.tres" id="m499"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/incinerate.tres" id="m510"]
+[ext_resource type="Resource" path="res://data/moves/rock_slide.tres" id="m157"]
+[ext_resource type="Resource" path="res://data/moves/lava_plume.tres" id="m436"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/body_slam.tres" id="m34"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/flamethrower.tres" id="m53"]
+[ext_resource type="Resource" path="res://data/abilities/magma_armor.tres" id="a40"]
+[ext_resource type="Resource" path="res://data/abilities/flame_body.tres" id="a49"]
+[ext_resource type="Resource" path="res://data/abilities/weak_armor.tres" id="a133"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m88")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m123")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m414")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m504")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m106")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m499")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m510")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m157")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 34
+move = ExtResource("m436")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m34")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 47
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m53")
+
+[resource]
+script = ExtResource("species")
+id = &"magcargo"
+dex_number = 219
+name = "Volcaropod"
+types = Array[int]([1, 12])
+base_hp = 60
+base_attack = 50
+base_defense = 120
+base_sp_attack = 90
+base_sp_defense = 80
+base_speed = 30
+description = "La température de Volcaropod est d'environ 10 000 °C. L'eau s'évapore à son contact. Si ce Pokémon se retrouve sous la pluie, les gouttes d'eau forment de la vapeur et couvrent la zone de brouillard."
+abilities = Array[ExtResource("ability")]([ExtResource("a40"), ExtResource("a49")])
+hidden_ability = ExtResource("a133")
+evolves_from = &"slugma"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 2, 0, 0, 0)
+base_experience = 151
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(389, 398, 32, 32)

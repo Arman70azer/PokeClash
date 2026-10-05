@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"aqua_ring"
+name = "Anneau Hydro"
+type = 2
+category = 2
+power = 0
+accuracy = 0
+pp = 20
+priority = 0
+target = 1
+description = "Un voile d'eau recouvre le lanceur et régénère ses PV à chaque tour."

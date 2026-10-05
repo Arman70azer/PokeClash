@@ -1,0 +1,131 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/gust.tres" id="m16"]
+[ext_resource type="Resource" path="res://data/moves/mist.tres" id="m54"]
+[ext_resource type="Resource" path="res://data/moves/powder_snow.tres" id="m181"]
+[ext_resource type="Resource" path="res://data/moves/reflect.tres" id="m115"]
+[ext_resource type="Resource" path="res://data/moves/ice_shard.tres" id="m420"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/ancient_power.tres" id="m246"]
+[ext_resource type="Resource" path="res://data/moves/tailwind.tres" id="m366"]
+[ext_resource type="Resource" path="res://data/moves/freeze_dry.tres" id="m573"]
+[ext_resource type="Resource" path="res://data/moves/roost.tres" id="m355"]
+[ext_resource type="Resource" path="res://data/moves/ice_beam.tres" id="m58"]
+[ext_resource type="Resource" path="res://data/moves/snowscape.tres" id="m883"]
+[ext_resource type="Resource" path="res://data/moves/hurricane.tres" id="m542"]
+[ext_resource type="Resource" path="res://data/moves/haze.tres" id="m114"]
+[ext_resource type="Resource" path="res://data/moves/blizzard.tres" id="m59"]
+[ext_resource type="Resource" path="res://data/moves/sheer_cold.tres" id="m329"]
+[ext_resource type="Resource" path="res://data/abilities/pressure.tres" id="a46"]
+[ext_resource type="Resource" path="res://data/abilities/snow_cloak.tres" id="a81"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m16")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m54")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m181")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m115")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m420")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m246")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m366")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m573")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m355")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m58")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m883")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m542")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m114")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 65
+move = ExtResource("m59")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 70
+move = ExtResource("m329")
+
+[resource]
+script = ExtResource("species")
+id = &"articuno"
+dex_number = 144
+name = "Artikodin"
+types = Array[int]([5, 9])
+base_hp = 90
+base_attack = 85
+base_defense = 100
+base_sp_attack = 95
+base_sp_defense = 125
+base_speed = 85
+description = "Il possède le pouvoir de contrôler la glace. Selon les dires, il vivrait sur les sommets recouverts de neiges éternelles."
+abilities = Array[ExtResource("ability")]([ExtResource("a46")])
+hidden_ability = ExtResource("a81")
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 3, 0)
+base_experience = 261
+catch_rate = 3
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1621, 3154, 80, 80)
+back_region = Rect2i(1783, 3154, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(503, 284, 32, 32)

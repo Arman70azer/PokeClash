@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"haze"
+name = "Buée Noire"
+type = 5
+category = 2
+power = 0
+accuracy = 0
+pp = 30
+priority = 0
+description = "Crée un brouillard qui annule les changements de stats de tous les Pokémon au combat."

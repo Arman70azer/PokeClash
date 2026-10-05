@@ -1,0 +1,157 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/encore.tres" id="m227"]
+[ext_resource type="Resource" path="res://data/moves/copycat.tres" id="m383"]
+[ext_resource type="Resource" path="res://data/moves/power_swap.tres" id="m384"]
+[ext_resource type="Resource" path="res://data/moves/guard_swap.tres" id="m385"]
+[ext_resource type="Resource" path="res://data/moves/wide_guard.tres" id="m469"]
+[ext_resource type="Resource" path="res://data/moves/quick_guard.tres" id="m501"]
+[ext_resource type="Resource" path="res://data/moves/confusion.tres" id="m93"]
+[ext_resource type="Resource" path="res://data/moves/role_play.tres" id="m272"]
+[ext_resource type="Resource" path="res://data/moves/protect.tres" id="m182"]
+[ext_resource type="Resource" path="res://data/moves/recycle.tres" id="m278"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/mimic.tres" id="m102"]
+[ext_resource type="Resource" path="res://data/moves/light_screen.tres" id="m113"]
+[ext_resource type="Resource" path="res://data/moves/reflect.tres" id="m115"]
+[ext_resource type="Resource" path="res://data/moves/safeguard.tres" id="m219"]
+[ext_resource type="Resource" path="res://data/moves/sucker_punch.tres" id="m389"]
+[ext_resource type="Resource" path="res://data/moves/dazzling_gleam.tres" id="m605"]
+[ext_resource type="Resource" path="res://data/moves/psychic.tres" id="m94"]
+[ext_resource type="Resource" path="res://data/moves/teeter_dance.tres" id="m298"]
+[ext_resource type="Resource" path="res://data/abilities/soundproof.tres" id="a43"]
+[ext_resource type="Resource" path="res://data/abilities/filter.tres" id="a111"]
+[ext_resource type="Resource" path="res://data/abilities/technician.tres" id="a101"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m227")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m383")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m384")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m385")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m469")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m501")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m93")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m272")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m182")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m278")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m102")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m113")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m115")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m219")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m389")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m605")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m94")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+level = 52
+move = ExtResource("m298")
+
+[resource]
+script = ExtResource("species")
+id = &"mr_mime"
+dex_number = 122
+name = "M. Mime"
+types = Array[int]([10, 17])
+base_hp = 40
+base_attack = 45
+base_defense = 65
+base_sp_attack = 100
+base_sp_defense = 120
+base_speed = 90
+description = "Son talent pour le mime est indéniable. Il émet des ondes du bout des doigts pour créer un mur qui le protège de nombreuses attaques."
+abilities = Array[ExtResource("ability")]([ExtResource("a43"), ExtResource("a111")])
+hidden_ability = ExtResource("a101")
+evolves_from = &"mime_jr"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 2, 0)
+base_experience = 161
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1, 2764, 80, 80)
+back_region = Rect2i(163, 2764, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(655, 246, 32, 32)

@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/quick_attack.tres" id="m98"]
+[ext_resource type="Resource" path="res://data/moves/crunch.tres" id="m242"]
+[ext_resource type="Resource" path="res://data/moves/ice_fang.tres" id="m423"]
+[ext_resource type="Resource" path="res://data/moves/soak.tres" id="m487"]
+[ext_resource type="Resource" path="res://data/moves/water_gun.tres" id="m55"]
+[ext_resource type="Resource" path="res://data/moves/bite.tres" id="m44"]
+[ext_resource type="Resource" path="res://data/moves/swift.tres" id="m129"]
+[ext_resource type="Resource" path="res://data/moves/aqua_jet.tres" id="m453"]
+[ext_resource type="Resource" path="res://data/moves/double_hit.tres" id="m458"]
+[ext_resource type="Resource" path="res://data/moves/whirlpool.tres" id="m250"]
+[ext_resource type="Resource" path="res://data/moves/liquidation.tres" id="m710"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/agility.tres" id="m97"]
+[ext_resource type="Resource" path="res://data/moves/hydro_pump.tres" id="m56"]
+[ext_resource type="Resource" path="res://data/moves/wave_crash.tres" id="m834"]
+[ext_resource type="Resource" path="res://data/abilities/swift_swim.tres" id="a33"]
+[ext_resource type="Resource" path="res://data/abilities/water_veil.tres" id="a41"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m98")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m242")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m423")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m487")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m55")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m44")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m129")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m453")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m458")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m250")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 41
+move = ExtResource("m710")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 51
+move = ExtResource("m97")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 57
+move = ExtResource("m56")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 62
+move = ExtResource("m834")
+
+[resource]
+script = ExtResource("species")
+id = &"floatzel"
+dex_number = 419
+name = "Mustéflott"
+types = Array[int]([2])
+base_hp = 85
+base_attack = 105
+base_defense = 55
+base_sp_attack = 85
+base_sp_defense = 50
+base_speed = 115
+description = "Il a développé une bouée pour poursuivre ses proies aquatiques. Elle fait office de canot gonflable."
+abilities = Array[ExtResource("ability")]([ExtResource("a33")])
+hidden_ability = ExtResource("a41")
+evolves_from = &"buizel"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 2)
+base_experience = 173
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(85, 702, 32, 32)

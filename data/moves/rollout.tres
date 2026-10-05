@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"rollout"
+name = "Roulade"
+type = 12
+category = 0
+power = 30
+accuracy = 90
+pp = 20
+priority = 0
+description = "Un rocher roule sur l'ennemi pendant cinq tours. L'attaque gagne en puissance à chaque coup."

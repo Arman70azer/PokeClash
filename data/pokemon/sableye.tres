@@ -1,0 +1,133 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/leer.tres" id="m43"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/shadow_sneak.tres" id="m425"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/moves/disable.tres" id="m50"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/night_shade.tres" id="m101"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/quash.tres" id="m511"]
+[ext_resource type="Resource" path="res://data/moves/shadow_claw.tres" id="m421"]
+[ext_resource type="Resource" path="res://data/moves/mean_look.tres" id="m212"]
+[ext_resource type="Resource" path="res://data/moves/power_gem.tres" id="m408"]
+[ext_resource type="Resource" path="res://data/moves/zen_headbutt.tres" id="m428"]
+[ext_resource type="Resource" path="res://data/moves/shadow_ball.tres" id="m247"]
+[ext_resource type="Resource" path="res://data/moves/foul_play.tres" id="m492"]
+[ext_resource type="Resource" path="res://data/abilities/keen_eye.tres" id="a51"]
+[ext_resource type="Resource" path="res://data/abilities/stall.tres" id="a100"]
+[ext_resource type="Resource" path="res://data/abilities/prankster.tres" id="a158"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m43")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 3
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m425")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m252")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m50")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m101")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m511")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m421")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m212")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m408")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m428")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m247")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m492")
+
+[resource]
+script = ExtResource("species")
+id = &"sableye"
+dex_number = 302
+name = "Ténéfix"
+types = Array[int]([15, 13])
+base_hp = 50
+base_attack = 75
+base_defense = 75
+base_sp_attack = 65
+base_sp_defense = 65
+base_speed = 50
+description = "Ce Pokémon se nourrit de pierres précieuses. Dans les ténèbres, ses yeux brillent du reflet des joyaux."
+abilities = Array[ExtResource("ability")]([ExtResource("a51"), ExtResource("a100")])
+hidden_ability = ExtResource("a158")
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 1, 1, 0, 0, 0)
+base_experience = 133
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(579, 512, 32, 32)

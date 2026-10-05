@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"icicle_crash"
+name = "Chute Glace"
+type = 5
+category = 0
+power = 85
+accuracy = 90
+pp = 10
+priority = 0
+description = "Envoie de gros blocs de glace sur l'ennemi pour lui infliger des dégâts. Peut aussi l'apeurer."

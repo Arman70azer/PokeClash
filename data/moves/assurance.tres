@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"assurance"
+name = "Assurance"
+type = 15
+category = 0
+power = 60
+accuracy = 100
+pp = 10
+priority = 0
+description = "Cette attaque est deux fois plus efficace si l'ennemi a déjà été blessé durant ce tour."

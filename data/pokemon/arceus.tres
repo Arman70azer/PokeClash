@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/seismic_toss.tres" id="m69"]
+[ext_resource type="Resource" path="res://data/moves/cosmic_power.tres" id="m322"]
+[ext_resource type="Resource" path="res://data/moves/gravity.tres" id="m356"]
+[ext_resource type="Resource" path="res://data/moves/earth_power.tres" id="m414"]
+[ext_resource type="Resource" path="res://data/moves/hyper_voice.tres" id="m304"]
+[ext_resource type="Resource" path="res://data/moves/extreme_speed.tres" id="m245"]
+[ext_resource type="Resource" path="res://data/moves/healing_wish.tres" id="m361"]
+[ext_resource type="Resource" path="res://data/moves/future_sight.tres" id="m248"]
+[ext_resource type="Resource" path="res://data/moves/recover.tres" id="m105"]
+[ext_resource type="Resource" path="res://data/moves/hyper_beam.tres" id="m63"]
+[ext_resource type="Resource" path="res://data/moves/perish_song.tres" id="m195"]
+[ext_resource type="Resource" path="res://data/moves/judgment.tres" id="m449"]
+[ext_resource type="Resource" path="res://data/abilities/multitype.tres" id="a121"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m69")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m322")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 10
+move = ExtResource("m356")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m414")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m304")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m245")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 50
+move = ExtResource("m361")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 60
+move = ExtResource("m248")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 70
+move = ExtResource("m105")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 80
+move = ExtResource("m63")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 90
+move = ExtResource("m195")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 100
+move = ExtResource("m449")
+
+[resource]
+script = ExtResource("species")
+id = &"arceus"
+dex_number = 493
+name = "Arceus"
+types = Array[int]([0])
+base_hp = 120
+base_attack = 120
+base_defense = 120
+base_sp_attack = 120
+base_sp_defense = 120
+base_speed = 120
+description = "Dans la mythologie, ce Pokémon existait déjà avant la formation de l'univers."
+abilities = Array[ExtResource("ability")]([ExtResource("a121")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(3, 0, 0, 0, 0, 0)
+base_experience = 324
+catch_rate = 3
+female_ratio = -1
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(921, 778, 32, 32)

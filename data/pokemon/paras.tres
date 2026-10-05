@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/poison_powder.tres" id="m77"]
+[ext_resource type="Resource" path="res://data/moves/stun_spore.tres" id="m78"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/fury_cutter.tres" id="m210"]
+[ext_resource type="Resource" path="res://data/moves/spore.tres" id="m147"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/aromatherapy.tres" id="m312"]
+[ext_resource type="Resource" path="res://data/moves/rage_powder.tres" id="m476"]
+[ext_resource type="Resource" path="res://data/moves/x_scissor.tres" id="m404"]
+[ext_resource type="Resource" path="res://data/abilities/effect_spore.tres" id="a27"]
+[ext_resource type="Resource" path="res://data/abilities/dry_skin.tres" id="a87"]
+[ext_resource type="Resource" path="res://data/abilities/damp.tres" id="a6"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m77")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m78")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 11
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m210")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m147")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 38
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 43
+move = ExtResource("m312")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m476")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m404")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"parasect"
+min_level = 24
+
+[resource]
+script = ExtResource("species")
+id = &"paras"
+dex_number = 46
+name = "Paras"
+types = Array[int]([11, 4])
+base_hp = 35
+base_attack = 70
+base_defense = 55
+base_sp_attack = 45
+base_sp_defense = 55
+base_speed = 25
+description = "Il s'enfouit pour ronger des racines, mais ce sont les champignons sur son dos qui absorbent presque tous les nutriments."
+abilities = Array[ExtResource("ability")]([ExtResource("a27"), ExtResource("a87")])
+hidden_ability = ExtResource("a6")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 1, 0, 0, 0, 0)
+base_experience = 57
+catch_rate = 190
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1621, 1009, 80, 80)
+back_region = Rect2i(1783, 1009, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(731, 132, 32, 32)

@@ -1,0 +1,140 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/gust.tres" id="m16"]
+[ext_resource type="Resource" path="res://data/moves/poison_sting.tres" id="m40"]
+[ext_resource type="Resource" path="res://data/moves/confuse_ray.tres" id="m109"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/sweet_scent.tres" id="m230"]
+[ext_resource type="Resource" path="res://data/moves/bug_bite.tres" id="m450"]
+[ext_resource type="Resource" path="res://data/moves/struggle_bug.tres" id="m522"]
+[ext_resource type="Resource" path="res://data/moves/fury_cutter.tres" id="m210"]
+[ext_resource type="Resource" path="res://data/moves/aromatic_mist.tres" id="m597"]
+[ext_resource type="Resource" path="res://data/moves/fell_stinger.tres" id="m565"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/swagger.tres" id="m207"]
+[ext_resource type="Resource" path="res://data/moves/roost.tres" id="m355"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/power_gem.tres" id="m408"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/attack_order.tres" id="m454"]
+[ext_resource type="Resource" path="res://data/moves/defend_order.tres" id="m455"]
+[ext_resource type="Resource" path="res://data/moves/destiny_bond.tres" id="m194"]
+[ext_resource type="Resource" path="res://data/abilities/pressure.tres" id="a46"]
+[ext_resource type="Resource" path="res://data/abilities/unnerve.tres" id="a127"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m16")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m40")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m109")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m230")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m450")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m522")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 4
+move = ExtResource("m210")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m597")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m565")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m207")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m355")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m408")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m454")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m455")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m194")
+
+[resource]
+script = ExtResource("species")
+id = &"vespiquen"
+dex_number = 416
+name = "Apireine"
+types = Array[int]([11, 9])
+base_hp = 70
+base_attack = 80
+base_defense = 102
+base_sp_attack = 80
+base_sp_defense = 102
+base_speed = 40
+description = "Plus la quantité de phéromones qu'il libère est élevée, plus le nombre d'Apitrini qu'il peut diriger est grand."
+abilities = Array[ExtResource("ability")]([ExtResource("a46")])
+hidden_ability = ExtResource("a127")
+evolves_from = &"combee"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 1, 0, 1, 0)
+base_experience = 166
+catch_rate = 45
+female_ratio = 100
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(959, 664, 32, 32)

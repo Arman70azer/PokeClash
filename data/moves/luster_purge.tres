@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="stat_stage_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("stat_stage_effect")
+stat = 4
+stages = -1
+chance = 50
+
+[resource]
+script = ExtResource("move")
+id = &"luster_purge"
+name = "Lumi-Éclat"
+type = 10
+category = 1
+power = 95
+accuracy = 100
+pp = 5
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0")])
+description = "Le lanceur libère un éclair lumineux. Peut aussi baisser la Défense Spéciale de l'ennemi."

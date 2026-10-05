@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"worry_seed"
+name = "Soucigraine"
+type = 4
+category = 2
+power = 0
+accuracy = 100
+pp = 10
+priority = 0
+description = "Plante sur la cible une graine qui la rend soucieuse et remplace son talent par Insomnia, l'empêchant ainsi de dormir."

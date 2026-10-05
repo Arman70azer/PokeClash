@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/inflict_condition_effect.gd" id="inflict_condition_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("inflict_condition_effect")
+condition = &"paralysis"
+chance = 10
+
+[resource]
+script = ExtResource("move")
+id = &"thunder_fang"
+name = "Crocs Éclair"
+type = 3
+category = 0
+power = 65
+accuracy = 95
+pp = 15
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0")])
+description = "Le lanceur utilise une morsure électrifiée. Peut aussi paralyser ou apeurer l'ennemi."

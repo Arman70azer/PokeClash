@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/ember.tres" id="m52"]
+[ext_resource type="Resource" path="res://data/moves/smokescreen.tres" id="m108"]
+[ext_resource type="Resource" path="res://data/moves/heat_wave.tres" id="m257"]
+[ext_resource type="Resource" path="res://data/moves/dragon_claw.tres" id="m337"]
+[ext_resource type="Resource" path="res://data/moves/air_slash.tres" id="m403"]
+[ext_resource type="Resource" path="res://data/moves/dragon_breath.tres" id="m225"]
+[ext_resource type="Resource" path="res://data/moves/fire_fang.tres" id="m424"]
+[ext_resource type="Resource" path="res://data/moves/slash.tres" id="m163"]
+[ext_resource type="Resource" path="res://data/moves/flamethrower.tres" id="m53"]
+[ext_resource type="Resource" path="res://data/moves/scary_face.tres" id="m184"]
+[ext_resource type="Resource" path="res://data/moves/fire_spin.tres" id="m83"]
+[ext_resource type="Resource" path="res://data/moves/inferno.tres" id="m517"]
+[ext_resource type="Resource" path="res://data/moves/flare_blitz.tres" id="m394"]
+[ext_resource type="Resource" path="res://data/abilities/blaze.tres" id="a66"]
+[ext_resource type="Resource" path="res://data/abilities/solar_power.tres" id="a94"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m52")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m108")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m257")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m337")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m403")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m225")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m424")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m163")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m53")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m184")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 46
+move = ExtResource("m83")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m517")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 62
+move = ExtResource("m394")
+
+[resource]
+script = ExtResource("species")
+id = &"charizard"
+dex_number = 6
+name = "Dracaufeu"
+types = Array[int]([1, 9])
+base_hp = 78
+base_attack = 84
+base_defense = 78
+base_sp_attack = 109
+base_sp_defense = 85
+base_speed = 100
+description = "Ses ailes lui permettent de voler à plus de 1 400 m d'altitude. Ce Pokémon crache du feu à des températures très élevées."
+abilities = Array[ExtResource("ability")]([ExtResource("a66")])
+hidden_ability = ExtResource("a94")
+evolves_from = &"charmeleon"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 0, 0, 3, 0, 0)
+base_experience = 240
+catch_rate = 45
+female_ratio = 12.5
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1945, 34, 80, 80)
+back_region = Rect2i(2107, 34, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(199, 94, 32, 32)

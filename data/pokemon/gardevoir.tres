@@ -1,0 +1,150 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/confusion.tres" id="m93"]
+[ext_resource type="Resource" path="res://data/moves/double_team.tres" id="m104"]
+[ext_resource type="Resource" path="res://data/moves/charm.tres" id="m204"]
+[ext_resource type="Resource" path="res://data/moves/healing_wish.tres" id="m361"]
+[ext_resource type="Resource" path="res://data/moves/heal_pulse.tres" id="m505"]
+[ext_resource type="Resource" path="res://data/moves/disarming_voice.tres" id="m574"]
+[ext_resource type="Resource" path="res://data/moves/misty_terrain.tres" id="m581"]
+[ext_resource type="Resource" path="res://data/moves/mystical_fire.tres" id="m595"]
+[ext_resource type="Resource" path="res://data/moves/dazzling_gleam.tres" id="m605"]
+[ext_resource type="Resource" path="res://data/moves/hypnosis.tres" id="m95"]
+[ext_resource type="Resource" path="res://data/moves/draining_kiss.tres" id="m577"]
+[ext_resource type="Resource" path="res://data/moves/teleport.tres" id="m100"]
+[ext_resource type="Resource" path="res://data/moves/psybeam.tres" id="m60"]
+[ext_resource type="Resource" path="res://data/moves/life_dew.tres" id="m791"]
+[ext_resource type="Resource" path="res://data/moves/wish.tres" id="m273"]
+[ext_resource type="Resource" path="res://data/moves/calm_mind.tres" id="m347"]
+[ext_resource type="Resource" path="res://data/moves/psychic.tres" id="m94"]
+[ext_resource type="Resource" path="res://data/moves/moonblast.tres" id="m585"]
+[ext_resource type="Resource" path="res://data/moves/dream_eater.tres" id="m138"]
+[ext_resource type="Resource" path="res://data/moves/future_sight.tres" id="m248"]
+[ext_resource type="Resource" path="res://data/abilities/synchronize.tres" id="a28"]
+[ext_resource type="Resource" path="res://data/abilities/trace.tres" id="a36"]
+[ext_resource type="Resource" path="res://data/abilities/telepathy.tres" id="a140"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m93")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m104")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m204")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m361")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m505")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+move = ExtResource("m574")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+move = ExtResource("m581")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+move = ExtResource("m595")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+move = ExtResource("m605")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m95")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m577")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m100")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 18
+move = ExtResource("m60")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m791")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 28
+move = ExtResource("m273")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m347")
+
+[sub_resource type="Resource" id="l17"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m94")
+
+[sub_resource type="Resource" id="l18"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m585")
+
+[sub_resource type="Resource" id="l19"]
+script = ExtResource("entry")
+level = 56
+move = ExtResource("m138")
+
+[sub_resource type="Resource" id="l20"]
+script = ExtResource("entry")
+level = 63
+move = ExtResource("m248")
+
+[resource]
+script = ExtResource("species")
+id = &"gardevoir"
+dex_number = 282
+name = "Gardevoir"
+types = Array[int]([10, 17])
+base_hp = 68
+base_attack = 65
+base_defense = 65
+base_sp_attack = 125
+base_sp_defense = 115
+base_speed = 80
+description = "Prêt à tout pour protéger son Dresseur, il peut aller jusqu'à épuiser sa force mentale pour créer un mini trou noir."
+abilities = Array[ExtResource("ability")]([ExtResource("a28"), ExtResource("a36")])
+hidden_ability = ExtResource("a140")
+evolves_from = &"kirlia"
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 3, 0, 0)
+base_experience = 233
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16"), SubResource("l17"), SubResource("l18"), SubResource("l19"), SubResource("l20")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(807, 474, 32, 32)

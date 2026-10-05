@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"rock_slide"
+name = "Éboulement"
+type = 12
+category = 0
+power = 75
+accuracy = 90
+pp = 10
+priority = 0
+description = "Envoie de gros rochers sur l'ennemi pour infliger des dégâts. Peut aussi l'apeurer."

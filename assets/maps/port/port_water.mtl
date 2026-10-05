@@ -1,0 +1,11 @@
+newmtl foam
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd foam.png
+
+newmtl sea
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd sea.png

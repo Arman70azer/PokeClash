@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"focus_punch"
+name = "Mitra-Poing"
+type = 6
+category = 0
+power = 150
+accuracy = 100
+pp = 20
+priority = -3
+description = "Le lanceur se concentre avant d'attaquer. Échoue s'il est touché avant d'avoir frappé."

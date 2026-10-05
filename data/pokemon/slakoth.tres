@@ -1,0 +1,101 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/scratch.tres" id="m10"]
+[ext_resource type="Resource" path="res://data/moves/yawn.tres" id="m281"]
+[ext_resource type="Resource" path="res://data/moves/encore.tres" id="m227"]
+[ext_resource type="Resource" path="res://data/moves/slack_off.tres" id="m303"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/amnesia.tres" id="m133"]
+[ext_resource type="Resource" path="res://data/moves/covet.tres" id="m343"]
+[ext_resource type="Resource" path="res://data/moves/throat_chop.tres" id="m675"]
+[ext_resource type="Resource" path="res://data/moves/counter.tres" id="m68"]
+[ext_resource type="Resource" path="res://data/moves/flail.tres" id="m175"]
+[ext_resource type="Resource" path="res://data/moves/play_rough.tres" id="m583"]
+[ext_resource type="Resource" path="res://data/abilities/truant.tres" id="a54"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m10")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m281")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 6
+move = ExtResource("m227")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 9
+move = ExtResource("m303")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 14
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m133")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 22
+move = ExtResource("m343")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m675")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m68")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m175")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 38
+move = ExtResource("m583")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"vigoroth"
+min_level = 18
+
+[resource]
+script = ExtResource("species")
+id = &"slakoth"
+dex_number = 287
+name = "Parecool"
+types = Array[int]([0])
+base_hp = 60
+base_attack = 60
+base_defense = 60
+base_sp_attack = 35
+base_sp_defense = 35
+base_speed = 30
+description = "Le cœur de Parecool ne bat qu'une fois par minute. Quoi qu'il arrive, il se contente de s'avachir, immobile. Il est très rare de voir ce Pokémon se déplacer."
+abilities = Array[ExtResource("ability")]([ExtResource("a54")])
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 56
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(9, 512, 32, 32)

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/stat_stage_effect.gd" id="stat_stage_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("stat_stage_effect")
+stat = 2
+stages = -1
+who = 1
+
+[sub_resource type="Resource" id="e1"]
+script = ExtResource("stat_stage_effect")
+stat = 4
+stages = -1
+who = 1
+
+[resource]
+script = ExtResource("move")
+id = &"dragon_ascent"
+name = "Draco-Ascension"
+type = 9
+category = 0
+power = 120
+accuracy = 100
+pp = 5
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0"), SubResource("e1")])
+description = "Le Pokémon s'abat à toute vitesse sur la cible depuis les hautes couches de l'atmosphère. Baisse la Défense et la Défense Spéciale du lanceur."

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"fell_stinger"
+name = "Dard Mortel"
+type = 11
+category = 0
+power = 50
+accuracy = 100
+pp = 25
+priority = 0
+description = "Augmente énormément l'Attaque du lanceur si un ennemi est mis K.O. avec cette capacité."

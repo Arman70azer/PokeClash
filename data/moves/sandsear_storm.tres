@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"sandsear_storm"
+name = "Typhon Pyrosable"
+type = 8
+category = 1
+power = 100
+accuracy = 80
+pp = 10
+priority = 0
+description = "Le lanceur déclenche un violent typhon mêlé à du sable ardent qui s'abat sur la cible, ce qui peut la brûler."

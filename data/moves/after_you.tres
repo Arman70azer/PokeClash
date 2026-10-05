@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"after_you"
+name = "Après Vous"
+type = 0
+category = 2
+power = 0
+accuracy = 0
+pp = 15
+priority = 0
+description = "S'il est le premier à agir, le lanceur permet à sa cible d'utiliser une capacité juste après lui."

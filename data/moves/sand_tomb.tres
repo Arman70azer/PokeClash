@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"sand_tomb"
+name = "Tourbi-Sable"
+type = 8
+category = 0
+power = 35
+accuracy = 85
+pp = 15
+priority = 0
+description = "Le lanceur emprisonne l'ennemi dans une tempête de sable terrifiante qui dure de quatre à cinq tours."

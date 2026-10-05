@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="ExpeditionBiome" format=3]
+
+[ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
+[ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("prop")
+region = Rect2i(1, 9280, 47, 48)
+footprint = Vector2i(3, 2)
+weight = 3
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("prop")
+region = Rect2i(1, 9184, 47, 48)
+footprint = Vector2i(3, 2)
+weight = 2
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("prop")
+region = Rect2i(97, 9553, 31, 31)
+footprint = Vector2i(2, 2)
+weight = 2
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("prop")
+region = Rect2i(112, 7200, 16, 16)
+footprint = Vector2i(1, 1)
+weight = 1
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("prop")
+region = Rect2i(97, 7296, 31, 32)
+footprint = Vector2i(2, 1)
+weight = 1
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("prop")
+region = Rect2i(80, 2899, 24, 45)
+footprint = Vector2i(1, 1)
+weight = 1
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("prop")
+region = Rect2i(9, 112, 46, 48)
+footprint = Vector2i(2, 2)
+weight = 1
+
+[sub_resource type="Resource" id="p7"]
+script = ExtResource("prop")
+region = Rect2i(97, 9586, 14, 14)
+footprint = Vector2i(1, 1)
+weight = 1
+
+[resource]
+script = ExtResource("biome")
+id = &"desert"
+name = "Désert"
+type = 8
+description = "Des dunes brûlantes, terrain des Pokémon Sol."
+ground = Vector2i(4, 440)
+ground_variants = Array[Vector2i]([Vector2i(0, 277)])
+variant_density = 0.08
+path = Vector2i(0, 283)
+encounter = Vector2i(7, 278)
+liquid = Vector2i(-1, -1)
+pools = 0
+liquid_border = 0
+decor = Array[Vector2i]([])
+decor_density = 0
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7")])
+trainers = Array[Dictionary]([{"front": Vector2i(1, 6), "sheet": "collectionneur", "title": "Ruinomane"}, {"front": Vector2i(1, 0), "sheet": "ouvrier", "title": "Montagnard"}, {"front": Vector2i(6, 0), "sheet": "rentier", "title": "Fermier"}])

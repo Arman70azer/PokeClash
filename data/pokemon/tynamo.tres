@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/thunder_wave.tres" id="m86"]
+[ext_resource type="Resource" path="res://data/moves/spark.tres" id="m209"]
+[ext_resource type="Resource" path="res://data/moves/charge_beam.tres" id="m451"]
+[ext_resource type="Resource" path="res://data/abilities/levitate.tres" id="a26"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m86")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m209")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m451")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"eelektrik"
+min_level = 39
+
+[resource]
+script = ExtResource("species")
+id = &"tynamo"
+dex_number = 602
+name = "Anchwatt"
+types = Array[int]([3])
+base_hp = 35
+base_attack = 55
+base_defense = 40
+base_sp_attack = 45
+base_sp_defense = 40
+base_speed = 60
+description = "Tout seul, il ne dégage pas beaucoup d'électricité. Mais un banc d'Anchwatt produit des décharges surpuissantes."
+abilities = Array[ExtResource("ability")]([ExtResource("a26")])
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"slow"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 0, 1)
+base_experience = 55
+catch_rate = 190
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(123, 968, 32, 32)

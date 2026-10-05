@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Resource" path="res://data/moves/tackle.tres" id="m33"]
+[ext_resource type="Resource" path="res://data/moves/absorb.tres" id="m71"]
+[ext_resource type="Resource" path="res://data/moves/stun_spore.tres" id="m78"]
+[ext_resource type="Resource" path="res://data/moves/leech_seed.tres" id="m73"]
+[ext_resource type="Resource" path="res://data/moves/mega_drain.tres" id="m72"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/poison_powder.tres" id="m77"]
+[ext_resource type="Resource" path="res://data/moves/giga_drain.tres" id="m202"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/toxic.tres" id="m92"]
+[ext_resource type="Resource" path="res://data/moves/seed_bomb.tres" id="m402"]
+[ext_resource type="Resource" path="res://data/moves/spore.tres" id="m147"]
+[ext_resource type="Resource" path="res://data/abilities/effect_spore.tres" id="a27"]
+[ext_resource type="Resource" path="res://data/abilities/poison_heal.tres" id="a90"]
+[ext_resource type="Resource" path="res://data/abilities/quick_feet.tres" id="a95"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m33")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m71")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+level = 5
+move = ExtResource("m78")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 8
+move = ExtResource("m73")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m72")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 19
+move = ExtResource("m77")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 26
+move = ExtResource("m202")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m92")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m402")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m147")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"breloom"
+min_level = 23
+
+[resource]
+script = ExtResource("species")
+id = &"shroomish"
+dex_number = 285
+name = "Balignon"
+types = Array[int]([4])
+base_hp = 60
+base_attack = 40
+base_defense = 60
+base_sp_attack = 40
+base_sp_defense = 60
+base_speed = 35
+description = "Lorsque Balignon sent un danger, il secoue son corps et répand ses spores du haut de sa tête. Les spores de ce Pokémon sont si toxiques qu'elles font dépérir les arbres et les herbes."
+abilities = Array[ExtResource("ability")]([ExtResource("a27"), ExtResource("a90")])
+hidden_ability = ExtResource("a95")
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"fast-then-very-slow"
+ev_yield = PackedInt32Array(1, 0, 0, 0, 0, 0)
+base_experience = 59
+catch_rate = 255
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(921, 474, 32, 32)

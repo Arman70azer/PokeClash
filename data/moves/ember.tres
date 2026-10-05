@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="1_hslg5"]
+[ext_resource type="Script" path="res://battle/effects/inflict_condition_effect.gd" id="2_f4qs1"]
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="3_igc3e"]
+
+[sub_resource type="Resource" id="Resource_a36ax"]
+script = ExtResource("2_f4qs1")
+chance = 10
+
+[resource]
+script = ExtResource("3_igc3e")
+id = &"ember"
+name = "Flammèche"
+type = 1
+category = 1
+power = 40
+pp = 25
+effects = Array[ExtResource("1_hslg5")]([SubResource("Resource_a36ax")])
+animation = &"ember"
+description = "L'ennemi est attaqué par une faible flamme. Peut aussi le brûler."

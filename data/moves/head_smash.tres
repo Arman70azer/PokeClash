@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+[ext_resource type="Script" path="res://battle/data/move_effect.gd" id="effect"]
+[ext_resource type="Script" path="res://battle/effects/recoil_effect.gd" id="recoil_effect"]
+
+[sub_resource type="Resource" id="e0"]
+script = ExtResource("recoil_effect")
+denominator = 2
+
+[resource]
+script = ExtResource("move")
+id = &"head_smash"
+name = "Fracass’Tête"
+type = 12
+category = 0
+power = 150
+accuracy = 80
+pp = 5
+priority = 0
+effects = Array[ExtResource("effect")]([SubResource("e0")])
+description = "Le lanceur assène un coup de tête désespéré. Blesse aussi gravement le lanceur."

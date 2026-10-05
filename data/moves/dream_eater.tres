@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"dream_eater"
+name = "Dévorêve"
+type = 10
+category = 1
+power = 100
+accuracy = 100
+pp = 15
+priority = 0
+description = "Le lanceur mange le rêve de l'ennemi endormi et récupère en PV la moitié des dégâts infligés."

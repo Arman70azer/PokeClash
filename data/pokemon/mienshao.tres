@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/pound.tres" id="m1"]
+[ext_resource type="Resource" path="res://data/moves/reversal.tres" id="m179"]
+[ext_resource type="Resource" path="res://data/moves/detect.tres" id="m197"]
+[ext_resource type="Resource" path="res://data/moves/fake_out.tres" id="m252"]
+[ext_resource type="Resource" path="res://data/moves/quick_guard.tres" id="m501"]
+[ext_resource type="Resource" path="res://data/moves/fury_swipes.tres" id="m154"]
+[ext_resource type="Resource" path="res://data/moves/wide_guard.tres" id="m469"]
+[ext_resource type="Resource" path="res://data/moves/force_palm.tres" id="m395"]
+[ext_resource type="Resource" path="res://data/moves/u_turn.tres" id="m369"]
+[ext_resource type="Resource" path="res://data/moves/drain_punch.tres" id="m409"]
+[ext_resource type="Resource" path="res://data/moves/hone_claws.tres" id="m468"]
+[ext_resource type="Resource" path="res://data/moves/aura_sphere.tres" id="m396"]
+[ext_resource type="Resource" path="res://data/moves/bounce.tres" id="m340"]
+[ext_resource type="Resource" path="res://data/moves/calm_mind.tres" id="m347"]
+[ext_resource type="Resource" path="res://data/moves/high_jump_kick.tres" id="m136"]
+[ext_resource type="Resource" path="res://data/abilities/inner_focus.tres" id="a39"]
+[ext_resource type="Resource" path="res://data/abilities/regenerator.tres" id="a144"]
+[ext_resource type="Resource" path="res://data/abilities/reckless.tres" id="a120"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m1")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m179")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m197")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m252")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m501")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m154")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m469")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 25
+move = ExtResource("m395")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 30
+move = ExtResource("m369")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 35
+move = ExtResource("m409")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 40
+move = ExtResource("m468")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m396")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 53
+move = ExtResource("m340")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 59
+move = ExtResource("m347")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 66
+move = ExtResource("m136")
+
+[resource]
+script = ExtResource("species")
+id = &"mienshao"
+dex_number = 620
+name = "Shaofouine"
+types = Array[int]([6])
+base_hp = 65
+base_attack = 125
+base_defense = 60
+base_sp_attack = 95
+base_sp_defense = 60
+base_speed = 105
+description = "Ses coups de pied ultrarapides et invisibles à l'œil nu peuvent réduire un énorme rocher en poussière."
+abilities = Array[ExtResource("ability")]([ExtResource("a39"), ExtResource("a144")])
+hidden_ability = ExtResource("a120")
+evolves_from = &"mienfoo"
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 179
+catch_rate = 45
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(807, 968, 32, 32)

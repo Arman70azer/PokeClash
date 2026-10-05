@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Resource" path="res://data/moves/gust.tres" id="m16"]
+[ext_resource type="Resource" path="res://data/moves/minimize.tres" id="m107"]
+[ext_resource type="Resource" path="res://data/moves/focus_energy.tres" id="m116"]
+[ext_resource type="Resource" path="res://data/moves/astonish.tres" id="m310"]
+[ext_resource type="Resource" path="res://data/moves/phantom_force.tres" id="m566"]
+[ext_resource type="Resource" path="res://data/moves/strength_sap.tres" id="m668"]
+[ext_resource type="Resource" path="res://data/moves/payback.tres" id="m371"]
+[ext_resource type="Resource" path="res://data/moves/hex.tres" id="m506"]
+[ext_resource type="Resource" path="res://data/moves/shadow_ball.tres" id="m247"]
+[ext_resource type="Resource" path="res://data/moves/stockpile.tres" id="m254"]
+[ext_resource type="Resource" path="res://data/moves/spit_up.tres" id="m255"]
+[ext_resource type="Resource" path="res://data/moves/swallow.tres" id="m256"]
+[ext_resource type="Resource" path="res://data/moves/self_destruct.tres" id="m120"]
+[ext_resource type="Resource" path="res://data/moves/destiny_bond.tres" id="m194"]
+[ext_resource type="Resource" path="res://data/moves/baton_pass.tres" id="m226"]
+[ext_resource type="Resource" path="res://data/moves/tailwind.tres" id="m366"]
+[ext_resource type="Resource" path="res://data/moves/explosion.tres" id="m153"]
+[ext_resource type="Resource" path="res://data/abilities/aftermath.tres" id="a106"]
+[ext_resource type="Resource" path="res://data/abilities/unburden.tres" id="a84"]
+[ext_resource type="Resource" path="res://data/abilities/flare_boost.tres" id="a138"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m16")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m107")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m116")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m310")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+move = ExtResource("m566")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+move = ExtResource("m668")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 12
+move = ExtResource("m371")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 16
+move = ExtResource("m506")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 20
+move = ExtResource("m247")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m254")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m255")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m256")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m120")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 36
+move = ExtResource("m194")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 42
+move = ExtResource("m226")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 48
+move = ExtResource("m366")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m153")
+
+[resource]
+script = ExtResource("species")
+id = &"drifblim"
+dex_number = 426
+name = "Grodrive"
+types = Array[int]([13, 9])
+base_hp = 150
+base_attack = 80
+base_defense = 44
+base_sp_attack = 90
+base_sp_defense = 54
+base_speed = 80
+description = "Il attrape des personnes et des Pokémon pour les transporter vers une destination inconnue."
+abilities = Array[ExtResource("ability")]([ExtResource("a106"), ExtResource("a84")])
+hidden_ability = ExtResource("a138")
+evolves_from = &"drifloon"
+growth_rate = &"fast-then-very-slow"
+ev_yield = PackedInt32Array(2, 0, 0, 0, 0, 0)
+base_experience = 174
+catch_rate = 60
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(351, 702, 32, 32)

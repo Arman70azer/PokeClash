@@ -1,0 +1,41 @@
+newmtl cabin
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd cabin.png
+
+newmtl cabin_top
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd cabin_top.png
+
+newmtl deck
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd deck.png
+
+newmtl hull
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd hull.png
+
+newmtl inner
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd inner.png
+
+newmtl mast
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd mast.png
+
+newmtl sail
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd sail.png

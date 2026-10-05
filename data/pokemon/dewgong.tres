@@ -1,0 +1,137 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/headbutt.tres" id="m29"]
+[ext_resource type="Resource" path="res://data/moves/growl.tres" id="m45"]
+[ext_resource type="Resource" path="res://data/moves/icy_wind.tres" id="m196"]
+[ext_resource type="Resource" path="res://data/moves/sheer_cold.tres" id="m329"]
+[ext_resource type="Resource" path="res://data/moves/encore.tres" id="m227"]
+[ext_resource type="Resource" path="res://data/moves/ice_shard.tres" id="m420"]
+[ext_resource type="Resource" path="res://data/moves/rest.tres" id="m156"]
+[ext_resource type="Resource" path="res://data/moves/aqua_ring.tres" id="m392"]
+[ext_resource type="Resource" path="res://data/moves/aurora_beam.tres" id="m62"]
+[ext_resource type="Resource" path="res://data/moves/aqua_jet.tres" id="m453"]
+[ext_resource type="Resource" path="res://data/moves/brine.tres" id="m362"]
+[ext_resource type="Resource" path="res://data/moves/take_down.tres" id="m36"]
+[ext_resource type="Resource" path="res://data/moves/dive.tres" id="m291"]
+[ext_resource type="Resource" path="res://data/moves/aqua_tail.tres" id="m401"]
+[ext_resource type="Resource" path="res://data/moves/ice_beam.tres" id="m58"]
+[ext_resource type="Resource" path="res://data/moves/safeguard.tres" id="m219"]
+[ext_resource type="Resource" path="res://data/moves/snowscape.tres" id="m883"]
+[ext_resource type="Resource" path="res://data/abilities/thick_fat.tres" id="a47"]
+[ext_resource type="Resource" path="res://data/abilities/hydration.tres" id="a93"]
+[ext_resource type="Resource" path="res://data/abilities/ice_body.tres" id="a115"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m29")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m45")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m196")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+move = ExtResource("m329")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m227")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m420")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 21
+move = ExtResource("m156")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 23
+move = ExtResource("m392")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 27
+move = ExtResource("m62")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 31
+move = ExtResource("m453")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 33
+move = ExtResource("m362")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m36")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 45
+move = ExtResource("m291")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 49
+move = ExtResource("m401")
+
+[sub_resource type="Resource" id="l14"]
+script = ExtResource("entry")
+level = 55
+move = ExtResource("m58")
+
+[sub_resource type="Resource" id="l15"]
+script = ExtResource("entry")
+level = 61
+move = ExtResource("m219")
+
+[sub_resource type="Resource" id="l16"]
+script = ExtResource("entry")
+level = 65
+move = ExtResource("m883")
+
+[resource]
+script = ExtResource("species")
+id = &"dewgong"
+dex_number = 87
+name = "Lamantine"
+types = Array[int]([2, 5])
+base_hp = 90
+base_attack = 70
+base_defense = 80
+base_sp_attack = 70
+base_sp_defense = 95
+base_speed = 70
+description = "Son corps entier est aussi blanc que la neige. Il résiste bien au froid et peut même nager au milieu des icebergs."
+abilities = Array[ExtResource("ability")]([ExtResource("a47"), ExtResource("a93")])
+hidden_ability = ExtResource("a115")
+evolves_from = &"seel"
+growth_rate = &"medium"
+ev_yield = PackedInt32Array(0, 0, 0, 0, 2, 0)
+base_experience = 166
+catch_rate = 75
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13"), SubResource("l14"), SubResource("l15"), SubResource("l16")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(1, 1984, 80, 80)
+back_region = Rect2i(163, 1984, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(313, 208, 32, 32)

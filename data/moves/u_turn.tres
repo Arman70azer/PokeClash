@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"u_turn"
+name = "Demi-Tour"
+type = 11
+category = 0
+power = 70
+accuracy = 100
+pp = 20
+priority = 0
+description = "Après son attaque, le lanceur revient à toute vitesse et change de place avec un Pokémon de l'équipe prêt au combat."

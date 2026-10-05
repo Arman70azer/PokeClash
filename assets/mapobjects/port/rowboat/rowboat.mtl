@@ -1,0 +1,23 @@
+newmtl floor
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd floor.png
+
+newmtl hull
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd hull.png
+
+newmtl inner
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd inner.png
+
+newmtl oar
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd oar.png

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoveData" format=3]
+
+[ext_resource type="Script" path="res://battle/data/move_data.gd" id="move"]
+
+[resource]
+script = ExtResource("move")
+id = &"snowscape"
+name = "Chute de Neige"
+type = 5
+category = 2
+power = 0
+accuracy = 0
+pp = 10
+priority = 0
+description = "Le lanceur invoque une tempête de neige qui dure cinq tours, ce qui augmente la Défense des Pokémon de type Glace."

@@ -1,0 +1,127 @@
+[gd_resource type="Resource" script_class="PokemonSpecies" format=3]
+
+[ext_resource type="Script" path="res://battle/data/pokemon_species.gd" id="species"]
+[ext_resource type="Script" path="res://battle/data/learnset_entry.gd" id="entry"]
+[ext_resource type="Script" path="res://battle/data/ability_data.gd" id="ability"]
+[ext_resource type="Texture2D" path="res://assets/icons_menu.png" id="icons"]
+[ext_resource type="Script" path="res://battle/data/evolution_data.gd" id="evolution"]
+[ext_resource type="Texture2D" path="res://assets/Battle - Pokemon (1st Generation).png" id="battle"]
+[ext_resource type="Resource" path="res://data/moves/vine_whip.tres" id="m22"]
+[ext_resource type="Resource" path="res://data/moves/wrap.tres" id="m35"]
+[ext_resource type="Resource" path="res://data/moves/growth.tres" id="m74"]
+[ext_resource type="Resource" path="res://data/moves/sleep_powder.tres" id="m79"]
+[ext_resource type="Resource" path="res://data/moves/poison_powder.tres" id="m77"]
+[ext_resource type="Resource" path="res://data/moves/stun_spore.tres" id="m78"]
+[ext_resource type="Resource" path="res://data/moves/acid.tres" id="m51"]
+[ext_resource type="Resource" path="res://data/moves/knock_off.tres" id="m282"]
+[ext_resource type="Resource" path="res://data/moves/sweet_scent.tres" id="m230"]
+[ext_resource type="Resource" path="res://data/moves/gastro_acid.tres" id="m380"]
+[ext_resource type="Resource" path="res://data/moves/razor_leaf.tres" id="m75"]
+[ext_resource type="Resource" path="res://data/moves/poison_jab.tres" id="m398"]
+[ext_resource type="Resource" path="res://data/moves/slam.tres" id="m21"]
+[ext_resource type="Resource" path="res://data/moves/power_whip.tres" id="m438"]
+[ext_resource type="Resource" path="res://data/abilities/chlorophyll.tres" id="a34"]
+[ext_resource type="Resource" path="res://data/abilities/gluttony.tres" id="a82"]
+
+[sub_resource type="Resource" id="l0"]
+script = ExtResource("entry")
+move = ExtResource("m22")
+
+[sub_resource type="Resource" id="l1"]
+script = ExtResource("entry")
+move = ExtResource("m35")
+
+[sub_resource type="Resource" id="l2"]
+script = ExtResource("entry")
+move = ExtResource("m74")
+
+[sub_resource type="Resource" id="l3"]
+script = ExtResource("entry")
+level = 13
+move = ExtResource("m79")
+
+[sub_resource type="Resource" id="l4"]
+script = ExtResource("entry")
+level = 15
+move = ExtResource("m77")
+
+[sub_resource type="Resource" id="l5"]
+script = ExtResource("entry")
+level = 17
+move = ExtResource("m78")
+
+[sub_resource type="Resource" id="l6"]
+script = ExtResource("entry")
+level = 24
+move = ExtResource("m51")
+
+[sub_resource type="Resource" id="l7"]
+script = ExtResource("entry")
+level = 29
+move = ExtResource("m282")
+
+[sub_resource type="Resource" id="l8"]
+script = ExtResource("entry")
+level = 32
+move = ExtResource("m230")
+
+[sub_resource type="Resource" id="l9"]
+script = ExtResource("entry")
+level = 39
+move = ExtResource("m380")
+
+[sub_resource type="Resource" id="l10"]
+script = ExtResource("entry")
+level = 44
+move = ExtResource("m75")
+
+[sub_resource type="Resource" id="l11"]
+script = ExtResource("entry")
+level = 47
+move = ExtResource("m398")
+
+[sub_resource type="Resource" id="l12"]
+script = ExtResource("entry")
+level = 54
+move = ExtResource("m21")
+
+[sub_resource type="Resource" id="l13"]
+script = ExtResource("entry")
+level = 58
+move = ExtResource("m438")
+
+[sub_resource type="Resource" id="v0"]
+script = ExtResource("evolution")
+species_id = &"victreebel"
+method = 1
+item = &"leaf-stone"
+
+[resource]
+script = ExtResource("species")
+id = &"weepinbell"
+dex_number = 70
+name = "Boustiflor"
+types = Array[int]([4, 7])
+base_hp = 65
+base_attack = 90
+base_defense = 50
+base_sp_attack = 85
+base_sp_defense = 45
+base_speed = 55
+description = "Quand il a faim, il avale tout ce qui bouge, puis achève ses proies avec de l'acide."
+abilities = Array[ExtResource("ability")]([ExtResource("a34")])
+hidden_ability = ExtResource("a82")
+evolves_from = &"bellsprout"
+evolutions = Array[ExtResource("evolution")]([SubResource("v0")])
+growth_rate = &"medium-slow"
+ev_yield = PackedInt32Array(0, 2, 0, 0, 0, 0)
+base_experience = 137
+catch_rate = 120
+female_ratio = 50
+learnset = Array[ExtResource("entry")]([SubResource("l0"), SubResource("l1"), SubResource("l2"), SubResource("l3"), SubResource("l4"), SubResource("l5"), SubResource("l6"), SubResource("l7"), SubResource("l8"), SubResource("l9"), SubResource("l10"), SubResource("l11"), SubResource("l12"), SubResource("l13")])
+battle_sheet = ExtResource("battle")
+front_region = Rect2i(325, 1594, 80, 80)
+back_region = Rect2i(487, 1594, 80, 80)
+sheet_background_colors = Array[Color]([Color(0.5764706, 0.73333335, 0.9254902, 1), Color(0.32941177, 0.64705884, 0.29411766, 1)])
+icon_sheet = ExtResource("icons")
+icon_region = Rect2i(655, 170, 32, 32)

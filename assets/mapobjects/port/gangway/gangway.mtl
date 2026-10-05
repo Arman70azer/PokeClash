@@ -1,0 +1,11 @@
+newmtl railing
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd railing.png
+
+newmtl ramp
+Ka 1 1 1
+Kd 1 1 1
+d 1
+map_Kd ramp.png
