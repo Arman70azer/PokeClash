@@ -103,8 +103,9 @@ def clip(poly, axis, limit, keep_above):
     return out
 
 
-def extract(verts, uvs, faces, layers, box, scale):
-    """Triangles des couches dans le carré, recentrés et mis à l'échelle."""
+def extract(verts, uvs, faces, layers, box, scale, floor=0.0):
+    """Triangles des couches dans le carré, recentrés et mis à l'échelle ; `floor` : hauteur
+    du sol dans la carte (ramenée à 0)."""
     x0, z0, x1, z1 = box
     cx, cz = (x0 + x1) / 2.0, (z0 + z1) / 2.0
     out = {}
@@ -123,7 +124,7 @@ def extract(verts, uvs, faces, layers, box, scale):
                     break
             if len(poly) < 3:
                 continue
-            placed = [(((p[0] - cx) * scale, p[1] * scale, (p[2] - cz) * scale), uv, col) for p, uv, col in poly]
+            placed = [(((p[0] - cx) * scale, (p[1] - floor) * scale, (p[2] - cz) * scale), uv, col) for p, uv, col in poly]
             for k in range(1, len(placed) - 1):
                 out.setdefault(layer, []).append((placed[0], placed[k], placed[k + 1]))
     return out

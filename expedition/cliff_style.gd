@@ -7,6 +7,9 @@ extends Resource
 ## Hauteur du dessus, en unités (16 = une case).
 @export var height := 16.0
 @export var top: Texture2D
-## Textures des bandes de la paroi, de bas en haut, et hauteur de chacune (16 de large).
+## Textures des bandes de la paroi, de bas en haut, et hauteur de chacune.
 @export var bands: Array[Texture2D] = []
 @export var band_heights: PackedFloat32Array = PackedFloat32Array()
+## Vrai : chaque bande montre toute la hauteur de sa texture (étirée ou tassée), comme
+## les falaises du désert. Faux : la texture garde un pixel par unité et se répète.
+@export var stretch_bands := true

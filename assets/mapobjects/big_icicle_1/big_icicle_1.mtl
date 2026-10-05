@@ -1,0 +1,15 @@
+newmtl material2
+Kd 1 1 1
+d 1
+map_Kd c8lb_bigice04.png
+
+newmtl material1
+Kd 1 1 1
+d 1
+map_Kd c8lb_bigice02.png
+
+newmtl material0
+Kd 1 1 1
+d 1
+map_Kd c8lb_bigice01.png
+

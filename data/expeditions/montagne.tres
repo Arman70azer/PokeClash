@@ -2,54 +2,69 @@
 
 [ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
 [ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/big_icicle_2/big_icicle_2.obj" id="m_icicle"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/big_icicle_3/big_icicle_3.obj" id="m_icicle_small"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/big_icicle_1/big_icicle_1.obj" id="m_icicle_big"]
+[ext_resource type="Texture2D" path="res://assets/maps/victory_road/mountain_ground.png" id="sheet"]
+[ext_resource type="Script" path="res://expedition/cliff_style.gd" id="cliff"]
+[ext_resource type="Texture2D" path="res://assets/maps/victory_road/Victory Road_texture_0016.png" id="c0"]
+[ext_resource type="Texture2D" path="res://assets/maps/victory_road/Victory Road_texture_0007.png" id="c1"]
+[ext_resource type="Texture2D" path="res://assets/maps/sinjoh_ruins/grass01gs.png" id="c2"]
+[ext_resource type="Texture2D" path="res://assets/maps/victory_road/Victory Road_texture_0017.png" id="c3"]
+
+[sub_resource type="Resource" id="mountain_low"]
+script = ExtResource("cliff")
+height = 16
+top = ExtResource("c0")
+bands = Array[Texture2D]([ExtResource("c1")])
+band_heights = PackedFloat32Array(16)
+stretch_bands = false
+
+[sub_resource type="Resource" id="mountain_high"]
+script = ExtResource("cliff")
+height = 48
+top = ExtResource("c2")
+bands = Array[Texture2D]([ExtResource("c3")])
+band_heights = PackedFloat32Array(48)
+stretch_bands = false
 
 [sub_resource type="Resource" id="p0"]
 script = ExtResource("prop")
-region = Rect2i(1, 8768, 47, 48)
-footprint = Vector2i(3, 2)
-weight = 3
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(3, 3)
+weight = 2
+mesh = ExtResource("m_icicle")
+walls = false
 
 [sub_resource type="Resource" id="p1"]
 script = ExtResource("prop")
-region = Rect2i(1, 9424, 47, 48)
-footprint = Vector2i(3, 2)
-weight = 1
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(3, 3)
+weight = 2
+mesh = ExtResource("m_icicle_small")
+walls = false
 
 [sub_resource type="Resource" id="p2"]
 script = ExtResource("prop")
-region = Rect2i(97, 9553, 31, 31)
-footprint = Vector2i(2, 2)
-weight = 2
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(5, 5)
+weight = 1
+mesh = ExtResource("m_icicle_big")
+walls = false
 
 [sub_resource type="Resource" id="p3"]
 script = ExtResource("prop")
 region = Rect2i(64, 7185, 15, 15)
 footprint = Vector2i(1, 1)
 weight = 2
+walls = false
 
 [sub_resource type="Resource" id="p4"]
 script = ExtResource("prop")
-region = Rect2i(113, 7233, 14, 14)
-footprint = Vector2i(1, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p5"]
-script = ExtResource("prop")
-region = Rect2i(14, 259, 36, 45)
-footprint = Vector2i(2, 2)
-weight = 2
-
-[sub_resource type="Resource" id="p6"]
-script = ExtResource("prop")
-region = Rect2i(75, 113, 41, 47)
+region = Rect2i(97, 9553, 31, 31)
 footprint = Vector2i(2, 2)
 weight = 1
-
-[sub_resource type="Resource" id="p7"]
-script = ExtResource("prop")
-region = Rect2i(16, 7303, 16, 25)
-footprint = Vector2i(1, 1)
-weight = 1
+walls = false
 
 [resource]
 script = ExtResource("biome")
@@ -57,16 +72,29 @@ id = &"montagne"
 name = "Montagne"
 type = 12
 description = "Des pentes rocailleuses peuplées de Pokémon Roche."
-ground = Vector2i(4, 437)
-ground_pattern = Vector2i(1, 1)
+ground = Vector2i(0, 0)
+ground_pattern = Vector2i(2, 2)
+path_pattern = Vector2i(2, 2)
+corridor = Vector2i(-1, -1)
+corridor_pattern = Vector2i(1, 1)
+islands = false
+encounter_pattern = Vector2i(2, 2)
+liquid_pattern = Vector2i(1, 1)
+shallow = Vector2i(-1, -1)
+shallow_pattern = Vector2i(1, 1)
+walls_liquid = false
+scatter_density = 0.03
 ground_variants = Array[Vector2i]([])
 variant_density = 0.08
-path = Vector2i(2, 277)
-encounter = Vector2i(1, 575)
+path = Vector2i(2, 0)
+encounter = Vector2i(4, 0)
 liquid = Vector2i(-1, -1)
 pools = 0
 liquid_border = 0
 decor = Array[Vector2i]([])
 decor_density = 0
-props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7")])
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4")])
 trainers = Array[Dictionary]([{"front": Vector2i(1, 0), "sheet": "ouvrier", "title": "Montagnard"}, {"front": Vector2i(4, 11), "sheet": "lyceenne", "title": "Skieuse"}, {"front": Vector2i(1, 5), "sheet": "gamin", "title": "Karatéka"}])
+sheet = ExtResource("sheet")
+step_effect = &"sand"
+cliffs = Array[ExtResource("cliff")]([SubResource("mountain_low"), SubResource("mountain_high")])

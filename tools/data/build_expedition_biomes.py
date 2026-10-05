@@ -92,19 +92,35 @@ MODELS = {
     "hollow_stump": ("res://assets/mapobjects/stump_2/stump_2.obj", (3, 3)),
     "fallen_log": ("res://assets/mapobjects/dead_tree_01/dead_tree_01.obj", (6, 2)),
     "leaning_log": ("res://assets/mapobjects/dead_tree_02/dead_tree_02.obj", (6, 2)),
+    # Lagune : palmier et rocher découpés dans Humilau City (tools/maps/build_expedition_kits.py).
+    "lagoon_palm": ("res://assets/maps/humilau_city/lagoon_palm.obj", (2, 2)),
+    "lagoon_rock": ("res://assets/maps/humilau_city/lagoon_rock.obj", (2, 2)),
+    # Montagne : grands glaçons.
+    "icicle_big": ("res://assets/mapobjects/big_icicle_1/big_icicle_1.obj", (5, 5)),
+    "icicle": ("res://assets/mapobjects/big_icicle_2/big_icicle_2.obj", (3, 3)),
+    "icicle_small": ("res://assets/mapobjects/big_icicle_3/big_icicle_3.obj", (3, 3)),
 }
 
 
 # Falaises : hauteur, texture du dessus, bandes de la paroi de bas en haut (texture,
-# hauteur). Celles du désert viennent de Desert Resort (Noir 2 / Blanc 2).
+# hauteur), et si les bandes sont étirées (sinon : un pixel par unité, répété). Celles du
+# désert viennent de Desert Resort (Noir 2 / Blanc 2), celles de la montagne de Victory
+# Road (Noir 2 / Blanc 2), sous la neige des Sinjoh Ruins (HeartGold / SoulSilver).
 DESERT = "res://assets/maps/desert_resort/"
 DESERT_TEX = DESERT + "Desert Resort Area 2_texture_%s.png"
+VICTORY = "res://assets/maps/victory_road/"
+VICTORY_TEX = VICTORY + "Victory Road_texture_%s.png"
+HUMILAU = "res://assets/maps/humilau_city/"
 CLIFFS = {
     # Corniche basse (gake) : bord des passages.
     "desert_low": (16, DESERT_TEX % "0009", [(DESERT_TEX % "0003", 12), (DESERT_TEX % "0066", 4)]),
     # Grand plateau (ga_s) : au-delà.
     "desert_high": (48, DESERT_TEX % "0002", [(DESERT_TEX % "0005", 16), (DESERT_TEX % "0006", 28),
                                               (DESERT_TEX % "0007", 4)]),
+    # Terrasse basse : pavés rouges sur une paroi de roche rouge.
+    "mountain_low": (16, VICTORY_TEX % "0016", [(VICTORY_TEX % "0007", 16)], False),
+    # Sommets : grande paroi de roche brune, coiffée de neige.
+    "mountain_high": (48, "res://assets/maps/sinjoh_ruins/grass01gs.png", [(VICTORY_TEX % "0017", 48)], False),
 }
 
 
@@ -140,11 +156,16 @@ BIOMES = [
     {
         "id": "aquatique", "name": "Lagune", "type": WATER,
         "description": "Une lagune semée d'îlots, idéale pour les Pokémon Eau.",
-        "ground": (4, 211), "variants": [(0, 277)], "variant_density": 0.05, "path": None, "encounter": (3, 669),
-        "liquid": (1, 440), "pools": 0.12, "liquid_border": 0.75,
+        # Humilau City (planche lagoon_ground.png, voir build_expedition_kits.py) : îlots de sable
+        # reliés par des pontons au milieu de la mer, eau claire le long des rivages ; hautes
+        # herbes de Lostlorn Forest sur les îlots.
+        "sheet": HUMILAU + "lagoon_ground.png", "ground": (0, 0), "variants": [], "path": None,
+        "corridor": (2, 0), "corridor_pattern": (2, 2), "islands": True,
+        "encounter": (0, 0), "encounter_mesh": FOREST + "forest_tall_grass.obj", "step_effect": "grass",
+        "liquid": (4, 0), "liquid_pattern": (2, 2), "shallow": (6, 0), "shallow_pattern": (2, 2), "walls_liquid": True,
         "decor": [], "decor_density": 0.0,
-        "props": [prop("palm", 4), prop("rock_grey", 2), prop("rock_brown", 1), prop("bush_water", 1),
-                  prop("rock_small", 1), prop("rock_tiny", 1)],
+        "props": [prop("lagoon_palm", 3, walls=False), prop("lagoon_rock", 1, walls=False)],
+        "scatter_density": 0.03,
         "trainers": [("Pêcheur", "marin", (1, 2)), ("Nageur", "gamin", (3, 9)), ("Marin", "marin", (4, 2))],
     },
     {
@@ -175,11 +196,16 @@ BIOMES = [
     {
         "id": "montagne", "name": "Montagne", "type": ROCK,
         "description": "Des pentes rocailleuses peuplées de Pokémon Roche.",
-        "ground": (4, 437), "variants": [], "path": (2, 277), "encounter": (1, 575),
+        # Victory Road (planche mountain_ground.png, voir build_expedition_kits.py) : pavés rouges,
+        # chemins de sable, plantes des rencontres ; terrasses rouges et sommets enneigés ;
+        # grands glaçons et rochers dans les clairières.
+        "sheet": VICTORY + "mountain_ground.png", "ground": (0, 0), "pattern": (2, 2), "variants": [],
+        "path": (2, 0), "path_pattern": (2, 2), "encounter": (4, 0), "encounter_pattern": (2, 2),
+        "step_effect": "sand", "cliffs": ["mountain_low", "mountain_high"],
         "decor": [], "decor_density": 0.0,
-        "props": [prop("mound_grey", 3), prop("mound_snow", 1), prop("boulder_big", 2),
-                  prop("boulder_grey", 2), prop("boulder_speckle", 1), prop("pine_snow", 2), prop("tree_snow", 1),
-                  prop("cypress_dark2", 1)],
+        "props": [prop("icicle", 2, walls=False), prop("icicle_small", 2, walls=False),
+                  prop("icicle_big", 1, walls=False), prop("boulder_grey", 2, walls=False),
+                  prop("boulder_big", 1, walls=False)],
         "trainers": [("Montagnard", "ouvrier", (1, 0)), ("Skieuse", "lyceenne", (4, 11)),
                      ("Karatéka", "gamin", (1, 5))],
     },
@@ -219,7 +245,7 @@ def write(biome):
         lines.append('[ext_resource type="ArrayMesh" path="%s" id="encounter_mesh"]' % biome["encounter_mesh"])
     cliff_textures = []
     for name in biome.get("cliffs", []):
-        height, top, bands = CLIFFS[name]
+        height, top, bands = CLIFFS[name][:3]
         for path in [top] + [b[0] for b in bands]:
             if path not in cliff_textures:
                 cliff_textures.append(path)
@@ -229,11 +255,15 @@ def write(biome):
         lines.append('[ext_resource type="Texture2D" path="%s" id="c%d"]' % (path, i))
     lines.append("")
     for name in biome.get("cliffs", []):
-        height, top, bands = CLIFFS[name]
+        height, top, bands = CLIFFS[name][:3]
+        stretch = CLIFFS[name][3] if len(CLIFFS[name]) > 3 else True
         lines += ['[sub_resource type="Resource" id="%s"]' % name, 'script = ExtResource("cliff")',
                   "height = %g" % height, 'top = ExtResource("c%d")' % cliff_textures.index(top),
                   'bands = Array[Texture2D]([%s])' % ", ".join('ExtResource("c%d")' % cliff_textures.index(b[0]) for b in bands),
-                  "band_heights = PackedFloat32Array(%s)" % ", ".join("%g" % b[1] for b in bands), ""]
+                  "band_heights = PackedFloat32Array(%s)" % ", ".join("%g" % b[1] for b in bands)]
+        if not stretch:
+            lines.append("stretch_bands = false")
+        lines.append("")
     for i, (name, weight, walls, scatter) in enumerate(biome["props"]):
         if name in MODELS:
             region, footprint = (0, 0, 0, 0), MODELS[name][1]
@@ -257,6 +287,16 @@ def write(biome):
               "type = %d" % biome["type"], 'description = "%s"' % biome["description"],
               "ground = %s" % v(biome["ground"]),
               "ground_pattern = %s" % v(biome.get("pattern", (1, 1))),
+              "path_pattern = %s" % v(biome.get("path_pattern", (1, 1))),
+              "corridor = %s" % v(biome.get("corridor")),
+              "corridor_pattern = %s" % v(biome.get("corridor_pattern", (1, 1))),
+              "islands = %s" % ("true" if biome.get("islands") else "false"),
+              "encounter_pattern = %s" % v(biome.get("encounter_pattern", (1, 1))),
+              "liquid_pattern = %s" % v(biome.get("liquid_pattern", (1, 1))),
+              "shallow = %s" % v(biome.get("shallow")),
+              "shallow_pattern = %s" % v(biome.get("shallow_pattern", (1, 1))),
+              "walls_liquid = %s" % ("true" if biome.get("walls_liquid") else "false"),
+              "scatter_density = %g" % biome.get("scatter_density", 0.03),
               "ground_variants = Array[Vector2i]([%s])" % ", ".join(v(t) for t in biome["variants"]),
               "variant_density = %g" % biome.get("variant_density", 0.08),
               "path = %s" % v(biome.get("path")), "encounter = %s" % v(biome["encounter"]),
