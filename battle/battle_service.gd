@@ -30,6 +30,7 @@ func _ready() -> void:
 		return
 	_screen.action_chosen.connect(_on_action_chosen)
 	_screen.replacement_chosen.connect(_on_replacement_chosen)
+	_screen.move_choice_made.connect(_on_move_choice_made)
 
 
 ## Vrai si ce joueur est en combat (chez l'hôte : d'après les combats en cours).
@@ -182,17 +183,31 @@ func _handle_replacement(peer_id: int, team_index: int) -> void:
 	_flush(peer_id, false)
 
 
+func _handle_move_choice(peer_id: int, forget_index: int) -> void:
+	var battle: Dictionary = _battles.get(peer_id, {})
+	if battle.is_empty():
+		return
+	var engine: BattleEngine = battle["engine"]
+	var refused := engine.submit_move_choice(0, forget_index)
+	if not refused.is_empty():
+		engine.emit(&"say", {"text": refused})
+	elif engine.phase == BattleEngine.Phase.FINISHED:
+		Game.profiles.save(peer_id)
+	_flush(peer_id, false)
+
+
 ## Envoie au joueur les évènements produits et l'état à jour ; termine le combat s'il
-## est fini.
+## est fini (une fois choisies les attaques à apprendre après le combat).
 func _flush(peer_id: int, opening: bool) -> void:
 	var battle: Dictionary = _battles[peer_id]
 	var engine: BattleEngine = battle["engine"]
-	if engine.phase == BattleEngine.Phase.FINISHED:
+	if engine.phase == BattleEngine.Phase.FINISHED and not battle.get("concluded", false):
+		battle["concluded"] = true
 		_conclude(peer_id, battle)
 	var events := engine.take_events()
 	var snapshot := engine.snapshot(0)
 	var trainer_look := _trainer_look(battle["trainer"]) if opening else {}
-	if engine.phase == BattleEngine.Phase.FINISHED:
+	if engine.phase == BattleEngine.Phase.FINISHED and not engine.has_move_offers():
 		_battles.erase(peer_id)
 		battle_finished.emit(peer_id, engine.outcome, engine, battle["trainer"])
 	_send_to(peer_id, &"_receive_battle", [opening, snapshot, events, trainer_look])
@@ -239,10 +254,13 @@ func _conclude(peer_id: int, battle: Dictionary) -> void:
 			data.heal_party()
 	if engine.outcome != BattleEngine.Outcome.CANCELLED:
 		_evolve(engine, data)
+		engine.open_move_offers()
 	Game.profiles.save(peer_id)
 
 
-## Après le combat, les Pokémon qui ont atteint le niveau de leur évolution évoluent.
+## Après le combat, les Pokémon qui ont monté de niveau évoluent s'ils le peuvent
+## (niveau atteint ou bonheur suffisant). Les attaques de leur nouvelle espèce qu'ils
+## n'ont pas la place d'apprendre sont proposées au joueur.
 func _evolve(engine: BattleEngine, data: PlayerData) -> void:
 	for pokemon in engine.leveled_up:
 		if not pokemon in data.party or pokemon.is_fainted():
@@ -256,6 +274,8 @@ func _evolve(engine: BattleEngine, data: PlayerData) -> void:
 		engine.emit(&"say", {"text": "Félicitations ! Votre %s a évolué en %s !" % [before, next.name]})
 		for move in learned:
 			engine.emit(&"say", {"text": "%s apprend %s !" % [pokemon.display_name(), move.name]})
+		for move in pokemon.unlearned_moves_at_level():
+			engine.offer_move(pokemon, move)
 
 
 ## Nom du lieu où se trouve le joueur (lieu de capture).
@@ -342,3 +362,16 @@ func _submit_action(action: Dictionary) -> void:
 func _submit_replacement(team_index: int) -> void:
 	if multiplayer.is_server():
 		_handle_replacement(multiplayer.get_remote_sender_id(), team_index)
+
+
+func _on_move_choice_made(forget_index: int) -> void:
+	if multiplayer.is_server():
+		_handle_move_choice(multiplayer.get_unique_id(), forget_index)
+	else:
+		_submit_move_choice.rpc_id(1, forget_index)
+
+
+@rpc("any_peer", "call_remote", "reliable")
+func _submit_move_choice(forget_index: int) -> void:
+	if multiplayer.is_server():
+		_handle_move_choice(multiplayer.get_remote_sender_id(), forget_index)

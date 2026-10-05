@@ -82,6 +82,15 @@ func level_evolution(level: int) -> EvolutionData:
 	return null
 
 
+## Première évolution qui se déclenche par `method` (et, pour un objet, par cet objet),
+## ou null.
+func evolution_by(method: EvolutionData.Method, item: StringName = &"") -> EvolutionData:
+	for evolution in evolutions:
+		if evolution.method == method and (method != EvolutionData.Method.ITEM or evolution.item == item):
+			return evolution
+	return null
+
+
 ## Attaques que cette espèce apprend exactement à ce niveau.
 func moves_learned_at(level: int) -> Array[MoveData]:
 	var found: Array[MoveData] = []

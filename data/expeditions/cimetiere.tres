@@ -2,68 +2,97 @@
 
 [ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
 [ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/graves.png" id="graves"]
 
 [sub_resource type="Resource" id="p0"]
+script = ExtResource("prop")
+region = Rect2i(0, 4, 16, 20)
+footprint = Vector2i(1, 1)
+weight = 4
+sheet = ExtResource("graves")
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("prop")
+region = Rect2i(16, 0, 16, 24)
+footprint = Vector2i(1, 1)
+weight = 3
+sheet = ExtResource("graves")
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("prop")
+region = Rect2i(32, 4, 28, 20)
+footprint = Vector2i(2, 1)
+weight = 2
+sheet = ExtResource("graves")
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("prop")
+region = Rect2i(60, 8, 16, 16)
+footprint = Vector2i(1, 1)
+weight = 2
+sheet = ExtResource("graves")
+
+[sub_resource type="Resource" id="p4"]
 script = ExtResource("prop")
 region = Rect2i(16, 9911, 16, 25)
 footprint = Vector2i(1, 1)
 weight = 3
 
-[sub_resource type="Resource" id="p1"]
+[sub_resource type="Resource" id="p5"]
 script = ExtResource("prop")
 region = Rect2i(0, 9905, 16, 15)
 footprint = Vector2i(1, 1)
 weight = 2
 
-[sub_resource type="Resource" id="p2"]
+[sub_resource type="Resource" id="p6"]
 script = ExtResource("prop")
 region = Rect2i(96, 9639, 16, 25)
 footprint = Vector2i(1, 1)
-weight = 2
+weight = 1
 
-[sub_resource type="Resource" id="p3"]
+[sub_resource type="Resource" id="p7"]
 script = ExtResource("prop")
 region = Rect2i(14, 209, 36, 47)
 footprint = Vector2i(2, 2)
-weight = 2
+weight = 1
 
-[sub_resource type="Resource" id="p4"]
+[sub_resource type="Resource" id="p8"]
 script = ExtResource("prop")
 region = Rect2i(80, 2899, 24, 45)
 footprint = Vector2i(1, 1)
-weight = 2
+weight = 1
 
-[sub_resource type="Resource" id="p5"]
+[sub_resource type="Resource" id="p9"]
 script = ExtResource("prop")
 region = Rect2i(130, 2816, 30, 64)
 footprint = Vector2i(2, 1)
 weight = 1
 
-[sub_resource type="Resource" id="p6"]
+[sub_resource type="Resource" id="p10"]
 script = ExtResource("prop")
 region = Rect2i(194, 2832, 30, 48)
 footprint = Vector2i(2, 1)
-weight = 2
+weight = 1
 
-[sub_resource type="Resource" id="p7"]
+[sub_resource type="Resource" id="p11"]
 script = ExtResource("prop")
 region = Rect2i(226, 2832, 30, 48)
 footprint = Vector2i(2, 1)
-weight = 2
+weight = 1
 
-[sub_resource type="Resource" id="p8"]
+[sub_resource type="Resource" id="p12"]
 script = ExtResource("prop")
 region = Rect2i(80, 2850, 22, 30)
 footprint = Vector2i(1, 1)
-weight = 2
+weight = 1
 
-[sub_resource type="Resource" id="p9"]
+[sub_resource type="Resource" id="p13"]
 script = ExtResource("prop")
 region = Rect2i(32, 2944, 24, 32)
 footprint = Vector2i(2, 1)
 weight = 1
 
-[sub_resource type="Resource" id="p10"]
+[sub_resource type="Resource" id="p14"]
 script = ExtResource("prop")
 region = Rect2i(32, 2836, 30, 76)
 footprint = Vector2i(2, 1)
@@ -86,5 +115,5 @@ pools = 0
 liquid_border = 0
 decor = Array[Vector2i]([])
 decor_density = 0
-props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7"), SubResource("p8"), SubResource("p9"), SubResource("p10")])
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7"), SubResource("p8"), SubResource("p9"), SubResource("p10"), SubResource("p11"), SubResource("p12"), SubResource("p13"), SubResource("p14")])
 trainers = Array[Dictionary]([{"front": Vector2i(6, 7), "sheet": "grand_mere", "title": "Médium"}, {"front": Vector2i(6, 3), "sheet": "grand_pere", "title": "Sage"}, {"front": Vector2i(4, 4), "sheet": "collectionneur", "title": "Mystimaniac"}])

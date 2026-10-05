@@ -31,10 +31,17 @@ extends Resource
 @export var held_item: ItemData
 ## Talent (non géré en génération 5 de ce prototype ; prévu pour plus tard).
 @export var ability: StringName
+## Bonheur, de 0 à MAX_HAPPINESS : monte avec les niveaux et la marche, baisse aux K.O.
+@export_range(0, 255) var happiness := BASE_HAPPINESS
 ## Origine : dresseur d'origine, lieu et niveau de la rencontre (vide : inconnus).
 @export var original_trainer := ""
 @export var met_location := ""
 @export var met_level := 0
+
+const BASE_HAPPINESS := 70
+const MAX_HAPPINESS := 255
+## Bonheur d'une évolution par le bonheur dont les données ne donnent pas le seuil.
+const EVOLUTION_HAPPINESS := 220
 
 
 ## Crée un Pokémon neuf : attaques de son niveau, PV au maximum. `rng` tire nature et
@@ -123,7 +130,7 @@ func next_level_experience() -> int:
 
 ## Ajoute de l'expérience et monte les niveaux atteints. Renvoie un dictionnaire par
 ## niveau gagné : {"level", "learned": attaques apprises, "skipped": attaques qu'il n'a
-## pas pu apprendre (quatre déjà connues)}.
+## pas pu apprendre faute de place (quatre déjà connues), à proposer au joueur}.
 func gain_experience(amount: int) -> Array[Dictionary]:
 	var gained: Array[Dictionary] = []
 	if amount <= 0 or level >= Growth.MAX_LEVEL:
@@ -135,8 +142,11 @@ func gain_experience(amount: int) -> Array[Dictionary]:
 		# Les PV gagnés avec le niveau s'ajoutent aux PV restants.
 		if current_hp > 0:
 			current_hp = mini(max_hp(), current_hp + max_hp() - old_max)
+		change_happiness(5 if happiness < 100 else (3 if happiness < 200 else 2))
 		var step := {"level": level, "learned": [], "skipped": []}
 		for move in species.moves_learned_at(level):
+			if move in moves:
+				continue
 			step["learned" if learn_move(move) else "skipped"].append(move)
 		gained.append(step)
 	return gained
@@ -153,9 +163,59 @@ func learn_move(move: MoveData) -> bool:
 	return true
 
 
-## Évolution par le niveau possible maintenant, ou null.
-func ready_evolution() -> PokemonSpecies:
-	var evolution := species.level_evolution(level) if species != null else null
+## Oublie l'attaque n° `index` pour apprendre `move` à sa place (PP au maximum). Renvoie
+## l'attaque oubliée, ou null si c'est impossible.
+func replace_move(index: int, move: MoveData) -> MoveData:
+	if move == null or move in moves or index < 0 or index >= moves.size():
+		return null
+	var forgotten := moves[index]
+	moves[index] = move
+	move_pp.resize(moves.size())
+	move_pp[index] = move.pp
+	return forgotten
+
+
+## Attaques que son espèce apprend à son niveau et qu'il ne connaît pas (après une
+## évolution, celles qu'il n'a pas pu apprendre faute de place).
+func unlearned_moves_at_level() -> Array[MoveData]:
+	var found: Array[MoveData] = []
+	if species == null:
+		return found
+	for move in species.moves_learned_at(level):
+		if not move in moves:
+			found.append(move)
+	return found
+
+
+func change_happiness(delta: int) -> void:
+	happiness = clampi(happiness + delta, 0, MAX_HAPPINESS)
+
+
+## Évolution qui se fait en montant de niveau (niveau atteint, ou bonheur suffisant au
+## bon moment de la journée), ou null. `hour` : heure locale (-1 : maintenant).
+func ready_evolution(hour := -1) -> PokemonSpecies:
+	if species == null:
+		return null
+	var evolution := species.level_evolution(level)
+	if evolution == null:
+		var now := hour if hour >= 0 else EvolutionData.current_hour()
+		for candidate in species.evolutions:
+			var needed := candidate.min_happiness if candidate.min_happiness > 0 else EVOLUTION_HAPPINESS
+			if candidate.method == EvolutionData.Method.HAPPINESS and happiness >= needed and candidate.fits_time(now):
+				evolution = candidate
+				break
+	return evolution.species() if evolution != null else null
+
+
+## Évolution déclenchée par cet objet (pierre…), ou null.
+func item_evolution(item_id: StringName) -> PokemonSpecies:
+	var evolution := species.evolution_by(EvolutionData.Method.ITEM, item_id) if species != null else null
+	return evolution.species() if evolution != null else null
+
+
+## Évolution par échange, ou null.
+func trade_evolution() -> PokemonSpecies:
+	var evolution := species.evolution_by(EvolutionData.Method.TRADE) if species != null else null
 	return evolution.species() if evolution != null else null
 
 
@@ -221,6 +281,7 @@ func to_dict() -> Dictionary:
 		"original_trainer": original_trainer,
 		"met_location": met_location,
 		"met_level": met_level,
+		"happiness": happiness,
 	}
 
 
@@ -259,6 +320,7 @@ static func from_dict(data: Dictionary) -> PokemonInstance:
 	p.original_trainer = data.get("original_trainer", "")
 	p.met_location = data.get("met_location", "")
 	p.met_level = int(data.get("met_level", 0))
+	p.happiness = clampi(int(data.get("happiness", BASE_HAPPINESS)), 0, MAX_HAPPINESS)
 	# Ancienne sauvegarde sans identifiant : on lui en donne un.
 	p.uid = data.get("uid", "")
 	if p.uid.is_empty():
