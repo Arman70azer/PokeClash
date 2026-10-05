@@ -58,6 +58,8 @@ func _run() -> void:
 	player._server_move(Vector2i.UP)
 	await _until(func(): return not player.moving, 6.0)
 	_check(player.map_id == &"accumula_pokemon_center" and player.cell == Vector2i(239, 3), "il entre dans le Centre Pokémon (%s %s)" % [player.map_id, player.cell])
+	_check(world.map(&"accumula") == null and world._scenes.has(&"accumula"),
+		"la ville quittée est libérée, mais sa scène reste prête : le retour ne la relit pas")
 	_check(world.current_map == &"accumula_pokemon_center", "la carte du Centre est affichée")
 
 	# L'infirmière, derrière son comptoir.

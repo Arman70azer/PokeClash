@@ -12,6 +12,7 @@ const TILE := GameConfig.TILE
 
 var layout: ZoneLayout
 var _grid: MapGrid
+static var _sheet_image: Image
 
 
 ## Construit la zone (à appeler avant ou pendant l'entrée dans l'arbre).
@@ -54,11 +55,19 @@ func _make_grid() -> MapGrid:
 	return g
 
 
+## Le tileset en image RGBA8, préparé une seule fois (13 Mo : le relire depuis la carte
+## graphique à chaque zone coûte cher).
+static func _tilesheet_image() -> Image:
+	if _sheet_image == null:
+		_sheet_image = TileZone.TILESHEET.get_image()
+		if _sheet_image.is_compressed():
+			_sheet_image.decompress()
+		_sheet_image.convert(Image.FORMAT_RGBA8)
+	return _sheet_image
+
+
 func _build_ground() -> void:
-	var sheet := TileZone.TILESHEET.get_image()
-	if sheet.is_compressed():
-		sheet.decompress()
-	sheet.convert(Image.FORMAT_RGBA8)
+	var sheet := _tilesheet_image()
 	var image := Image.create(layout.size.x * TILE, layout.size.y * TILE, false, Image.FORMAT_RGBA8)
 	for cell: Vector2i in layout.ground:
 		var tile: Vector2i = layout.ground[cell]

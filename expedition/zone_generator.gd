@@ -130,10 +130,11 @@ func _liquid(biome: ExpeditionBiome, layout: ZoneLayout) -> Dictionary:
 	while target > 0 and tries < 40:
 		tries += 1
 		var start: Vector2i = cells[_rng.randi_range(0, cells.size() - 1)]
-		if (start - layout.entry).length() < 7:
+		# Une case déjà prise par une mare précédente ne peut pas en commencer une autre.
+		if (start - layout.entry).length() < 7 or not layout.walkable.has(start):
 			continue
 		var blob := _blob(layout, start, _rng.randi_range(4, 14), liquid)
-		if layout.reachable(layout.entry, blob).size() < layout.walkable.size() - blob.size():
+		if not _keeps_connected(layout, blob, {}):
 			continue
 		liquid.merge(blob)
 		for cell in blob:
@@ -145,11 +146,19 @@ func _liquid(biome: ExpeditionBiome, layout: ZoneLayout) -> Dictionary:
 func _blob(layout: ZoneLayout, start: Vector2i, count: int, taken: Dictionary) -> Dictionary:
 	var blob := {start: true}
 	var frontier: Array[Vector2i] = [start]
+	var can_take := func(next: Vector2i) -> bool:
+		return layout.walkable.has(next) and not blob.has(next) and not taken.has(next) \
+			and (next - layout.entry).length() >= 5
 	while blob.size() < count and not frontier.is_empty():
-		var cell: Vector2i = frontier[_rng.randi_range(0, frontier.size() - 1)]
+		var index := _rng.randi_range(0, frontier.size() - 1)
+		var cell: Vector2i = frontier[index]
+		# Une case qui ne peut plus s'étendre sort de la liste : sans cela, une tache
+		# enfermée (cul-de-sac) tirerait les mêmes cases sans fin.
+		if not DIRS.any(func(dir: Vector2i) -> bool: return can_take.call(cell + dir)):
+			frontier.remove_at(index)
+			continue
 		var next: Vector2i = cell + DIRS[_rng.randi_range(0, 3)]
-		if layout.walkable.has(next) and not blob.has(next) and not taken.has(next) \
-				and (next - layout.entry).length() >= 5:
+		if can_take.call(next):
 			blob[next] = true
 			frontier.append(next)
 	return blob
@@ -175,10 +184,9 @@ func _trainers(layout: ZoneLayout) -> void:
 		if too_close:
 			continue
 		# Un dresseur ne doit jamais boucher un passage.
-		blocked[cell] = true
-		if layout.reachable(layout.entry, blocked).size() < layout.walkable.size() - blocked.size():
-			blocked.erase(cell)
+		if not _keeps_connected(layout, {cell: true}, blocked):
 			continue
+		blocked[cell] = true
 		var facings: Array[Vector2i] = []
 		for dir in DIRS:
 			if layout.walkable.has(cell + dir) and layout.walkable.has(cell + dir * 2):
@@ -244,7 +252,11 @@ func _encounters(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) 
 			continue
 		candidates.append(cell)
 	# Les plaques d'herbe suivent un bruit lissé : on garde les cases les plus « hautes ».
-	candidates.sort_custom(func(a: Vector2i, b: Vector2i) -> bool: return _noise(a, 4.0, 23) > _noise(b, 4.0, 23))
+	# Le bruit est calculé une fois par case, pas à chaque comparaison du tri.
+	var height := {}
+	for cell in candidates:
+		height[cell] = _noise(cell, 4.0, 23)
+	candidates.sort_custom(func(a: Vector2i, b: Vector2i) -> bool: return height[a] > height[b])
 	var count := int(candidates.size() * ENCOUNTER_SHARE)
 	for i in count:
 		layout.encounter[candidates[i]] = true
@@ -258,6 +270,7 @@ func _scatter(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) -> 
 	cells.sort()
 	_shuffle(cells)
 	var wanted := int(cells.size() * biome.scatter_density)
+	var trainer_cells := _trainer_cells(layout)
 	for cell: Vector2i in cells:
 		if wanted <= 0:
 			break
@@ -270,10 +283,10 @@ func _scatter(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) -> 
 				ok = false
 		if not ok:
 			continue
-		var blocked := _trainer_cells(layout)
+		var cells_taken := {}
 		for c in area:
-			blocked[c] = true
-		if layout.reachable(layout.entry, blocked).size() < layout.walkable.size() - blocked.size():
+			cells_taken[c] = true
+		if not _keeps_connected(layout, cells_taken, trainer_cells):
 			continue
 		for c in area:
 			layout.walkable.erase(c)
@@ -291,26 +304,40 @@ func _walls(biome: ExpeditionBiome, layout: ZoneLayout, liquid: Dictionary) -> v
 	big.sort_custom(func(a: ExpeditionProp, b: ExpeditionProp) -> bool:
 		return a.footprint.x * a.footprint.y > b.footprint.x * b.footprint.y)
 	var taken := _prop_cells
-	for y in layout.size.y:
-		for x in layout.size.x:
-			var cell := Vector2i(x, y)
-			if taken.has(cell) or layout.walkable.has(cell) or liquid.has(cell) or _exit_lane.has(cell):
+	var width := layout.size.x
+	var height := layout.size.y
+	# Cases encore libres pour un décor (1 : libre), une par case, ligne après ligne.
+	var free := PackedByteArray()
+	free.resize(width * height)
+	for y in height:
+		for x in width:
+			var c := Vector2i(x, y)
+			if not (taken.has(c) or layout.walkable.has(c) or liquid.has(c) or _exit_lane.has(c)):
+				free[y * width + x] = 1
+	for y in height:
+		for x in width:
+			if free[y * width + x] == 0:
 				continue
 			# Un gros décor si la place le permet (au hasard), sinon le plus petit qui tienne.
 			var choices: Array[ExpeditionProp] = []
-			for prop in big:
-				var fits := true
-				for c in _footprint(cell, prop):
-					if not layout.in_bounds(c) or taken.has(c) or layout.walkable.has(c) or liquid.has(c) or _exit_lane.has(c):
-						fits = false
+			for prop: ExpeditionProp in big:
+				var fits := x + prop.footprint.x <= width and y + prop.footprint.y <= height
+				for dy in prop.footprint.y if fits else 0:
+					for dx in prop.footprint.x:
+						if free[(y + dy) * width + x + dx] == 0:
+							fits = false
+							break
+					if not fits:
+						break
 				if fits:
 					choices.append(prop)
 			if choices.is_empty():
 				continue
 			var prop := _pick(choices)
-			for c in _footprint(cell, prop):
+			for c in _footprint(Vector2i(x, y), prop):
 				taken[c] = true
-			layout.props.append({"cell": cell, "prop": prop})
+				free[c.y * width + c.x] = 0
+			layout.props.append({"cell": Vector2i(x, y), "prop": prop})
 
 
 func _ground(biome: ExpeditionBiome, layout: ZoneLayout, liquid: Dictionary, paths: Dictionary) -> void:
@@ -354,6 +381,38 @@ func _trainer_cells(layout: ZoneLayout) -> Dictionary:
 	for trainer in layout.trainers:
 		cells[trainer["cell"]] = true
 	return cells
+
+
+## Vrai si bloquer `area`, en plus de `blocked`, laisse toutes les autres cases de marche
+## reliées à l'entrée (elles doivent l'être avant). Test rapide d'abord : si les cases
+## libres autour de `area` sont reliées entre elles sans en sortir, tout chemin qui
+## traversait `area` peut la contourner. Sinon, parcours complet de la zone.
+func _keeps_connected(layout: ZoneLayout, area: Dictionary, blocked: Dictionary) -> bool:
+	if not area.has(layout.entry):
+		var ring := {}
+		for cell: Vector2i in area:
+			for dy in range(-1, 2):
+				for dx in range(-1, 2):
+					var c := cell + Vector2i(dx, dy)
+					if not area.has(c) and layout.walkable.has(c) and not blocked.has(c):
+						ring[c] = true
+		if ring.is_empty():
+			return true
+		var first: Vector2i = ring.keys()[0]
+		var seen := {first: true}
+		var queue: Array[Vector2i] = [first]
+		while not queue.is_empty():
+			var cell: Vector2i = queue.pop_back()
+			for dir in DIRS:
+				var next := cell + dir
+				if ring.has(next) and not seen.has(next):
+					seen[next] = true
+					queue.append(next)
+		if seen.size() == ring.size():
+			return true
+	var all_blocked := blocked.duplicate()
+	all_blocked.merge(area)
+	return layout.reachable(layout.entry, all_blocked).size() >= layout.walkable.size() - all_blocked.size()
 
 
 func _distance_to_open(layout: ZoneLayout, cell: Vector2i, limit: int) -> int:
