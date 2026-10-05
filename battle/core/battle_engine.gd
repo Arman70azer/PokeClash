@@ -509,6 +509,9 @@ func _award_experience(defeated: BattlePokemon) -> void:
 				emit(&"move_learned", {"pokemon": ref(pokemon), "move_name": move.name})
 			for move in step["skipped"]:
 				emit(&"move_skipped", {"pokemon": ref(pokemon), "move_name": move.name})
+			if step.get("needs_replacement") != null:
+				var new_move: MoveData = step["needs_replacement"]
+				emit(&"move_needs_replacement", {"pokemon": ref(pokemon), "move_name": new_move.name, "new_move": new_move})
 
 
 ## Avancée dans le niveau actuel, de 0 à 1.

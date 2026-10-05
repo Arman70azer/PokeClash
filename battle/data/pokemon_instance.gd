@@ -31,6 +31,8 @@ extends Resource
 @export var held_item: ItemData
 ## Talent (non géré en génération 5 de ce prototype ; prévu pour plus tard).
 @export var ability: StringName
+## Bonheur/Amitié avec le dresseur (0-255, initialement 70).
+@export_range(0, 255) var happiness := 70
 ## Origine : dresseur d'origine, lieu et niveau de la rencontre (vide : inconnus).
 @export var original_trainer := ""
 @export var met_location := ""
@@ -123,7 +125,8 @@ func next_level_experience() -> int:
 
 ## Ajoute de l'expérience et monte les niveaux atteints. Renvoie un dictionnaire par
 ## niveau gagné : {"level", "learned": attaques apprises, "skipped": attaques qu'il n'a
-## pas pu apprendre (quatre déjà connues)}.
+## pas pu apprendre (quatre déjà connues), "needs_replacement": attaque qui demande l'oubli
+## d'une autre pour être apprise}.
 func gain_experience(amount: int) -> Array[Dictionary]:
 	var gained: Array[Dictionary] = []
 	if amount <= 0 or level >= Growth.MAX_LEVEL:
@@ -135,9 +138,12 @@ func gain_experience(amount: int) -> Array[Dictionary]:
 		# Les PV gagnés avec le niveau s'ajoutent aux PV restants.
 		if current_hp > 0:
 			current_hp = mini(max_hp(), current_hp + max_hp() - old_max)
-		var step := {"level": level, "learned": [], "skipped": []}
+		var step := {"level": level, "learned": [], "skipped": [], "needs_replacement": null}
 		for move in species.moves_learned_at(level):
-			step["learned" if learn_move(move) else "skipped"].append(move)
+			if learn_move(move):
+				step["learned"].append(move)
+			elif moves.size() >= 4:
+				step["needs_replacement"] = move
 		gained.append(step)
 	return gained
 
@@ -153,10 +159,58 @@ func learn_move(move: MoveData) -> bool:
 	return true
 
 
+## Apprend une attaque en remplaçant une autre si nécessaire. Retourne un dictionnaire :
+## {"success": booléen, "new_move": MoveData, "replaced_move": MoveData ou null}.
+## Si le Pokémon connaît déjà 4 attaques et qu'on n'oublie pas l'une d'elles, c'échoue.
+func learn_move_with_replacement(move: MoveData, index_to_forget: int = -1) -> Dictionary:
+	var result := {"success": false, "new_move": move, "replaced_move": null}
+	if move == null or move in moves:
+		return result
+
+	if moves.size() < 4:
+		result["success"] = learn_move(move)
+		return result
+
+	if index_to_forget < 0 or index_to_forget >= moves.size():
+		return result
+
+	var old_move := moves[index_to_forget]
+	moves[index_to_forget] = move
+	move_pp[index_to_forget] = move.pp
+	result["success"] = true
+	result["replaced_move"] = old_move
+	return result
+
+
 ## Évolution par le niveau possible maintenant, ou null.
 func ready_evolution() -> PokemonSpecies:
 	var evolution := species.level_evolution(level) if species != null else null
 	return evolution.species() if evolution != null else null
+
+
+## Évolution par pierre possible pour cet objet, ou null.
+func item_evolution(item_id: StringName) -> PokemonSpecies:
+	var evolution := species.item_evolution(item_id) if species != null else null
+	return evolution.species() if evolution != null else null
+
+
+## Évolution par échange possible, ou null.
+func trade_evolution() -> PokemonSpecies:
+	var evolution := species.trade_evolution() if species != null else null
+	return evolution.species() if evolution != null else null
+
+
+## Évolution par bonheur possible, ou null.
+func happiness_evolution() -> PokemonSpecies:
+	if species == null or happiness < 220:
+		return null
+	var evolution := species.happiness_evolution()
+	return evolution.species() if evolution != null else null
+
+
+## Modifie le bonheur (amitié) avec le dresseur.
+func modify_happiness(delta: int) -> void:
+	happiness = clampi(happiness + delta, 0, 255)
 
 
 ## Fait évoluer ce Pokémon : nouvelle espèce, PV gagnés ajoutés, attaques de son niveau
@@ -221,6 +275,7 @@ func to_dict() -> Dictionary:
 		"original_trainer": original_trainer,
 		"met_location": met_location,
 		"met_level": met_level,
+		"happiness": happiness,
 	}
 
 
@@ -263,6 +318,8 @@ static func from_dict(data: Dictionary) -> PokemonInstance:
 	p.uid = data.get("uid", "")
 	if p.uid.is_empty():
 		p.uid = new_uid()
+	# Bonheur : ancienne sauvegarde utilise la valeur par défaut (70).
+	p.happiness = clampi(int(data.get("happiness", 70)), 0, 255)
 	return p
 
 

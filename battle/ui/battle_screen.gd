@@ -38,6 +38,8 @@ var _party: BattleMenu
 var _bag: BattleMenu
 var _transition: BattleTransition
 var _pending_item := ""
+var _move_reminder: MoveReminderDialog
+var _awaiting_move_replacement := {"pokemon": null, "new_move": null}
 
 
 func _enter_tree() -> void:
@@ -91,6 +93,10 @@ func _ready() -> void:
 	_bag.cancelled.connect(_show_commands)
 	_transition = BattleTransition.new()
 	add_child(_transition)
+	_move_reminder = MoveReminderDialog.new()
+	_move_reminder.move_selected.connect(_on_move_to_forget_selected)
+	_move_reminder.cancelled.connect(_on_move_replacement_cancelled)
+	add_child(_move_reminder)
 
 
 func is_open() -> bool:
@@ -243,6 +249,9 @@ func _play_event(event: Dictionary) -> void:
 		&"evolution":
 			await _say(texts)
 			await _field.evolve(load(event["from"]), load(event["to"]))
+		&"move_needs_replacement":
+			await _say(texts)
+			await _handle_move_replacement(event)
 		&"battle_end":
 			_ended = true
 			_outcome = event["outcome"]
@@ -427,3 +436,36 @@ func _make_menu(pos: Vector2, menu_size: Vector2) -> BattleMenu:
 	menu.visible = false
 	add_child(menu)
 	return menu
+
+
+func _handle_move_replacement(event: Dictionary) -> void:
+	var battle_pokemon_ref = event.get("pokemon")
+	var battle_pokemon = battle_pokemon_ref.get_ref() if battle_pokemon_ref is WeakRef else null
+
+	if battle_pokemon == null or not battle_pokemon.has_method("source"):
+		push_error("BattleScreen : Donnees Pokemon invalides")
+		return
+
+	var source = battle_pokemon.source
+	var new_move = event.get("new_move")
+
+	if source == null or new_move == null:
+		return
+
+	_awaiting_move_replacement = {"pokemon": source, "new_move": new_move}
+	_move_reminder.show_for_pokemon(source, new_move)
+	await _move_reminder.move_selected
+
+
+func _on_move_to_forget_selected(index: int) -> void:
+	var pokemon = _awaiting_move_replacement["pokemon"]
+	var new_move = _awaiting_move_replacement["new_move"]
+
+	if pokemon != null and new_move != null:
+		pokemon.learn_move_with_replacement(new_move, index)
+		_move_reminder.hide()
+
+
+func _on_move_replacement_cancelled() -> void:
+	_awaiting_move_replacement = {"pokemon": null, "new_move": null}
+	_move_reminder.hide()
