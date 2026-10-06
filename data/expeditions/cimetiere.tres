@@ -6,22 +6,13 @@
 [ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/cemetery_ground.png" id="sheet"]
 [ext_resource type="Script" path="res://expedition/cliff_style.gd" id="cliff"]
 [ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/Celestial Tower Area 1_texture_0004.png" id="c0"]
-[ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/Celestial Tower Area 1_texture_0006.png" id="c1"]
-[ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/Celestial Tower Area 1_texture_0009.png" id="c2"]
-
-[sub_resource type="Resource" id="celestial_low"]
-script = ExtResource("cliff")
-height = 16
-top = ExtResource("c0")
-bands = Array[Texture2D]([ExtResource("c1")])
-band_heights = PackedFloat32Array(16)
-stretch_bands = false
+[ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/Celestial Tower Area 1_texture_0009.png" id="c1"]
 
 [sub_resource type="Resource" id="celestial_high"]
 script = ExtResource("cliff")
 height = 64
 top = ExtResource("c0")
-bands = Array[Texture2D]([ExtResource("c2")])
+bands = Array[Texture2D]([ExtResource("c1")])
 band_heights = PackedFloat32Array(64)
 
 [sub_resource type="Resource" id="p0"]
@@ -64,4 +55,4 @@ decor_density = 0
 props = Array[ExtResource("prop")]([SubResource("p0")])
 trainers = Array[Dictionary]([{"front": Vector2i(6, 7), "sheet": "grand_mere", "title": "Médium"}, {"front": Vector2i(6, 3), "sheet": "grand_pere", "title": "Sage"}, {"front": Vector2i(4, 4), "sheet": "collectionneur", "title": "Mystimaniac"}])
 sheet = ExtResource("sheet")
-cliffs = Array[ExtResource("cliff")]([SubResource("celestial_low"), SubResource("celestial_high")])
+cliffs = Array[ExtResource("cliff")]([SubResource("celestial_high")])

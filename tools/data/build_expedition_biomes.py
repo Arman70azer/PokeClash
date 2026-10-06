@@ -124,10 +124,8 @@ CLIFFS = {
     "mountain_low": (16, VICTORY_TEX % "0016", [(VICTORY_TEX % "0007", 16)], False),
     # Sommets : grande paroi de roche brune, coiffée de neige.
     "mountain_high": (48, "res://assets/maps/sinjoh_ruins/grass01gs.png", [(VICTORY_TEX % "0017", 48)], False),
-    # Murets de pierre grise au bord des allées (dessus noir, comme les murs des donjons vus
-    # d'en haut : le plan se lit d'un coup d'œil).
-    "celestial_low": (16, CELESTIAL_TEX % "0004", [(CELESTIAL_TEX % "0006", 16)], False),
-    # Grands murs à arcades de la Tour Céleste (chaque arcade montrée en entier).
+    # Grands murs à arcades de la Tour Céleste (chaque arcade montrée en entier), au dessus
+    # noir comme les murs des donjons vus d'en haut : le plan se lit d'un coup d'œil.
     "celestial_high": (64, CELESTIAL_TEX % "0004", [(CELESTIAL_TEX % "0009", 64)], True),
 }
 
@@ -227,7 +225,7 @@ BIOMES = [
         "sheet": CELESTIAL + "cemetery_ground.png", "ground": (0, 0), "pattern": (4, 2), "variants": [],
         "path": None, "corridor": (4, 0), "corridor_pattern": (4, 1),
         "encounter": (8, 0), "encounter_pattern": (2, 2), "halls": True, "prop_rows": True,
-        "cliffs": ["celestial_low", "celestial_high"],
+        "cliffs": ["celestial_high"],
         "decor": [], "decor_density": 0.0,
         "props": [prop("celestial_tomb", 1, walls=False)],
         "trainers": [("Médium", "grand_mere", (6, 7)), ("Sage", "grand_pere", (6, 3)),
