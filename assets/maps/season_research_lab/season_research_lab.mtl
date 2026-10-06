@@ -1,0 +1,254 @@
+newmtl in04_kabe02
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0001.png
+
+newmtl in04_kusa2
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0002.png
+
+newmtl in04_light
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0003.png
+
+newmtl in04_light2
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0004.png
+
+newmtl in04_kusa
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0005.png
+
+newmtl in04_matto
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0006.png
+
+newmtl in04_paper
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0007.png
+
+newmtl in04_snow
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0008.png
+
+newmtl in04_tsuti
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0009.png
+
+newmtl in04_wlab11
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_00010.png
+
+newmtl in04_panel
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0011.png
+
+newmtl in04_pomp_2
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0012.png
+
+newmtl in04_screen
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0013.png
+
+newmtl in04_sike
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0014.png
+
+newmtl in04_fl
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0015.png
+
+newmtl in04_yuka05
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0016.png
+
+newmtl in04_kabe01
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0017.png
+
+newmtl in04_ramp
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0018.png
+
+newmtl in04_plant
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0019.png
+
+newmtl in04_yuka01
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0020.png
+
+newmtl in04_pomp
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0021.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0022.png
+
+newmtl lambert1
+Kd 1 1 1
+d 1
+
+newmtl in04_table
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0023.png
+
+newmtl in04_yuka04
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0024.png
+
+newmtl in04_yuka02
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0025.png
+
+newmtl in40_kage
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0026.png
+
+newmtl pasted__in40_isu
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0027.png
+
+newmtl in40_kage_1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0026.png
+
+newmtl pasted__in40_isu_1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0027.png
+
+newmtl in40_kage_2
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0026.png
+
+newmtl pasted__in40_isu_2
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0027.png
+
+newmtl _lambert5
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0032.png
+
+newmtl in40_kage1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0026.png
+
+newmtl desk_book01
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0034.png
+
+newmtl desk_book02
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0035.png
+
+newmtl in40_kage_3
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0026.png
+
+newmtl pc_desk01
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0037.png
+
+newmtl pc_desk01_pc
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0038.png
+
+newmtl desk_book01_1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0034.png
+
+newmtl desk_book02_1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0035.png
+
+newmtl in40_kage_4
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0026.png
+
+newmtl pc_desk01_1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0037.png
+
+newmtl pc_desk01_pc_1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0038.png
+
+newmtl meka_monitor
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0044.png
+
+newmtl in40_kage_5
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0026.png
+
+newmtl lambert2
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0046.png
+
+newmtl h_mado_lm1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0047.png
+
+newmtl idr_win01_lm1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0048.png
+
+newmtl h_mado_lm1_1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0047.png
+
+newmtl idr_win01_lm1_1
+Kd 1 1 1
+d 1
+map_Kd Season Research Lab_texture_0048.png
+

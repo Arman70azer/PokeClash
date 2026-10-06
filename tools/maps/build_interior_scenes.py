@@ -30,7 +30,13 @@ ROOMS = {
     "aspertia_building_8": dict(entry=(-13, -7), exit=[(-14, -6), (-13, -6), (-12, -6)],
                                 up=dict(trigger=[(-12, -20), (-11, -20)], dir=UP, arrive=(-11, -19), facing=DOWN)),
     "aspertia_building_7": dict(down=dict(trigger=[(-9, -18)], dir=LEFT, arrive=(-8, -18), facing=RIGHT)),
-    "black_city_house_1": dict(entry=(-13, -9), exit=[(-14, -8), (-13, -8), (-12, -8)]),
+    # Étage intermédiaire (voir build_interiors.py) : l'escalier d'Aspertia 7 descend,
+    # celui d'Aspertia 8, à la place de la télévision, monte.
+    "aspertia_building_7_mid": dict(down=dict(trigger=[(-9, -18)], dir=LEFT, arrive=(-8, -18), facing=RIGHT),
+                                    up=dict(trigger=[(-16, -13), (-15, -13), (-14, -13)], dir=UP, arrive=(-15, -12),
+                                            facing=DOWN)),
+    "striaton_building_2": dict(down=dict(trigger=[(-8, -18)], dir=LEFT, arrive=(-7, -18), facing=RIGHT)),
+    "season_research_lab": dict(entry=(-13, -9), exit=[(-14, -8), (-13, -8), (-12, -8)]),
     "driftveil_hotel_room_1": dict(entry=(-12, -4), exit=[(-13, -3), (-12, -3), (-11, -3), (-10, -3)],
                                    bounds=(-19, -19, 17, 16),
                                    up=dict(trigger=[(-17, -19), (-16, -19)], dir=UP, arrive=(-17, -18), facing=DOWN)),
@@ -41,7 +47,6 @@ ROOMS = {
                                    bounds=(-19, -19, 16, 15)),
     "floccesy_house_5": dict(entry=(-13, -9), exit=[(-14, -8), (-13, -8), (-12, -8)]),
     "lentimas_house_6": dict(entry=(-13, -9), exit=[(-14, -8), (-13, -8), (-12, -8)]),
-    "humilau_house_7": dict(entry=(-13, -9), exit=[(-14, -8), (-13, -8), (-12, -8)]),
     "cafe_warehouse_interior": dict(entry=(-10, -1), exit=[(-11, 0), (-10, 0), (-9, 0)]),
     "nacrene_warehouse_interior": dict(entry=(-13, -8), exit=[(-14, -7), (-13, -7), (-12, -7)]),
 }
@@ -60,7 +65,7 @@ DOORS = {
     "HotelDoor": dict(position=(-72, 4, 602), size=(18, 30), style="DOUBLE_SLIDE", inset=13.6,
                       leaf_texture="res://assets/mapobjects/driftveil_city_houses/driftveil_city_house_1/h_mado.png",
                       leaf_repeat=(1, 2)),
-    "VillaDoor": dict(position=(296, 4, 604), size=(18, 30), **ORANGE),
+    "MaisonEstDoor": dict(position=(296, 4, 604), size=(18, 30), **ORANGE),
     "MaisonQuartierDoor": dict(position=(8, 2, 597), size=(20, 32), **NUVEMA),
     "MaisonVoisineDoor": dict(position=(200, 2, 597), size=(20, 26), **NUVEMA),
     "CafeDoor": dict(position=(392, 1, -215), size=(24, 34), **NUVEMA),
@@ -79,41 +84,43 @@ MAPS = [
                                                "De là-haut, on voit toute la place d'Accumula."])),
     ("accumula_maison_etage", "Maison d'Accumula, à l'étage", "nuvema_house_2_2f", None, None,
      ("Fillette", "fillette", (-13, -14), ["Chut ! C'est ma chambre, ici.", "Un jour, je partirai à l'aventure moi aussi !"])),
-    ("accumula_immeuble_ouest", "Immeuble d'Accumula", "aspertia_building_8", ("ImmeubleOuestDoor", (-7, -10)),
-     "accumula_immeuble_ouest_etage",
+    ("accumula_immeuble_ouest", "Immeuble d'Accumula", "aspertia_building_8", ("ImmeubleOuestDoor", (-7, -10)), "accumula_immeuble_ouest_etage",
      ("Ouvrier", "ouvrier", (-10, -10), ["Je rentre du port. Les grues ne s'arrêtent jamais !"])),
-    ("accumula_immeuble_ouest_etage", "Immeuble d'Accumula, à l'étage", "aspertia_building_7", None, None, None),
-    ("accumula_immeuble_est", "Immeuble d'Accumula", "aspertia_building_8", ("ImmeubleEstDoor", (1, -10)),
-     "accumula_immeuble_est_etage",
+    ("accumula_immeuble_ouest_etage", "Immeuble d'Accumula, 1er étage", "aspertia_building_7_mid", None, "accumula_immeuble_ouest_etage2", ("Écolier", "ecolier", (-10, -10), ["Trois étages à monter tous les jours… c'est mon entraînement !"])),
+    ("accumula_immeuble_ouest_etage2", "Immeuble d'Accumula, 2e étage", "aspertia_building_7", None, None, None),
+    ("accumula_immeuble_est", "Immeuble d'Accumula", "aspertia_building_8", ("ImmeubleEstDoor", (1, -10)), "accumula_immeuble_est_etage",
      ("Lycéenne", "lyceenne", (-10, -10), ["J'habite au-dessus du Centre Pokémon… enfin, presque !"])),
-    ("accumula_immeuble_est_etage", "Immeuble d'Accumula, à l'étage", "aspertia_building_7", None, None, None),
-    ("accumula_immeuble_bas", "Immeuble d'Accumula", "aspertia_building_8", ("ImmeubleBasDoor", (-13, 4)),
-     "accumula_immeuble_bas_etage",
+    ("accumula_immeuble_est_etage", "Immeuble d'Accumula, 1er étage", "aspertia_building_7_mid", None, "accumula_immeuble_est_etage2", None),
+    ("accumula_immeuble_est_etage2", "Immeuble d'Accumula, 2e étage", "aspertia_building_7", None, None, ("Collectionneur", "collectionneur", (-10, -10), ["Du dernier étage, je vois toute la route du port."])),
+    ("accumula_immeuble_bas", "Immeuble d'Accumula", "aspertia_building_8", ("ImmeubleBasDoor", (-13, 4)), "accumula_immeuble_bas_etage",
      ("Dame", "dame_chignon", (-10, -10), ["La place du bas est si calme le soir.", "On y entend les Pokémon chanter."])),
-    ("accumula_immeuble_bas_etage", "Immeuble d'Accumula, à l'étage", "aspertia_building_7", None, None, None),
+    ("accumula_immeuble_bas_etage", "Immeuble d'Accumula, 1er étage", "aspertia_building_7_mid", None, "accumula_immeuble_bas_etage2", ("Fillette", "fillette", (-10, -10), ["Ma grande sœur habite à l'étage du dessus."])),
+    ("accumula_immeuble_bas_etage2", "Immeuble d'Accumula, 2e étage", "aspertia_building_7", None, None, None),
     ("quartier_immeuble", "Immeuble du quartier", "aspertia_building_8", ("ImmeubleDoor", (13, 21)), "quartier_immeuble_etage",
      ("Homme d'affaires", "homme_affaires", (-10, -10), ["Un immeuble en brique, comme ceux d'Accumula.",
                                                         "Le quartier, c'est la ville… en plus chic."])),
-    ("quartier_immeuble_etage", "Immeuble du quartier, à l'étage", "aspertia_building_7", None, None, None),
-    ("quartier_laboratoire", "Laboratoire Pokémon", "black_city_house_1", ("LaboratoireDoor", (-2, 21)), None,
-     ("Assistant", "gentleman", (-9, -12), ["Bienvenue au laboratoire !",
-                                            "Nous étudions les Pokémon que les dresseurs rapportent des expéditions."])),
+    ("quartier_immeuble_etage", "Immeuble du quartier, 1er étage", "aspertia_building_7_mid", None, "quartier_immeuble_etage2", None),
+    ("quartier_immeuble_etage2", "Immeuble du quartier, 2e étage", "aspertia_building_7", None, None, ("Lycéenne", "lyceenne", (-10, -10), ["Du dernier étage, on voit la fontaine du quartier."])),
+    ("quartier_laboratoire", "Laboratoire Pokémon", "season_research_lab", ("LaboratoireDoor", (-2, 21)), None,
+     ("Assistant", "gentleman", (-11, -13), ["Bienvenue au laboratoire !",
+                                             "Nous étudions les Pokémon que les dresseurs rapportent des expéditions."])),
     ("quartier_hotel", "Hôtel", "driftveil_hotel_room_1", ("HotelDoor", (-5, 37)), "quartier_hotel_suite",
      ("Réceptionniste", "elegante", (-12, -18), ["Bienvenue à l'hôtel !",
                                                 "L'ascenseur, à gauche, monte jusqu'à la suite."],
       dict(wander_radius=0, looks_around="false", talk_reach=2))),
     ("quartier_hotel_suite", "Hôtel, la suite", "driftveil_hotel_room_3", None, None,
      ("Client", "rentier", (-10, -11), ["Quelle vue depuis la suite !", "Je ne veux plus jamais repartir."])),
-    ("quartier_villa", "Villa", "humilau_house_7", ("VillaDoor", (18, 37)), None,
-     ("Dame en blanc", "dame_blanche", (-12, -12), ["Cette villa me rappelle la mer de Janusia.",
-                                                     "Le bassin, au milieu du salon, c'est mon idée !"])),
-    ("quartier_maison", "Maison du quartier", "floccesy_house_5", ("MaisonQuartierDoor", (0, 37)), None,
-     ("Grand-père", "grand_pere", (-10, -11), ["Rien ne vaut un bon feu de cheminée.",
-                                               "Mes Pokémon dorment toujours devant."])),
+    ("quartier_maison", "Maison du quartier", "nuvema_house_3_1f", ("MaisonQuartierDoor", (0, 37)), "quartier_maison_etage",
+     ("Maman", "dame_blanche", (-9, -15), ["Les enfants jouent en haut.", "Ici, au sud du quartier, c'est si paisible."])),
+    ("quartier_maison_etage", "Maison du quartier, à l'étage", "striaton_building_2", None, None,
+     ("Écolière", "ecoliere_blonde", (-6, -12), ["Ma chambre est la plus grande de la maison !"])),
     ("quartier_maison_voisine", "Maison voisine", "lentimas_house_6", ("MaisonVoisineDoor", (12, 37)), None,
      ("Gamin", "gamin", (-12, -12), ["Ma maison est toute en bois, comme dans les montagnes !"])),
+    ("quartier_maison_est", "Maison au bout de l'allée", "floccesy_house_5", ("MaisonEstDoor", (18, 37)), None,
+     ("Grand-père", "grand_pere", (-10, -11), ["Rien ne vaut un bon feu de cheminée.",
+                                               "Mes Pokémon dorment toujours devant."])),
     ("port_cafe", "Café du port", "cafe_warehouse_interior", ("CafeDoor", (24, -14)), None,
-     ("Patron", "chef", (-12, -6), ["Bienvenue au café !", "Les marins prennent un café ici avant d'embarquer."])),
+     ("Patron", "chef", (-12, -6), ["Bienvenue au café !", "La salle du bas, à gauche, est plus calme pour discuter."])),
     ("port_entrepot", "Entrepôt du port", "nacrene_warehouse_interior", (None, (24, 11)), None,
      ("Docker", "ouvrier", (-10, -10), ["On a aménagé l'entrepôt en appartement.", "Les caisses, je les garde pour le style."])),
     ("port_entrepot_frigorifique", "Entrepôt frigorifique", "nacrene_warehouse_interior", ("FrigoDoor", (24, -1)), None,
@@ -155,7 +162,8 @@ def write(path, text):
         f.write(text)
 
 
-def warp_node(name, trigger, direction, target_map, target_cell, facing, source_door=None, target_door=None):
+def warp_node(name, trigger, direction, target_map, target_cell, facing, source_door=None, target_door=None,
+              any_direction=False):
     out = ['[node name="%s" type="Node" parent="."]' % name, 'script = ExtResource("warp")',
            "trigger_cells = " + cells(trigger), "direction = " + v2(direction),
            'target_map = &"%s"' % target_map, "target_cell = " + v2(target_cell), "target_facing = " + v2(facing)]
@@ -163,6 +171,8 @@ def warp_node(name, trigger, direction, target_map, target_cell, facing, source_
         out.append('source_door = NodePath("../../Doors/%s")' % source_door)
     if target_door:
         out.append('target_door = &"%s"' % target_door)
+    if any_direction:
+        out.append("any_direction = true")
     return "\n".join(out) + "\n"
 
 
@@ -197,13 +207,13 @@ def interior_scene(index, map_id, title, room_name, outside, upper, resident, lo
         upper_index = index + 1
         upper_down = ROOMS[MAPS[upper_index][2]]["down"]
         warps.append(warp_node("GoUp", [add(c, shift) for c in up["trigger"]], up["dir"], upper,
-                               add(upper_down["arrive"], offset(upper_index)), upper_down["facing"]))
+                               add(upper_down["arrive"], offset(upper_index)), upper_down["facing"], any_direction=True))
     if lower:
         down = room["down"]
         lower_index = index - 1
         lower_up = ROOMS[MAPS[lower_index][2]]["up"]
         warps.append(warp_node("GoDown", [add(c, shift) for c in down["trigger"]], down["dir"], lower,
-                               add(lower_up["arrive"], offset(lower_index)), lower_up["facing"]))
+                               add(lower_up["arrive"], offset(lower_index)), lower_up["facing"], any_direction=True))
     body += "\n".join(w.replace('parent="."', 'parent="Warps"') for w in warps)
     body += '\n[node name="Objects" type="Node3D" parent="."]\n'
     if resident:

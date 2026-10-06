@@ -35,6 +35,9 @@ const NONE := Vector2i(-1, -1)
 @export var corridor_pattern := Vector2i.ONE
 ## Clairières en îlots : les rencontres et les décors isolés n'y sont qu'en clairière.
 @export var islands := false
+## Plan bâti plutôt qu'organique (crypte, tour) : salles rectangulaires reliées par des
+## couloirs droits, les rencontres dans les salles seulement.
+@export var halls := false
 ## Hautes herbes (ou équivalent) : on y rencontre les Pokémon sauvages.
 @export var encounter := Vector2i.ZERO
 @export var encounter_pattern := Vector2i.ONE
@@ -67,6 +70,9 @@ const NONE := Vector2i(-1, -1)
 @export var cliff_clearance := 3
 ## Décors isolés posés dans les passages (part des cases libres).
 @export_range(0.0, 0.2) var scatter_density := 0.03
+## Décors isolés rangés en rangées dans chaque salle, de part et d'autre d'une allée
+## centrale (les tombes d'un cimetière), au lieu d'être éparpillés.
+@export var prop_rows := false
 
 @export_group("Rencontres")
 ## Chance de rencontre à chaque pas dans les hautes herbes.

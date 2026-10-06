@@ -16,7 +16,7 @@ display_name = "Immeuble d'Accumula"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(460, 0)
+cell_offset = Vector2i(500, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,7 +26,7 @@ shadow_opacity = 0.3
 
 [node name="Leave" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(446, -6), Vector2i(447, -6), Vector2i(448, -6)])
+trigger_cells = Array[Vector2i]([Vector2i(486, -6), Vector2i(487, -6), Vector2i(488, -6)])
 direction = Vector2i(0, 1)
 target_map = &"accumula"
 target_cell = Vector2i(1, -9)
@@ -35,17 +35,18 @@ target_door = &"ImmeubleEstDoor"
 
 [node name="GoUp" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(448, -20), Vector2i(449, -20)])
+trigger_cells = Array[Vector2i]([Vector2i(488, -20), Vector2i(489, -20)])
 direction = Vector2i(0, -1)
 target_map = &"accumula_immeuble_est_etage"
-target_cell = Vector2i(492, -18)
+target_cell = Vector2i(532, -18)
 target_facing = Vector2i(1, 0)
+any_direction = true
 
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(450, -10)
+cell = Vector2i(490, -10)
 display_name = "Lycéenne"
 sheet = "lyceenne"
 lines = PackedStringArray("J'habite au-dessus du Centre Pokémon… enfin, presque !")

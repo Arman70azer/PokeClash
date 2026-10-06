@@ -16,7 +16,7 @@ display_name = "Café du port"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(940, 0)
+cell_offset = Vector2i(1140, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,7 +26,7 @@ shadow_opacity = 0.3
 
 [node name="Leave" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(929, 0), Vector2i(930, 0), Vector2i(931, 0)])
+trigger_cells = Array[Vector2i]([Vector2i(1129, 0), Vector2i(1130, 0), Vector2i(1131, 0)])
 direction = Vector2i(0, 1)
 target_map = &"accumula"
 target_cell = Vector2i(24, -13)
@@ -37,8 +37,8 @@ target_door = &"CafeDoor"
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(928, -6)
+cell = Vector2i(1128, -6)
 display_name = "Patron"
 sheet = "chef"
-lines = PackedStringArray("Bienvenue au café !", "Les marins prennent un café ici avant d'embarquer.")
+lines = PackedStringArray("Bienvenue au café !", "La salle du bas, à gauche, est plus calme pour discuter.")
 wander_radius = 1

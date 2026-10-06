@@ -9,6 +9,8 @@ HeartGold / SoulSilver rangées dans assets/maps et source_assets/maps.
   mountain_ground.png ; grands glaçons convertis (assets/mapobjects/big_icicle_*).
 - Lagune (Humilau City) : assets/maps/humilau_city/lagoon_ground.png ; palmier et rocher
   découpés dans la carte (lagoon_palm.obj, lagoon_rock.obj).
+- Cimetière (Celestial Tower, Noir 2 / Blanc 2) : assets/maps/celestial_tower_area_1/
+  cemetery_ground.png ; tombe double découpée dans la tour (celestial_tomb.obj).
 Les falaises utilisent directement les textures des cartes (voir build_expedition_biomes.py).
 """
 import os
@@ -89,7 +91,32 @@ def lagoon():
         print(name, sum(len(p) for p in pieces.values()), "triangles")
 
 
+# Tombe double (dalle et deux stèles, avec son ombre) découpée dans la Tour Céleste :
+# carré (x0, z0, x1, z1), hauteur du sol sous les tombes.
+TOMB_BOX = (-80, -84, -16, -50)
+TOMB_FLOOR = 0.8
+
+
+def cemetery():
+    def t(n):
+        return texture("celestial_tower_area_1", "Celestial Tower Area 1", n)
+    # Pavés blancs (4 × 2 cases), allée de pavés gris (4 × 1), dalles ornées des rencontres (2 × 2).
+    sheet(os.path.join(MAPS, "celestial_tower_area_1", "cemetery_ground.png"), (10, 2),
+          [((0, 0), t("0007")), ((4, 0), t("0006")), ((8, 0), t("0008"))])
+    folder = os.path.join(MAPS, "celestial_tower_area_1")
+    with tempfile.TemporaryDirectory() as tmp:
+        dae_to_obj.main(os.path.join(ROOT, "source_assets", "maps", "celestial_tower_area_1", "Celestial Tower Area 1.dae"),
+                        "celestial", tmp)
+        verts, uvs, faces = kit.read_obj(os.path.join(tmp, "celestial.obj"))
+        textures = kit.read_mtl(os.path.join(tmp, "celestial.mtl"))
+    pieces = kit.extract(verts, uvs, faces, ["tomb02_tomb02", "h_kage"], TOMB_BOX, 1.0, TOMB_FLOOR)
+    kit.write_obj(os.path.join(folder, "celestial_tomb.obj"), pieces, textures,
+                  "Découpé dans Celestial Tower Area 1 par tools/maps/build_expedition_kits.py")
+    print("celestial_tomb", sum(len(p) for p in pieces.values()), "triangles")
+
+
 if __name__ == "__main__":
     desert()
     mountain()
     lagoon()
+    cemetery()

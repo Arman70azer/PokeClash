@@ -16,7 +16,7 @@ display_name = "Entrepôt du port"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(980, 0)
+cell_offset = Vector2i(1180, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,7 +26,7 @@ shadow_opacity = 0.3
 
 [node name="Leave" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(966, -7), Vector2i(967, -7), Vector2i(968, -7)])
+trigger_cells = Array[Vector2i]([Vector2i(1166, -7), Vector2i(1167, -7), Vector2i(1168, -7)])
 direction = Vector2i(0, 1)
 target_map = &"accumula"
 target_cell = Vector2i(24, 12)
@@ -36,7 +36,7 @@ target_facing = Vector2i(0, 1)
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(970, -10)
+cell = Vector2i(1170, -10)
 display_name = "Docker"
 sheet = "ouvrier"
 lines = PackedStringArray("On a aménagé l'entrepôt en appartement.", "Les caisses, je les garde pour le style.")

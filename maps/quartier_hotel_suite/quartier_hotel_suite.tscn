@@ -16,7 +16,7 @@ display_name = "Hôtel, la suite"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(780, 0)
+cell_offset = Vector2i(940, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,17 +26,18 @@ shadow_opacity = 0.3
 
 [node name="GoDown" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(763, -19), Vector2i(764, -19)])
+trigger_cells = Array[Vector2i]([Vector2i(923, -19), Vector2i(924, -19)])
 direction = Vector2i(0, -1)
 target_map = &"quartier_hotel"
-target_cell = Vector2i(723, -18)
+target_cell = Vector2i(883, -18)
 target_facing = Vector2i(0, 1)
+any_direction = true
 
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(770, -11)
+cell = Vector2i(930, -11)
 display_name = "Client"
 sheet = "rentier"
 lines = PackedStringArray("Quelle vue depuis la suite !", "Je ne veux plus jamais repartir.")

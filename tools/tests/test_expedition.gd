@@ -114,8 +114,10 @@ func _test_generation() -> void:
 			_check(biome.cliffs.size() == 2 and not biome.cliffs[1].stretch_bands,
 				"montagne : terrasses et sommets enneigés")
 		if id == "cimetiere":
-			var graves := biome.props.filter(func(p: ExpeditionProp) -> bool: return p.sheet != null)
-			_check(graves.size() >= 3, "cimetière : des tombes parmi les décors (%d)" % graves.size())
+			var tombs := biome.props.filter(func(p: ExpeditionProp) -> bool:
+				return p.mesh != null and p.mesh.resource_path.ends_with("celestial_tomb.obj"))
+			_check(tombs.size() == 1 and biome.cliffs.size() == 1 and biome.props.all(
+				func(p: ExpeditionProp) -> bool: return p.mesh != null), "cimetière : tombes de la Tour Céleste et murs à arcades, en 3D")
 		var other := ZoneGenerator.new().generate(biome, SEEDS[1], Vector2i.ZERO)
 		var first := ZoneGenerator.new().generate(biome, SEEDS[0], Vector2i.ZERO)
 		_check(other.walkable != first.walkable, "%s : une autre graine donne une autre zone" % id)

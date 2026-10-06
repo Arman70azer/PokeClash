@@ -2,7 +2,10 @@ extends SceneTree
 ## Calcule la grille de déplacement (MapGrid) d'une zone 3D à partir de son modèle.
 ##
 ## Usage, depuis le dossier du projet :
-##   godot --headless -s res://tools/maps/bake_map_grid.gd -- <modèle.obj> <grille.tres>
+##   godot --headless -s res://tools/maps/bake_map_grid.gd -- <modèle.obj> <grille.tres> [échelle]
+##
+## `échelle` : agrandissement du modèle (1,3 pour les intérieurs) ; ses marches sont
+## agrandies d'autant, et les seuils de hauteur (MAX_JUMP, MAX_CLIMB, STEP_RISE) aussi.
 ##
 ## Pour chaque case de 16x16 unités, des rayons verticaux mesurent la hauteur du
 ## dessus du modèle :
@@ -42,12 +45,15 @@ var _space: PhysicsDirectSpaceState3D
 var _frames := 0
 var _model := ""
 var _output := ""
+var _scale := 1.0
 
 
 func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() != 2:
-		print("Usage: godot --headless -s res://tools/maps/bake_map_grid.gd -- <modèle.obj> <grille.tres>")
+	if args.size() == 3:
+		_scale = float(args[2])
+	if args.size() != 2 and args.size() != 3:
+		print("Usage: godot --headless -s res://tools/maps/bake_map_grid.gd -- <modèle.obj> <grille.tres> [échelle]")
 		quit(1)
 		return
 	_model = args[0]
@@ -152,9 +158,9 @@ func _fit_cell(x0: float, z0: float) -> Array:
 	var n := offsets.size()
 	for i in n:
 		for k in n:
-			if k + 1 < n and absf(heights[i][k + 1] - heights[i][k]) > MAX_JUMP:
+			if k + 1 < n and absf(heights[i][k + 1] - heights[i][k]) > MAX_JUMP * _scale:
 				return [center, false]
-			if i + 1 < n and absf(heights[i + 1][k] - heights[i][k]) > MAX_JUMP:
+			if i + 1 < n and absf(heights[i + 1][k] - heights[i][k]) > MAX_JUMP * _scale:
 				return [center, false]
 	# Pente moyenne de la case (plan des moindres carrés), pour que les rayons de
 	# contrôle suivent le sol d'un escalier.
@@ -205,14 +211,14 @@ func _path_clear(center: Vector2, direction: Vector2) -> bool:
 				return false
 			if d > 0:
 				var rise := absf(h - profile[d - 1])
-				if rise > MAX_JUMP:
+				if rise > MAX_JUMP * _scale:
 					return false
-				slope_rise.append(rise if rise <= STEP_RISE else 0.0)
+				slope_rise.append(rise if rise <= STEP_RISE * _scale else 0.0)
 				if slope_rise.size() >= CLIMB_WINDOW:
 					var climb := 0.0
 					for k in range(slope_rise.size() - CLIMB_WINDOW, slope_rise.size()):
 						climb += slope_rise[k]
-					if climb > MAX_CLIMB:
+					if climb > MAX_CLIMB * _scale:
 						return false
 			profile.append(h)
 		# Obstacles à hauteur de personnage. Les rayons suivent le profil du sol par

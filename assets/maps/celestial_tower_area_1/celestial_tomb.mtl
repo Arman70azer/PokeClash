@@ -1,0 +1,9 @@
+newmtl tomb02_tomb02
+Kd 1 1 1
+d 1
+map_Kd Celestial Tower Area 1_texture_0011.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Celestial Tower Area 1_texture_0004.png
