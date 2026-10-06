@@ -2,101 +2,52 @@
 
 [ext_resource type="Script" path="res://expedition/expedition_biome.gd" id="biome"]
 [ext_resource type="Script" path="res://expedition/expedition_prop.gd" id="prop"]
-[ext_resource type="Texture2D" path="res://assets/tilesets/graves.png" id="graves"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/celestial_tower_area_1/celestial_tomb.obj" id="m_celestial_tomb"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/dead_tree_02/dead_tree_02.obj" id="m_leaning_log"]
+[ext_resource type="ArrayMesh" path="res://assets/mapobjects/stump_2/stump_2.obj" id="m_hollow_stump"]
+[ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/cemetery_ground.png" id="sheet"]
+[ext_resource type="Script" path="res://expedition/cliff_style.gd" id="cliff"]
+[ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/Celestial Tower Area 1_texture_0004.png" id="c0"]
+[ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/Celestial Tower Area 1_texture_0006.png" id="c1"]
+[ext_resource type="Texture2D" path="res://assets/maps/celestial_tower_area_1/Celestial Tower Area 1_texture_0009.png" id="c2"]
+
+[sub_resource type="Resource" id="celestial_low"]
+script = ExtResource("cliff")
+height = 16
+top = ExtResource("c0")
+bands = Array[Texture2D]([ExtResource("c1")])
+band_heights = PackedFloat32Array(16)
+stretch_bands = false
+
+[sub_resource type="Resource" id="celestial_high"]
+script = ExtResource("cliff")
+height = 64
+top = ExtResource("c0")
+bands = Array[Texture2D]([ExtResource("c2")])
+band_heights = PackedFloat32Array(64)
 
 [sub_resource type="Resource" id="p0"]
 script = ExtResource("prop")
-region = Rect2i(0, 4, 16, 20)
-footprint = Vector2i(1, 1)
-weight = 4
-sheet = ExtResource("graves")
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(4, 2)
+weight = 8
+mesh = ExtResource("m_celestial_tomb")
+walls = false
 
 [sub_resource type="Resource" id="p1"]
 script = ExtResource("prop")
-region = Rect2i(16, 0, 16, 24)
-footprint = Vector2i(1, 1)
-weight = 3
-sheet = ExtResource("graves")
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(6, 2)
+weight = 1
+mesh = ExtResource("m_leaning_log")
+walls = false
 
 [sub_resource type="Resource" id="p2"]
 script = ExtResource("prop")
-region = Rect2i(32, 4, 28, 20)
-footprint = Vector2i(2, 1)
-weight = 2
-sheet = ExtResource("graves")
-
-[sub_resource type="Resource" id="p3"]
-script = ExtResource("prop")
-region = Rect2i(60, 8, 16, 16)
-footprint = Vector2i(1, 1)
-weight = 2
-sheet = ExtResource("graves")
-
-[sub_resource type="Resource" id="p4"]
-script = ExtResource("prop")
-region = Rect2i(16, 9911, 16, 25)
-footprint = Vector2i(1, 1)
-weight = 3
-
-[sub_resource type="Resource" id="p5"]
-script = ExtResource("prop")
-region = Rect2i(0, 9905, 16, 15)
-footprint = Vector2i(1, 1)
-weight = 2
-
-[sub_resource type="Resource" id="p6"]
-script = ExtResource("prop")
-region = Rect2i(96, 9639, 16, 25)
-footprint = Vector2i(1, 1)
+region = Rect2i(0, 0, 0, 0)
+footprint = Vector2i(3, 3)
 weight = 1
-
-[sub_resource type="Resource" id="p7"]
-script = ExtResource("prop")
-region = Rect2i(14, 209, 36, 47)
-footprint = Vector2i(2, 2)
-weight = 1
-
-[sub_resource type="Resource" id="p8"]
-script = ExtResource("prop")
-region = Rect2i(80, 2899, 24, 45)
-footprint = Vector2i(1, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p9"]
-script = ExtResource("prop")
-region = Rect2i(130, 2816, 30, 64)
-footprint = Vector2i(2, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p10"]
-script = ExtResource("prop")
-region = Rect2i(194, 2832, 30, 48)
-footprint = Vector2i(2, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p11"]
-script = ExtResource("prop")
-region = Rect2i(226, 2832, 30, 48)
-footprint = Vector2i(2, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p12"]
-script = ExtResource("prop")
-region = Rect2i(80, 2850, 22, 30)
-footprint = Vector2i(1, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p13"]
-script = ExtResource("prop")
-region = Rect2i(32, 2944, 24, 32)
-footprint = Vector2i(2, 1)
-weight = 1
-
-[sub_resource type="Resource" id="p14"]
-script = ExtResource("prop")
-region = Rect2i(32, 2836, 30, 76)
-footprint = Vector2i(2, 1)
-weight = 1
+mesh = ExtResource("m_hollow_stump")
 walls = false
 
 [resource]
@@ -105,26 +56,28 @@ id = &"cimetiere"
 name = "Cimetière"
 type = 13
 description = "Un vieux cimetière en ruine, hanté par les Pokémon Spectre."
-ground = Vector2i(1, 217)
-ground_pattern = Vector2i(1, 1)
-path_pattern = Vector2i(1, 1)
+ground = Vector2i(0, 0)
+ground_pattern = Vector2i(4, 2)
+path_pattern = Vector2i(4, 1)
 corridor = Vector2i(-1, -1)
 corridor_pattern = Vector2i(1, 1)
 islands = false
-encounter_pattern = Vector2i(1, 1)
+encounter_pattern = Vector2i(2, 2)
 liquid_pattern = Vector2i(1, 1)
 shallow = Vector2i(-1, -1)
 shallow_pattern = Vector2i(1, 1)
 walls_liquid = false
-scatter_density = 0.03
-ground_variants = Array[Vector2i]([Vector2i(7, 277)])
+scatter_density = 0.02
+ground_variants = Array[Vector2i]([])
 variant_density = 0.08
-path = Vector2i(4, 277)
-encounter = Vector2i(2, 664)
+path = Vector2i(4, 0)
+encounter = Vector2i(8, 0)
 liquid = Vector2i(-1, -1)
 pools = 0
 liquid_border = 0
 decor = Array[Vector2i]([])
 decor_density = 0
-props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7"), SubResource("p8"), SubResource("p9"), SubResource("p10"), SubResource("p11"), SubResource("p12"), SubResource("p13"), SubResource("p14")])
+props = Array[ExtResource("prop")]([SubResource("p0"), SubResource("p1"), SubResource("p2")])
 trainers = Array[Dictionary]([{"front": Vector2i(6, 7), "sheet": "grand_mere", "title": "Médium"}, {"front": Vector2i(6, 3), "sheet": "grand_pere", "title": "Sage"}, {"front": Vector2i(4, 4), "sheet": "collectionneur", "title": "Mystimaniac"}])
+sheet = ExtResource("sheet")
+cliffs = Array[ExtResource("cliff")]([SubResource("celestial_low"), SubResource("celestial_high")])

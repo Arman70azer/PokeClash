@@ -10,6 +10,10 @@ extends Node
 @export var trigger_cells: Array[Vector2i] = []
 ## Direction dans laquelle il faut avancer (vers le haut pour entrer par une porte).
 @export var direction := Vector2i.UP
+## Vrai : le passage se déclenche en avançant sur ses cases dans n'importe quelle direction
+## (un escalier ou un ascenseur qu'on aborde de face ou de côté). `direction` reste celle
+## qu'on prend d'habitude.
+@export var any_direction := false
 ## Carte d'arrivée (identifiant, voir GameMap.map_id). Vide : la même carte.
 @export var target_map: StringName
 @export var target_cell := Vector2i.ZERO
@@ -21,7 +25,7 @@ extends Node
 
 
 func triggers(cell: Vector2i, move: Vector2i) -> bool:
-	return move == direction and cell in trigger_cells
+	return (move == direction or any_direction) and cell in trigger_cells
 
 
 func source() -> Door:

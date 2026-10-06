@@ -16,7 +16,7 @@ display_name = "Hôtel"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(740, 0)
+cell_offset = Vector2i(900, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,7 +26,7 @@ shadow_opacity = 0.3
 
 [node name="Leave" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(727, -3), Vector2i(728, -3), Vector2i(729, -3), Vector2i(730, -3)])
+trigger_cells = Array[Vector2i]([Vector2i(887, -3), Vector2i(888, -3), Vector2i(889, -3), Vector2i(890, -3)])
 direction = Vector2i(0, 1)
 target_map = &"accumula"
 target_cell = Vector2i(-5, 38)
@@ -35,17 +35,18 @@ target_door = &"HotelDoor"
 
 [node name="GoUp" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(723, -19), Vector2i(724, -19)])
+trigger_cells = Array[Vector2i]([Vector2i(883, -19), Vector2i(884, -19)])
 direction = Vector2i(0, -1)
 target_map = &"quartier_hotel_suite"
-target_cell = Vector2i(763, -18)
+target_cell = Vector2i(923, -18)
 target_facing = Vector2i(0, 1)
+any_direction = true
 
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(728, -18)
+cell = Vector2i(888, -18)
 display_name = "Réceptionniste"
 sheet = "elegante"
 lines = PackedStringArray("Bienvenue à l'hôtel !", "L'ascenseur, à gauche, monte jusqu'à la suite.")

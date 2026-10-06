@@ -16,6 +16,8 @@ const TEST_SAVE := "user://saves/test_interieurs.json"
 const MAX_LOAD_MS := 150.0
 
 var _passed := 0
+## Cartes intérieures trouvées en suivant les passages depuis la ville.
+var _interiors: Array[StringName] = []
 var _failed := 0
 
 
@@ -62,6 +64,7 @@ func _test_layouts(world: Node, entries: Array) -> void:
 		if visited.has(id):
 			continue
 		visited[id] = true
+		_interiors.append(id)
 		var start := Time.get_ticks_usec()
 		var map: Node = world.load_map(id)
 		var elapsed := (Time.get_ticks_usec() - start) / 1000.0
@@ -107,18 +110,26 @@ func _visit(world: Node, player: Node, warp: Node) -> void:
 	if inside == null or player.map_id != target:
 		return
 	_check(world.current_map == target and inside.visible, "%s : l'intérieur est affiché" % label)
-	# Étage : on monte, puis on redescend.
+	# Étages : on monte jusqu'en haut, puis on redescend.
+	var floors := 0
 	var up: Node = inside.warp(&"GoUp")
-	if up != null:
+	while up != null:
 		var upper: StringName = up.target_map
 		var upper_cell: Vector2i = up.target_cell
-		await _take(player, inside, up)
-		_check(player.map_id == upper and player.cell == upper_cell, "%s : on monte à l'étage" % label)
+		await _take(player, player.current_map(), up)
+		_check(player.map_id == upper and player.cell == upper_cell, "%s : on monte à %s" % [label, upper])
+		floors += 1
+		up = player.current_map().warp(&"GoUp") if player.map_id == upper else null
+	for i in floors:
 		var down: Node = player.current_map().warp(&"GoDown") if player.current_map() != null else null
-		_check(down != null, "%s : l'étage redescend" % label)
-		if down != null:
-			await _take(player, player.current_map(), down)
-			_check(player.map_id == target, "%s : on redescend" % label)
+		_check(down != null, "%s : l'étage redescend (%s)" % [label, player.map_id])
+		if down == null:
+			break
+		var lower: StringName = down.target_map
+		await _take(player, player.current_map(), down)
+		_check(player.map_id == lower, "%s : on redescend à %s" % [label, lower])
+	if label.begins_with("EnterAccumulaImmeuble") or label == "EnterQuartierImmeuble":
+		_check(floors == 2, "%s : trois niveaux (%d étages)" % [label, floors])
 	inside = player.current_map()
 	var leave: Node = inside.warp(&"Leave") if inside != null else null
 	_check(leave != null, "%s : l'intérieur a une sortie" % label)
@@ -145,27 +156,18 @@ func _take(player: Node, map: Node, warp: Node) -> void:
 
 ## Les intérieurs ne se chevauchent pas, et restent loin de la ville et du Centre Pokémon.
 func _test_regions(world: Node) -> void:
-	var regions := {}
-	for warp in world.load_map(&"accumula").get_node("Warps").get_children():
-		regions[warp.target_map] = true
 	var rects := []
-	for id in regions:
-		if id == &"accumula_pokemon_center":
-			continue
-		for map_id in [id, StringName(String(id) + "_etage"), StringName(String(id) + "_suite")]:
-			if not ResourceLoader.exists("res://maps/%s/%s.tscn" % [map_id, map_id]):
-				continue
-			var map: Node = world.load_map(map_id)
-			var grid = map.get_node("Interior").grid()
-			rects.append([map_id, grid.rect()])
-			if map_id != world.current_map:
-				world.unload_map(map_id)
+	for map_id in _interiors:
+		var map: Node = world.load_map(map_id)
+		rects.append([map_id, map.get_node("Interior").grid().rect()])
+		if map_id != world.current_map:
+			world.unload_map(map_id)
 	var apart := true
 	for i in rects.size():
 		apart = apart and rects[i][1].position.x > 260
 		for j in range(i + 1, rects.size()):
 			apart = apart and not rects[i][1].intersects(rects[j][1])
-	_check(apart and rects.size() == 20, "vingt intérieurs, chacun à sa place dans le monde (%d)" % rects.size())
+	_check(apart and rects.size() == 25, "vingt-cinq intérieurs, chacun à sa place dans le monde (%d)" % rects.size())
 
 
 func _reachable(map: Node, start: Vector2i) -> Dictionary:

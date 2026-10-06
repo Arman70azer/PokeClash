@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" path="res://world/game_map.gd" id="map"]
 [ext_resource type="Script" path="res://world/map_zone.gd" id="zone"]
-[ext_resource type="ArrayMesh" path="res://assets/maps/aspertia_building_7/aspertia_building_7.obj" id="mesh"]
-[ext_resource type="Resource" path="res://assets/maps/aspertia_building_7/aspertia_building_7_grid.tres" id="grid"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/aspertia_building_7_mid/aspertia_building_7_mid.obj" id="mesh"]
+[ext_resource type="Resource" path="res://assets/maps/aspertia_building_7_mid/aspertia_building_7_mid_grid.tres" id="grid"]
 [ext_resource type="Script" path="res://world/warp.gd" id="warp"]
+[ext_resource type="Script" path="res://characters/npc.gd" id="npc"]
 
 [node name="AccumulaImmeubleOuestEtage" type="Node3D"]
 script = ExtResource("map")
 map_id = &"accumula_immeuble_ouest_etage"
-display_name = "Immeuble d'Accumula, à l'étage"
+display_name = "Immeuble d'Accumula, 1er étage"
 
 [node name="Interior" type="MeshInstance3D" parent="."]
 mesh = ExtResource("mesh")
@@ -23,6 +24,15 @@ shadow_opacity = 0.3
 
 [node name="Warps" type="Node" parent="."]
 
+[node name="GoUp" type="Node" parent="Warps"]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(404, -13), Vector2i(405, -13), Vector2i(406, -13)])
+direction = Vector2i(0, -1)
+target_map = &"accumula_immeuble_ouest_etage2"
+target_cell = Vector2i(452, -18)
+target_facing = Vector2i(1, 0)
+any_direction = true
+
 [node name="GoDown" type="Node" parent="Warps"]
 script = ExtResource("warp")
 trigger_cells = Array[Vector2i]([Vector2i(411, -18)])
@@ -30,5 +40,14 @@ direction = Vector2i(-1, 0)
 target_map = &"accumula_immeuble_ouest"
 target_cell = Vector2i(369, -19)
 target_facing = Vector2i(0, 1)
+any_direction = true
 
 [node name="Objects" type="Node3D" parent="."]
+
+[node name="Habitant" type="Node3D" parent="Objects"]
+script = ExtResource("npc")
+cell = Vector2i(410, -10)
+display_name = "Écolier"
+sheet = "ecolier"
+lines = PackedStringArray("Trois étages à monter tous les jours… c'est mon entraînement !")
+wander_radius = 1

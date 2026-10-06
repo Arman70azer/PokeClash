@@ -99,6 +99,7 @@ MODELS = {
     "icicle_big": ("res://assets/mapobjects/big_icicle_1/big_icicle_1.obj", (5, 5)),
     "icicle": ("res://assets/mapobjects/big_icicle_2/big_icicle_2.obj", (3, 3)),
     "icicle_small": ("res://assets/mapobjects/big_icicle_3/big_icicle_3.obj", (3, 3)),
+    "celestial_tomb": ("res://assets/maps/celestial_tower_area_1/celestial_tomb.obj", (4, 2)),
 }
 
 
@@ -108,6 +109,8 @@ MODELS = {
 # Road (Noir 2 / Blanc 2), sous la neige des Sinjoh Ruins (HeartGold / SoulSilver).
 DESERT = "res://assets/maps/desert_resort/"
 DESERT_TEX = DESERT + "Desert Resort Area 2_texture_%s.png"
+CELESTIAL = "res://assets/maps/celestial_tower_area_1/"
+CELESTIAL_TEX = CELESTIAL + "Celestial Tower Area 1_texture_%s.png"
 VICTORY = "res://assets/maps/victory_road/"
 VICTORY_TEX = VICTORY + "Victory Road_texture_%s.png"
 HUMILAU = "res://assets/maps/humilau_city/"
@@ -121,6 +124,11 @@ CLIFFS = {
     "mountain_low": (16, VICTORY_TEX % "0016", [(VICTORY_TEX % "0007", 16)], False),
     # Sommets : grande paroi de roche brune, coiffée de neige.
     "mountain_high": (48, "res://assets/maps/sinjoh_ruins/grass01gs.png", [(VICTORY_TEX % "0017", 48)], False),
+    # Murets de pierre grise au bord des allées (dessus noir, comme les murs des donjons vus
+    # d'en haut : le plan se lit d'un coup d'œil).
+    "celestial_low": (16, CELESTIAL_TEX % "0004", [(CELESTIAL_TEX % "0006", 16)], False),
+    # Grands murs à arcades de la Tour Céleste (chaque arcade montrée en entier).
+    "celestial_high": (64, CELESTIAL_TEX % "0004", [(CELESTIAL_TEX % "0009", 64)], True),
 }
 
 
@@ -212,12 +220,16 @@ BIOMES = [
     {
         "id": "cimetiere", "name": "Cimetière", "type": GHOST,
         "description": "Un vieux cimetière en ruine, hanté par les Pokémon Spectre.",
-        "ground": (1, 217), "variants": [(7, 277)], "path": (4, 277), "encounter": (2, 664),
+        # Tour Céleste (planche cemetery_ground.png, voir build_expedition_kits.py) : pavés
+        # blancs, allées de pavés gris, dalles ornées des rencontres ; murets et grands murs à
+        # arcades ; tombes doubles de la tour, troncs morts et souches.
+        "sheet": CELESTIAL + "cemetery_ground.png", "ground": (0, 0), "pattern": (4, 2), "variants": [],
+        "path": (4, 0), "path_pattern": (4, 1), "encounter": (8, 0), "encounter_pattern": (2, 2),
+        "cliffs": ["celestial_low", "celestial_high"],
         "decor": [], "decor_density": 0.0,
-        "props": [prop("grave_round", 4), prop("grave_cross", 3), prop("grave_double", 2), prop("grave_broken", 2),
-                  prop("cypress2", 3), prop("cypress", 2), prop("shrub_dark_tall", 1), prop("tree_teal", 1),
-                  prop("stump_dead", 1), prop("pillar", 1), prop("pillar_broken", 1), prop("pillar_broken2", 1),
-                  prop("monument", 1), prop("menhir", 1), prop("statue", 1, walls=False)],
+        "props": [prop("celestial_tomb", 8, walls=False), prop("leaning_log", 1, walls=False),
+                  prop("hollow_stump", 1, walls=False)],
+        "scatter_density": 0.02,
         "trainers": [("Médium", "grand_mere", (6, 7)), ("Sage", "grand_pere", (6, 3)),
                      ("Mystimaniac", "collectionneur", (4, 4))],
     },

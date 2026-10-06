@@ -16,7 +16,7 @@ display_name = "Maison voisine"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(900, 0)
+cell_offset = Vector2i(1060, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,7 +26,7 @@ shadow_opacity = 0.3
 
 [node name="Leave" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(886, -8), Vector2i(887, -8), Vector2i(888, -8)])
+trigger_cells = Array[Vector2i]([Vector2i(1046, -8), Vector2i(1047, -8), Vector2i(1048, -8)])
 direction = Vector2i(0, 1)
 target_map = &"accumula"
 target_cell = Vector2i(12, 38)
@@ -37,7 +37,7 @@ target_door = &"MaisonVoisineDoor"
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(888, -12)
+cell = Vector2i(1048, -12)
 display_name = "Gamin"
 sheet = "gamin"
 lines = PackedStringArray("Ma maison est toute en bois, comme dans les montagnes !")

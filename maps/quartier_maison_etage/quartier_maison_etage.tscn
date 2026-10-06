@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/game_map.gd" id="map"]
+[ext_resource type="Script" path="res://world/map_zone.gd" id="zone"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/striaton_building_2/striaton_building_2.obj" id="mesh"]
+[ext_resource type="Resource" path="res://assets/maps/striaton_building_2/striaton_building_2_grid.tres" id="grid"]
+[ext_resource type="Script" path="res://world/warp.gd" id="warp"]
+[ext_resource type="Script" path="res://characters/npc.gd" id="npc"]
+
+[node name="QuartierMaisonEtage" type="Node3D"]
+script = ExtResource("map")
+map_id = &"quartier_maison_etage"
+display_name = "Maison du quartier, à l'étage"
+
+[node name="Interior" type="MeshInstance3D" parent="."]
+mesh = ExtResource("mesh")
+script = ExtResource("zone")
+walk_grid = ExtResource("grid")
+cell_offset = Vector2i(1020, 0)
+saturation = 1.15
+contrast = 1.05
+vertex_shading = 0.35
+shadow_opacity = 0.3
+
+[node name="Warps" type="Node" parent="."]
+
+[node name="GoDown" type="Node" parent="Warps"]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(1012, -18)])
+direction = Vector2i(-1, 0)
+target_map = &"quartier_maison"
+target_cell = Vector2i(963, -18)
+target_facing = Vector2i(1, 0)
+any_direction = true
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Habitant" type="Node3D" parent="Objects"]
+script = ExtResource("npc")
+cell = Vector2i(1014, -12)
+display_name = "Écolière"
+sheet = "ecoliere_blonde"
+lines = PackedStringArray("Ma chambre est la plus grande de la maison !")
+wander_radius = 1

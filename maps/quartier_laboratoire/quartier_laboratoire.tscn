@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://world/game_map.gd" id="map"]
 [ext_resource type="Script" path="res://world/map_zone.gd" id="zone"]
-[ext_resource type="ArrayMesh" path="res://assets/maps/black_city_house_1/black_city_house_1.obj" id="mesh"]
-[ext_resource type="Resource" path="res://assets/maps/black_city_house_1/black_city_house_1_grid.tres" id="grid"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/season_research_lab/season_research_lab.obj" id="mesh"]
+[ext_resource type="Resource" path="res://assets/maps/season_research_lab/season_research_lab_grid.tres" id="grid"]
 [ext_resource type="Script" path="res://world/warp.gd" id="warp"]
 [ext_resource type="Script" path="res://characters/npc.gd" id="npc"]
 
@@ -16,7 +16,7 @@ display_name = "Laboratoire Pokémon"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(700, 0)
+cell_offset = Vector2i(860, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,7 +26,7 @@ shadow_opacity = 0.3
 
 [node name="Leave" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(686, -8), Vector2i(687, -8), Vector2i(688, -8)])
+trigger_cells = Array[Vector2i]([Vector2i(846, -8), Vector2i(847, -8), Vector2i(848, -8)])
 direction = Vector2i(0, 1)
 target_map = &"accumula"
 target_cell = Vector2i(-2, 22)
@@ -37,7 +37,7 @@ target_door = &"LaboratoireDoor"
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(691, -12)
+cell = Vector2i(849, -13)
 display_name = "Assistant"
 sheet = "gentleman"
 lines = PackedStringArray("Bienvenue au laboratoire !", "Nous étudions les Pokémon que les dresseurs rapportent des expéditions.")

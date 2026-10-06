@@ -16,7 +16,7 @@ display_name = "Phare, salle du gardien"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(1060, 0)
+cell_offset = Vector2i(1260, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,7 +26,7 @@ shadow_opacity = 0.3
 
 [node name="Leave" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(1043, -19), Vector2i(1044, -19)])
+trigger_cells = Array[Vector2i]([Vector2i(1243, -19), Vector2i(1244, -19)])
 direction = Vector2i(0, -1)
 target_map = &"accumula"
 target_cell = Vector2i(46, -6)
@@ -37,7 +37,7 @@ target_door = &"PhareDoor"
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(1050, -11)
+cell = Vector2i(1250, -11)
 display_name = "Gardien du phare"
 sheet = "marin"
 lines = PackedStringArray("L'ascenseur monte jusqu'à ma salle, sous la lanterne.", "D'ici, je guide tous les bateaux du port.")

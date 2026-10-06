@@ -16,7 +16,7 @@ display_name = "Entrepôt frigorifique"
 mesh = ExtResource("mesh")
 script = ExtResource("zone")
 walk_grid = ExtResource("grid")
-cell_offset = Vector2i(1020, 0)
+cell_offset = Vector2i(1220, 0)
 saturation = 1.15
 contrast = 1.05
 vertex_shading = 0.35
@@ -26,7 +26,7 @@ shadow_opacity = 0.3
 
 [node name="Leave" type="Node" parent="Warps"]
 script = ExtResource("warp")
-trigger_cells = Array[Vector2i]([Vector2i(1006, -7), Vector2i(1007, -7), Vector2i(1008, -7)])
+trigger_cells = Array[Vector2i]([Vector2i(1206, -7), Vector2i(1207, -7), Vector2i(1208, -7)])
 direction = Vector2i(0, 1)
 target_map = &"accumula"
 target_cell = Vector2i(24, 0)
@@ -37,7 +37,7 @@ target_door = &"FrigoDoor"
 
 [node name="Habitant" type="Node3D" parent="Objects"]
 script = ExtResource("npc")
-cell = Vector2i(1010, -10)
+cell = Vector2i(1210, -10)
 display_name = "Marin"
 sheet = "marin"
 lines = PackedStringArray("Brr ! Le froid, en bas, c'est pour le poisson.", "Nous, on loge en haut, au chaud.")

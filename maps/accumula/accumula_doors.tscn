@@ -64,7 +64,7 @@ inset = 13.6
 leaf_texture = ExtResource("tex1")
 leaf_repeat = Vector2(1, 2)
 
-[node name="VillaDoor" type="Node3D" parent="."]
+[node name="MaisonEstDoor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 296, 4, 604)
 script = ExtResource("panel")
 size = Vector2(18, 30)
