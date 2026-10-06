@@ -220,16 +220,16 @@ BIOMES = [
     {
         "id": "cimetiere", "name": "Cimetière", "type": GHOST,
         "description": "Un vieux cimetière en ruine, hanté par les Pokémon Spectre.",
-        # Tour Céleste (planche cemetery_ground.png, voir build_expedition_kits.py) : pavés
-        # blancs, allées de pavés gris, dalles ornées des rencontres ; murets et grands murs à
-        # arcades ; tombes doubles de la tour, troncs morts et souches.
+        # Tour Céleste (planche cemetery_ground.png, voir build_expedition_kits.py) : salles
+        # pavées de blanc reliées par des couloirs droits pavés de gris ; dans chaque salle,
+        # les tombes doubles de la tour en rangées de part et d'autre d'une allée, et les
+        # dalles ornées des rencontres entre elles ; murets et grands murs à arcades.
         "sheet": CELESTIAL + "cemetery_ground.png", "ground": (0, 0), "pattern": (4, 2), "variants": [],
-        "path": (4, 0), "path_pattern": (4, 1), "encounter": (8, 0), "encounter_pattern": (2, 2),
+        "path": None, "corridor": (4, 0), "corridor_pattern": (4, 1),
+        "encounter": (8, 0), "encounter_pattern": (2, 2), "halls": True, "prop_rows": True,
         "cliffs": ["celestial_low", "celestial_high"],
         "decor": [], "decor_density": 0.0,
-        "props": [prop("celestial_tomb", 8, walls=False), prop("leaning_log", 1, walls=False),
-                  prop("hollow_stump", 1, walls=False)],
-        "scatter_density": 0.02,
+        "props": [prop("celestial_tomb", 1, walls=False)],
         "trainers": [("Médium", "grand_mere", (6, 7)), ("Sage", "grand_pere", (6, 3)),
                      ("Mystimaniac", "collectionneur", (4, 4))],
     },
@@ -303,6 +303,8 @@ def write(biome):
               "corridor = %s" % v(biome.get("corridor")),
               "corridor_pattern = %s" % v(biome.get("corridor_pattern", (1, 1))),
               "islands = %s" % ("true" if biome.get("islands") else "false"),
+              "halls = %s" % ("true" if biome.get("halls") else "false"),
+              "prop_rows = %s" % ("true" if biome.get("prop_rows") else "false"),
               "encounter_pattern = %s" % v(biome.get("encounter_pattern", (1, 1))),
               "liquid_pattern = %s" % v(biome.get("liquid_pattern", (1, 1))),
               "shallow = %s" % v(biome.get("shallow")),

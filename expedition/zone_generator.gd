@@ -23,6 +23,13 @@ const GRID := Vector2i((SIZE.x - 2 * MARGIN) / CELL, (SIZE.y - 2 * MARGIN) / CEL
 const CLEARINGS := Vector2i(3, 4)
 const CLEARING_RADIUS := Vector2i(2, 3)
 const WAYPOINTS := Vector2i(6, 9)
+## Plan à salles (crypte) : plus de salles, bien espacées, et moins de points de passage :
+## des salles reliées par quelques couloirs, pas un dédale de couloirs.
+const HALLS := Vector2i(4, 5)
+const HALL_SPACING := 7.0
+const HALL_WAYPOINTS := Vector2i(1, 3)
+## Les rangées de tombes prennent de la place : un peu plus d'intérieur ouvert.
+const HALL_MIN_OPEN := 140
 const NOOKS := Vector2i(2, 4)
 ## Taille minimale de l'intérieur ouvert, en cases du labyrinthe.
 const MIN_OPEN := 120
@@ -46,6 +53,8 @@ var _prop_cells := {}
 var _exit_lane := {}
 ## Clairières, en cases du labyrinthe.
 var _rooms := {}
+## Salles rectangulaires (biome à salles), en cases du labyrinthe.
+var _halls: Array[Rect2i] = []
 
 
 func generate(biome: ExpeditionBiome, seed: int, origin := Vector2i.ZERO) -> ZoneLayout:
@@ -54,6 +63,7 @@ func generate(biome: ExpeditionBiome, seed: int, origin := Vector2i.ZERO) -> Zon
 	_prop_cells = {}
 	_exit_lane = {}
 	_rooms = {}
+	_halls = []
 	var layout := ZoneLayout.new()
 	layout.origin = origin
 	layout.size = SIZE
@@ -74,8 +84,11 @@ func generate(biome: ExpeditionBiome, seed: int, origin := Vector2i.ZERO) -> Zon
 	layout.liquid = liquid
 	_trainers(layout)
 	var paths := _paths(biome, layout)
+	if biome.prop_rows:
+		_rows(biome, layout)
 	_encounters(biome, layout, paths)
-	_scatter(biome, layout, paths)
+	if not biome.prop_rows:
+		_scatter(biome, layout, paths)
 	_walls(biome, layout, liquid)
 	_ground(biome, layout, liquid, paths)
 	return layout
@@ -100,25 +113,33 @@ func _maze(biome: ExpeditionBiome, layout: ZoneLayout) -> Dictionary:
 	var open := {start: true}
 	# Clairières : la première tout au fond, les autres réparties sur la zone.
 	var nodes: Array[Vector2i] = [start]
-	var clearings := _rng.randi_range(CLEARINGS.x, CLEARINGS.y)
+	var counts := HALLS if biome.halls else CLEARINGS
+	var spacing := HALL_SPACING if biome.halls else 5.0
+	var clearings := _rng.randi_range(counts.x, counts.y)
 	for i in clearings:
-		var center := _spot(nodes, 5, 0 if i == 0 else GRID.y - 4, 0 if i > 0 else 2)
+		var center := _spot(nodes, spacing, 0 if i == 0 else GRID.y - 4, 0 if i > 0 else 2)
 		nodes.append(center)
-		_clearing(open, center)
+		if biome.halls:
+			_hall(open, center)
+		else:
+			_clearing(open, center)
 	# Points de passage : les couloirs y tournent, et les feuilles deviennent des impasses.
-	for i in _rng.randi_range(WAYPOINTS.x, WAYPOINTS.y):
+	var waypoints := HALL_WAYPOINTS if biome.halls else WAYPOINTS
+	for i in _rng.randi_range(waypoints.x, waypoints.y):
 		nodes.append(_spot(nodes, 3, GRID.y - 1, 0))
+	var winding := 0.0 if biome.halls else WINDING
 	for edge in _tree_edges(nodes):
-		_corridor(open, edge[0], edge[1])
+		_corridor(open, edge[0], edge[1], winding)
 	# Recoins : de courtes impasses qui partent des couloirs.
 	for i in _rng.randi_range(NOOKS.x, NOOKS.y):
 		_nook(open)
 	# Trop petit : on ajoute des passages jusqu'à la taille voulue.
 	var guard := 0
-	while open.size() < MIN_OPEN and guard < 20:
+	var min_open := HALL_MIN_OPEN if biome.halls else MIN_OPEN
+	while open.size() < min_open and guard < 20:
 		guard += 1
 		var extra := _spot(nodes, 2, GRID.y - 1, 0)
-		_corridor(open, extra, nodes[_rng.randi_range(0, nodes.size() - 1)])
+		_corridor(open, extra, nodes[_rng.randi_range(0, nodes.size() - 1)], winding)
 		nodes.append(extra)
 	var tiles := {}
 	for c: Vector2i in open:
@@ -168,6 +189,18 @@ func _clearing(open: Dictionary, center: Vector2i) -> void:
 				_rooms[cell] = true
 
 
+## Salle : un rectangle aux murs droits, en cases du labyrinthe (une crypte, une tour).
+func _hall(open: Dictionary, center: Vector2i) -> void:
+	var half := Vector2i(_rng.randi_range(CLEARING_RADIUS.x, CLEARING_RADIUS.y),
+		_rng.randi_range(CLEARING_RADIUS.x, CLEARING_RADIUS.y))
+	var rect := Rect2i(center - half, half * 2 + Vector2i.ONE).intersection(Rect2i(Vector2i.ZERO, GRID))
+	_halls.append(rect)
+	for y in range(rect.position.y, rect.end.y):
+		for x in range(rect.position.x, rect.end.x):
+			open[Vector2i(x, y)] = true
+			_rooms[Vector2i(x, y)] = true
+
+
 ## Arbre couvrant des points (le plus court d'abord, à peu près), plus quelques boucles
 ## entre des points voisins.
 func _tree_edges(nodes: Array[Vector2i]) -> Array:
@@ -204,7 +237,7 @@ func _tree_edges(nodes: Array[Vector2i]) -> Array:
 ## Couloir d'une case de large entre deux cases : plus court chemin à travers un champ de
 ## bruit (il serpente), qui préfère les lignes droites aux escaliers et emprunte
 ## volontiers les passages déjà ouverts.
-func _corridor(open: Dictionary, from: Vector2i, to: Vector2i) -> void:
+func _corridor(open: Dictionary, from: Vector2i, to: Vector2i, winding := WINDING) -> void:
 	# État : case et direction d'arrivée (pour compter les virages).
 	var start := Vector3i(from.x, from.y, -1)
 	var cost := {start: 0.0}
@@ -226,7 +259,7 @@ func _corridor(open: Dictionary, from: Vector2i, to: Vector2i) -> void:
 			var next := cell + DIRS[d]
 			if not _in_grid(next):
 				continue
-			var step := 0.6 if open.has(next) else 1.0 + _noise(next, 3.0, 47) * WINDING
+			var step := 0.6 if open.has(next) else 1.0 + _noise(next, 3.0, 47) * winding
 			if state.z >= 0 and state.z != d:
 				step += TURN_COST
 			var next_state := Vector3i(next.x, next.y, d)
@@ -447,7 +480,7 @@ func _encounters(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) 
 	for cell: Vector2i in layout.walkable:
 		if paths.has(cell) or (cell - layout.entry).length() <= SAFE_RADIUS or _is_trainer(layout, cell):
 			continue
-		if biome.islands and not layout.rooms.has(cell):
+		if (biome.islands or biome.halls) and not layout.rooms.has(cell):
 			continue
 		candidates.append(cell)
 	# Les plaques d'herbe suivent un bruit lissé : on garde les cases les plus « hautes ».
@@ -495,6 +528,64 @@ func _scatter(biome: ExpeditionBiome, layout: ZoneLayout, paths: Dictionary) -> 
 			_prop_cells[c] = true
 		layout.props.append({"cell": cell, "prop": prop})
 		wanted -= 1
+
+
+## Décors en rangées dans chaque salle : de part et d'autre d'une allée centrale de deux
+## cases (une seule file au milieu dans une salle étroite), une case libre entre deux
+## décors et le long des murs (les allées d'un cimetière).
+## Une place sur un dresseur, devant lui ou qui couperait un passage reste vide (le tour
+## de la salle reste libre : on circule toujours autour des rangées).
+func _rows(biome: ExpeditionBiome, layout: ZoneLayout) -> void:
+	var props := biome.props_for(false)
+	if props.is_empty():
+		return
+	var trainer_cells := _trainer_cells(layout)
+	var reserved := trainer_cells.duplicate()
+	for trainer in layout.trainers:
+		reserved[trainer["cell"] + trainer["facing"]] = true
+	for hall in _halls:
+		var x0 := MARGIN + hall.position.x * CELL
+		var x1 := MARGIN + hall.end.x * CELL - 1
+		var y0 := MARGIN + hall.position.y * CELL
+		var y1 := MARGIN + hall.end.y * CELL - 1
+		# Un seul modèle par salle : des rangées toutes pareilles.
+		var prop := _pick(props)
+		var size := prop.footprint
+		var center := (x0 + x1 + 1) / 2
+		var columns: Array[int] = []
+		var x := center + 1
+		while x + size.x - 1 <= x1 - 1:
+			columns.append(x)
+			x += size.x + 1
+		x = center - 1 - size.x
+		while x >= x0 + 1:
+			columns.append(x)
+			x -= size.x + 1
+		# Salle étroite : une seule file de décors au milieu, une allée de chaque côté.
+		if columns.size() < 2:
+			columns = [center - size.x / 2]
+		var y := y0 + 1
+		while y + size.y - 1 <= y1 - 1:
+			for column in columns:
+				_place_in_row(layout, prop, Vector2i(column, y), reserved, trainer_cells)
+			y += size.y + 1
+
+
+func _place_in_row(layout: ZoneLayout, prop: ExpeditionProp, cell: Vector2i, reserved: Dictionary,
+		trainer_cells: Dictionary) -> void:
+	var area := _footprint(cell, prop)
+	var taken := {}
+	for c in area:
+		if not layout.walkable.has(c) or reserved.has(c) or (c - layout.entry).length() <= SAFE_RADIUS:
+			return
+		taken[c] = true
+	if not _keeps_connected(layout, taken, trainer_cells):
+		return
+	for c in area:
+		layout.walkable.erase(c)
+		layout.scattered[c] = true
+		_prop_cells[c] = true
+	layout.props.append({"cell": cell, "prop": prop})
 
 
 ## Remplit les cases fermées (hors liquide) de décors : les plus gros d'abord.
