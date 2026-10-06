@@ -13,6 +13,10 @@ extends MeshInstance3D
 
 ## Hauteur du sol et passages possibles, case par case.
 @export var walk_grid: MapGrid
+## Place de la zone dans le monde, en cases : un même modèle d'intérieur sert à plusieurs
+## cartes (immeubles identiques), chacune à son endroit, car les cartes chargées ensemble
+## chez l'hôte ne doivent pas se superposer. Le modèle et sa grille sont décalés d'autant.
+@export var cell_offset := Vector2i.ZERO
 
 @export_group("Couleurs")
 ## Retouche des couleurs du modèle, pour l'accorder au reste de la carte (1 = inchangé).
@@ -36,9 +40,11 @@ extends MeshInstance3D
 @export var fade_depth := 40.0
 
 var _fade := 0.0
+var _grid: MapGrid
 
 
 func _ready() -> void:
+	position = Vector3(cell_offset.x, 0, cell_offset.y) * GameConfig.TILE
 	MapMaterials.apply(self)
 	add_to_group("fade_receivers")
 	for i in get_surface_override_material_count():
@@ -55,7 +61,9 @@ func _ready() -> void:
 
 ## Grille de déplacement de la zone.
 func grid() -> MapGrid:
-	return walk_grid
+	if _grid == null and walk_grid != null:
+		_grid = walk_grid if cell_offset == Vector2i.ZERO else walk_grid.shifted(cell_offset)
+	return _grid
 
 
 ## Met à jour le fondu d'après la position du joueur local (has_player faux : aucun joueur).

@@ -1,0 +1,284 @@
+newmtl cafe_cup
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0001.png
+
+newmtl cafe_mat01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0002.png
+
+newmtl lambert1
+Kd 1 1 1
+d 1
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl cafe_art01a
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0004.png
+
+newmtl cafe_art02a
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0005.png
+
+newmtl cafe_cnt02
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0006.png
+
+newmtl cafe_glow
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0007.png
+
+newmtl cafe_tile03
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0008.png
+
+newmtl cafe_win01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0009.png
+
+newmtl cafe_step01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_00010.png
+
+newmtl cafe_sink01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0011.png
+
+newmtl cafe_kabe02
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0012.png
+
+newmtl cafe_cnt01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0013.png
+
+newmtl cafe_tile02
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0014.png
+
+newmtl cafe_tes01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0015.png
+
+newmtl cafe_kabe01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0016.png
+
+newmtl cafe_tile01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0017.png
+
+newmtl cafe_lig01
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0018.png
+
+newmtl _lambert3
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl fh_bshelf_1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0020.png
+
+newmtl _lambert3_1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl fh_bshelf_1_1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0020.png
+
+newmtl in40_kage
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl lambert2
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0024.png
+
+newmtl lambert3
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl lambert2_1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0026.png
+
+newmtl lambert3_1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl lambert2_2
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0026.png
+
+newmtl _lambert5
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0029.png
+
+newmtl in40_kage1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl lambert2_3
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pc_s06_2
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0032.png
+
+newmtl in40_kage_1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl cashier01_lm1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0034.png
+
+newmtl desk02a_lm1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0035.png
+
+newmtl desk02a_lm1_1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0035.png
+
+newmtl in40_kage_2
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl in40_kage_3
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu_1
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl in40_kage_4
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu_2
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl in40_kage_5
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu_3
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl in40_kage_6
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu_4
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl in40_kage_7
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu_5
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl in40_kage_8
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu_6
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl in40_kage_9
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu_7
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl in40_kage_10
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0003.png
+
+newmtl pasted__in40_isu_8
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0038.png
+
+newmtl c2_cf_mado
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0055.png
+
+newmtl c2_cf_hikari
+Kd 1 1 1
+d 1
+map_Kd Café Warehouse_texture_0056.png
+

@@ -1,0 +1,175 @@
+newmtl in48_glow
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0001.png
+
+newmtl in48_wat01
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0002.png
+
+newmtl in48_hkabe6
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0003.png
+
+newmtl in48_hmat4
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0004.png
+
+newmtl in48_hobj4
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0005.png
+
+newmtl in48_hart2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0006.png
+
+newmtl in48_hobj5
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0007.png
+
+newmtl in48_bed03
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0008.png
+
+newmtl in48_hmat3
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0009.png
+
+newmtl h_mado
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_00010.png
+
+newmtl in48_hart1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0011.png
+
+newmtl in48_glow2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0012.png
+
+newmtl in48_hyuka6
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0013.png
+
+newmtl in48_hkabe1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0014.png
+
+newmtl in48_hlight1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0015.png
+
+newmtl in48_hyuka5
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0016.png
+
+newmtl in48_hkabe7
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0017.png
+
+newmtl in48_hyuka4
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0018.png
+
+newmtl in48_hkabe8
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0019.png
+
+newmtl in48_bed02
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0020.png
+
+newmtl kabin
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0021.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0022.png
+
+newmtl in48_hsofa2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0023.png
+
+newmtl black
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0024.png
+
+newmtl in48_bed04
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0025.png
+
+newmtl in48_hobj1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0026.png
+
+newmtl in48_hcount1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0027.png
+
+newmtl in48_hyuka3
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0028.png
+
+newmtl in48_hkabe4
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0029.png
+
+newmtl in48_hobj3
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0030.png
+
+newmtl lambert3
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0031.png
+
+newmtl lambert2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0032.png
+
+newmtl ele03_1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0033.png
+
+newmtl ele02_1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0034.png
+
+newmtl ele01_1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 3_texture_0035.png
+

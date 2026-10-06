@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" path="res://maps/accumula/quartier_bourgeois.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://maps/accumula/port.tscn" id="9"]
 [ext_resource type="Resource" path="res://data/trainers/lyra.tres" id="10"]
-[ext_resource type="Script" path="res://world/door.gd" id="15"]
-[ext_resource type="Script" path="res://world/warp.gd" id="16"]
+[ext_resource type="PackedScene" path="res://maps/accumula/accumula_doors.tscn" id="15"]
+[ext_resource type="PackedScene" path="res://maps/accumula/accumula_warps.tscn" id="16"]
 [ext_resource type="Script" path="res://expedition/gate_zone.gd" id="17"]
 [ext_resource type="Script" path="res://expedition/expedition_guard.gd" id="18"]
 
@@ -33,23 +33,9 @@ script = ExtResource("17")
 
 [node name="Port" parent="." instance=ExtResource("9")]
 
-[node name="Doors" type="Node3D" parent="."]
+[node name="Doors" parent="." instance=ExtResource("15")]
 
-[node name="PokemonCenterDoor" type="Node3D" parent="Doors"]
-script = ExtResource("15")
-zone_path = NodePath("../../Zone")
-surface_name = "door_pc_1"
-
-[node name="Warps" type="Node" parent="."]
-
-[node name="EnterPokemonCenter" type="Node" parent="Warps"]
-script = ExtResource("16")
-trigger_cells = Array[Vector2i]([Vector2i(12, 1)])
-direction = Vector2i(0, -1)
-target_map = &"accumula_pokemon_center"
-target_cell = Vector2i(239, 3)
-target_facing = Vector2i(0, -1)
-source_door = NodePath("../../Doors/PokemonCenterDoor")
+[node name="Warps" parent="." instance=ExtResource("16")]
 
 [node name="Objects" type="Node3D" parent="."]
 

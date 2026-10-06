@@ -1,0 +1,150 @@
+newmtl fh_wflower_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0001.png
+
+newmtl fh_wcushion_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0002.png
+
+newmtl h_mado_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0003.png
+
+newmtl fh_wcurtain_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0004.png
+
+newmtl fh_wshiki2_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0005.png
+
+newmtl fh_wshiki3_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0006.png
+
+newmtl idr_win01_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0007.png
+
+newmtl fhkabe2_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0008.png
+
+newmtl hkabeue_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0009.png
+
+newmtl fhkabe_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_00010.png
+
+newmtl h_kage_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0011.png
+
+newmtl fhyuka_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0012.png
+
+newmtl fh_wtable_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0013.png
+
+newmtl fh_wbed01_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0014.png
+
+newmtl a_lambert2
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0015.png
+
+newmtl a_a_lambert2
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0015.png
+
+newmtl in40_kage
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0016.png
+
+newmtl lambert2
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0017.png
+
+newmtl lambert2_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0018.png
+
+newmtl in40_kage_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0016.png
+
+newmtl lambert2_2
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0018.png
+
+newmtl in40_kage_2
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0016.png
+
+newmtl _lambert3
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0016.png
+
+newmtl fh_bshelf_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0023.png
+
+newmtl lambert3
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0016.png
+
+newmtl lambert2_3
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0025.png
+
+newmtl lambert3_1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0016.png
+
+newmtl lambert2_4
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0025.png
+
+newmtl _lambert5
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0028.png
+
+newmtl in40_kage1
+Kd 1 1 1
+d 1
+map_Kd Nuvema Town House 2 2F_texture_0016.png
+

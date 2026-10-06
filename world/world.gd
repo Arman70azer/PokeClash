@@ -29,6 +29,8 @@ var _slots := {}  # peer_id -> numéro de joueur (0 à 3), côté serveur
 ## le seraient aussi et seraient relues sur le disque au retour (plusieurs secondes pour
 ## le TileSet du quartier bourgeois).
 var _scenes := {}  # identifiant de carte -> PackedScene
+## Cartes voisines en cours de chargement en arrière-plan (voir _preload_neighbours).
+var _pending := {}  # identifiant de carte -> chemin de sa scène
 var _camera: CameraRig
 ## Carte affichée sur cet ordinateur (celle de son joueur).
 var current_map: StringName
@@ -80,15 +82,43 @@ func load_map(map_id: StringName) -> GameMap:
 	if loaded != null:
 		return loaded
 	if not _scenes.has(map_id):
-		var path := MAPS_DIR + map_id + "/" + map_id + ".tscn"
-		if not ResourceLoader.exists(path):
+		var path := _scene_path(map_id)
+		var preloaded: PackedScene = null
+		if _pending.has(map_id):
+			# Déjà lue en arrière-plan (ou presque : on attend la fin de la lecture).
+			preloaded = ResourceLoader.load_threaded_get(_pending[map_id]) as PackedScene
+			_pending.erase(map_id)
+		if preloaded != null:
+			_scenes[map_id] = preloaded
+		elif not ResourceLoader.exists(path):
 			push_error("World : carte introuvable %s" % path)
 			return null
-		_scenes[map_id] = load(path)
+		else:
+			_scenes[map_id] = load(path)
 	loaded = (_scenes[map_id] as PackedScene).instantiate() as GameMap
 	loaded.name = map_id
 	maps.add_child(loaded)
 	return loaded
+
+
+func _scene_path(map_id: StringName) -> String:
+	return MAPS_DIR + map_id + "/" + map_id + ".tscn"
+
+
+## Lit en arrière-plan les scènes des cartes où mènent les passages de cette carte (les
+## intérieurs de la ville) : franchir une porte n'a plus qu'à instancier la carte, sans
+## lire son modèle et ses textures sur le disque au moment du passage.
+func _preload_neighbours(shown: GameMap) -> void:
+	var warps := shown.get_node_or_null("Warps") if shown != null else null
+	if warps == null:
+		return
+	for warp in warps.get_children():
+		var id: StringName = warp.target_map if warp is Warp else &""
+		if id.is_empty() or _scenes.has(id) or _pending.has(id):
+			continue
+		var path := _scene_path(id)
+		if ResourceLoader.exists(path) and ResourceLoader.load_threaded_request(path) == OK:
+			_pending[id] = path
 
 
 ## Retire une carte chargée (une zone d'expédition qu'on va retirer au hasard).
@@ -102,7 +132,7 @@ func unload_map(map_id: StringName) -> void:
 ## Affiche une carte sur cet ordinateur (celle où se trouve son joueur). Chez un client,
 ## les autres cartes sont déchargées ; l'hôte les garde, cachées, tant qu'il y a quelqu'un.
 func show_map(map_id: StringName) -> void:
-	load_map(map_id)
+	_preload_neighbours(load_map(map_id))
 	current_map = map_id
 	for child in maps.get_children():
 		if child.name == map_id:

@@ -1,0 +1,150 @@
+newmtl in70_sea1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0001.png
+
+newmtl h_mado
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0002.png
+
+newmtl in70_glow2
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0003.png
+
+newmtl in70_kabe2
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0004.png
+
+newmtl in70_mat1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0005.png
+
+newmtl in70_bed03
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0006.png
+
+newmtl in70_gls1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0007.png
+
+newmtl in70_yuka2
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0008.png
+
+newmtl in70_obj2
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0009.png
+
+newmtl gray
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_00010.png
+
+newmtl in70_hlight2
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0011.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0012.png
+
+newmtl in70_bed02
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0013.png
+
+newmtl in70_obj3
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0014.png
+
+newmtl black
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0015.png
+
+newmtl in70_yuka1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0016.png
+
+newmtl in70_bed04
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0017.png
+
+newmtl in70_hsofa2
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0018.png
+
+newmtl in70_kabe1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0019.png
+
+newmtl in70_obj1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0020.png
+
+newmtl in70_hobj3
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0021.png
+
+newmtl tv
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0022.png
+
+newmtl in02_kage_1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0023.png
+
+newmtl idr_tv01_lm1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0022.png
+
+newmtl lambert3
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0023.png
+
+newmtl lambert2
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0025.png
+
+newmtl lambert3_1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0023.png
+
+newmtl lambert2_1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0025.png
+
+newmtl _lambert5
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0028.png
+
+newmtl in40_kage1
+Kd 1 1 1
+d 1
+map_Kd Humilau City House 7_texture_0023.png
+

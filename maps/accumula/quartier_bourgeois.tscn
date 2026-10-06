@@ -103,16 +103,16 @@ script = ExtResource("3_vfyw4")
 footprint = Rect2i(-7, 34, 5, 4)
 
 [node name="NewBarkTownHouse" type="MeshInstance3D" parent="Buildings" unique_id=317141317]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 581)
 mesh = ExtResource("9_c03dw")
 script = ExtResource("3_vfyw4")
-footprint = Rect2i(-1, 35, 5, 3)
+footprint = Rect2i(-1, 35, 4, 3)
 
 [node name="FriendsHouse" type="MeshInstance3D" parent="Buildings" unique_id=442734063]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 216, 0, 581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208, 0, 581)
 mesh = ExtResource("10_ymfiu")
 script = ExtResource("3_vfyw4")
-footprint = Rect2i(11, 35, 5, 3)
+footprint = Rect2i(11, 35, 4, 3)
 
 [node name="DriftvielCityHouse2" type="MeshInstance3D" parent="Buildings" unique_id=84879161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 304, 0, 576)
