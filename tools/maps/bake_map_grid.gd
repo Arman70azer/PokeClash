@@ -93,6 +93,7 @@ func _bake() -> void:
 			grid.opened = previous.opened
 			grid.walkable = previous.walkable
 			grid.offsets = previous.offsets
+			grid.bounds = previous.bounds
 	grid.origin = origin
 	grid.size = size
 	grid.heights.resize(size.x * size.y)

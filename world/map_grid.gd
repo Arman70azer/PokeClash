@@ -30,6 +30,9 @@ const SOUTH := 4      ## on peut passer de cette case à sa voisine du bas (y + 
 ## automatique (petit décor franchissable pris pour un obstacle). Chaque élément est
 ## (x1, y1, x2, y2) : les deux cases, dans n'importe quel ordre.
 @export var opened: Array[Vector4i] = []
+## Cases utilisables (vide : toute la grille). Écarte le plancher qui entoure certains
+## intérieurs (l'hôtel de Driftveil est posé sur une grande dalle).
+@export var bounds := Rect2i()
 
 
 func rect() -> Rect2i:
@@ -54,7 +57,7 @@ func height(cell: Vector2i) -> float:
 
 func is_standable(cell: Vector2i) -> bool:
 	var i := _index(cell)
-	if i == -1 or cell in blocked:
+	if i == -1 or cell in blocked or (bounds.has_area() and not bounds.has_point(cell)):
 		return false
 	return flags[i] & STANDABLE != 0 or cell in walkable
 
@@ -75,3 +78,19 @@ func can_move(from: Vector2i, to: Vector2i) -> bool:
 	if step == Vector2i.UP:
 		return flags[_index(to)] & SOUTH != 0
 	return false
+
+
+## Copie de la grille décalée de `shift` cases : un même intérieur sert à plusieurs cartes,
+## chacune à sa place dans le monde (voir MapZone.cell_offset).
+func shifted(shift: Vector2i) -> MapGrid:
+	var copy := duplicate() as MapGrid
+	copy.origin = origin + shift
+	if bounds.has_area():
+		copy.bounds = Rect2i(bounds.position + shift, bounds.size)
+	copy.blocked.assign(blocked.map(func(c: Vector2i) -> Vector2i: return c + shift))
+	copy.walkable.assign(walkable.map(func(c: Vector2i) -> Vector2i: return c + shift))
+	copy.opened.assign(opened.map(func(o: Vector4i) -> Vector4i: return o + Vector4i(shift.x, shift.y, shift.x, shift.y)))
+	copy.offsets = {}
+	for cell: Vector2i in offsets:
+		copy.offsets[cell + shift] = offsets[cell]
+	return copy

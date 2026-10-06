@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://daudhh7017g37"
+path="res://.godot/imported/driftveil_hotel_room_3.obj-05c64c12e8789ac1db46b4c1df2a2e7f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/driftveil_hotel_room_3.obj-05c64c12e8789ac1db46b4c1df2a2e7f.mesh"]
+
+source_file="res://assets/maps/driftveil_hotel_room_3/driftveil_hotel_room_3.obj"
+dest_files=["res://.godot/imported/driftveil_hotel_room_3.obj-05c64c12e8789ac1db46b4c1df2a2e7f.mesh", "res://.godot/imported/driftveil_hotel_room_3.obj-05c64c12e8789ac1db46b4c1df2a2e7f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

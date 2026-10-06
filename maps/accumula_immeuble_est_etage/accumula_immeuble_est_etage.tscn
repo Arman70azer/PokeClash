@@ -1,0 +1,34 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/game_map.gd" id="map"]
+[ext_resource type="Script" path="res://world/map_zone.gd" id="zone"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/aspertia_building_7/aspertia_building_7.obj" id="mesh"]
+[ext_resource type="Resource" path="res://assets/maps/aspertia_building_7/aspertia_building_7_grid.tres" id="grid"]
+[ext_resource type="Script" path="res://world/warp.gd" id="warp"]
+
+[node name="AccumulaImmeubleEstEtage" type="Node3D"]
+script = ExtResource("map")
+map_id = &"accumula_immeuble_est_etage"
+display_name = "Immeuble d'Accumula, à l'étage"
+
+[node name="Interior" type="MeshInstance3D" parent="."]
+mesh = ExtResource("mesh")
+script = ExtResource("zone")
+walk_grid = ExtResource("grid")
+cell_offset = Vector2i(500, 0)
+saturation = 1.15
+contrast = 1.05
+vertex_shading = 0.35
+shadow_opacity = 0.3
+
+[node name="Warps" type="Node" parent="."]
+
+[node name="GoDown" type="Node" parent="Warps"]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(491, -18)])
+direction = Vector2i(-1, 0)
+target_map = &"accumula_immeuble_est"
+target_cell = Vector2i(449, -19)
+target_facing = Vector2i(0, 1)
+
+[node name="Objects" type="Node3D" parent="."]

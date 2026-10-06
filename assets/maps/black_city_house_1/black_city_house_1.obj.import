@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b4fw3cyvxk2sx"
+path="res://.godot/imported/black_city_house_1.obj-5043582f3fa5372496b0adc400d1192c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/black_city_house_1.obj-5043582f3fa5372496b0adc400d1192c.mesh"]
+
+source_file="res://assets/maps/black_city_house_1/black_city_house_1.obj"
+dest_files=["res://.godot/imported/black_city_house_1.obj-5043582f3fa5372496b0adc400d1192c.mesh", "res://.godot/imported/black_city_house_1.obj-5043582f3fa5372496b0adc400d1192c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

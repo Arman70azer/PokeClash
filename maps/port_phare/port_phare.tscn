@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/game_map.gd" id="map"]
+[ext_resource type="Script" path="res://world/map_zone.gd" id="zone"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/driftveil_hotel_room_3/driftveil_hotel_room_3.obj" id="mesh"]
+[ext_resource type="Resource" path="res://assets/maps/driftveil_hotel_room_3/driftveil_hotel_room_3_grid.tres" id="grid"]
+[ext_resource type="Script" path="res://world/warp.gd" id="warp"]
+[ext_resource type="Script" path="res://characters/npc.gd" id="npc"]
+
+[node name="PortPhare" type="Node3D"]
+script = ExtResource("map")
+map_id = &"port_phare"
+display_name = "Phare, salle du gardien"
+
+[node name="Interior" type="MeshInstance3D" parent="."]
+mesh = ExtResource("mesh")
+script = ExtResource("zone")
+walk_grid = ExtResource("grid")
+cell_offset = Vector2i(1060, 0)
+saturation = 1.15
+contrast = 1.05
+vertex_shading = 0.35
+shadow_opacity = 0.3
+
+[node name="Warps" type="Node" parent="."]
+
+[node name="Leave" type="Node" parent="Warps"]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(1043, -19), Vector2i(1044, -19)])
+direction = Vector2i(0, -1)
+target_map = &"accumula"
+target_cell = Vector2i(46, -6)
+target_facing = Vector2i(0, 1)
+target_door = &"PhareDoor"
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Habitant" type="Node3D" parent="Objects"]
+script = ExtResource("npc")
+cell = Vector2i(1050, -11)
+display_name = "Gardien du phare"
+sheet = "marin"
+lines = PackedStringArray("L'ascenseur monte jusqu'à ma salle, sous la lanterne.", "D'ici, je guide tous les bateaux du port.")
+wander_radius = 1

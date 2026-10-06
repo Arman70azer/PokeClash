@@ -1,0 +1,215 @@
+newmtl m_whouse04
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0001.png
+
+newmtl m_whouse08
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0002.png
+
+newmtl chip_ent
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0003.png
+
+newmtl m_whouse07
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0004.png
+
+newmtl m_whouse02
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0005.png
+
+newmtl m_whouse05
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0006.png
+
+newmtl m_whouse06
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0007.png
+
+newmtl black
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0008.png
+
+newmtl m_whouse03
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0009.png
+
+newmtl m_whouse01
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_00010.png
+
+newmtl tv
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0011.png
+
+newmtl in02_kage_1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl idr_tv01_lm1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0011.png
+
+newmtl in40_kage
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl lambert2
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0014.png
+
+newmtl lambert2_1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0015.png
+
+newmtl in40_kage_1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl _lambert3
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl fh_bshelf_1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0018.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl lambert2_2
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0020.png
+
+newmtl in40_kage_2
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl lambert2_3
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0022.png
+
+newmtl in40_kage_3
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl lambert2_4
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0024.png
+
+newmtl lambert3
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl lambert2_5
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0026.png
+
+newmtl _lambert5
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0027.png
+
+newmtl in40_kage1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl in40_kage_4
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl lambert2_6
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0030.png
+
+newmtl in40_kage_5
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl pasted__in40_isu
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0032.png
+
+newmtl in40_kage_6
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl pasted__in40_isu_1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0032.png
+
+newmtl in40_kage_7
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl pasted__in40_isu_2
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0032.png
+
+newmtl in40_kage_8
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0012.png
+
+newmtl pasted__in40_isu_3
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0032.png
+
+newmtl art02a_lm1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0039.png
+
+newmtl c2_h_mado
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0040.png
+
+newmtl c2_h_hikari01_1
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0041.png
+
+newmtl c2_h_hikari01
+Kd 1 1 1
+d 1
+map_Kd Nacrene City Warehouse 1_texture_0041.png
+

@@ -1,0 +1,120 @@
+newmtl in48_hmat1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0001.png
+
+newmtl in48_hobj2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0002.png
+
+newmtl in48_hmat2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0003.png
+
+newmtl in48_hmat3
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0004.png
+
+newmtl in48_hyuka2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0005.png
+
+newmtl in48_hart1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0006.png
+
+newmtl in48_hkabe2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0007.png
+
+newmtl in48_glow
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0008.png
+
+newmtl in48_hdesk1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0009.png
+
+newmtl in48_hkabe1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_00010.png
+
+newmtl black
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0011.png
+
+newmtl in48_hkabe3
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0012.png
+
+newmtl in48_hyuka1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0013.png
+
+newmtl kabin
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0014.png
+
+newmtl in48_hobj1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0015.png
+
+newmtl in48_hlight1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0016.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0017.png
+
+newmtl in48_hcount1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0018.png
+
+newmtl in48_hsofa1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0019.png
+
+newmtl lambert3
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0020.png
+
+newmtl lambert2
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0021.png
+
+newmtl ele03_1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0022.png
+
+newmtl ele02_1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0023.png
+
+newmtl ele01_1
+Kd 1 1 1
+d 1
+map_Kd Driftveil City Hotel Room 1_texture_0024.png
+

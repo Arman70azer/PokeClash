@@ -1,0 +1,43 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/game_map.gd" id="map"]
+[ext_resource type="Script" path="res://world/map_zone.gd" id="zone"]
+[ext_resource type="ArrayMesh" path="res://assets/maps/nacrene_warehouse_interior/nacrene_warehouse_interior.obj" id="mesh"]
+[ext_resource type="Resource" path="res://assets/maps/nacrene_warehouse_interior/nacrene_warehouse_interior_grid.tres" id="grid"]
+[ext_resource type="Script" path="res://world/warp.gd" id="warp"]
+[ext_resource type="Script" path="res://characters/npc.gd" id="npc"]
+
+[node name="PortEntrepot" type="Node3D"]
+script = ExtResource("map")
+map_id = &"port_entrepot"
+display_name = "Entrepôt du port"
+
+[node name="Interior" type="MeshInstance3D" parent="."]
+mesh = ExtResource("mesh")
+script = ExtResource("zone")
+walk_grid = ExtResource("grid")
+cell_offset = Vector2i(980, 0)
+saturation = 1.15
+contrast = 1.05
+vertex_shading = 0.35
+shadow_opacity = 0.3
+
+[node name="Warps" type="Node" parent="."]
+
+[node name="Leave" type="Node" parent="Warps"]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(966, -7), Vector2i(967, -7), Vector2i(968, -7)])
+direction = Vector2i(0, 1)
+target_map = &"accumula"
+target_cell = Vector2i(24, 12)
+target_facing = Vector2i(0, 1)
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Habitant" type="Node3D" parent="Objects"]
+script = ExtResource("npc")
+cell = Vector2i(970, -10)
+display_name = "Docker"
+sheet = "ouvrier"
+lines = PackedStringArray("On a aménagé l'entrepôt en appartement.", "Les caisses, je les garde pour le style.")
+wander_radius = 1

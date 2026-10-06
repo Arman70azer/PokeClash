@@ -1,0 +1,140 @@
+newmtl m_h05_mat
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0001.png
+
+newmtl m_h05_danro
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0002.png
+
+newmtl m_h05_kabe
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0003.png
+
+newmtl m_h05_yuka
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0004.png
+
+newmtl tv
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0005.png
+
+newmtl in02_kage_1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl idr_tv01_lm1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0005.png
+
+newmtl in40_kage
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl pasted__in40_isu
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_00010.png
+
+newmtl in40_kage_1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl pasted__in40_isu_1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_00010.png
+
+newmtl in40_kage_2
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl lambert2
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0012.png
+
+newmtl in40_kage_3
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl lambert2_1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0014.png
+
+newmtl in40_kage_4
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl lambert2_2
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0016.png
+
+newmtl lambert3
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl lambert2_3
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0018.png
+
+newmtl _lambert5
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0019.png
+
+newmtl in40_kage1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl h_mado_lm1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0021.png
+
+newmtl idr_win01_lm1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0022.png
+
+newmtl desk01_1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0023.png
+
+newmtl h_kage
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0006.png
+
+newmtl desk02a_lm1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0025.png
+
+newmtl chushion01a
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0026.png
+
+newmtl chushion01a_1
+Kd 1 1 1
+d 1
+map_Kd Floccesy Town House 5_texture_0026.png
+

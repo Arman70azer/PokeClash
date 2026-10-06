@@ -33,10 +33,12 @@ world/                 le monde et ses cartes
   map_materials.gd     matériaux façon DS des modèles 3D
   map_object_3d.gd     objet 3D posé sur une carte (maison, bateau...)
   door.gd, warp.gd     portes animées et passages (y compris vers une autre carte)
+  panel_door.gd        porte plate des maisons, immeubles, entrepôts (battant, coulissante)
   camera/              CameraRig (caméra qui suit le joueur) et CameraProfile (réglages)
 maps/                  une carte par dossier : maps/<id>/<id>.tscn
   accumula/            Accumula Town, avec le quartier bourgeois et le port
   accumula_pokemon_center/   intérieur du Centre Pokémon
+  accumula_*/, quartier_*/, port_*/   intérieurs des autres bâtiments (voir « Intérieurs »)
 characters/            personnages du monde
   character_sprite.gd  sprite, ombre et halo d'un personnage
   character_sheet.gd   description d'une planche (une par personnage dans data/characters)
@@ -150,6 +152,31 @@ Avancer vers la porte du Centre Pokémon d'Accumula l'ouvre comme dans le jeu : 
 - L'intérieur est une carte à part (`maps/accumula_pokemon_center`), placée à l'écart de la ville dans le monde. Un passage est un nœud `Warp` sous le nœud `Warps` d'une carte : cases qui le déclenchent, direction, carte d'arrivée (`target_map`), case et orientation d'arrivée, porte de départ et nom de la porte d'arrivée. Une porte animée est un nœud `Door` sous le nœud `Doors` d'une carte : zone et surface de la porte dans le modèle, et angle d'ouverture ; les battants sont découpés dans la porte du modèle, et le centre de la courbe est calculé tout seul. Le passage est décidé par l'hôte ; seul le joueur concerné voit la porte et le fondu (`ScreenFade`), les autres le voient disparaître puis réapparaître.
 - L'Infirmière Joëlle est derrière le comptoir : on lui parle depuis l'autre côté (`talk_reach` du PNJ), et elle soigne toute l'équipe (`heals_party`, soin fait chez l'hôte). Son sprite (`assets/characters/nurse_joy.png`) est fait par `tools/characters/make_nurse_joy.py` à partir de la dresseuse aux cheveux roses de la planche des dresseurs : tenue rose à tablier blanc, coiffe blanche à croix rouge, mêmes 12 images d'animation.
 - Couleurs : les textures des cartes et des objets sont importées sans compression (la compression des cartes graphiques ternissait les petites textures, surtout les bleus). Une zone peut aussi être ravivée avec `saturation`, `contrast` et `brightness` (MapZone) ; l'intérieur du Centre Pokémon est à 1,15 et 1,05, avec son ombrage de sommets réduit (`vertex_shading` 0,35) et ses ombres portées allégées (`shadow_opacity` 0,3), comme en ville.
+
+## Intérieurs
+
+Chaque bâtiment d'Accumula, du quartier bourgeois et du port a son intérieur, tiré des cartes intérieures de Noir 2 et Blanc 2 (`source_assets/archives`, « Interior Maps »), choisi pour aller avec le bâtiment :
+
+| Bâtiment | Intérieur |
+| --- | --- |
+| Maison au toit bleu d'Accumula (porte de Nuvema) | maison de Nuvema, rez-de-chaussée, et sa chambre à l'étage |
+| Immeubles en brique (trois à Accumula, un dans le quartier) | immeuble d'Aspertia : bâtiment 8 au rez-de-chaussée, bâtiment 7 à l'étage |
+| Laboratoire Pokémon | maison de Black City (bureaux et ordinateurs) |
+| Maison de Driftveil (porte vitrée) | hall de l'hôtel de Driftveil ; l'ascenseur monte à la suite |
+| Autre maison de Driftveil | maison de Humilau (villa au bassin) |
+| Maisons de Bourg Geon | maisons de Floccesy (cheminée) et de Lentimas (tout en bois) |
+| Café du port | intérieur du Café Warehouse |
+| Entrepôt de Nacrene, entrepôt frigorifique | entrepôt de Nacrene aménagé |
+| Phare | l'ascenseur monte à la salle du gardien (chambre de l'hôtel de Driftveil) |
+
+Un habitant attend dans chaque intérieur. Les escaliers mènent à l'étage, et l'ascenseur de l'hôtel à la suite ; on ressort par le tapis du bas (ou l'ascenseur du phare), devant la porte, qui se referme derrière soi.
+
+- Les modèles sont convertis par `tools/maps/build_interiors.py` (lus directement dans les archives, agrandis 1,3 fois comme le Centre Pokémon, pour que les personnages aient partout la même taille), puis leurs grilles calculées par `bake_map_grid.gd`. L'hôtel est posé sur une grande dalle : sa grille ne garde que la pièce (`bounds` de `MapGrid`).
+- Les cartes, les portes et les passages sont écrits par `tools/maps/build_interior_scenes.py` (cartes `maps/<id>/`, et `maps/accumula/accumula_doors.tscn` et `accumula_warps.tscn`, instanciées par la carte d'Accumula) : modifier ce script plutôt que les scènes, puis le relancer.
+- Un même modèle sert à plusieurs bâtiments identiques (les quatre immeubles, les deux entrepôts) : chaque carte le place ailleurs dans le monde avec `cell_offset` (MapZone), qui décale aussi sa grille, car l'hôte garde chargées ensemble les cartes où il y a des joueurs. Aucun modèle n'est dupliqué.
+- Portes (`PanelDoor`) : une porte peinte sur la façade d'Accumula ou de l'entrepôt frigorifique est découpée dans le modèle (surface ou boîte), cachée par le shader des cartes (`hide_min`/`hide_max`, une boîte par porte) avec ce qui se trouve juste derrière, et remplacée par une copie qui s'ouvre devant un renfoncement noir. Les bâtiments posés sur les cartes n'ont qu'une embrasure sombre (dans les jeux, leurs portes sont des objets à part) : on y pose un battant fait d'une texture du jeu (porte orange des immeubles d'Accumula, porte à carreaux de Nuvema, vitre, porte métallique de l'entrepôt). Les maisons s'ouvrent sur leurs gonds vers l'intérieur ; le laboratoire et l'hôtel ont des portes automatiques vitrées qui glissent dans le mur, au fond de leur sas ; la porte du phare suit la pente de la tour.
+- Optimisation : les intérieurs où mènent les portes de la carte affichée sont lus en arrière-plan (`World._preload_neighbours`), si bien qu'un passage n'a plus qu'à instancier la carte (3 à 5 ms). Les volumes de vision sont calculés une fois par modèle, et l'opacité des matériaux est lue dans l'en-tête du `.obj` seulement (lire tout le fichier prenait l'essentiel du chargement de chaque modèle : 120 ms pour le Centre Pokémon, 20 ms maintenant). Les battants sont construits une fois ; rien n'est recalculé à chaque image.
+- Tests : `godot --headless --path . -s res://tools/tests/test_interiors.gd` : entre dans chaque bâtiment par sa porte, monte à l'étage et redescend, ressort devant la porte refermée, vérifie le temps de chargement de chaque carte, que tout est atteignable depuis le tapis et que les intérieurs ne se chevauchent pas.
 
 ## Menu du jeu
 
@@ -320,6 +347,7 @@ Le menu demande un pseudo. L'hôte garde les données de chaque joueur (`PlayerP
 godot --headless --path . -s res://tools/tests/test_battle.gd     # logique des combats
 godot --headless --path . -s res://tools/tests/test_expedition.gd # zones d'expédition
 godot --headless --path . -s res://tools/tests/test_smoke.gd      # partie complète chez l'hôte
+godot --headless --path . -s res://tools/tests/test_interiors.gd  # entrée dans chaque bâtiment
 godot --headless --path . -s res://tools/tests/test_multiplayer.gd -- host     # deux joueurs :
 godot --headless --path . -s res://tools/tests/test_multiplayer.gd -- client   # lancer les deux
 ```

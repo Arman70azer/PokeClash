@@ -13,6 +13,13 @@ uniform float opacity = 1.0;
 uniform vec3 fade_min = vec3(1.0e9);
 uniform vec3 fade_max = vec3(-1.0e9);
 uniform float fade_amount : hint_range(0.0, 1.0) = 0.0;
+// Boîtes (repère du monde) où la géométrie est cachée net : une porte peinte sur une
+// façade et ce qui se trouve juste derrière, remplacés par le battant animé et un
+// renfoncement sombre (voir PanelDoor). Une boîte par porte du modèle.
+const int MAX_HIDDEN = 8;
+uniform int hide_count = 0;
+uniform vec3 hide_min[MAX_HIDDEN];
+uniform vec3 hide_max[MAX_HIDDEN];
 // Défilement de la texture, en répétitions par seconde (eau qui coule d'une fontaine).
 uniform vec2 uv_scroll = vec2(0.0);
 // Décalage fixe de la texture : choisit une image d'une bande d'animation (écran du PC).
@@ -38,8 +45,13 @@ vec3 grade(vec3 c) {
 	return clamp(c * brightness, 0.0, 1.0);
 }
 
-// Vrai si le pixel doit être effacé par le fondu de niveau.
+// Vrai si le pixel doit être effacé : caché par une porte, ou par le fondu de niveau.
 bool faded(vec2 frag) {
+	for (int i = 0; i < hide_count; i++) {
+		if (all(greaterThanEqual(world_pos, hide_min[i])) && all(lessThanEqual(world_pos, hide_max[i]))) {
+			return true;
+		}
+	}
 	if (fade_amount <= 0.0 || any(lessThan(world_pos, fade_min)) || any(greaterThan(world_pos, fade_max))) {
 		return false;
 	}

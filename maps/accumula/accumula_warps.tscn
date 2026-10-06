@@ -1,0 +1,139 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/warp.gd" id="warp"]
+
+[node name="Warps" type="Node"]
+
+[node name="EnterPokemonCenter" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(12, 1)])
+direction = Vector2i(0, -1)
+target_map = &"accumula_pokemon_center"
+target_cell = Vector2i(239, 3)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/PokemonCenterDoor")
+
+[node name="EnterAccumulaMaison" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(10, -8)])
+direction = Vector2i(0, -1)
+target_map = &"accumula_maison"
+target_cell = Vector2i(287, -8)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/MaisonDoor")
+
+[node name="EnterAccumulaImmeubleOuest" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(-7, -10)])
+direction = Vector2i(0, -1)
+target_map = &"accumula_immeuble_ouest"
+target_cell = Vector2i(367, -7)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/ImmeubleOuestDoor")
+
+[node name="EnterAccumulaImmeubleEst" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(1, -10)])
+direction = Vector2i(0, -1)
+target_map = &"accumula_immeuble_est"
+target_cell = Vector2i(447, -7)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/ImmeubleEstDoor")
+
+[node name="EnterAccumulaImmeubleBas" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(-13, 4)])
+direction = Vector2i(0, -1)
+target_map = &"accumula_immeuble_bas"
+target_cell = Vector2i(527, -7)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/ImmeubleBasDoor")
+
+[node name="EnterQuartierImmeuble" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(13, 21)])
+direction = Vector2i(0, -1)
+target_map = &"quartier_immeuble"
+target_cell = Vector2i(607, -7)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/ImmeubleDoor")
+
+[node name="EnterQuartierLaboratoire" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(-2, 21)])
+direction = Vector2i(0, -1)
+target_map = &"quartier_laboratoire"
+target_cell = Vector2i(687, -9)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/LaboratoireDoor")
+
+[node name="EnterQuartierHotel" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(-5, 37)])
+direction = Vector2i(0, -1)
+target_map = &"quartier_hotel"
+target_cell = Vector2i(728, -4)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/HotelDoor")
+
+[node name="EnterQuartierVilla" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(18, 37)])
+direction = Vector2i(0, -1)
+target_map = &"quartier_villa"
+target_cell = Vector2i(807, -9)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/VillaDoor")
+
+[node name="EnterQuartierMaison" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(0, 37)])
+direction = Vector2i(0, -1)
+target_map = &"quartier_maison"
+target_cell = Vector2i(847, -9)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/MaisonQuartierDoor")
+
+[node name="EnterQuartierMaisonVoisine" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(12, 37)])
+direction = Vector2i(0, -1)
+target_map = &"quartier_maison_voisine"
+target_cell = Vector2i(887, -9)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/MaisonVoisineDoor")
+
+[node name="EnterPortCafe" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(24, -14)])
+direction = Vector2i(0, -1)
+target_map = &"port_cafe"
+target_cell = Vector2i(930, -1)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/CafeDoor")
+
+[node name="EnterPortEntrepot" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(24, 11)])
+direction = Vector2i(0, -1)
+target_map = &"port_entrepot"
+target_cell = Vector2i(967, -8)
+target_facing = Vector2i(0, -1)
+
+[node name="EnterPortEntrepotFrigorifique" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(24, -1)])
+direction = Vector2i(0, -1)
+target_map = &"port_entrepot_frigorifique"
+target_cell = Vector2i(1007, -8)
+target_facing = Vector2i(0, -1)
+source_door = NodePath("../../Doors/FrigoDoor")
+
+[node name="EnterPortPhare" type="Node" parent="."]
+script = ExtResource("warp")
+trigger_cells = Array[Vector2i]([Vector2i(46, -7)])
+direction = Vector2i(0, -1)
+target_map = &"port_phare"
+target_cell = Vector2i(1043, -18)
+target_facing = Vector2i(0, 1)
+source_door = NodePath("../../Doors/PhareDoor")
